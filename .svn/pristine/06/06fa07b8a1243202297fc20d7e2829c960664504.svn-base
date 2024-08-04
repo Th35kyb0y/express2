@@ -1,0 +1,216 @@
+
+
+
+<app-cs-left-nav></app-cs-left-nav>
+    <div class="bg_grey">
+    <div id="main">
+      <app-cs-header [title]="'Inbound Customer'"></app-cs-header>
+    
+    
+    
+    <div class="row">
+    
+      
+      <div class="grey-bg container-fluid">
+        <section id="minimal-statistics">
+        
+          <!-- <div class="col-12 container mt-2">
+            <div class="pull-right"><button class="btn btn-danger" (click)="ApiService.goBack()"><i class="fa fa-arrow-left"></i> Back</button></div>
+          </div> -->
+  
+          <div class="col-12">
+            <!-- <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Filter by name"
+               
+                (input)="applyFilter()"
+              />
+            </div> -->
+            <div class="row">
+              <div class="col-3">
+                <div class="mb-3">
+                  <label for="CustomerName" class="form-label">Customer Name</label>
+                  <input type="text" [(ngModel)]="filterObj.companyName" class="form-control" id="CustomerName" placeholder="Customer Name">
+                  </div>
+              </div>
+              <div class="col-3">
+                <div class="mb-3">
+                  <label for="EmailID" class="form-label">Email ID</label>
+                  <input type="text" class="form-control" [(ngModel)]="filterObj.email"  id="EmailID" placeholder="Email ID">
+                  </div>
+              </div>
+              <!-- <div class="col-3">
+                <div class="mb-3">
+                  <label for="Type" class="form-label">Type</label>
+                  <select class="form-select" aria-label="Default select example"
+                  id="Type" name="Type"
+                  [(ngModel)]="filterObj.type">
+                    <option value="">--Select--</option>
+                    <option value="Self">Self</option>
+                    <option value="Customers">Customers</option>
+                  </select>
+          
+                  </div>
+              </div> -->
+              <div class="col-3 pt-2">
+                <button class="btn btn-danger mt-4 me-2" (click)="Filter()">
+                  Search
+                </button>
+                <button class="btn btn-danger mt-4" (click)="clear()">
+                  Clear
+                </button>
+              </div>
+            </div>
+          
+            
+            
+            
+            <div class="row">
+              <div class="col-md-12 overflow-scroll" style="max-height:450px;">
+                <table class="table table-bordered  table-hover table-striped" id="cs-registration-table">
+                  <thead class="thead-light">
+                      <tr>
+                          
+                          <th >ID</th>
+                          <th >Customer Name</th>
+                          <th >Contact Person Name</th>
+                          <th >Email ID</th>
+                          <th >Phone Number</th>
+                          <th >Created Date</th>
+                          <!-- <th >Enq Ref</th> -->
+                          <th  >SA Status</th>
+                          <!-- <th  >Request Date & Time</th> -->
+                          <!-- <th >Approval Date & Time</th> -->
+                          <!-- <th >Created By</th> -->
+              
+                          <th >Action</th>
+                      </tr> 
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let item of list">
+                        
+                          <td>{{item.userId}}</td>
+                          <td>{{item.companyName}} </td>
+                          <td>{{item.contactPersonName}}</td>
+                          <td>{{item.email}}</td>
+                          <td>
+                            <a href="javascript:void(0)"  (click)="callInvalk(item)">{{item.mobile}}</a>
+                            
+                          </td>
+              
+                          <td>{{item.entryDate |date:'dd-MMM-yyyy'}}</td>
+                          <!-- <td>{{item.enq_Ref}}</td> -->
+                          
+                          <td><span class="badge bg-success" 
+                              [ngClass]="[item.isApproved ==1 ? 'bg-success' : item.isApproved ==2 ?'bg-danger': 'bg-info']">{{item.isApproved=='1'?'Approved':item.isApproved=='2'?'Rejected':'Pending'}}</span></td>
+              
+                              <!-- <td>{{item.entryDate | date:'MMM d, y h:mm a'}}</td> -->
+                              <!-- <td>{{item.approvedDate | date:'MMM d, y h:mm a'}}</td>
+                              <td>{{item.customerCreatedBy}}</td> -->
+              
+                          <td >
+          
+                            <ng-template #popoverContent>
+                              <div class="d-grid gap-2">
+                                <button class="btn btn-light" type="button" (click)="callInvalk(item)">
+                                  <i class="fa-cs fa fa-phone mr-2" aria-hidden="true"></i>
+                                  Call
+                                </button>
+                                <button class="btn btn-light btn-sm" type="button" (click)="ViewDetails(item)">
+                                  <i class="fa-cs fa fa-eye mr-2" aria-hidden="true"></i>
+                                  View Detail
+                                </button>
+                                <button class="btn btn-light" type="button"
+                                title="Create Prospect" (click)="createProspect(item)"><i class="fa-cs fa fa-cart-plus mr-2" aria-hidden="true"></i>
+                                Create Prospect
+                              </button>
+                                <!-- <button class="btn btn-light btn-sm" type="button" *ngIf="ApiService.IsAdMin && item.isApproved==0">Approve /Reject</button> -->
+                                <ng-container *ngIf="!ApiService.IsAdMin">
+                                  <button class="btn btn-light btn-sm" type="button"
+                                  title="Follow Up" (click)="followUp(item,'Add')">
+                                  <i class="fa-cs fa fa-users mr-2" aria-hidden="true"></i> Follow Up
+                              </button>
+                              <button class="btn btn-light btn-sm" type="button"
+                                  title="Follow Up History" (click)="followUp(item,'history')">
+                                  <i class="fa-cs fa fa-history mr-2" aria-hidden="true"></i> Follow Up History
+                              </button>
+                              <button class="btn btn-light btn-sm" type="button"
+                                  title="Create Proposal" (click)="createProposal(item)"><i class="fa fa-file-text mr-2"
+                                      aria-hidden="true"></i>
+                                      Create Proposal
+                                  </button>
+                              <button  *ngIf="!item.enq_Ref"   class="btn btn-light btn-sm" type="button"(click)="assignEnquery(item)"><i class="fa-cs fa fa-list-alt mr-2"
+                                      aria-hidden="true"></i> Assign enquiry to SA
+                                  
+                                  </button>
+                              <button *ngIf="item.enq_Ref" class="btn btn-light btn-sm" type="button"
+                                  title="Enquiry Status" (click)="enqueryStatus(item)"><i class="fa-cs fa fa-book mr-2"
+                                      aria-hidden="true"></i>
+                                      Enquiry Status
+                                  </button>
+                              <button class="btn btn-light btn-sm" type="button"
+                                  title="Create Order" (click)="createOrder(item)"><i class="fa-cs fa fa-cart-plus mr-2" aria-hidden="true"></i>
+                                  Create Order
+                              </button>
+                              
+                              <button class="btn btn-light btn-sm" type="button"
+                                  title="View Order" (click)="ViewOrder(item)"><i class="fa-cs fa fa-shopping-bag mr-2" aria-hidden="true"></i>
+                                  View Orders
+                              </button>
+                              
+                                  <button class="btn btn-light btn-sm" type="button"
+                                  title="View Proposal" (click)="sendProposal(item)"><i class="fa-cs fa fa-envelope mr-2"
+                                      aria-hidden="true"></i>
+                                      View Proposals
+                                  </button>
+              
+                              </ng-container>
+                              </div>
+          
+                              
+                             </ng-template>
+                             <ng-container *ngIf="!ApiService.IsAdMin">
+                              <button type="button" class="btn btn-sm btn-danger" [ngbPopover]="popoverContent" popoverTitle="Actions">
+                                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                              </button>
+                            </ng-container>
+                           
+          
+              
+                          </td>
+                        
+              
+                      </tr>
+              
+                  </tbody>
+              </table>
+              </div>
+          
+            </div>
+          
+            
+          </div>
+      
+         
+        </section>
+      
+      </div>
+      
+    
+    
+    </div>
+    
+    
+    
+    
+    </div>
+     
+    
+    </div>
+    
+    
+    
+    
+    

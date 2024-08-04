@@ -1,0 +1,7 @@
+::ng-deep .tooltip {
+    background-color: white !important; // Change the background color to white
+    color: black !important; // Change the text color to black (optional)
+    --bs-tooltip-color:black;
+    --bs-tooltip-bg:white;
+  }  
+  

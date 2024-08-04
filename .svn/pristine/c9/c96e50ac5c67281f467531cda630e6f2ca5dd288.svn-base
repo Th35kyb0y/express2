@@ -1,0 +1,13 @@
+.searchtbl{
+    position: absolute;
+    z-index: 111;
+    top: 107%;
+    width: 100%;
+    left: 0px;
+    height: 100vh;
+    background-color: #fff;
+}
+
+body{ background-color: #fff;}
+
+.search_d{ margin-left: 190px;}

@@ -1,0 +1,104 @@
+<div class="container" style="margin-top: 144px;">
+
+</div>
+
+<body>
+    <div class="container mt-5 mb-5" style="margin-top: 154px;">
+
+
+        <p>Select Delivery Option</p>
+        <div class="d-flex gap-2">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                <label class="form-check-label" for="flexRadioDefault1">
+                    <p>Standard Delivery</p>
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                <label class="form-check-label" for="flexRadioDefault2">
+                    <p>Select Date of Your choice for Delivery</p>
+                </label>
+            </div>
+
+        </div>
+        <div class="row d-flex justify-content-center mt-3">
+            <div class="col-12 col-lg-5">
+
+
+                <div class="card p-5">
+                    <h5 class="font-weight-bold">Delivery Details</h5>
+
+                    <ul class="delivery-info">
+                        <li>Delivery Date: Within 2 To 4 Days</li>
+                        <li>Delivery charge: ₹58,454</li>
+                        <li>Installation Charge: ₹584</li>
+                        <li>Design Charges: ₹254</li>
+                        <li class="font-weight-bold">Total Charge: ₹68,454</li>
+                    </ul>
+
+                </div>
+
+            </div>
+            <div class="col-12 col-lg-5">
+
+
+                <div class="card p-5" style="height: 330px;">
+                    <h5 class="font-weight-bold">Delivery Details</h5>
+
+                    <ul class="delivery-info">
+                        <li style="list-style: none; display: flex; align-items: center; margin-bottom: 10px;">
+                            <span style="font-size: 18px; font-weight: 500;  margin-right: 10px;">Select Delivery
+                                Date:</span>
+                            <input type="date" style="padding: 8px;  border-radius: 5px; font-size: 16px; color: black">
+                        </li>
+
+                        <li style="list-style: none; display: flex; align-items: center;">
+                            <span style="font-size: 16px; font-weight: bold; margin-right: 20px;">Select Delivery
+                                Time:</span>
+                            <input type="time"
+                                style="padding: 2px; border: 1px solid black; border-radius: 5px; font-size: 16px; color: #2d4059;">
+                        </li>
+
+                        <li>Delivery charge: ₹58,454 </li>
+                        <li>Installation Charge: ₹584</li>
+                        <li>Design Charges: ₹254</li>
+                        <li class="font-weight-bold">Total Charge: ₹68,454</li>
+
+                    </ul>
+                    <!-- <button class="btn btn-primary btn-sm"data-bs-toggle="modal" data-bs-target="#editDateModal"> Edit Delivery Date</button> -->
+                    <div class="modal fade" id="editDateModal" tabindex="-1" aria-labelledby="editDateModal"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="editDateModal">Modal title</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <label for="startDate">Start</label>
+                                    <input id="startDate" class="form-control" type="date" />
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save
+                                        changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+<div class="d-flex justify-content-end  mb-5" style="margin-right: 50px; margin-top: -40px;">
+    <button routerLink="/user/billing-addressaddress" class="btn btn-danger btn-sm">Continue To Billing Address</button>
+</div>

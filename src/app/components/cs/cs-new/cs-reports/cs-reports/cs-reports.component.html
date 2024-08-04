@@ -1,0 +1,120 @@
+
+
+
+<app-cs-left-nav></app-cs-left-nav>
+    <div class="bg_grey">
+    <div id="main">
+      <app-cs-header [title]="'Sales Summary Reports'"></app-cs-header>
+    
+    
+    
+    <div class="row">
+    
+      
+    <!-- <div class="grey-bg container-fluid">
+      <section id="minimal-statistics">
+     
+        <div class="col-12 container mt-2 mb-2">
+          <div class="pull-right mb-2"><button class="btn btn-danger" (click)="ApiService.goBack()"><i class="fa fa-arrow-left"></i> Back</button></div>
+        </div>
+    
+       
+      </section>
+    
+    </div> -->
+
+    <div class="row align-items-end bg_white py-3 px-1">
+      <div class="col-3">
+        <label class="form-label">From Date</label>
+        <div class="input-group">
+        
+        <input type="date"
+                placeholder="Datepicker"
+               [(ngModel)]="obj.fromdate"
+                class=" form-control"
+                >
+
+        
+        </div>
+      </div>
+      <div class="col-3">
+        <label class="form-label">To Date</label>
+        <div class="input-group">
+        
+        <input type="date"
+                placeholder="Datepicker"
+                [(ngModel)]="obj.todate"
+                class=" form-control"
+                >
+
+
+        </div>
+      </div>
+     
+     
+      <div class="col-3">
+        <button type="submit" class="btn btn-danger" (click)="goToSearch()">Search</button>
+      </div>
+      </div>
+
+      <div class="col-md-12 overflow-scroll" style="max-height:1200px;">
+          <table class="table" >
+              <thead>
+                <tr>
+                  <!-- Create table header based on the keys of the first object in the array -->
+                  <ng-container *ngFor="let header of columns2 ">
+                    <th *ngIf="header!='rn' && header!='EmpCode' && header!='userId'">
+                    
+                         <span [innerHTML]="header"></span> 
+                     
+                  </th>
+                  </ng-container>
+                 
+                
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Create table rows based on the array of objects -->
+                <tr *ngFor="let row of List2">
+                  <ng-container *ngFor="let cell of columns2 ">
+                    <td  *ngIf="cell!='rn' && cell!='EmpCode' && cell!='userId'">
+                    
+                           
+                          <span *ngIf=" cell!='CS Person Code' && cell!='CS Person Name'">
+                           <a href="javascript:void(0);" (click)="details(row,cell)">{{ row[cell] }}</a> 
+                          </span>
+                          <span *ngIf="cell=='CS Person Code' || cell=='CS Person Name'">
+                            {{ row[cell] }}
+                          </span>
+                    
+                    
+                  </td>
+
+                  </ng-container>
+                 
+                
+                </tr>
+              </tbody>
+            </table>
+      </div>
+  
+   
+
+
+
+    
+    
+    </div>
+    
+    
+    
+    
+    </div>
+      
+    
+    </div>
+    
+    
+    
+    
+    

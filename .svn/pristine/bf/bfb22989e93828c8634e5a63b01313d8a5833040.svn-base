@@ -1,0 +1,126 @@
+.mob-mt{
+    margin-top: 30%;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .bg_btn{     background-image: url(https://ccrmuk.ceasefire.biz/assets/images/how_we_hrlp_mobile.png);
+    padding: 52px 20px 20px 20px;
+    color: #fff;
+ }
+  .talk_expert{ position: absolute; top: 10%;}
+  .swiper-slide {
+    // text-align: center;
+    // font-size: 18px;
+    // background: #fff;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+//   .swiper-slide {
+//     width: 70%!important;
+//   }
+
+//   .swiper-slide:nth-child(2n) {
+//     width: 70%!important;
+//   }
+
+//   .swiper-slide:nth-child(3n) {
+//     width: 70%!important;
+//   }
+//   .swiper-slide:nth-last-child{
+//     width: 100%!important;
+//   };
+
+  .container {
+   
+    overflow-x: auto;
+    overflow-y: hidden; 
+    white-space: nowrap;
+    height: 270px;
+  }
+
+  .p-r{
+    position: relative;
+  }
+  .container2 {
+   
+    overflow-x: auto;
+    overflow-y: hidden; 
+    white-space: nowrap;
+    height: 130px;
+   
+  }
+
+  .heading_slider{    padding-bottom: 34px !important;
+    font-size: 24px; text-transform: uppercase;}
+  .inner-1 {
+    // width: calc((100% / 1.5) - 10px) !important;
+   display: inline-block; /* this should fix it */
+   margin-right: 5%;
+   scroll-behavior: smooth; 
+  }
+  .inner-1-img {
+    width: 100%  !important;
+    height: 245px;
+  }
+
+  
+#card0 {  background-color: rgba(255, 255, 255, 0.8); padding: 5px; margin-top: 10px;}
+
+#card2 {
+   
+    color: #000;
+    text-align: left;
+    width: 19.5rem;
+    font-size: 0.8rem;
+    margin-left: -1rem;
+    padding: 10px 27px 0px 27px;
+    text-align: justify;
+}
+
+#card3 {
+   
+    color: #000;
+    text-align: left;    
+    font-size: 0.8rem;
+    width: 19.5rem;
+    margin-left: -1rem;
+    padding: 0px 27px 10px 27px;
+    text-align: justify;
+}
+
+
+#text_1 {
+    text-align: center;
+    font-size: 1.7rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000;
+    font-weight: 500;
+    height: 42px;
+    padding-top: 3px;
+    padding-left: 0.4rem;
+}
+.item_btn {
+    width: 100%;
+    background-color: #fff;
+    color: #000;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: none;
+    border-radius: 0px;
+}
+
+.card-img, .card-img-bottom, .card-img-top {
+  width: 60% !important;
+}
+  

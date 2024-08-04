@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-12">
+        <div class="input-group mb-3">
+            <button class="btn btn-outline-secondary" type="button" (click)="decreaseQuantity(product)">-</button>
+            <input type="text" class="form-control text-center in-cls" name="quantityInput" id="quantityInput"
+                value="{{product.quantity}}" (change)="handleInputChangeQty($event)" 
+                (keypress)="numberOnly($event, 3)">
+            <button class="btn btn-outline-secondary" type="button" (click)="increaseQuantity(product)">+</button>
+            <button *ngIf="!isViewProduct" class="btn btn-danger btn-md go_crt mt-2 " type="button" (click)="addToCartByClick(product)">
+                {{(isInCart()==true)?'Go to Cart':'Add to Cart'}}</button>
+        </div>
+    </div>
+    <div class="col-12 "  *ngIf="isViewProduct">
+        <button class="btn btn-danger btn-md btn_w " type="button" (click)="addToCartByClick(product)">
+            {{(isInCart()==true)?'Go to Cart':'Add to Cart'}}</button>
+        &nbsp;
+       <button class="btn btn-primary btn-md btn_w" type="button" (click)="GoFireExtinguisherDetail(product)"
+           >View Product</button> 
+        <!-- <button class="btn btn-primary btn-sm" type="button" routerLink="/product-detail/{{product.id}}">View Product</button> -->
+    </div>
+
+</div>

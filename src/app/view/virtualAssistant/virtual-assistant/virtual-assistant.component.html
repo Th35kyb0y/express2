@@ -1,0 +1,166 @@
+
+
+<div class="row p-5 bg_color">
+  <div class="row py-4 bg_white2 shadow mb-3">
+    <div class="col-lg-4 col-md-4 col-xs-12 border_right pl_4">
+       <h4>Call us</h4>
+       <p>Call Our Support Team<br>
+           <span class="phone_n"> 9540 666 666</span></p>
+
+           <p>Ceasefire Toll Free Number<br>
+
+               <span class="phone_n"> 1800 120 3473</span></p>
+
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-xs-12 border_right pl_4  ">
+       <h4>Chat Now</h4>
+       <p>Chat with our sales & support team for quick <br>answers on product features, pricing and more.<br>
+     <p>
+      <a href="javascript:void(0)" target="_blank" class="btn s_chat"><img src="https://img1.wsimg.com/dc-assets/live-engage/images/chat-baloon.svg" class="mr_2" height="20" width="20"> Chat with us</a>
+      <a href="https://api.whatsapp.com/send/?phone=7669295046&text&type=phone_number&app_absent=0" target="_blank" class="btn whatsapp mt-3"><img src="https://ccrmuk.ceasefire.biz/assets/ProductImage/whats-app_w.png" class="mr_2" height="20" width="20">Whatsapp</a>
+
+
+     </p>
+     <p>Hours: 9AM to 6PM</p>
+
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-xs-12 border_right pl_4 ">
+        <h4>Contact us</h4>
+        <p>B1/H1, Mohan Cooperative Ind Estate, New Delhi  </p>
+      <p>Email: response@ceasefire.in</p>
+
+
+
+
+      <p>Website:www.ceasefire.in</p>
+
+     </div>
+    </div>
+
+     <div class="row text-left shadow bg_white2 py-3 ">
+      <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" novalidate>
+      <div class="col-12"><h4>Schedule a Virtual Call</h4></div>
+      <hr>
+      <div class="row">
+      <div class="col-md-3 bg_white2  p-2" style="width: 25rem;">
+        <div class="d-flex justify-content-between">
+        <a class="px-3 py-2 rounded text-white mb-2 d-inline-block"><img src="https://cfx.ceasefire.biz/assets/images/virtual_assistance/video_calling.png" class="mr_2" height="40" width="40"></a>
+        <span><h5>Connect with Video or Audio Call </h5></span>
+      </div>
+     <div class="d-flex justify-content-between" style="margin-left: 80px;">
+       
+          <!-- <label class="radio-inline " style="margin-right: 25px;">
+            <input type="radio" name="optradio" class="p-2 mx-1" checked>Audio
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio"class="p-2 mx-1" >Video
+          </label> -->
+          <label class="card-radio-btn">
+            <input type="radio" [(ngModel)]="PostObj.Audio_Video_Call" name="Audio_Video" class="card-input-element d-none" value="Audio">
+            <div class="card card-body">
+                <div class="content_head">Audio Call</div>
+                <!-- <div class="content_sub">$949,00</div> -->
+            </div>
+        </label>
+<label class="card-radio-btn">
+            <input type="radio"  [(ngModel)]="PostObj.Audio_Video_Call" name="Audio_Video" class="card-input-element d-none" value="Video">
+            <div class="card card-body">
+                <div class="content_head">Video Call</div>
+                <!-- <div class="content_sub">$1049,00</div> -->
+            </div>
+        </label>
+
+      </div>
+      </div>
+      <div class="col-md-3 bg_white2  p-2" style="width: 25rem;">
+        <div class="d-flex flex-row">
+        <a class="px-3 py-2 rounded text-white mb-2 d-inline-block"><img src="https://cfx.ceasefire.biz/assets/images/virtual_assistance/calender.png" class="mr_2" height="40" width="44"></a>
+        <span><h5>Select Date </h5></span>
+      </div>
+     <div class="d-flex justify-content-between" style="margin-left: 80px; margin-top: -22px;">
+  
+        <input type="date" [(ngModel)]="PostObj.Select_Date" ngModel class="form-control" id="Select_Date" name="Select_Date" aria-describedby="Select_Date" required>
+        <div *ngIf="userForm.submitted && userForm.controls['Select_Date']?.errors?.['required']" class="text-denger">
+          Time is required.
+        </div>
+      </div>
+      </div>
+      <div class="col-md-3 bg_white2  p-2" style="width: 25rem;">
+        <div class="d-flex flex-row">
+        <a class="px-3 py-2 rounded text-white mb-2 d-inline-block"><img src="https://cfx.ceasefire.biz/assets/images/virtual_assistance/time.png" class="mr_2" height="40" width="45"></a>
+        <span><h5>Select Time</h5></span>
+      </div>
+     <div class="d-flex justify-content-between" style="margin-left: 80px; margin-top: -22px;">
+
+          <input type="time" class="form-control" [(ngModel)]="PostObj.SelectTime"  ngModel id="SelectTime" name ="SelectTime" aria-describedby="SelectTime" required>
+          <div *ngIf="userForm.submitted && userForm.controls['SelectTime']?.errors?.['required']" class="text-denger">
+            Time is required.
+          </div>
+
+      </div>
+      </div>
+
+      <div class="col-md-3 bg_white2  p-2 mt-2" style="width: 25rem;">
+        <div class="d-flex flex-row">
+        <a class="px-3 py-2 rounded text-white mb-2 d-inline-block"><img src="https://cfx.ceasefire.biz/assets/images/virtual_assistance/name.png" class="mr_2" height="40" width="44"></a>
+        <span><h5>Enter Your Name </h5></span>
+      </div>
+     <div class="d-flex justify-content-between" style="margin-left: 80px; margin-top: -22px;">
+  
+        <input type="text" [(ngModel)]="PostObj.VirtualName" ngModel class="form-control" id="VirtualName" name="VirtualName" aria-describedby="VirtualName" required>
+        <div *ngIf="userForm.submitted && userForm.controls['VirtualName']?.errors?.['required']" class="text-denger">
+          Name is required.
+        </div>
+      </div>
+      </div>
+      <div class="col-md-3 bg_white2  p-2 mt-2" style="width: 25rem;">
+        <div class="d-flex flex-row">
+        <a class="px-3 py-2 rounded text-white mb-2 d-inline-block"><img src="https://cfx.ceasefire.biz/assets/images/virtual_assistance/email.png" class="mr_2" height="40" width="44"></a>
+        <span><h5>Enter Your Email ID</h5></span>
+      </div>
+     <div class="" style="margin-left: 80px; margin-top: -22px;">
+  
+          <input type="email" [(ngModel)]="PostObj.VirtualEmail" class="form-control "  aria-describedby="VirtualEmail" 
+          id="email" name="email" ngModel required email>
+          <div *ngIf="userForm.submitted && userForm.controls['email']?.errors?.['required']" class="text-denger">
+            Email is required.
+          </div>
+          <div *ngIf="userForm.submitted && userForm.controls['email']?.errors?.['email']" class="text-denger">
+            Invalid email format.
+          </div>
+     
+      </div>
+      </div>
+      <div class="col-md-3 bg_white2  p-2 mt-2" style="width: 25rem;">
+        <div class="d-flex flex-row">
+        <a class="px-3 py-2 rounded text-white mb-2 d-inline-block"><img src="https://cfx.ceasefire.biz/assets/images/virtual_assistance/mobile.png" class="mr_2" height="40" width="44"></a>
+        <span><h5>Enter Your Contact No</h5></span>
+      </div>
+     <div class="" style="margin-left: 80px; margin-top: -22px;">
+ 
+          <input type="tel" [(ngModel)]="PostObj.VirtualContactNo" class="form-control"  aria-describedby="VirtualContactNo" (keypress)="keyPress($event)" 
+          id="mobile" name="mobile" ngModel required pattern="^[0-9]{10}$" maxlength="10">
+          <div *ngIf="userForm.submitted && userForm.controls['mobile']?.errors?.['required']">
+            Mobile number is required.
+          </div>
+          <div *ngIf="userForm.submitted && userForm.controls['mobile']?.errors?.['pattern']" class="text-denger">
+            Mobile number must be 10 digits.
+          </div>
+      </div>
+      </div>
+    
+    </div>
+   <div class="col-12 row pb-4">
+        <div class="col-9"></div>
+        <div class="col-1 pt-5">
+          <button type="button" class="btn btn-primary" type="submit">Submit</button>
+        </div>
+      </div> 
+    </form>
+   </div>
+
+  
+
+   </div>

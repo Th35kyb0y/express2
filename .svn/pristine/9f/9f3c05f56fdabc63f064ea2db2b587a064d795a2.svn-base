@@ -1,0 +1,414 @@
+
+
+
+
+
+/* social-icon */
+.top_icon a {
+    padding-left: 8px;
+
+}
+.m_right{    margin-right: 5px;}
+.top_red_text{padding-top: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: right;
+}
+.sm-icons {
+    flex-direction: row;
+    justify-content: end !important;}
+
+.p_right{padding-right: 36px;}
+
+/* .top_icon_0{
+    padding-left: 11px;
+  } */
+
+
+
+#ex4 .p1[data-count]:after {
+    position: absolute;
+    right: 10%;
+    top: 8%;
+    content: attr(data-count);
+    font-size: 40%;
+    padding: .2em;
+    border-radius: 50%;
+    line-height: 1em;
+    color: white;
+    background: rgba(255, 0, 0, .85);
+    text-align: center;
+    min-width: 1em;
+}
+
+.fa-stack {
+    display: inline-block;
+    height: 2em;
+    line-height: inherit;
+    position: relative;
+    vertical-align: middle;
+    width: 1.5em;
+    font-size: 21px;
+}
+
+
+
+.back_btn{    border-radius: 23px;
+    background-color: #c6000c;
+    border: #c6000c;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #c6000c;
+    border-color: #c6000c;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #c6000c;
+    border-color: #c6000c;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+    height: 50px !important;}
+
+    body {
+      font-family: "Quicksand", sans-serif;
+      background-color: #fafafa;
+    }
+    
+    .card {
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      border-radius: 0.65rem;
+    }
+    
+    hr.style-1 {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      border: 0;
+      border-top: 2px solid rgba(0, 0, 0, 0.07);
+    }
+    
+    .fw-500 {
+      font-weight: 400;
+    }
+    
+    .fw-600 {
+      font-weight: 500;
+    }
+    
+    .mt_2 {
+      margin-top: 2rem !important;
+    }
+    
+    /*Simple radio btn input CSS*/
+    .custom-control-label {
+      cursor: pointer;
+    }
+    
+    .cap-opt-1 {
+      display: inline-block;
+      min-width: 50px;
+    }
+    
+    .custom-control-input:checked ~ .custom-control-label::before {
+      color: #fff;
+      border-color: #59a9f7;
+      background-color: #59a9f7;
+    }
+    /*Card Button CSS*/
+    
+    .card-radio-btn .content_head {
+      color: #333;
+      font-size: 1.2rem;
+      line-height: 30px;
+      font-weight: 500;
+    }
+    
+    .card-radio-btn .content_sub {
+      color: #9e9e9e;
+      font-size: 14px;
+    }
+    
+    .card-input-element + .card {
+      width: 105px;
+      height: 105px;
+      margin: 10px;
+      justify-content: center;
+      color: var(--primary);
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      text-align: center;
+      -webkit-box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1);
+    }
+    
+    .card-input-element + .card:hover {
+      cursor: pointer;
+    }
+    
+    .card-input-element:checked + .card {
+      border: 1px solid #d84727;
+      background-color: #ffe4de;
+      -webkit-transition: border 0.3s;
+      -o-transition: border 0.3s;
+      transition: border 0.3s;
+    }
+    
+    .card-input-element:checked + .card::after {
+      content: "\f058";
+      color: rgba(216, 71, 39, 0.6);
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      font-family: "Font Awesome 5 Free";
+      font-style: normal;
+      font-size: 1rem;
+      font-weight: 900;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-animation-name: fadeInCheckbox;
+      animation-name: fadeInCheckbox;
+      -webkit-animation-duration: 0.3s;
+      animation-duration: 0.3s;
+      -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    @-webkit-keyframes fadeInCheckbox {
+      from {
+        opacity: 0;
+        -webkit-transform: rotateZ(-20deg);
+      }
+    
+      to {
+        opacity: 1;
+        -webkit-transform: rotateZ(0deg);
+      }
+    }
+    
+    @keyframes fadeInCheckbox {
+      from {
+        opacity: 0;
+        transform: rotateZ(-20deg);
+      }
+    
+      to {
+        opacity: 1;
+        transform: rotateZ(0deg);
+      }
+    }
+    
+.user nav {
+	margin:0 auto;
+  height:auto;
+  display:inline-block;
+  background:transparent;
+}
+.pl_4{ padding-left: 60px;}
+.mr_2{margin-right: 6px !important;}
+.whatsapp{background-color: #31bb44 !important; width: 200px !important; height: 43px !important; color: #fff !important; text-align: center;}
+.s_chat{background-color: #c6000c !important; width: 200px !important; height: 43px !important; color: #fff !important; text-align: center;}
+.phone_n{ color: #c6000c; font-size: 22px;}
+.btn_profile{background-color: #0c3c60 !important; width: 171px !important; height: 38px !important; color: #fff !important; text-align: center;}
+.bg_color{ background-color: #f5f7f8; min-height: 370px; margin-top: 110px;}
+.border_right{ border-right: 1px solid #ccc;}
+.bg_color2{ background-color: #f5f7f8; height: 270px;}
+.bg_white2{background-color: #fff;}
+.user nav ul {
+	margin:0;padding:0;
+  list-style-type:none;
+  float:left;
+  display:inline-block;
+}
+
+.user nav ul li {
+	position:relative;
+	margin:0 20px 0 0;
+	float:left;
+  display:inline-block;
+}
+
+.user li > a:after { content: ' »'; } /* Change this in order to change the Dropdown symbol */
+
+.user li > a:only-child:after { content: ''; }
+
+.user nav ul li a {
+	padding:20px;
+  display:inline-block;
+  color:white;
+  text-decoration:none;
+}
+
+.user nav ul li a:hover {
+  opacity:0.5;
+}
+
+.user nav ul li ul {
+	display:none;
+  position:absolute;
+  left:0;
+  background:#37bc9b;
+  float:left;
+}
+
+.user nav ul li ul li {
+	width:100%;
+  border-bottom:1px solid rgba(255,255,255,.3);
+}
+
+.user nav ul li:hover ul {
+  display:block;
+}
+.user{ float: left; width: 127px;}
+
+.menu {
+    // define the height of the menu
+    --menu-height: 40px;
+    // holder and ul general style
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 120px;
+    z-index: 9999999;
+    ul {
+      list-style: none;
+      padding: 8px;
+      margin: 10px 0px 0px 0px;
+      li, li a {
+        opacity: .8;
+        color: #ffffff;
+        cursor: pointer;
+        transition: 200ms;
+        text-decoration: none;
+        white-space: nowrap;
+        font-weight: 500;
+        &:hover {
+          opacity: 1;
+          color: #0b0f12;
+        }
+        a {
+          display: flex;
+          align-items: center;
+          height: 100%;
+          width: 100%;
+          color: #0b0f12;
+        }
+      }
+
+
+
+      // lets put an arrow down
+      // to the li`s with dropdown
+      li {
+        padding-right: 10px;
+        &::before {
+          content: '';
+          width: 0;
+          height: 0;
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-top: 5px solid #fff;
+          position: absolute;
+          right: 21px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      .link {
+        // links dont need arrow
+        &::before {
+          padding-right: 0;
+          display: none;
+        }
+      }
+    }
+    // the first ul inside the container
+    // is the menu, so must be visible
+    // and have its own style
+    > ul {
+      display: flex;
+      height: var(--menu-height);
+      align-items: center;
+      // the first ul elements can be a
+      // link or an li with a nested ul.
+      // the nested ul will be a dropdown
+      li {
+        position: relative;
+        margin: 0 0px;
+        // the dropdown style
+        ul {
+          visibility: hidden;
+          opacity: 0;
+          cursor: default;
+          padding: 0;
+          min-width: 160px;
+          color: #0b0f12;
+          background-color: #fff;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+          position: absolute;
+          top: 164%;
+          left: 18%;
+          transform: translateX(-50%);
+          transition: 200ms;
+          transition-delay: 200ms;
+          // the dropdown items style
+          li {
+            margin: 0;
+            padding: 8px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 30px;
+            padding-right: 40px;
+            // lets put an arrow right
+            // to the inner li`s with
+            // dropdowns
+            &::before {
+              width: 0;
+              height: 0;
+              border-top: 5px solid transparent;
+              border-bottom: 5px solid transparent;
+              border-left: 5px solid #FFA500;
+            }
+            // every dropdown after the
+            // first must open to the right
+            ul {
+              top: -2%;
+              left: 100%;
+              transform: translate(0)
+            }
+            &:hover {
+              background-color: #f4f5f6;
+              color: #0b0f12;
+            }
+          }
+        }
+        // on hover an li (not an <a>)
+        // must show its ul (dropdown)
+        &:hover {
+          > ul {
+            opacity: 1;
+            visibility: visible;
+            transition-delay: 0ms;
+            color: #0b0f12;
+          }
+        }
+      }
+    }
+  }
+
+
+  @media only screen and (max-width: 600px) {
+ 
+    
+    }
+    

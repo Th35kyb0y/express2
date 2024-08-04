@@ -1,0 +1,49 @@
+<div class="modal-header">
+    <h4 class="modal-title">Do you want to add more products?</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <!-- <p>Your inputsheet saved successfully!</p>
+    <p>Do you want to add more inputsheet?</p> -->
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="routeTofireAudit();activeModal.close('Close click')">Yes</button>
+    <button type="button" class="btn btn-outline-dark" (click)="open(content);activeModal.close('Close click')">No</button>
+</div>
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Proposal Submitted To Customer Support</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<!-- <form>
+			<div class="mb-3">
+				<label for="dateOfBirth">Required Date</label>
+				<div class="input-group">
+                    <input type="date" class="form-control" [(ngModel)]="TaskCompleteDate" [ngModelOptions]="{standalone: true}">
+
+				</div>
+			</div>
+		</form> -->
+		<p>Your inputsheet has been submitted if you want to add more details to your sheet you can do so by visiting my proposals.</p>
+		<p>Thankyou for your intrest in Ceasefire products. A Ceasefire expert will be soon assigned to you and will get in touch with you. </p>
+		
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="ProposalSendForDesignTeamApproval(completeAll)">Go To My Proposal</button>
+	</div>
+</ng-template>
+<ng-template #completeAll let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Alert</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<p>Please Complete All Inputsheets!</p>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="routeToInputsheet();activeModal.close('Close click')">Close</button>
+	</div>
+</ng-template>
+

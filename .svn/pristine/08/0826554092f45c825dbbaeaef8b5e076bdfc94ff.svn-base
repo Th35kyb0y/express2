@@ -1,0 +1,1500 @@
+<div class="container">
+
+        <div class="topic">Create your Input sheet</div>
+
+        <div class="content">
+            <input type="radio" name="slider" [checked]="selectedOption === 1" id="home" (change)="updateSelection(1)">
+            <input type="radio" name="slider" [checked]="selectedOption === 2" id="blog" (change)="updateSelection(2)">
+            <input type="radio" name="slider" [checked]="selectedOption === 3" id="help" (change)="updateSelection(3)">
+
+            <div class="list shadow p-3 mb-5 bg-body rounded heading_tab">
+				
+                <label for="home" class="home">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-1-circle-fill m_left" viewBox="0 0 16 16">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M9.283 4.002H7.971L6.072 5.385v1.271l1.834-1.318h.065V12h1.312z"/>
+</svg>  <span>System Requirement</span>
+                </label>
+                <label for="blog" class="blog">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-2-circle-fill m_left" viewBox="0 0 16 16">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.646 6.24c0-.691.493-1.306 1.336-1.306.756 0 1.313.492 1.313 1.236 0 .697-.469 1.23-.902 1.705l-2.971 3.293V12h5.344v-1.107H7.268v-.077l1.974-2.22.096-.107c.688-.763 1.287-1.428 1.287-2.43 0-1.266-1.031-2.215-2.613-2.215-1.758 0-2.637 1.19-2.637 2.402v.065h1.271v-.07Z"/>
+</svg> <span>Equipment Details</span>
+                </label>
+                <label for="help" class="help">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-3-circle-fill m_left" viewBox="0 0 16 16">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-8.082.414c.92 0 1.535.54 1.541 1.318.012.791-.615 1.36-1.588 1.354-.861-.006-1.482-.469-1.54-1.066H5.104c.047 1.177 1.05 2.144 2.754 2.144 1.653 0 2.954-.937 2.93-2.396-.023-1.278-1.031-1.846-1.734-1.916v-.07c.597-.1 1.505-.739 1.482-1.876-.03-1.177-1.043-2.074-2.637-2.062-1.675.006-2.59.984-2.625 2.12h1.248c.036-.556.557-1.054 1.348-1.054.785 0 1.348.486 1.348 1.195.006.715-.563 1.237-1.342 1.237h-.838v1.072h.879Z"/>
+</svg><span>Attachments</span>
+                </label>
+               
+                <div class="slider"></div>
+            </div>
+
+            <div class="text-content">
+                <div class="home text">
+                   
+        <div class="card shadow p-3 pt-0 mb-5 bg-body rounded border-0" style="min-height: 1500px; ">
+
+  <div class="card-body inp_t pt-0">
+    <div id="inputsheet" class="tab-pane fade show active">
+
+  
+      
+      <div class="border_btm mb-3 pt-3">
+        <h5>System Requirement (CQRS)</h5>
+      </div>
+      <label class="custom-control-label mb-4" style="margin-right: 10px;" for="customSwitch2">Switch off if you don't need help filling this
+        documents.</label>
+      <div class="toggle-switch" [class.active]="!off" (click)="togglee()">
+        <div class="toggle-slider"></div>
+      </div>
+      <div class="pull-right help1">
+        <i (click)="downloadFile()" class="fa fa-info-circle" aria-hidden="true" title="Click here to view filling instructions"></i>
+      </div>
+      <form #systemForm="ngForm" class="form-container">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Equipment</label>
+              <select placement="bottom" [ngbTooltip]="systemFormData.typeOfEq === 'Battery_Bank' ? BatteryBank : 
+              (systemFormData.typeOfEq === 'Network_Rack' ? networkserver : 
+              (systemFormData.typeOfEq === 'Fume_Hood' ? fume :
+              (systemFormData.typeOfEq === 'CNC_Machine' ? cnc :
+              (systemFormData.typeOfEq === 'Electrical_Panel' ? electrical :
+              (systemFormData.typeOfEq === 'Genset' ? genset :
+              (systemFormData.typeOfEq === 'Transformer' ? transformer :
+              (systemFormData.typeOfEq === 'UPS' ? ups :
+              (systemFormData.typeOfEq === 'Volvo_Bus' ? engine :''))))))))"
+              class="form-control form-select" id="exampleFormControlSelect1" [(ngModel)]="systemFormData.typeOfEq" [ngModelOptions]="{standalone: true}" required (change)="onEqSelect($any($event.target).value,content)" >
+                <option selected="selected" value="">-Select-</option>
+                    <option value="Battery_Bank">Battery Cabinet</option>
+                    <option value="CNC_Machine">CNC Machine</option>
+                    <option value="Electrical_Panel">Electrical Panel</option>
+                    <option value="Fume_Hood">Fume Hood</option>
+                    <option value="Genset">Genset</option>
+                    <option value="Network_Rack">Network/Server Rack</option>
+                    <!-- <option value="Printing_Machine">Printing Machine</option> -->
+                    <!-- <option value="Server_Rack">Server Rack</option> -->
+                    <option value="Transformer">Transformer</option>
+                    <option value="UPS">UPS</option>
+                    <option value="Volvo_Bus">Engine Bay</option>
+                    <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div *ngIf="systemFormData.typeOfEq!='Transformer'" class="col-sm-6">
+            <div  class="form-group">
+              <label for="exampleFormControlSelect1">Equipment Type Open/Closed</label>
+              <select [disabled]="systemFormData.typeOfEq=='CNC_Machine'" placement="bottom" [ngbTooltip]="systemFormData.typeOfEq === 'Battery_Bank' ? eqBattery : (systemFormData.typeOfEq === 'Network_Rack' ? eqNetwork : 
+              systemFormData.typeOfEq === 'CNC_Machine' ? cncNewToolTip : systemFormData.typeOfEq === 'Electrical_Panel' ? epNewToolTip: '')" class="form-control form-select" id="exampleFormControlSelect1" [(ngModel)]="systemFormData.equipmentType" [ngModelOptions]="{standalone: true}" required (change)="onTypeOfEqChange($any($event.target).value,content)">
+                <option *ngIf="systemFormData.typeOfEq!='CNC_Machine'"  selected="selected" value="">-Select-</option>
+                <ng-container *ngIf="systemFormData.typeOfEq!='Electrical_Panel' && systemFormData.typeOfEq!='UPS' &&  systemFormData.typeOfEq!='CNC_Machine' ">
+                <option value="Open">Open</option>
+                <option placement="bottom" [ngbTooltip]="eqBattery" value="Enclosed">Enclosed</option>
+                </ng-container>
+                <ng-container *ngIf="systemFormData.typeOfEq=='CNC_Machine' ">
+                  <!-- <option value="Open">Open</option> -->
+                  <option  value="Enclosed">Enclosed</option>
+                  </ng-container>
+                <ng-container *ngIf="systemFormData.typeOfEq=='Electrical_Panel' || systemFormData.typeOfEq=='UPS'">
+                  <option value="Enclosed With Ventilation">Enclosed With Ventilation</option>
+                  <option value="Enclosed">Enclosed</option>
+                </ng-container>
+                <ng-container *ngIf="systemFormData.typeOfEq=='UPS'">
+                  <option value="Other">Other</option>
+                </ng-container>
+              </select>
+            </div>
+          </div>
+          <div *ngIf="systemFormData.typeOfEq=='Transformer'" class="col-sm-6">
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Type of transformer</label>
+              <select placement="bottom" [ngbTooltip]="transformer" class="form-control form-select" id="exampleFormControlSelect1" [(ngModel)]="systemFormData.typeOfTransformer" [ngModelOptions]="{standalone: true}" required>
+                <option selected="selected" value="">-Select-</option>
+               <option value="Dry with Canopy">Dry with Canopy</option>
+               <option value="oil cooled">Oil cooled</option>
+               <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          <!-- <div *ngIf="systemFormData.typeOfEq=='CNC_Machine'" class="col-sm-4">
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">CQRS Type</label>
+              <select placement="bottom" [ngbTooltip]="directIN" class="form-control" id="exampleFormControlSelect1" [(ngModel)]="systemFormData.equipmentType" [ngModelOptions]="{standalone: true}" required (change)="onTypeOfEqChange($any($event.target).value,content)">
+                <option selected="selected" value="">-Select-</option>
+             
+                <ng-container>
+                  <option value="Direct">Direct</option>
+                  <option value="inDirect">Indirect</option>
+                </ng-container>
+              </select>
+            </div>
+          </div> -->
+          <!-- <div  class="col-sm-4">
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Extinguishing Agent (Required)</label>
+              <select  placement="bottom" [ngbTooltip]="systemFormData.extinguishingAgent=='CO2' && systemFormData.typeOfEq!='CNC_Machine'  ? gasCO2 :
+              (systemFormData.extinguishingAgent=='HFC-236fa' && systemFormData.typeOfEq!='CNC_Machine' ? gasHFC236fa :
+              (systemFormData.extinguishingAgent=='HFC-227ea' && systemFormData.typeOfEq!='CNC_Machine' ? gasHFC227ea :
+              (systemFormData.extinguishingAgent=='HCFC-123' && systemFormData.typeOfEq!='CNC_Machine' ? gasHCFC123 :
+              (systemFormData.extinguishingAgent=='FK-5-1-12' && systemFormData.typeOfEq!='CNC_Machine' ? gasFK : ''))))" 
+              class="form-control" id="exampleFormControlSelect1" [(ngModel)]="systemFormData.extinguishingAgent" [ngModelOptions]="{standalone: true}">
+              <ng-container *ngIf="systemFormData.typeOfEq!='CNC_Machine' && systemFormData.typeOfEq!='Fume_Hood' && systemFormData.typeOfEq!='Genset'">
+                <option selected="selected" value="">-Select-</option>
+                <option value="HFC-236fa">HFC-236fa</option>
+                <option  value="HFC-227ea">HFC-227ea</option>
+                <option value="HCFC-123">HCFC-123</option>
+                <option value="FK-5-1-12">FK-5-1-12</option>
+                <option  value="CO2">CO2</option>
+                <option *ngIf="systemFormData.typeOfEq!='Battery_Bank'&& systemFormData.typeOfEq!='Transformer'" value="Map90">Map90</option>
+                <option *ngIf="systemFormData.typeOfEq=='Transformer' && systemFormData.equipmentType=='Open'" value="Map90">Map90</option>
+
+              </ng-container>
+              <ng-container *ngIf="systemFormData.typeOfEq=='CNC_Machine'">
+                <option selected="selected" value="">-Select-</option>
+             
+                <option value="Powder"> Powder</option>
+                <option  value="FF-Foam"> FF-Foam </option>
+
+              </ng-container>
+              <ng-container *ngIf="systemFormData.typeOfEq=='Fume_Hood'">
+                <option selected="selected" value="">-Select-</option>
+                <option *ngIf="systemFormData.equipmentType!='Open'"  value="Gas">Gas</option>
+                <option value="Powder"> Powder</option>
+                <option  value="FF-Foam"> FF-Foam </option>
+
+              </ng-container>
+              <ng-container *ngIf="systemFormData.typeOfEq=='Genset'">
+                <option selected="selected" value="">-Select-</option>
+                <option  value="Gas">Gas</option>
+                <option value="Powder"> Powder</option>
+                <option  value="FF-Foam"> FF-Foam </option>
+
+              </ng-container>
+              </select>
+            </div>
+            
+          </div> -->
+          <div class="mt-3" *ngIf="systemFormData.typeOfEq!=''">
+            <label *ngIf="systemFormData.typeOfTransformer!='oil cooled' && systemFormData.typeOfTransformer!='' ">Extinguishing Agent (Required)</label><br>
+  
+            <ng-container *ngIf="systemFormData.typeOfEq === 'Battery_Bank' ">
+                <!-- <label>Extinguishing Agent (Required)</label> -->
+             
+                <div class="form-group mt-3">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Select</th>
+                        <th style="width: 15%;">Agent</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr [class.selected-row]="systemFormData.extinguishingAgent === 'TBD'" >
+                        <td>
+                          <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="TBD">
+                        </td>
+                        <td>
+                          <label>TBD</label>
+                        </td>
+                        <td>
+                          <small>Considering your unique requirement Ceasefire design cell will decide the most appropriate extinguishing agent.</small>
+                        </td>
+                      </tr>
+                      <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HFC-236fa'">
+                        <td>
+                          <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HFC-236fa">
+                        </td>
+                        <td>
+                          <label>HFC-236fa</label>
+                        </td>
+                        <td>
+                          <small title="Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.">Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.</small>
+                        </td>
+                      </tr>
+                      <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HFC-227ea'">
+                        <td>
+                          <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HFC-227ea">
+                        </td>
+                        <td>
+                          <label>HFC-227ea</label>
+                        </td>
+                        <td>
+                          <small title="Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.">Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.</small>
+                        </td>
+                      </tr>
+                      <!-- <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HCFC-123'">
+                        <td>
+                          <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HCFC-123">
+                        </td>
+                        <td>
+                          <label>HCFC-123</label>
+                        </td>
+                        <td>
+                          <small title="Residue free, reliable, HCFC123 is suitable for fire Class A, B, C and electrically started fires, it requires closed environments. It has very low ODP.">Residue free, reliable, HCFC123 is suitable for fire Class A, B, C and electrically started fires, it requires closed environments. It has very low ODP.</small>
+                        </td>
+                      </tr> -->
+                      <tr [class.selected-row]="systemFormData.extinguishingAgent === 'FK-5-1-12'">
+                        <td>
+                          <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="FK-5-1-12">
+                        </td>
+                        <td>
+                          <label>FK-5-1-12</label>
+                        </td>
+                        <td>
+                          <small title="Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. ">Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. </small>
+                        </td>
+                      </tr>
+                      <tr [class.selected-row]="systemFormData.extinguishingAgent === 'CO2'">
+                        <td>
+                          <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="CO2">
+                        </td>
+                        <td>
+                          <label>CO2</label>
+                        </td>
+                        <td>
+                          <small title="Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, and fires involving electricity making it ideal for high-risk enclosed spaces like, Generators, electrical panels, enclosed engine compartments etc.">Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, and fires involving electricity making it ideal for high-risk enclosed spaces like, Generators, electrical panels, enclosed engine compartments etc.</small>
+                        </td>
+                      </tr>
+                      <!-- <tr [class.selected-row]="systemFormData.extinguishingAgent === 'Map90'">
+                        <td>
+                          <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="Map90">
+                        </td>
+                        <td>
+                          <label>Map90</label>
+                        </td>
+                        <td>
+                          <small title="Powerful and versatile, this agent tackles Class A, B, and C fires, electrically safe making it suitable for diverse scenarios to fight fires in all types of applications except sensitive equipment.">Powerful and versatile, this agent tackles Class A, B, and C fires, electrically safe making it suitable for diverse scenarios to fight fires in all types of applications except sensitive equipment. </small>
+                        </td>
+                      </tr> -->
+                    </tbody>
+                  </table>
+                  
+                </div>
+                
+            </ng-container>
+            <ng-container *ngIf="systemFormData.typeOfEq === 'Other' ">
+              <!-- <label>Extinguishing Agent (Required)</label> -->
+           
+              <div class="form-group mt-3">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Select</th>
+                      <th style="width: 15%;">Agent</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'TBD'" >
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="TBD">
+                      </td>
+                      <td>
+                        <label>TBD</label>
+                      </td>
+                      <td>
+                        <small>Considering your unique requirement Ceasefire design cell will decide the most appropriate extinguishing agent.</small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HFC-236fa'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HFC-236fa">
+                      </td>
+                      <td>
+                        <label>HFC-236fa</label>
+                      </td>
+                      <td>
+                        <small title="Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.">Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.</small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HFC-227ea'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HFC-227ea">
+                      </td>
+                      <td>
+                        <label>HFC-227ea</label>
+                      </td>
+                      <td>
+                        <small title="Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.">Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.</small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HCFC-123'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HCFC-123">
+                      </td>
+                      <td>
+                        <label>HCFC-123</label>
+                      </td>
+                      <td>
+                        <small title="Residue free, reliable, HCFC123 is suitable for fire Class A, B, C and electrically started fires, it requires closed environments. It has very low ODP.">Residue free, reliable, HCFC123 is suitable for fire Class A, B, C and electrically started fires, it requires closed environments. It has very low ODP.</small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'FK-5-1-12'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="FK-5-1-12">
+                      </td>
+                      <td>
+                        <label>FK-5-1-12</label>
+                      </td>
+                      <td>
+                        <small title="Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. ">Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. </small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'CO2'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="CO2">
+                      </td>
+                      <td>
+                        <label>CO2</label>
+                      </td>
+                      <td>
+                        <small title="Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, and fires involving electricity making it ideal for high-risk enclosed spaces like, Generators, electrical panels, enclosed engine compartments etc.">Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, and fires involving electricity making it ideal for high-risk enclosed spaces like, Generators, electrical panels, enclosed engine compartments etc.</small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'Map90'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="Map90">
+                      </td>
+                      <td>
+                        <label>Map90</label>
+                      </td>
+                      <td>
+                        <small title="Powerful and versatile, this agent tackles Class A, B, and C fires, electrically safe making it suitable for diverse scenarios to fight fires in all types of applications except sensitive equipment.">Powerful and versatile, this agent tackles Class A, B, and C fires, electrically safe making it suitable for diverse scenarios to fight fires in all types of applications except sensitive equipment. </small>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+              </div>
+              
+          </ng-container>
+            <ng-container *ngIf="systemFormData.typeOfEq == 'CNC_Machine'">
+           
+<div class="form-group">
+  <!-- <label>Extinguishing Agent (Required)</label><br> -->
+  <table class="table table bordered">
+    <thead>
+      <tr>
+        <th>Select</th>
+        <th style="width: 15%;">Agent</th>
+
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr [class.selected-row]="systemFormData.extinguishingAgent === 'TBD'" >
+        <td>
+          <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="TBD">
+        </td>
+        <td>
+          <label>TBD</label>
+        </td>
+        <td>
+          <small>Considering your unique requirement Ceasefire design cell will decide the most appropriate extinguishing agent.</small>
+        </td>
+      </tr>
+      <!-- <tr [class.selected-row]="systemFormData.extinguishingAgent === 'Map90'">
+        <td>
+          <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="Map90">
+        </td>
+        <td>
+          <label>Map90</label>
+        </td>
+        <td>
+          <small title="Powerful and versatile, this agent tackles Class A, B, and C fires, electrically safe making it suitable for diverse scenarios to fight fires in all types of applications except sensitive equipment.">Powerful and versatile, this agent tackles Class A, B, and C fires, electrically safe making it suitable for diverse scenarios to fight fires in all types of applications except sensitive equipment.</small>
+        </td>
+      </tr>
+      <tr [class.selected-row]="systemFormData.extinguishingAgent === 'FF-Foam'">
+        <td>
+          <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="FF-Foam">
+        </td>
+        <td>
+          <label>FF-Foam</label>
+        </td>
+        <td>
+          <small title="Designed for fires Class A and B critical situations in fire such as Generators, engine, CNC machines etc. Environment friendly as it is free of Fluorine.">Designed for fires Class A and B critical situations in fire such as Generators, engine, CNC machines etc. Environment friendly as it is free of Fluorine.</small>
+        </td>
+      </tr> -->
+      <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HFC-236fa'" >
+        <td>
+          <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HFC-236fa">
+        </td>
+        <td>
+          <label>HFC-236fa</label>
+        </td>
+        <td>
+          <small title="Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.">Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.</small>
+        </td>
+      </tr>
+      <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HFC-227ea'" >
+        <td>
+          <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HFC-227ea">
+        </td>
+        <td>
+          <label>HFC-227ea</label>
+        </td>
+        <td>
+          <small title="Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.">Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.</small>
+        </td>
+      </tr>
+       <tr [class.selected-row]="systemFormData.extinguishingAgent === 'FFF'" >
+        <td>
+          <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="FFF">
+        </td>
+        <td>
+          <label>FFF</label>
+        </td>
+        <td>
+          <small title="Environment friendly as it is free of Fluorine. Suitable for fire Classes A and B. Useful in critical situations in fire such as Generators, engine, CNC machines etc.">Environment friendly as it is free of Fluorine. Suitable for fire Classes A and B. Useful in critical situations in fire such as Generators, engine, CNC machines etc.</small>
+        </td>
+      </tr>
+      <tr [class.selected-row]="systemFormData.extinguishingAgent === 'FK-5-1-12'" >
+        <td>
+          <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="FK-5-1-12">
+        </td>
+        <td>
+          <label>FK-5-1-12</label>
+        </td>
+        <td>
+          <small title="Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. ">Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. </small>
+        </td>
+      </tr>
+      <tr [class.selected-row]="systemFormData.extinguishingAgent === 'CO2'" >
+        <td>
+          <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="CO2">
+        </td>
+        <td>
+          <label>CO2</label>
+        </td>
+        <td>
+          <small title="Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, and fires involving electricity making it ideal for high-risk enclosed spaces like, Generators, electrical panels, enclosed engine compartments etc.">Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, and fires involving electricity making it ideal for high-risk enclosed spaces like, Generators, electrical panels, enclosed engine compartments etc.</small>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+            </ng-container>
+            <ng-container *ngIf="systemFormData.typeOfEq === 'Fume_Hood'">
+              <div class="form-group">
+                <!-- <label>Extinguishing Agent (Required)</label><br> -->
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Select</th>
+                      <th style="width: 15%;">Agent</th>
+
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- <tr [class.selected-row]="systemFormData.extinguishingAgent === 'Gas'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="Gas">
+                      </td>
+                      <td>
+                        <label>Gas</label>
+                      </td>
+                      <td>
+                        <small title=""> </small>
+                      </td>
+                    </tr> -->
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'TBD'" >
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="TBD">
+                      </td>
+                      <td>
+                        <label>TBD</label>
+                      </td>
+                      <td>
+                        <small>Considering your unique requirement Ceasefire design cell will decide the most appropriate extinguishing agent.</small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'Map90'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="Map90">
+                      </td>
+                      <td>
+                        <label>Map90</label>
+                      </td>
+                      <td>
+                        <small title="Powerful and versatile, this agent tackles Class A, B, and C fires, electrically safe making it suitable for diverse scenarios to fight fires in all types of applications except sensitive equipment.">Powerful and versatile, this agent tackles Class A, B, and C fires, electrically safe making it suitable for diverse scenarios to fight fires in all types of applications except sensitive equipment.</small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'FF-Foam'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="FF-Foam">
+                      </td>
+                      <td>
+                        <label>FF-Foam</label>
+                      </td>
+                      <td>
+                        <small title="Designed for fires Class A and B critical situations in fire such as Generators, engine, CNC machines etc. Environment friendly as it is free of Fluorine.">Designed for fires Class A and B critical situations in fire such as Generators, engine, CNC machines etc. Environment friendly as it is free of Fluorine.</small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HFC-236fa'" *ngIf="systemFormData.equipmentType=='Enclosed'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HFC-236fa">
+                      </td>
+                      <td>
+                        <label>HFC-236fa</label>
+                      </td>
+                      <td>
+                        <small title="Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.">Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.</small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HFC-227ea'" *ngIf="systemFormData.equipmentType=='Enclosed'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HFC-227ea">
+                      </td>
+                      <td>
+                        <label>HFC-227ea</label>
+                      </td>
+                      <td>
+                        <small title="Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.">Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.</small>
+                      </td>
+                    </tr>
+                    <!-- <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HCFC-123'" *ngIf="systemFormData.equipmentType=='Enclosed'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HCFC-123">
+                      </td>
+                      <td>
+                        <label>HCFC-123</label>
+                      </td>
+                      <td>
+                        <small title="Residue free, reliable, HCFC123 is suitable for fire Class A, B, C and electrically started fires, it requires closed environments. It has very low ODP.">Residue free, reliable, HCFC123 is suitable for fire Class A, B, C and electrically started fires, it requires closed environments. It has very low ODP.</small>
+                      </td>
+                    </tr> -->
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'FK-5-1-12'" *ngIf="systemFormData.equipmentType=='Enclosed'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="FK-5-1-12">
+                      </td>
+                      <td>
+                        <label>FK-5-1-12</label>
+                      </td>
+                      <td>
+                        <small title="Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. ">Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. </small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'CO2'" *ngIf="systemFormData.equipmentType=='Enclosed'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="CO2">
+                      </td>
+                      <td>
+                        <label>CO2</label>
+                      </td>
+                      <td>
+                        <small title="Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, and fires involving electricity making it ideal for high-risk enclosed spaces like, Generators, electrical panels, enclosed engine compartments etc.">Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, and fires involving electricity making it ideal for high-risk enclosed spaces like, Generators, electrical panels, enclosed engine compartments etc.</small>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="systemFormData.typeOfEq === 'Genset'">
+              <div class="form-group">
+                <!-- <label>Extinguishing Agent (Required)</label><br> -->
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Select</th>
+                      <th style="width: 15%;">Agent</th>
+
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- <tr [class.selected-row]="systemFormData.extinguishingAgent === 'Gas'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="Gas">
+                      </td>
+                      <td>
+                        <label>Gas</label>
+                      </td>
+                      <td>
+                        <small title=""> </small>
+                      </td>
+                    </tr> -->
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'TBD'" >
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="TBD">
+                      </td>
+                      <td>
+                        <label>TBD</label>
+                      </td>
+                      <td>
+                        <small>Considering your unique requirement Ceasefire design cell will decide the most appropriate extinguishing agent.</small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'Map90'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="Map90">
+                      </td>
+                      <td>
+                        <label>Map90</label>
+                      </td>
+                      <td>
+                        <small title="Powerful and versatile, this agent tackles Class A, B, and C fires, electrically safe making it suitable for diverse scenarios to fight fires in all types of applications except sensitive equipment.">Powerful and versatile, this agent tackles Class A, B, and C fires, electrically safe making it suitable for diverse scenarios to fight fires in all types of applications except sensitive equipment.</small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'FF-Foam'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="FF-Foam">
+                      </td>
+                      <td>
+                        <label>FF-Foam</label>
+                      </td>
+                      <td>
+                        <small title="Designed for fires Class A and B critical situations in fire such as Generators, engine, CNC machines etc. Environment friendly as it is free of Fluorine.">Designed for fires Class A and B critical situations in fire such as Generators, engine, CNC machines etc. Environment friendly as it is free of Fluorine.</small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HFC-236fa'" *ngIf="systemFormData.equipmentType=='Enclosed'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HFC-236fa">
+                      </td>
+                      <td>
+                        <label>HFC-236fa</label>
+                      </td>
+                      <td>
+                        <small title="Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.">Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.</small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HFC-227ea'" *ngIf="systemFormData.equipmentType=='Enclosed'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HFC-227ea">
+                      </td>
+                      <td>
+                        <label>HFC-227ea</label>
+                      </td>
+                      <td>
+                        <small title="Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.">Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.</small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HCFC-123'" *ngIf="systemFormData.equipmentType=='Enclosed'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HCFC-123">
+                      </td>
+                      <td>
+                        <label>HCFC-123</label>
+                      </td>
+                      <td>
+                        <small title="Residue free, reliable, HCFC123 is suitable for fire Class A, B, C and electrically started fires, it requires closed environments. It has very low ODP.">Residue free, reliable, HCFC123 is suitable for fire Class A, B, C and electrically started fires, it requires closed environments. It has very low ODP.</small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'FK-5-1-12'" *ngIf="systemFormData.equipmentType=='Enclosed'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="FK-5-1-12">
+                      </td>
+                      <td>
+                        <label>FK-5-1-12</label>
+                      </td>
+                      <td>
+                        <small title="Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. ">Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. </small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'CO2'" *ngIf="systemFormData.equipmentType=='Enclosed'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="CO2">
+                      </td>
+                      <td>
+                        <label>CO2</label>
+                      </td>
+                      <td>
+                        <small title="Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, and fires involving electricity making it ideal for high-risk enclosed spaces like, Generators, electrical panels, enclosed engine compartments etc.">Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, and fires involving electricity making it ideal for high-risk enclosed spaces like, Generators, electrical panels, enclosed engine compartments etc.</small>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="systemFormData.typeOfEq === 'Electrical_Panel' ">
+              <!-- <label>Extinguishing Agent (Required)</label> -->
+           
+              <div class="form-group mt-3">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Select</th>
+                      <th style="width: 15%;">Agent</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'TBD'" >
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="TBD">
+                      </td>
+                      <td>
+                        <label>TBD</label>
+                      </td>
+                      <td>
+                        <small>Considering your unique requirement Ceasefire design cell will decide the most appropriate extinguishing agent.</small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HFC-236fa'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HFC-236fa">
+                      </td>
+                      <td>
+                        <label>HFC-236fa</label>
+                      </td>
+                      <td>
+                        <small title="Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.">Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.</small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HFC-227ea'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HFC-227ea">
+                      </td>
+                      <td>
+                        <label>HFC-227ea</label>
+                      </td>
+                      <td>
+                        <small title="Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.">Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.</small>
+                      </td>
+                    </tr>
+                    <!-- <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HCFC-123'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HCFC-123">
+                      </td>
+                      <td>
+                        <label>HCFC-123</label>
+                      </td>
+                      <td>
+                        <small title="Residue free, reliable, HCFC123 is suitable for fire Class A, B, C and electrically started fires, it requires closed environments. It has very low ODP.">Residue free, reliable, HCFC123 is suitable for fire Class A, B, C and electrically started fires, it requires closed environments. It has very low ODP.</small>
+                      </td>
+                    </tr> -->
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'FK-5-1-12'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="FK-5-1-12">
+                      </td>
+                      <td>
+                        <label>FK-5-1-12</label>
+                      </td>
+                      <td>
+                        <small title="Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. ">Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. </small>
+                      </td>
+                    </tr>
+                    <tr [class.selected-row]="systemFormData.extinguishingAgent === 'CO2'">
+                      <td>
+                        <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="CO2">
+                      </td>
+                      <td>
+                        <label>CO2</label>
+                      </td>
+                      <td>
+                        <small title="Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, and fires involving electricity making it ideal for high-risk enclosed spaces like, Generators, electrical panels, enclosed engine compartments etc.">Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, and fires involving electricity making it ideal for high-risk enclosed spaces like, Generators, electrical panels, enclosed engine compartments etc.</small>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+                
+              </div>
+              
+          </ng-container>
+          <ng-container *ngIf="systemFormData.typeOfEq === 'Network_Rack' ">
+            <!-- <label>Extinguishing Agent (Required)</label> -->
+         
+            <div class="form-group mt-3">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Select</th>
+                    <th style="width: 15%;">Agent</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr [class.selected-row]="systemFormData.extinguishingAgent === 'TBD'" >
+                    <td>
+                      <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="TBD">
+                    </td>
+                    <td>
+                      <label>TBD</label>
+                    </td>
+                    <td>
+                      <small>Considering your unique requirement Ceasefire design cell will decide the most appropriate extinguishing agent.</small>
+                    </td>
+                  </tr>
+                  <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HFC-236fa'" >
+                    <td>
+                      <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HFC-236fa">
+                    </td>
+                    <td>
+                      <label>HFC-236fa</label>
+                    </td>
+                    <td>
+                      <small title="Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.">Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.</small>
+                    </td>
+                  </tr>
+                  <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HFC-227ea'" >
+                    <td>
+                      <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HFC-227ea">
+                    </td>
+                    <td>
+                      <label>HFC-227ea</label>
+                    </td>
+                    <td>
+                      <small title="Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.">Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.</small>
+                    </td>
+                  </tr>
+                  <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HCFC-123'" >
+                    <td>
+                      <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HCFC-123">
+                    </td>
+                    <td>
+                      <label>HCFC-123</label>
+                    </td>
+                    <td>
+                      <small title="Residue free, reliable, HCFC123 is suitable for fire Class A, B, C and electrically started fires, it requires closed environments. It has very low ODP.">Residue free, reliable, HCFC123 is suitable for fire Class A, B, C and electrically started fires, it requires closed environments. It has very low ODP.</small>
+                    </td>
+                  </tr>
+                  <tr [class.selected-row]="systemFormData.extinguishingAgent === 'FK-5-1-12'" >
+                    <td>
+                      <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="FK-5-1-12">
+                    </td>
+                    <td>
+                      <label>FK-5-1-12</label>
+                    </td>
+                    <td>
+                      <small title="Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. ">Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. </small>
+                    </td>
+                  </tr>
+                  <tr [class.selected-row]="systemFormData.extinguishingAgent === 'CO2'" >
+                    <td>
+                      <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="CO2">
+                    </td>
+                    <td>
+                      <label>CO2</label>
+                    </td>
+                    <td>
+                      <small title="Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, and fires involving electricity making it ideal for high-risk enclosed spaces like, Generators, electrical panels, enclosed engine compartments etc.">Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, and fires involving electricity making it ideal for high-risk enclosed spaces like, Generators, electrical panels, enclosed engine compartments etc.</small>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+              
+            </div>
+            
+        </ng-container>
+        <ng-container *ngIf="(systemFormData.typeOfEq === 'Transformer') && (systemFormData.typeOfTransformer=='Dry with Canopy' || systemFormData.typeOfTransformer=='Other')">
+          <!-- <label>Extinguishing Agent (Required)</label> -->
+       
+          <div class="form-group mt-3">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Select</th>
+                  <th style="width: 15%;">Agent</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr [class.selected-row]="systemFormData.extinguishingAgent === 'TBD'" >
+                  <td>
+                    <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="TBD">
+                  </td>
+                  <td>
+                    <label>TBD</label>
+                  </td>
+                  <td>
+                    <small>Considering your unique requirement Ceasefire design cell will decide the most appropriate extinguishing agent.</small>
+                  </td>
+                </tr>
+                <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HFC-236fa'" >
+                  <td>
+                    <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HFC-236fa">
+                  </td>
+                  <td>
+                    <label>HFC-236fa</label>
+                  </td>
+                  <td>
+                    <small title="Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.">Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.</small>
+                  </td>
+                </tr>
+                <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HFC-227ea'" >
+                  <td>
+                    <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HFC-227ea">
+                  </td>
+                  <td>
+                    <label>HFC-227ea</label>
+                  </td>
+                  <td>
+                    <small title="Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.">Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.</small>
+                  </td>
+                </tr>
+                <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HCFC-123'">
+                  <td>
+                    <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HCFC-123">
+                  </td>
+                  <td>
+                    <label>HCFC-123</label>
+                  </td>
+                  <td>
+                    <small title="Residue free, reliable, HCFC123 is suitable for fire Class A, B, C and electrically started fires, it requires closed environments. It has very low ODP.">Residue free, reliable, HCFC123 is suitable for fire Class A, B, C and electrically started fires, it requires closed environments. It has very low ODP.</small>
+                  </td>
+                </tr>
+                <tr [class.selected-row]="systemFormData.extinguishingAgent === 'FK-5-1-12'" >
+                  <td>
+                    <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="FK-5-1-12">
+                  </td>
+                  <td>
+                    <label>FK-5-1-12</label>
+                  </td>
+                  <td>
+                    <small title="Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. ">Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. </small>
+                  </td>
+                </tr>
+                <tr [class.selected-row]="systemFormData.extinguishingAgent === 'CO2'" >
+                  <td>
+                    <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="CO2">
+                  </td>
+                  <td>
+                    <label>CO2</label>
+                  </td>
+                  <td>
+                    <small title="Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, and fires involving electricity making it ideal for high-risk enclosed spaces like, Generators, electrical panels, enclosed engine compartments etc.">Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, and fires involving electricity making it ideal for high-risk enclosed spaces like, Generators, electrical panels, enclosed engine compartments etc.</small>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+            
+          </div>
+          
+      </ng-container>
+      <ng-container *ngIf="( systemFormData.typeOfEq === 'UPS')  ">
+        <!-- <label>Extinguishing Agent (Required)</label> -->
+     
+        <div class="form-group mt-3">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Select</th>
+                <th style="width: 15%;">Agent</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr [class.selected-row]="systemFormData.extinguishingAgent === 'TBD'" >
+                <td>
+                  <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="TBD">
+                </td>
+                <td>
+                  <label>TBD</label>
+                </td>
+                <td>
+                  <small>Considering your unique requirement Ceasefire design cell will decide the most appropriate extinguishing agent.</small>
+                </td>
+              </tr>
+              <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HFC-236fa'" >
+                <td>
+                  <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HFC-236fa">
+                </td>
+                <td>
+                  <label>HFC-236fa</label>
+                </td>
+                <td>
+                  <small title="Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.">Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.</small>
+                </td>
+              </tr>
+              <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HFC-227ea'" >
+                <td>
+                  <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HFC-227ea">
+                </td>
+                <td>
+                  <label>HFC-227ea</label>
+                </td>
+                <td>
+                  <small title="Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.">Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.</small>
+                </td>
+              </tr>
+              <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HCFC-123'" >
+                <td>
+                  <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HCFC-123">
+                </td>
+                <td>
+                  <label>HCFC-123</label>
+                </td>
+                <td>
+                  <small title="Residue free, reliable, HCFC123 is suitable for fire Class A, B, C and electrically started fires, it requires closed environments. It has very low ODP.">Residue free, reliable, HCFC123 is suitable for fire Class A, B, C and electrically started fires, it requires closed environments. It has very low ODP.</small>
+                </td>
+              </tr>
+              <tr [class.selected-row]="systemFormData.extinguishingAgent === 'FK-5-1-12'" >
+                <td>
+                  <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="FK-5-1-12">
+                </td>
+                <td>
+                  <label>FK-5-1-12</label>
+                </td>
+                <td>
+                  <small title="Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. ">Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. </small>
+                </td>
+              </tr>
+              <tr [class.selected-row]="systemFormData.extinguishingAgent === 'CO2'" >
+                <td>
+                  <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="CO2">
+                </td>
+                <td>
+                  <label>CO2</label>
+                </td>
+                <td>
+                  <small title="Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, and fires involving electricity making it ideal for high-risk enclosed spaces like, Generators, electrical panels, enclosed engine compartments etc.">Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, and fires involving electricity making it ideal for high-risk enclosed spaces like, Generators, electrical panels, enclosed engine compartments etc.</small>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+          
+        </div>
+        
+    </ng-container>
+      <ng-container *ngIf="systemFormData.typeOfEq === 'Volvo_Bus'">
+           
+        <div class="form-group">
+          <!-- <label>Extinguishing Agent (Required)</label><br> -->
+          <table class="table table bordered">
+            <thead>
+              <tr>
+                <th>Select</th>
+                <th style="width: 15%;">Agent</th>
+        
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr [class.selected-row]="systemFormData.extinguishingAgent === 'TBD'" >
+                <td>
+                  <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="TBD">
+                </td>
+                <td>
+                  <label>TBD</label>
+                </td>
+                <td>
+                  <small>Considering your unique requirement Ceasefire design cell will decide the most appropriate extinguishing agent.</small>
+                </td>
+              </tr>
+              <tr [class.selected-row]="systemFormData.extinguishingAgent === 'Map90'">
+                <td>
+                  <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="Map90">
+                </td>
+                <td>
+                  <label>Map90</label>
+                </td>
+                <td>
+                  <small title="Powerful and versatile, this agent tackles Class A, B, and C fires, electrically safe making it suitable for diverse scenarios to fight fires in all types of applications except sensitive equipment.">Powerful and versatile, this agent tackles Class A, B, and C fires, electrically safe making it suitable for diverse scenarios to fight fires in all types of applications except sensitive equipment.</small>
+                </td>
+              </tr>
+              <tr [class.selected-row]="systemFormData.extinguishingAgent === 'FF-Foam'">
+                <td>
+                  <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="FF-Foam">
+                </td>
+                <td>
+                  <label>FF-Foam</label>
+                </td>
+                <td>
+                  <small title="Designed for fires Class A and B critical situations in fire such as Generators, engine, CNC machines etc. Environment friendly as it is free of Fluorine.">Designed for fires Class A and B critical situations in fire such as Generators, engine, CNC machines etc. Environment friendly as it is free of Fluorine.</small>
+                </td>
+              </tr>
+              <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HFC-236fa'" *ngIf="systemFormData.equipmentType=='Enclosed'">
+                <td>
+                  <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HFC-236fa">
+                </td>
+                <td>
+                  <label>HFC-236fa</label>
+                </td>
+                <td>
+                  <small title="Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.">Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.</small>
+                </td>
+              </tr>
+              <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HFC-227ea'" *ngIf="systemFormData.equipmentType=='Enclosed'">
+                <td>
+                  <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HFC-227ea">
+                </td>
+                <td>
+                  <label>HFC-227ea</label>
+                </td>
+                <td>
+                  <small title="Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.">Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.</small>
+                </td>
+              </tr>
+              <tr [class.selected-row]="systemFormData.extinguishingAgent === 'HCFC-123'" *ngIf="systemFormData.equipmentType=='Enclosed'">
+                <td>
+                  <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="HCFC-123">
+                </td>
+                <td>
+                  <label>HCFC-123</label>
+                </td>
+                <td>
+                  <small title="Residue free, reliable, HCFC123 is suitable for fire Class A, B, C and electrically started fires, it requires closed environments. It has very low ODP.">Residue free, reliable, HCFC123 is suitable for fire Class A, B, C and electrically started fires, it requires closed environments. It has very low ODP.</small>
+                </td>
+              </tr>
+              <tr [class.selected-row]="systemFormData.extinguishingAgent === 'FK-5-1-12'" *ngIf="systemFormData.equipmentType=='Enclosed'">
+                <td>
+                  <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="FK-5-1-12">
+                </td>
+                <td>
+                  <label>FK-5-1-12</label>
+                </td>
+                <td>
+                  <small title="Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. ">Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. </small>
+                </td>
+              </tr>
+              <tr [class.selected-row]="systemFormData.extinguishingAgent === 'CO2'" *ngIf="systemFormData.equipmentType=='Enclosed'">
+                <td>
+                  <input type="radio" name="extinguishingAgent" [(ngModel)]="systemFormData.extinguishingAgent" value="CO2">
+                </td>
+                <td>
+                  <label>CO2</label>
+                </td>
+                <td>
+                  <small title="Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, and fires involving electricity making it ideal for high-risk enclosed spaces like, Generators, electrical panels, enclosed engine compartments etc.">Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, and fires involving electricity making it ideal for high-risk enclosed spaces like, Generators, electrical panels, enclosed engine compartments etc.</small>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+                    </ng-container>
+          </div>
+          
+  
+          
+
+          <!-- <ng-select [items]="accounts"
+           bindLabel="name"
+           bindValue="name"
+           groupBy="country"
+           [(ngModel)]="selectedAccount">
+    <ng-template ng-optgroup-tmp let-item="item">
+        {{item.country || 'Unnamed group'}}
+    </ng-template>
+</ng-select> -->
+
+<!-- <br>
+<small>Selected: {{selectedAccount | json}}</small> -->
+          </div>
+          <!-- <div *ngIf="systemFormData.typeOfEq=='CNC_Machine'" class="col-sm-12">
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Remarks</label>
+              <input type="text" class="form-control">
+            </div>
+          </div> -->
+ 
+</form>
+
+</div>
+  </div>
+</div>
+        </div>
+                <div class="blog text">
+                    <div class="card shadow p-3 pt-0 mb-5 bg-body rounded border-0" style="min-height: 1500px;">
+ <!-- <h5 class="card-header">Enter Inputsheet Information</h5>-->
+  <div class="card-body inp_t pt-0">
+    <app-electrical-panel  (arrayEmitter)="receiveArray($event,'Electrical_Panel')" *ngIf="systemFormData.typeOfEq=='Electrical_Panel'" [cqrsID]="cqrsID" [prospectCode]="ProspectCode" [EquipmentType]="systemFormData.equipmentType" [off]="off"></app-electrical-panel>
+    <app-battery-bank (arrayEmitter)="receiveArray($event,'Battery_Bank')" *ngIf="systemFormData.typeOfEq=='Battery_Bank'" [cqrsID]="cqrsID" [prospectCode]="ProspectCode" [off]="off"></app-battery-bank>    
+    <app-volvo-bus [cD]="cD" (arrayEmitter)="receiveArray($event,'Volvo_Bus')" *ngIf="systemFormData.typeOfEq=='Volvo_Bus'" [cqrsID]="cqrsID" [prospectCode]="ProspectCode"></app-volvo-bus>
+    <app-cnc-machine (arrayEmitter)="receiveArray($event,'CNC_Machine')" *ngIf="systemFormData.typeOfEq=='CNC_Machine'" [cqrsID]="cqrsID" [prospectCode]="ProspectCode" [off]="off"></app-cnc-machine>
+    <app-fume-hood [cD]="cD" (arrayEmitter)="receiveArray($event,'Fume_Hood')" *ngIf="systemFormData.typeOfEq=='Fume_Hood'" [cqrsID]="cqrsID" [prospectCode]="ProspectCode" [off]="off"></app-fume-hood>
+    <app-network-rack (arrayEmitter)="receiveArray($event,'Network_Rack')" *ngIf="systemFormData.typeOfEq=='Network_Rack'" [cqrsID]="cqrsID" [prospectCode]="ProspectCode"></app-network-rack>
+    <app-genset [cD]="cD" (arrayEmitter)="receiveArray($event,'Genset')" *ngIf="systemFormData.typeOfEq=='Genset'" [cqrsID]="cqrsID" [prospectCode]="ProspectCode"></app-genset>
+    <app-printing-machine (arrayEmitter)="receiveArray($event,'Printing_Machine')" *ngIf="systemFormData.typeOfEq=='Printing_Machine'" [cqrsID]="cqrsID" [prospectCode]="ProspectCode"></app-printing-machine>
+    <app-server-rack (arrayEmitter)="receiveArray($event,'Server_Rack')" *ngIf="systemFormData.typeOfEq=='Server_Rack'" [cqrsID]="cqrsID" [prospectCode]="ProspectCode"></app-server-rack>
+    <app-transformer [cD]="cD" (triggerNext)="onChildEvent($event)" (arrayEmitter)="receiveArray($event,'Transformer')" *ngIf="systemFormData.typeOfEq=='Transformer'" [cqrsID]="cqrsID" [prospectCode]="ProspectCode"></app-transformer>
+    <app-ups [cD]="cD" (arrayEmitter)="receiveArray($event,'UPS')" *ngIf="systemFormData.typeOfEq=='UPS'" [cqrsID]="cqrsID" [prospectCode]="ProspectCode"></app-ups>
+    <app-other-inputsheet (arrayEmitter)="receiveArray($event,'Other')" *ngIf="systemFormData.typeOfEq=='Other'" [cqrsID]="cqrsID" [prospectCode]="ProspectCode"></app-other-inputsheet>
+  </div>
+</div>
+                </div>
+                <div class="help text">
+					 <div class="card shadow p-3 mb-5 pt-0 bg-body rounded border-0"  style="min-height: 1500px;">
+                    <div class="card-body inp_t pt-0">
+                      <form #DocName='ngForm' (ngSubmit)="SaveDocument();" class="row align-items-center">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Room Name</label>
+                                <select class="form-control form-select" id="exampleFormControlSelect1" [(ngModel)]="DocumentType"
+                                    [ngModelOptions]="{ standalone: true }">
+                                    <option value="">-- Select --</option>
+                                    <ng-container *ngFor="let item of receivedArray">
+                                        <option value="{{item}}">{{item}}</option>
+                                    </ng-container>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Document Name</label>
+                                <input placement="bottom" [ngbTooltip]="DocumentNameTooltip" type="text" class="form-control" [(ngModel)]="DocumentName" name="iiiii">
+                            </div>
+                        </div>
+                        <div class="col-md-3 mt-5">
+                            <div class="form-group">
+                              <label for="hh">
+                                Upload File
+                              </label>
+                                <input type="file" name="file" id="file" class="input-file">
+                                <label for="file" class="btn btn-tertiary js-labelFile">
+                                    <input type="file" id="file2" [(ngModel)]="DocfileToUpload" [ngModelOptions]="{ standalone: true }"
+                                        (change)="handleFileInput($event)" class="form-control">
+                                </label>
+                                <span style="color: red; font-size: 14px; ">File accepted *pdf, *word,
+                                    *jpg/png, *dwg</span>
+                            </div>
+                        </div>
+                   
+                    </form>
+                    
+                    <div class="col-md-1">
+                      <button (click)="SaveDocument()" [disabled]="DocName.invalid" class="btn btn-danger">Save</button>
+                  </div>
+                        <div class="col-12">
+                        <table class="table table-bordered mt-3">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Room Name</th>
+                            <th scope="col">Document Name</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let doc of objDocumentList; let i = index">
+              
+                            <td>
+                                <div class="inner-cell-wrapper">
+                                    {{ i + 1 }}
+                                </div>
+                            </td>
+                            <td>
+                    
+                                {{ doc.fileType}}
+                            </td>
+                            <td>
+                                {{ doc.originalFilesName}}
+                    
+                            </td>
+                    
+                           
+                            <td>
+                
+                
+                                <!-- <a style="cursor: pointer;" class="mr-4" title="Delete Attachements"
+                                            (click)="DeleteSavedFile(doc)">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </a>
+                                        &nbsp;&nbsp;
+                                        <a style="cursor: pointer;" class="mr-4" title="Download Attachements"
+                                            (click)="FileDownload(doc.filesPath,doc.originalFilesName)">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        </a> -->
+                                        <button type="button" (click)="DeleteSavedFile(doc)" class="btn btn-sm text-danger pull-left m-left "><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                        <button type="button" (click)="FileDownload(doc.filesPath,doc.originalFilesName)" class="btn btn-sm text-success pull-left"><i class="fa fa-download" aria-hidden="true"></i></button>
+                    
+                            </td>
+                    
+                        </tr>
+                        </tbody>
+                        </table>
+                        <!-- <div class="row col-12 pr-0 mt-3">
+                          <div class="col-10"></div>
+                          <div class="col-2 pr-0 text_right">
+                          <button type="button" class="subscribe btn btn-danger btn-block" (click)="submitInputsheet()"> Submit </button>
+                          </div>
+                          </div> -->
+                        </div>
+  </div> </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+	<div class="sc-cgzHhG iePUPQ 4te4tr4e" style="padding-bottom: 1rem;">
+    <div class="sc-gMcBNU TehGa">
+      <div class="sc-iyvyFf eboBpz">
+        <button (click)="previoustab()"  class="sc-1kx5g6g-1 elxuhW sc-iLVFha dYzIFA button_footer" role="button" tabindex="0" aria-disabled="false">
+          <span tabindex="-1" class="sc-1kx5g6g-2 iJrIWA">
+            <span class="sc-1kx5g6g-3 dkwpEa">◀ &nbsp; Go back</span></span></button>
+            <div class="sc-dYzWWc fxBUzm">
+              <button placement="top" [ngbTooltip]="selectedOption==1?nextatzero:(selectedOption==2?nextatone:'')" *ngIf="selectedOption!=3" (click)="nextTab()" role="button" tabindex="0" aria-disabled="false" class="sc-1kx5g6g-1 elxuhW button_footer">
+                <span tabindex="-1" class="sc-1kx5g6g-2 iJrIWA">
+                  <span class="sc-1kx5g6g-3 dkwpEa">Next &nbsp;&nbsp; ▶</span></span>
+                </button>
+                <button placement="top" [ngbTooltip]="SubmitInputsheet"  *ngIf="selectedOption===3 " (click)="submitInputsheet()" role="button" tabindex="0" aria-disabled="false" class="sc-1kx5g6g-1 elxuhW button_footer">
+                  <span tabindex="-1" class="sc-1kx5g6g-2 iJrIWA">
+                    <span class="sc-1kx5g6g-3 dkwpEa">Submit Inputsheet &nbsp;&nbsp; ▶</span></span>
+                  </button>
+                  <!-- <button placement="top" [ngbTooltip]="SubmitInputsheet"  *ngIf="selectedOption===3 && isCS==false" (click)="submitInputsheetToCustomer()" role="button" tabindex="0" aria-disabled="false" class="sc-1kx5g6g-1 elxuhW button_footer">
+                    <span tabindex="-1" class="sc-1kx5g6g-2 iJrIWA">
+                      <span class="sc-1kx5g6g-3 dkwpEa">Submit Inputsheet &nbsp;&nbsp; ▶</span></span>
+                    </button> -->
+              </div></div></div></div>
+
+
+
+              <ng-template #content let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title"></h4>
+                  <button type="button" class="btn-close" aria-label="Close" (click)=" emptyForm(); modal.dismiss('Cross click')"></button>
+                </div>
+                <div class="modal-body">
+                  <p>{{modelText}}</p>
+                </div>
+                <div class="modal-footer">
+                  <!-- <button *ngIf="systemFormData.typeOfEq!='Fume_Hood' && systemFormData.typeOfEq!='Network_Rack'" type="button" class="btn btn-outline-dark" (click)=" handleOpen('cf rep'); modal.dismiss('Cross click')">Talk to a representative</button>
+                  <button *ngIf="systemFormData.typeOfEq!='Fume_Hood'&& systemFormData.typeOfEq!='Network_Rack'" type="button" class="btn btn-outline-dark" (click)="handleOpen('gss'); modal.dismiss('Cross click')">Total flooding system with CO2/Inert Agent</button>
+
+                  <button *ngIf="systemFormData.typeOfEq=='Network_Rack'" type="button" class="btn btn-outline-dark" 
+                  (click)=" modal.dismiss('Cross click')">Yes</button>
+                  <button *ngIf="systemFormData.typeOfEq=='Network_Rack'" type="button" class="btn btn-outline-dark" 
+                  (click)=" modal.dismiss('Cross click')">No</button>
+                 
+                  <button *ngIf="systemFormData.typeOfEq!='Fume_Hood'" type="button" class="btn btn-outline-dark" (click)=" handleOpen('exit'); ; modal.dismiss('Cross click')">Exit</button>
+                  <button *ngIf="systemFormData.typeOfEq=='Fume_Hood'" type="button" class="btn btn-outline-dark" (click)=" modal.dismiss('Cross click')">Close</button> -->
+               
+                </div>
+              </ng-template>
+              <ng-template #eqBattery
+              > 
+              <img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/battery_bank/open_enclosed.jpg" style="height: 200px;width: 200px;">
+              </ng-template
+            >
+            <ng-template #eqNetwork
+            > 
+            <img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/networkserverrack/network_rack_close.jpg" style="height: 200px;width: 200px;">
+            <img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/networkserverrack/network_rack_open.jpg" style="height: 200px;width: 200px;">
+            </ng-template
+          >
+          <ng-template #cncNewToolTip
+          > 
+          <p *ngIf="off==false">Verify if the protected area is enclosed.
+          </p><br>
+
+          </ng-template
+        >
+
+        <ng-template #epNewToolTip
+        > 
+        <p *ngIf="off==false">Verify if the elecrical panel is enclosed with or without ventilation free or forced.
+        </p><br>
+
+        </ng-template
+      >
+            <ng-template #BatteryBank
+            > 
+            <img *ngIf="off==false" src="https://ccrmuk.ceasefire.biz/assets/images/input_sheet_images_express/battery-cabinet.jpg" style="height: 200px;width: 200px;">
+            </ng-template
+          >
+          <ng-template #networkserver
+          > 
+          <img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/networkserverrack/net_close.jpg" style="height: 200px;width: 200px;">
+          </ng-template
+        >
+
+          <ng-template #directIN
+          > 
+          <img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/direct_indirect.jpg" style="height: 200px;width: 300px;">
+          </ng-template
+        >
+
+            <ng-template #gasCO2
+	>
+  <p><b>CO<sub>2</sub></b>: Residue free, CO<sub>2</sub> is perfect for fires Class B and C, making it ideal for high-risk enclosed spaces like  Generators, electrical panels, enclosed engine compartments etc. It has zero ODP.</p><br>
+
+	</ng-template
+>
+<ng-template #gasHFC227ea
+>
+
+
+<p *ngIf="off==false"><b>HFC 227ea</b>: Residue free, versatile and eco-friendly, zero ODP, this agent is applicable on fire Class A, B, C and fires involving electricity, and requires closed environments to extinguishing fire.</p><br>
+</ng-template
+>
+<ng-template #gasHFC236fa
+>
+<p *ngIf="off==false"><b>HFC236fa</b>: Residue free, efficient and eco-friendly. It has zero ODP and good streaming property. HFC236fa is designed for fire Class A, B, C and fires involving electricity. It requires closed environments to extinguish fire.</p><br>
+</ng-template
+>
+<ng-template #gasHCFC123
+>
+<p *ngIf="off==false"><b>HCFC123</b>: Residue free, reliable, HCFC123 is suitable for fire Class A, B, C and electrically started fires, it requires closed environments. It has very low ODP.</p><br>
+  </ng-template
+>
+<ng-template #gasFK
+>
+<p *ngIf="off==false"><b>FK</b>: Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C and electrically started fires. it requires closed environments to extinguish fires. </p><br>
+    </ng-template
+>
+<ng-template #gasFFF
+>
+<p *ngIf="off==false"><b>FFF</b>:  Designed for fires Class A and B  critical situations in fire such as Generators, engine, CNC machines etc. Environment friendly as it is free of Fluorine.</p><br>
+      </ng-template
+>
+<ng-template #gasPowder
+>
+<p *ngIf="off==false"><b>Powder</b>: Powerful and versatile, this agent tackles Class A, B, and C fires, electrically safe making it suitable for diverse scenarios to fight fires in all types of applications except sensitive equipment.</p><br>
+       </ng-template
+>
+<ng-template #DocumentNameTooltip
+>
+<p *ngIf="off==false"><p>Enter the name of document you are attaching. (eg. Layout plan)</p>
+       </ng-template
+>
+<ng-template #SubmitInputsheet
+>
+<p *ngIf="off==false"><p>If you want to edit your input post submission please go to my proposal.</p>
+       </ng-template
+>
+<ng-template #transformer
+> 
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/dry_transformer/transformar.jpg" style="height: 200px;width: 300px;">
+</ng-template
+>
+
+<ng-template #nextatzero
+>
+<p>Fill equipment details on next page.</p> 
+</ng-template
+>
+<ng-template #nextatone
+>
+<p>Attach drawing/pdf of room/equipment in next page.</p> 
+</ng-template
+>
+<ng-template #fume
+> 
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/Fume_hood/fume_hood1.jpg" style="height: 200px;width: 300px;">
+</ng-template
+>
+<ng-template #cnc
+> 
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/cnc_machine/cnc_machine.jpg" style="height: 200px;width: 300px;">
+</ng-template
+>
+<ng-template #electrical
+> 
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/Electrical_panel/electrical_panel.jpg" style="height: 200px;width: 300px;">
+</ng-template
+>
+<ng-template #genset
+> 
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/genset/Genset.jpg" style="height: 200px;width: 300px;">
+</ng-template
+>
+<ng-template #engine
+> 
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/engine/engine_single.jpg" style="height: 200px;width: 300px;">
+</ng-template
+>
+<ng-template #transformert
+> 
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/dry_transformer/transformar_single.jpg" style="height: 200px;width: 300px;">
+</ng-template
+>
+<ng-template #ups
+> 
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/UPS/ups_single.jpg" style="height: 200px;width: 300px;">
+</ng-template
+>
+
+

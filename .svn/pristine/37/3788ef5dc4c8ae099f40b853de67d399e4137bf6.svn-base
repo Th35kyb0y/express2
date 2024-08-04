@@ -1,0 +1,112 @@
+<main id="main">
+    <section class="inner-page p-0  sec_body">
+        <div class="container-fluid">
+            <div class="row">
+    <!-- <div class="col-12 row pull-left">
+        <div class="col-10 pull-left"></div>
+        <div class="col-2 pull-left text-right">
+        <div class="dropdown">
+            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Quicklinks
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+    </div> -->
+    <div class="col-12 text-center">
+
+        <span class="col-12 pull-left mb-3 mob_mt"><img src="http://cfx.ceasefire.biz/assets/voucher/specific_premises.jpg" class="img-fluid"></span>
+                   
+        <!-- <div class="col-xs-12 col-md-4 p-5 pull-left" style="height: 100%;">
+
+            <h2 class="mb-4">
+                Select the<br>
+                <span class="red_heading">{{this.typeObj?.select_txt1}}</span>
+                <br>you are looking {{this.typeObj?.select_txt2}}....
+            </h2>
+
+            <ng-container *ngFor="let item of expTypesObj;let i = index">
+
+                <p class="mb-5">
+                    {{item.description}}
+                </p>
+    
+                <p class="mb-4" *ngIf="item.mediaType==2">
+                    <img src="{{item.url}}" width="380" height="550" alt="Fire Extinguisher Picture">
+    
+                </p>
+                <p class="mb-4" *ngIf="item.mediaType==3">
+                    <iframe width="380" height="615" [src]="item.url | safe" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+    
+                </p>
+            </ng-container>
+            
+            
+        </div> -->
+        <!-- <div class="col-12">
+            <h3>Select the Area you are looking</h3>
+        </div> --> 
+        <div class="col-lg-4 col-md-4 col-xs-12 pull-left mb-5" *ngFor="let item of category ;let i=index">
+          
+              
+            <div class="col-12 pull-left">
+                <!-- <div class="col-md-10 pull-left font-w">
+                    <h4>{{i+1}} /{{item?.name}}</h4>
+                </div> -->
+                <div>
+                    <a routerLink="{{item.url}}" style="width: 360px;
+                " class="btn btn-light" *ngIf="urlType!='i-am-clear-what-i-need'"> 
+                        <img
+                        src="{{item?.imagePath}}" class="img-fluid" style="height: 200px;"
+                        alt="{{item.name}}">
+                        {{item?.name}}
+                        <i class="fa fa-arrow-circle-right ar_icon" aria-hidden="true"></i>
+                    </a>
+                    <a (click)="getChildren(item)" class="btn btn-light" *ngIf="urlType=='i-am-clear-what-i-need'"> 
+                        <img
+                        src="{{item?.imagePath}}" class="img-fluid"
+                        alt="{{item.name}}">
+                        <!-- {{item?.name}}
+                        <i class="fa fa-arrow-circle-right ar_icon" aria-hidden="true"></i> -->
+                    </a>
+                  
+                    </div>
+                    </div>
+                        <!-- <div class="col-12 pull-left" style="min-height: 80px;">
+                    {{item?.description}}
+                        </div> -->
+           
+                    <!-- <div class="col-md-9 pull-left"></div> -->
+                    <div class="col-md-8 pull-left" style="text-align: center;
+                    margin-top: -137px;
+                    margin-left: 90px;
+                ">
+                        <span>
+
+                           
+
+                            <!-- <a routerLink="{{gotoCategoryDetail(item)}}" class="shop_btn"> SHOP
+                                <i class="fa fa-arrow-circle-right ar_icon" aria-hidden="true"></i>
+                            </a> -->
+                        </span>
+
+                    </div>
+                    <!-- <div class="col-12 b_btm"></div> -->
+               
+
+       
+     
+
+    </div>
+    </div>
+</div>
+</div>
+</section>
+</main>

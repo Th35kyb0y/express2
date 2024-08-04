@@ -1,0 +1,26 @@
+<div class="cf-loader hide" id="cf-loader">
+  <div class="loadingio-spinner-eclipse-s16t73jfn68">
+      <div class="ldio-26swlx2sy5l">
+          <div></div>
+      </div>
+  </div>
+</div>
+
+<ng-container *ngIf="!apiService.isPaymentLink ">
+  <app-header *ngIf="!apiService.isCS && !apiService.getDE()"></app-header>
+  <!-- <app-quicklinkcomponent *ngIf="!apiService.isCS"></app-quicklinkcomponent> -->
+
+  <!-- Chat And Quick Link Button On Right Side -->
+  <!-- <app-chat-assistance *ngIf="!apiService.isCS"></app-chat-assistance> -->
+
+  <router-outlet></router-outlet>
+  <app-footer *ngIf="!apiService.isCS && !apiService.getDE() && !apiService.isOrderPage"></app-footer>
+</ng-container>
+
+<ng-container *ngIf="apiService.isPaymentLink">
+
+  <router-outlet></router-outlet>
+
+
+</ng-container>
+<div (window:resize)="onResize_PlatformService.onResize($event)"></div>

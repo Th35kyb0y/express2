@@ -1,0 +1,117 @@
+
+
+
+<app-cs-left-nav></app-cs-left-nav>
+    <div class="bg_grey">
+    <div id="main">
+      <app-cs-header [title]="'Spancowise'"></app-cs-header>
+    
+    
+    <!-- <div class="row"> -->
+    
+      
+    <div class="grey-bg container-fluid">
+      <section id="minimal-statistics">
+     <div class="row">
+<!-- 
+        <div class="col-12 container mt-2">
+            <div class="pull-right"><button class="btn btn-danger" (click)="ApiService.goBack()"><i class="fa fa-arrow-left"></i> Back</button></div>
+          </div> -->
+      
+          <div class="col-12 container row">
+            <div class="col-3">
+              <div class="mb-3">
+                <label for="Spanco" class="form-label">Spanco</label>
+                <select  [(ngModel)]="filterObj.Spanco" class="form-select" id="Spanco" name="Spanco">
+                  <option value="">--Select--</option>
+                  <option value="Approach">Approach</option>
+                  <option value="Close">Close</option>
+                  <option value="Collection">Collection</option>
+                  <option value="Drop">Drop</option>
+                  <option value="FAS">FAS</option>
+                  <option value="FSS">FSS</option>
+                  <option value="Negotiation">Negotiation</option>
+                  <option value="OMS">OMS</option>
+                  <option value="Order">Order</option>
+                  <option value="P R Calls">P R Calls</option>
+                  <option value="Presentation">Presentation</option>
+                  <option value="Proposal Resubmission">Proposal Resubmission</option>
+                  <option value="Proposal Submission">Proposal Submission</option>
+                  <option value="Prospect">Prospect</option>
+                </select>
+
+               
+                </div>
+            </div>
+         
+           
+            <div class="col-3 pt-2">
+              <button class="btn btn-danger mt-4 me-2" (click)="Filter()">
+                Search
+              </button>
+              <button class="btn btn-danger mt-4" (click)="clear()">
+                Clear
+              </button>
+            </div>
+          </div>
+
+              <div class="col-12 container mt-2">
+         
+                  <p *ngIf="List2.length==0" class="text-center mt-3">
+                      <span *ngIf="!IsShowLoader">Record not found</span>
+                     <span class="loader" *ngIf="IsShowLoader"></span></p>
+                <div class="row">
+                  <div class="col-md-12 overflow-scroll" style="height:350px;">
+                      <table class="table">
+                          <thead>
+                            <tr>
+                              <!-- Create table header based on the keys of the first object in the array -->
+                              <th *ngFor="let header of columns2 ">
+                                <ng-container *ngIf="header!='rn'">
+                                    {{ header }}
+                                </ng-container>
+                               
+                            </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <!-- Create table rows based on the array of objects -->
+                            <tr *ngFor="let row of List2">
+                              <td *ngFor="let cell of columns2 ">
+                                <ng-container *ngIf="cell!='rn'">
+                                    {{ row[cell] }}
+                                </ng-container>
+                              
+                            </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                  </div>
+              
+                </div>
+              
+                
+              </div>
+     </div>
+   
+    
+       
+      </section>
+    
+    </div>
+    
+    
+    <!-- </div> -->
+    
+    
+    
+    
+    </div>
+     
+    
+    </div>
+    
+    
+    
+    
+    

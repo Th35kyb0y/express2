@@ -1,0 +1,78 @@
+<!-- main start here-->
+<main id="main">
+    <section class="inner-page p-0 sec_body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 middle">
+                    <!--sidebarTop start here-->
+                    <app-sidebar></app-sidebar>
+                    <!--sidebarTop end here-->
+                    <!-- ======= Breadcrumbs ======= -->
+                    <section class="breadcrumbs bredcrumb_top">
+                        <div class="container-fluid ">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <ol class="breadcrumb  card_partd">
+                                    <li class="breadcrumb-item active"><a href="order">My Account</a></li>
+                                    <li class="breadcrumb-item"> <a routerLink="/products" routerLinkActive="active"
+                                            style="color: #c6000c">FAQ</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- End Breadcrumbs -->
+
+                    <!--FQA start here-->
+                    <div class="row">
+                        <div class="col-12 s0">
+
+                            Quick Guide Links
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-12 ">
+                            <div>
+                                <hr>
+                            </div>
+
+                          <div class="accordion accordion-flush" *ngFor="let i of CategoryFAQList; let index = index" [id]="'accordion-' + index">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" [id]="'heading-' + index">
+                                    <button class="accordion-button collapsed" (click)="toggleAccordion(index)" [attr.aria-expanded]="isAccordionOpen[index] ? 'true' : 'false'" [attr.aria-controls]="'collapse-' + index">
+                                        {{ i.categoryFAQ }}
+                                    </button>
+                                </h2>
+                                <div [id]="'collapse-' + index" class="accordion-collapse collapse" [attr.aria-labelledby]="'heading-' + index" data-bs-parent="#accordionFlushExample" [class.show]="isAccordionOpen[index]">
+                                    <div   *ngFor="let j of FAQList; let index1 = index">
+                                        <span *ngIf="j.categoryFAQ == i.categoryFAQ"  class="accordion-body">
+                                            <h5 [innerHTML]="j.question "></h5>
+                                            <div [innerHTML]="j.answer "></div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                            <div>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                    <!--FQA end here-->
+                </div>
+            </div>
+            <!-- chat assistant start-->
+              <!-- Chat And Quick Link Button On Right Side -->
+            <!-- <app-chat-assistance></app-chat-assistance> -->
+            <!-- chat assistant ends-->
+            <!--  commoncode start here-->
+            <div class="row">
+                <app-product-recommended></app-product-recommended>
+            </div>
+            <!-- commoncode end here-->
+        </div>
+    </section>
+</main>
+<!-- End #main -->

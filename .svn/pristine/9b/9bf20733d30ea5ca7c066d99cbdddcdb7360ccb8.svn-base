@@ -1,0 +1,91 @@
+
+
+
+<app-cs-left-nav></app-cs-left-nav>
+    <div class="bg_grey">
+    <div id="main">
+      <app-cs-header [title]="'Enquiry Status'"></app-cs-header>
+    
+    
+    <!-- <div class="row"> -->
+    
+      
+    <div class="grey-bg container-fluid">
+      <section id="minimal-statistics">
+     <div class="row">
+
+        <!-- <div class="col-12 container mt-2">
+            <div class="pull-right"><button class="btn btn-danger" (click)="ApiService.goBack()"><i class="fa fa-arrow-left"></i> Back</button></div>
+          </div> -->
+      
+         
+
+              <div class="col-12 container mt-4">
+         
+                  <p *ngIf="List2.length==0" class="text-center mt-3">
+                      <span *ngIf="!IsShowLoader">Record not found</span>
+                     <span class="loader" *ngIf="IsShowLoader"></span></p>
+                     
+                <div class="row">
+                  <div class="col-md-12 overflow-scroll" style="max-height:440px;">
+                      <table class="table table-bordered">
+                          <thead>
+                            <tr>
+                              <!-- Create table header based on the keys of the first object in the array -->
+                              <th *ngFor="let header of columns2 ">
+                                <ng-container *ngIf="header!='rn' && header!='Id' && header!='userId'">
+                                    {{ header }}
+                                </ng-container>
+                               
+                            </th>
+                            <th >Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <!-- Create table rows based on the array of objects -->
+                            <tr *ngFor="let row of List2">
+                              <td *ngFor="let cell of columns2 ">
+                                <ng-container *ngIf="cell!='rn' && cell!='Id' && cell!='userId'">
+                                    {{ row[cell] }}
+                                </ng-container>
+                              
+                            </td>
+                            <td> 
+                              <button  class="btn btn-danger btn-sm" type="button"
+                              title="Enquiry Status" (click)="enqueryStatus(row)"><i class="fa-cs fa fa-book mr-2"
+                                  aria-hidden="true"></i>
+                                  Enquiry Status
+                              </button>
+                            </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                  </div>
+              
+                </div>
+              
+                
+              </div>
+     </div>
+   
+    
+       
+      </section>
+    
+    </div>
+    
+    
+    <!-- </div> -->
+    
+    
+    
+    
+    </div>
+     
+    
+    </div>
+    
+    
+    
+    
+    

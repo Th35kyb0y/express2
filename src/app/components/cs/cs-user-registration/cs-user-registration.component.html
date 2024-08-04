@@ -1,0 +1,389 @@
+<div class="container-fluid">
+    <div class="card card-body p-3">
+        <div class="row">
+            <ng-container [formGroup]="userSignUp">
+                <!-- <form [formGroup]="userSignUp"> -->
+
+
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2 ">
+                    <div class="mb-3">
+                        <label for="isCustomerSelfCreated" class="form-label">Type </label>
+                      
+                            <select class="form-select"  name="isCustomerSelfCreated" formControlName="isCustomerSelfCreated" >
+                                
+                                <option value=""> --Select--</option>
+                                <option value="false"> Self</option>
+                                <option value="true">Inbound</option>
+                              </select>
+                              <div *ngIf="userSignUp.get('isCustomerSelfCreated')?.hasError('required') && userSignUp.get('isCustomerSelfCreated')?.touched"
+                              class="text-danger" style="width: 180px;">Inbound is required</div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2 ">
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
+                        <input type="text" placeholder="First Name" class="form-control" name="firstName" required
+                            formControlName="firstName" />
+                        <div *ngIf="userSignUp.get('firstName')?.hasError('required') && userSignUp.get('firstName')?.touched"
+                            class="text-danger" style="width: 180px;">First Name is required</div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2 ">
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Last Name <span class="text-danger">*</span></label>
+                        <input type="text" placeholder="Last Name" id="lastName" class="form-control" name="lastName"
+                            formControlName="lastName" />
+                        <div *ngIf="userSignUp.get('lastName')?.hasError('required') && userSignUp.get('lastName')?.touched"
+                            class="text-danger" style="width: 180px;">Last Name is required</div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2">
+                    <label for="CompanyName" class="form-label">Company Name/Individual Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="companyName" formControlName="companyName"   [ngClass]="{'disable-class': type=='Edit'}">
+                    <div *ngIf="userSignUp.get('companyName')?.hasError('required') && userSignUp.get('companyName')?.touched"
+                        class="text-danger">
+                        Company /Individual Name is required.
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2 ">
+                    <div class="mb-3">
+                        <label for="enquiry_Date" class="form-label">Enquiry Date <span
+                                class="text-danger">*</span></label>
+                        <input type="date" placeholder="Last Name" id="enquiry_Date" class="form-control"
+                            name="enquiry_Date" formControlName="enquiry_Date" />
+                        <div *ngIf="userSignUp.get('enquiry_Date')?.hasError('required') && userSignUp.get('enquiry_Date')?.touched"
+                            class="text-danger" style="width: 180px;">Enquiry Date is required</div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2">
+                    <label for="Time" class="form-label">Time <span class="text-danger">*</span></label>
+                    <input type="time" class="form-control" id="Time" formControlName="EnterTime">
+
+                    <div *ngIf="userSignUp.get('EnterTime')?.hasError('required') && userSignUp.get('EnterTime')?.touched"
+                        class="text-danger">
+                        Time is required.
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2">
+
+                    <div class="mb-3">
+                        <label for="mobile" class="form-label">Mobile Number <span class="text-danger">*</span></label>
+                        <input type="tel" class="form-control" id="mobile" placeholder="Enter Your Mobile Number"
+                            name="mobile" required formControlName="mobile" (keypress)="keyPress($event)">
+                        <div *ngIf="userSignUp.get('mobile')?.hasError('required') && userSignUp.get('mobile')?.touched"
+                            class="text-danger">Mobile is required</div>
+                    </div>
+
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2 ">
+                    <div class="mb-1">
+                        <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter Your Email" name="email" 
+                            required formControlName="email"  [ngClass]="{'disable-class': type=='Edit'}">
+                        <div *ngIf="userSignUp.get('email')?.hasError('required') && userSignUp.get('email')?.touched"
+                            class="text-danger">Email is required</div>
+                        <div *ngIf="userSignUp.get('email')?.hasError('email') && userSignUp.get('email')?.touched"
+                            class="text-danger">Invalid email format</div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2 ">
+                    <div class="mb-1">
+                        <label for="Sales_Pitch" class="form-label">Sales Pitch</label>
+                        <input type="text" class="form-control" id="Sales_Pitch" placeholder="Enter Sales Pitch" name="Sales_Pitch"
+                             formControlName="Sales_Pitch">
+                       
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2 ">
+                    <div class="mb-1">
+                        <label for="Notes" class="form-label">Notes </label>
+                        <input type="Notes" class="form-control" id="Notes" placeholder="Enter Notes" name="Notes"
+                             formControlName="Notes">
+                        
+                    </div>
+                </div>
+
+               
+
+
+                <!-- <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mb-2  mt-4 pt-2 ">
+            <button class="btn btn-danger" (click)="registerUser()">Submit</button>
+        </div> -->
+
+                <!-- </div> -->
+            </ng-container>
+        </div>
+    </div>
+    <div class="card card-body p-3 mt-3">
+        <div class="row ">
+            <!-- <form class="custom-form" [formGroup]="address" (ngSubmit)="saveAddressMaster()"> -->
+            <ng-container class="custom-form" [formGroup]="address" (ngSubmit)="saveAddressMaster()">
+
+                <!-- <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+                <label for="Time" class="form-label">Time <span class="text-danger">*</span></label>
+                <input type="time" class="form-control" id="Time" formControlName="EnterTime">
+
+                <div *ngIf="isFieldInvalid('EnterTime') && address.get('EnterTime')?.touched" class="text-danger">
+                    Time is required.
+                </div>
+            </div> -->
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2">
+                    <label for="EnquirySource" class="form-label">Enquiry Source <span
+                            class="text-danger">*</span></label>
+
+                    <select class="form-control" id="EnquirySource" formControlName="EnquirySource">
+                        <option value=""> --Select-- </option>
+                        <option *ngFor="let item of EnquirySourceList" value="{{item.name}}">{{item.name}}</option>
+                        <!-- <option>Facebook</option>
+                    <option>Instagram</option>
+                    <option>Google</option>
+                    <option>Whatsapp</option>
+                    <option>Print Media</option> -->
+                    </select>
+                    <div *ngIf="isFieldInvalid('EnquirySource') && address.get('EnquirySource')?.touched"
+                        class="text-danger">
+                        Enquiry Source is required.
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2">
+                    <label for="Segment" class="form-label">Segment <span class="text-danger">*</span></label>
+
+                    <select class="form-control" formControlName="Segment" id="Segment">
+                        <option value=""> --Select-- </option>
+                        <option *ngFor="let item of segmentList" value="{{item.title}}">{{item.title}}</option>
+                    </select>
+                    <div *ngIf="isFieldInvalid('Segment') && address.get('Segment')?.touched" class="text-danger">
+                        Segment is required.
+                    </div>
+                </div>
+
+                <!--  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+              <label for="mobilenumber" class="form-label">Mobile Number <span  class="text-danger">*</span></label>
+              <input type="number" class="form-control" id="mobile" formControlName="mobile" >
+              <div *ngIf="isFieldInvalid('mobile') && address.get('mobile')?.touched" class="text-danger">
+                Mobile Number is required.
+              </div>
+            </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+          <label for="email" class="form-label">Email address <span  class="text-danger">*</span></label>
+          <input type="email" class="form-control" id="email" formControlName="email" >
+          <div *ngIf="isFieldInvalid('email') && address.get('email')?.touched" class="text-danger">
+            Email address is required.
+          </div>
+        </div> -->
+
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2">
+                    <label for="zipcode" class="form-label">Zip Code <span class="text-danger">*</span></label>
+                    <input type="tel" class="form-control" id="pincode" formControlName="pincode"  >
+                    <div *ngIf="isFieldInvalid('pincode') && address.get('pincode')?.touched" class="text-danger">
+                        Zip Code is required.
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2">
+                    <label for="line1" class="form-label">Address Line 1 <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="line1" formControlName="line1"  >
+                    <div *ngIf="isFieldInvalid('line1') && address.get('line1')?.touched" class="text-danger">
+                        Address Line 1 is required.
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2">
+                    <label for="line2" class="form-label">Address Line 2</label>
+                    <input type="text" class="form-control" id="line2" formControlName="line2">
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2">
+                    <label for="State" class="form-label">State <span class="text-danger">*</span></label>
+
+                    <select class="form-control" id="State" (change)="getCity($event);" id="state"
+                        formControlName="state"  >
+                        <option value="">--Select--</option>
+                        <option *ngFor="let item of StateCommanDropdownEntity" [value]="item.stateName">
+                            {{item.stateName}}
+                        </option>
+                    </select>
+                    <div *ngIf="isFieldInvalid('state') && address.get('state')?.touched" class="text-danger">
+                        State is required.
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2">
+                    <label for="City" class="form-label">City <span class="text-danger">*</span></label>
+
+                    <select class="form-control" id="city" formControlName="city" name="City"  >
+                        <option value="">--Select--</option>
+                        <option *ngFor="let item of ciltyList" [value]="item.cityName"> {{item.cityName}} </option>
+                    </select>
+
+                    <div *ngIf="isFieldInvalid('city') && address.get('city')?.touched" class="text-danger">
+                        City is required.
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2">
+                    <label for="deliveryInstruction" class="form-label">Delivery Instruction </label>
+                    <input type="text" class="form-control" id="deliveryInstruction"
+                        formControlName="deliveryInstruction">
+
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2">
+                    <label for="GST_Number" class="form-label">GST Number </label>
+                    <input type="text" class="form-control" id="GST_Number" formControlName="gST_Number">
+
+                </div> 
+                
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2">
+                    <label for="Category1" class="form-label">Product Category 1 </label>
+
+                    <select class="form-control" id="Category1" formControlName="Category1"
+                        (change)="selectCat2($event)">
+                        <option value="">--select--</option>
+                        <option *ngFor="let option of options1" [value]="option.id">{{ option.name }}</option>
+                    </select>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2">
+                    <label for="Category2" class="form-label">Product Category 2 </label>
+
+                    <select class="form-control" id="Category2" formControlName="Category2"
+                        (change)="selectCat3($event)">
+                        <option value="">--select--</option>
+                        <option *ngFor="let option of options2" [value]="option.id">{{ option.name }}</option>
+                    </select>
+
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2">
+                    <label for="Category3" class="form-label">Product Category 3 </label>
+
+                    <select class="form-control" id="Category3" formControlName="Category3">
+                        <option value="">--select--</option>
+                        <option *ngFor="let option of options3" [value]="option.id">{{ option.name }}</option>
+                    </select>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-12 col-lg-12 mb-2">
+                    <label for="Remarks" class="form-label">Remarks </label>
+                    <input type="text" class="form-control" id="Remarks" formControlName="Remarks">
+
+
+                </div>
+                <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-4 pt-2">
+            <button [disabled]="address.invalid" type="submit" class="btn btn-danger pull-right">Submit</button>
+        </div> -->
+
+
+            </ng-container>
+
+            <!-- <ng-container class="custom-form" [formGroup]="contact" (ngSubmit)="saveContactMaster()">
+
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+                <label for="ContactPersonName" class="form-label">Contact Person Name <span
+                        class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="ContactPersonName" formControlName="ContactPersonName">
+                <div *ngIf="isFieldInvalidInContact('ContactPersonName') && contact.get('ContactPersonName')?.touched"
+                    class="text-danger">
+                    Last Name is required.
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+                <label for="CompanyName" class="form-label">Company Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="companyName" formControlName="companyName">
+                <div *ngIf="isFieldInvalidInContact('companyName') && contact.get('companyName')?.touched"
+                    class="text-danger">
+                    Company Name is required.
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+                <label for="mobilenumber" class="form-label"> Contact Person Mobile Number <span
+                        class="text-danger">*</span></label>
+                <input type="number" class="form-control" id="mobile" formControlName="mobile">
+                <div *ngIf="isFieldInvalidInContact('mobile') && contact.get('mobile')?.touched" class="text-danger">
+                    Mobile Number is required.
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+                <label for="email" class="form-label">Contact Person Email address <span
+                        class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="email" formControlName="email">
+                <div *ngIf="isFieldInvalidInContact('email') && contact.get('email')?.touched" class="text-danger">
+                    Email address is required.
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        </ng-container> -->
+
+        </div>
+    </div>
+
+    <div class="row" *ngIf="!ApiService.IsAdMin &&type!='Edit'">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+            <ng-container *ngIf="approverRemarks">
+                {{approverRemarks}}
+            </ng-container>
+            
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-2 ">
+            <button [disabled]="userSignUp.invalid" type="button" class="btn btn-danger pull-right"
+                (click)="SubmitBtn()" *ngIf="type!='Edit'">Submit</button>
+        </div>
+
+    </div>
+    <div class="row" *ngIf="ApiService.IsAdMin &&type =='Edit'">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 ">
+          
+                <label for="ApproverRemarks" class="form-label">Remarks</label>
+                <textarea class="form-control" id="ApproverRemarks" rows="3"
+                [(ngModel)]="approverRemarks"
+                ></textarea>
+           
+        </div>
+       
+        <div class="col-xs-12 col-sm-12 col-md-14 col-lg-4 mt-5 pt-2">
+            <ng-container *ngIf="isApproved==0">
+                <button  type="button" class="btn btn-danger pull-left py-2"
+                (click)="RejectApproved(2)" *ngIf="type=='Edit'" style="    margin-right: 10px;">Reject</button> &nbsp;
+                <button  type="button" class="btn btn-danger pull-left py-2"
+                    (click)="RejectApproved(1)" *ngIf="type=='Edit'">Approve</button>
+            </ng-container>
+           
+        </div>
+
+    </div>
+
+    <div class="row" *ngIf="!ApiService.IsAdMin &&type =='Edit'">
+       
+       
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <ng-container *ngIf="isApproved==0 || isApproved==2">
+                <button [disabled]="userSignUp.invalid" type="button" class="btn btn-danger pull-right"
+                (click)="SubmitBtn()" *ngIf="type=='Edit'">Update</button>
+            </ng-container>
+           
+        </div>
+
+    </div>
+
+
+
+</div>

@@ -1,0 +1,56 @@
+<app-cs-left-nav></app-cs-left-nav>
+<div class="bg_grey">
+    <div id="main">
+        <app-cs-header [title]="'Prospects'"></app-cs-header>
+
+
+
+
+        <div class="grey-bg container-fluid">
+            <section id="minimal-statistics">
+
+                <div class="row">
+                    <div class="col-md-12 overflow-scroll" style="max-height:340px;">
+                      <table class="table table-bordered table-hover table-striped w-auto" id="cs-registration-table">
+                        <thead class="thead-light ">
+                            <tr>
+                             
+                                <th>Select</th>
+                                <th >ID</th>
+                                <th > Name</th>
+                                <th >Prospect Code</th>
+                                <th >Expected Closur Value</th>
+                            
+                                <th >Created Date</th>
+                                <th>Action</th>
+                              
+                            </tr> 
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of ProspectCodeList">
+                            
+                      
+                              
+                                <td>{{item.userId}}</td>
+                                <td>{{item.userName}} </td>
+                                <td>{{item.prospectCode}}</td>
+                                <td>{{item.expected_ClosureValue}}</td>
+                                <td>{{item.createdDate | date:'MMM d, y h:mm a'}}</td>
+                                <td></td>
+                    
+                           
+                              
+                    
+                            </tr>
+                    
+                        </tbody>
+                    </table>
+                    </div>
+                
+                  </div>
+
+            </section>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,249 @@
+<!-- main start here-->
+<main id="main">
+    <section class="inner-page p-0  sec_body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="bg_img">
+		
+                    <div class="bg_white">
+                        <div class="col-8 floot">
+                    <h5>Fire Solutions for</h5> 
+                        
+                <h1>Battery Banks</h1>
+                
+                <p>Battery banks are prone to fire because they contain a large number of lithium-ion batteries. These batteries are prone to fire because they contain flammable materials, such as the electrolyte inside the batteries.
+
+                </p>   
+                <p>They can also overheat if they are not properly ventilated, which can lead to a fire. Additionally, a short circuit can occur if two conductors touch each other that should not be touching, which can also cause a fire. Battery banks need protection from fire to prevent property damage, protect people, and prevent environmental damage.</p>
+            </div>
+                
+              <div class="col-3 floot ml-3"><img src="../../../../assets/images/battery_bank/box_rgt_1.png" width="340" height="310" alt=""/></div> 
+                    </div>
+                    
+            </div>
+                
+                <div class="box_2">
+                    <div class="col-9 floot mt-5">
+                    <h2>
+            Ceasefire: Where Fire Safety<br>
+            Meets Reliability.</h2>
+                        
+                        <p>To mitigate fire risks in battery banks, they must be equipped with specialised fire fighting systems that are designed to specifically address the risk of battery bank fires. With Ceasefire’s advanced fire extinguishers and systems you can take the safety of battery banks to another level. Our state-of-the-art solutions are meticulously crafted to minimise the collateral damage to battery banks.</p>
+            
+             
+            
+            <p>Our proven record speaks volumes – your business's well-being is our top priority. When you choose Ceasefire, you're not just choosing a fire safety solution. You're opting for a partner that's dedicated to upholding the utmost reliability, protecting your assets, safeguarding your business's continuity, and providing you with the peace of mind you deserve.</p>
+                    </div>
+                    <div class="col-2 floot ml-3"><img src="../../../../assets/images/battery_bank/box_rgt_2.png" width="230" height="400" alt=""/></div> 
+                
+                </div>
+                
+                </div>
+                <div class="col-12 text-center heading_f my-2">  <h3 class="mb-0">Fire Facts That Need Your Attention</h3></div>
+              <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+                    <div class="container">
+                        
+                        <!-- <h3>Fire Facts That Need Your Attention</h3> -->
+                      <div class="carousel-caption">
+                       
+                        <p class="opacity-75">127 fire incidents involving battery banks in India were reported in 2021 alone.
+
+                          This resulted in 47 deaths and 115 injuries.</p>
+                        <p>- Indian Bureau of Fire Services (BOFS)</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+                    <div class="container">
+                      <div class="carousel-caption">
+                      
+                        <p>As per National Building Code of India (NBC) 2021  guidelines, battery banks should be equipped with a fire suppression system that is appropriate for the type of batteries being stored. </p>
+                        <!-- <p> – The Hindu</p> -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+                    <div class="container">
+                      <div class="carousel-caption">
+                      
+                          <p>There were over 1,000 reported battery fires in India in 2021</p>
+                        <p>- Indian Institute of Technology, Madras</p>
+                      </div>
+                    </div>
+                  </div>
+
+           
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            
+            
+            <div class="box_4">
+                    <div class="col-12 text-center">
+                    <h2>
+                      Common Causes Of Fire In Battery Banks</h2>
+                       
+                    </div>
+                    <div class="row text-center">
+                      <div class="col-md-1 "></div>
+                        <div class="col-md-2 col-lg-2 col-xs-12">
+                      <img src="https://ccrmuk.ceasefire.biz/assets/images/battery_bank/img_1.png" class="img-fluid" alt=""/>
+                    </div>
+                    <div class="col-md-2 col-lg-2 col-xs-12">
+                      <img src="https://ccrmuk.ceasefire.biz/assets/images/battery_bank/img_2.png" class="img-fluid" alt=""/>
+                    </div>
+                    <div class="col-md-2 col-lg-2 col-xs-12">
+                      <img src="https://ccrmuk.ceasefire.biz/assets/images/battery_bank/img_3.png" class="img-fluid" alt=""/>
+                    </div>
+                    <div class="col-md-2 col-lg-2 col-xs-12">
+                      <img src="https://ccrmuk.ceasefire.biz/assets/images/battery_bank/img_4.png" class="img-fluid" alt=""/>
+                    </div>
+                    <div class="col-md-2 col-lg-2 col-xs-12">
+                      <img src="https://ccrmuk.ceasefire.biz/assets/images/battery_bank/img_5.png" class="img-fluid" alt=""/>
+                    </div>
+                    <div class="col-md-1 "></div>
+                   
+      
+                    </div>
+                
+                </div>
+            
+            
+                <div class="box_5 row">
+                    <div class="col-12 text-center mb-2">
+                        <h2>
+                            Cost of Not Addressing The Risk</h2>
+                    </div>
+    
+                    <div class="col-12 mt-5">
+    
+                        <div class="col-3 floot text-center">
+                       <img src="../../../../assets/images/battery_bank/rack_cost.png" width="180" height="110"
+                                alt="" /> 
+                            <p>Average Server Rack<br> Cost</p>
+                        </div>
+                        <div class="col-3 floot text-center ">
+                         <img src="../../../../assets/images/battery_bank/battery_bank_fire2.png" width="180" height="110"
+                                alt="" /> 
+                            <p>Average Cost of<br> Battery Bank Fire</p>
+                        </div>
+                        <div class="col-3 floot text-center ">
+                       <img src="../../../../assets/images/battery_bank/downtime3.png" width="180" height="110"
+                                alt="" /> 
+                            <p>Average Downtime</p>
+                        </div>
+                        <div class="col-3 floot text-center ">
+                      <img src="../../../../assets/images/battery_bank/monetry_terms_4.png" width="180" height="110"
+                                alt="" /> 
+                            <p>Downtime in<br> Monetary Terms</p>
+                        </div>
+    
+                    </div>
+    
+                    <div class="col-12 text-center mt-5 pull-left" style="font-weight: 500;">* Estimated costs as per industry experts and secondary data.</div>
+                </div>
+            
+            <div class="box_6 row">
+                    <div class="col-12 text-center">
+                    <h2>
+            
+                        Safeguards in Just 3 Steps</h2>
+                        
+                        
+                    </div>
+                
+                <div class="bg_white2 mt-5">
+                
+                <div class="col-4 floot mar_top text-center">
+                  <img src="../../../../assets/images/electrical_panel/detect.png" width="190" height="188" style="margin-top: -72px;" alt=""/> 
+                    <h3>
+                        DETECT</h3>
+                    <p>Identifies fire at its origin through specialised Heat Sensing Tube.</p>
+            
+                    </div>
+                    
+                    <div class="col-4 floot mar_top text-center">
+                      <img src="../../../../assets/images/electrical_panel/TRIGGER.png" width="190" height="188" style="margin-top: -68px;" alt=""/> 
+                    <h3>TRIGGER
+                    </h3>
+            
+                    <p>The mechanism triggers autonomously, safeguarding even in unattended situations.</p>
+            
+                    </div>
+                    <div class="col-4 mar_top floot text-center">
+                      <img src="../../../../assets/images/electrical_panel/SUPPRESS.png" width="190" height="188" style="margin-top: -68px;" alt=""/>
+                    <h3>SUPPRESS </h3>
+            
+                    <p>Extinguishes fire rapidly ensuring safety for individuals, machinery, and surroundings. </p>
+            
+                    </div>
+                
+                
+                </div>
+                    
+                
+                </div>
+            
+            <div class="bg_img2">
+                <div class="col-12 text-center">
+                    <div class="BG_TOP"><h3>Fusion of Flexibility and Expertise</h3></div></div>
+                    <div class="bg_white3">
+                        <div class="col-12 text-center">
+                        
+               </div>
+                <div class="col-12 floot">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="">
+                          <div class="carousel-item active">
+                            <img class="d-block w-100" src="../../../../assets/images/battery_bank/btm_img_last.png" alt="First slide">
+                          </div>
+                         
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+
+
+                </div>
+                
+                
+            
+                
+            
+                    
+        </div>
+        </div>
+
+        <app-app-product-details [ApplicationAreaId]="2021">
+        </app-app-product-details>
+        </div>
+    </section>
+</main>

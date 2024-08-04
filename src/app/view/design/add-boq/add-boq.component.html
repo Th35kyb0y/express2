@@ -1,0 +1,289 @@
+<!-- main start here-->
+<app-designheader></app-designheader>
+<main id="main">
+            <div class="row">
+                <div class="col-12 middle">
+                    <section class="breadcrumbs bredcrumb_top">
+                        <div class="container-fluid ">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <ol class="breadcrumb  card_partd">
+                                    <li class="breadcrumb-item active"><a href="order">My Account</a></li>
+                                    <li class="breadcrumb-item"> <a routerLink="/products" routerLinkActive="active"
+                                            style="color: #c6000c">My Proposal</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- End Breadcrumbs -->
+
+                    <!--  proposal start here-->
+                    <div class="row mt-2">
+                      <div class="col-10">
+
+                      </div>
+                      <div class="col-2">
+                        <button type="button" class="btn btn-outline-primary btn_1" (click)="addBOQ(addboq)">Add Product</button>
+
+                      </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-12">
+                            <hr>
+                        </div>
+
+                    </div>
+                    <table class="table table-responsive " >
+                    <thead  >
+                        <tr>
+                            <th scope="col" class="addBAQTable"  width="5%" >#</th>
+                            <th scope="col" class="addBAQTable"  width="10%">Product Images</th>
+                            <th scope="col" class="addBAQTable" width="10%">Product Code</th>
+                            <th scope="col" class="addBAQTable" width="12%">Product Name</th>
+                            <th scope="col" class="addBAQTable"  width="50%">Product Description</th>
+                            <th scope="col" class="addBAQTable"  width="7%">Price</th>
+                            <th scope="col" class="addBAQTable"  width="50%">Qty</th>
+                            <th scope="col" class="addBAQTable"  width="20%">Total Price</th>
+                            <th scope="col"  class="addBAQTable" width="7%">Unit</th>
+                            <th scope="col" class="addBAQTable"  width="7%">Make</th>
+                            <th scope="col" class="addBAQTable"  width="7%">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let PL of objBoqList; let i = index;">
+                            <td>{{i+1}}</td>
+                            <td><img style="width:60px;height: 60px;" src="{{ PL.productImage }}"></td>
+                            <td>{{PL.productCode}}</td>
+                            <td>{{PL.productName}}</td>
+                            <td>{{PL.productDesc}}</td>
+                            <td>{{PL.productPrice}}</td>
+                            <td>{{PL.qty}}</td>
+                            <td>{{PL.productPrice * PL.qty}}</td>
+                            <td>{{PL.unit}}</td>
+                            <td>{{PL.make}}</td>
+                            <td>
+                            <a style="cursor: pointer;" class="mr-4" title="Delete Product"
+                                (click)="ProductDelete(PL)">
+                                <i style="color: #dc3545; font-size: 18px;  background-color: none; "
+                                    class="fa fa-trash-o"></i>
+                            </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button type="button" class="btn btn-success btn_1" (click)="submitTODTH()">Submit TO Design Team Head</button>
+                </div>
+            </div>
+</main>
+<!-- End #main -->
+
+<ng-template #addboq let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Add BOQ</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+        <div class="row">
+            <div class="col-4 mb-3">
+                <label for="designerName">Category 1</label>
+                <div class="input-group">
+                    <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="category1" [ngModelOptions]="{standalone: true}" required (change)="getProductList('Category2')">
+                        <option value="0">-- Select--
+                        </option>
+                          <ng-container *ngFor="let item of category1List">
+                              <option value="{{item.id}}">
+                                {{item.name}}
+                              </option>
+                          </ng-container>
+                      </select>
+
+                </div>
+            </div>
+            <div class="col-4 mb-3">
+                <label for="designerName">Category 2</label>
+                <div class="input-group">
+                    <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="category2" [ngModelOptions]="{standalone: true}" required (change)="getProductList('Category3')">
+                        <option value="0">-- Select--
+                        </option>
+                          <ng-container *ngFor="let item of category2List">
+                              <option value="{{item.id}}">
+                                {{item.name}}
+                              </option>
+                          </ng-container>
+                      </select>
+
+                </div>
+            </div>
+            <div class="col-4 mb-3">
+                <label for="designerName">Category 3</label>
+                <div class="input-group">
+                    <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="category3" [ngModelOptions]="{standalone: true}" required  (change)="getProductList('ProductList')">
+                        <option value="0">-- Select--
+                        </option>
+                          <ng-container *ngFor="let item of category3List">
+                              <option value="{{item.id}}">
+                                {{item.name}}
+                              </option>
+                          </ng-container>
+                      </select>
+
+                </div>
+            </div>
+            <div class="col-12 scrollable-table" >
+                <!-- <table
+                class="form-control"  style="height: 250px; width: 100%; overflow-y: auto;">
+                <thead  style="color: #000; background-color: #f8f9fc;">
+                    <tr>
+                        <th >#</th>
+                        <th >Product Image </th>
+                        <th >Product Code</th>
+                        <th >Product Name</th>
+                        <th >Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let PL of productList; let i = index;">
+                        <td style="min-width:40px ;"> &nbsp; &nbsp;
+
+                            <input (change)="AddProduct(PL)" type="radio" id="radio_{{i}}" value="true" style="color:#00bcd4"
+                                 name="gender">
+
+                        </td>
+                        <td>
+                            <img style="width:60px;height: 60px;" src="{{ PL.imageLink }}">
+                        </td>
+                        <td style="min-width:100px">{{ PL.code }}</td>
+                        <td style="max-width:250px">{{ PL.name }}</td>
+                        <td  *ngIf="PL.price!=0" style="min-width:50px">{{ PL.price}}
+                        </td>
+                        <td *ngIf="PL.price==0" style="min-width:50px">
+                            <input type="text" class="form-control" style="width: 100px;"
+                                [ngModelOptions]="{standalone: true}" [(ngModel)]="PL.unitPrice"
+                                >
+                        </td>
+
+                    </tr>
+                </tbody>
+               </table> -->
+
+
+
+
+               <!-- <div class="mb-2 d-flex justify-content-between align-items-center">
+
+                <div class="position-relative">
+                    <span class="position-absolute search"><i class="fa fa-search"></i></span>
+                    <input class="form-control w-100" placeholder="Search by order#, name...">
+                </div>
+
+                <div class="px-2">
+
+                    <span>Filters <i class="fa fa-angle-down"></i></span>
+                    <i class="fa fa-ellipsis-h ms-3"></i>
+                </div>
+
+            </div> -->
+
+
+
+               <div class="container mt-5 px-2">
+
+
+                <div class="table-responsive scrollable-table" style="height: 250px; width: 100%; overflow-y: auto;" >
+                <table class="table table-responsive table-borderless" style="height: 250px; width: 100%; overflow-y: auto;">
+<!-- class="tableHeader" -->
+                  <thead >
+                    <tr >
+                      <th scope="col" style="color: #000;
+                      background-color: #bfc2ca;"  width="5%">#</th>
+                      <th scope="col" style="color: #000;
+                      background-color: #bfc2ca;"  width="20%">Product Image</th>
+                      <th scope="col" style="color: #000;
+                      background-color: #bfc2ca;"  width="10%">Product Code</th>
+                      <th scope="col" style="color: #000;
+                      background-color: #bfc2ca;"  width="20%">Product Name</th>
+                      <th scope="col" style="color: #000;
+                      background-color: #bfc2ca;" width="20%">Price</th>
+                      <!-- <th scope="col" class="text-end" width="20%"><span>Revenue</span></th> -->
+                    </tr>
+                  </thead>
+              <tbody>
+                <tr *ngFor="let PL of productList; let i = index;">
+                  <th scope="row">
+
+                    <input (change)="AddProduct(PL)" class="form-check-input" type="radio" id="radio_{{i}}" value="true" style="color:#00bcd4"
+                    name="gender">
+
+                  <td>
+                    <img style="width:60px;height: 60px;" src="{{ PL.imageLink }}">
+                  </td>
+                  <td>{{ PL.code }}</td>
+                  <td>{{ PL.name }}</td>
+                  <td *ngIf="PL.price!=0">{{ PL.price}}</td>
+                  <td *ngIf="PL.price==0" >
+                    <input type="text" class="form-control" style="width: 100px;"
+                        [ngModelOptions]="{standalone: true}" [(ngModel)]="PL.unitPrice"
+                        >
+                </td>
+                </tr>
+
+              </tbody>
+            </table>
+
+              </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <label>Qty</label>
+                    <input type="number" min="0" max="99999" onkeydown="return event.keyCode !==69"
+                    onkeypress="if(this.value.length==5) return false" [(ngModel)]="objAddBoqEntity.qty"
+                        class="form-control">
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <label>UOM</label>
+                    <input type="text" [(ngModel)]="objAddBoqEntity.unit" disabled class="form-control">
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <label> Product Description</label>
+                    <input type="text" [(ngModel)]="objAddBoqEntity.productDesc" class="form-control">
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <label> Make</label>
+                    <input type="text" [(ngModel)]="objAddBoqEntity.make" class="form-control">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <label> Remarks</label>
+                    <textarea type="text" [(ngModel)]="objAddBoqEntity.designerRemark" class="form-control"
+                        cols="6" rows="4"></textarea>
+                </div>
+            </div>
+
+
+            </div>
+
+
+        </div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="saveBOQ()">Save</button>
+        <button type="button" class="btn btn-danger" (click)="modal.dismiss()">Close</button>
+	</div>
+</ng-template>

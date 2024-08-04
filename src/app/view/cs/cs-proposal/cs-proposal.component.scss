@@ -1,0 +1,26 @@
+.fixed-header {
+    position: fixed;
+    width: 100%;
+    background-color: #c9242c;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    top: 0px;
+    left: 0px !important;
+  }
+
+  .cs-nav-height{
+    min-height: 45px;
+}
+
+th{ font-weight: 500;}
+.cs-nav-f{
+    font-size: 13px!important;
+    font-weight: 400;
+    font-family: Inter,Helvetica,sans-serif;
+    
+}
+
+.row-cs{
+    width: 100%
+ }

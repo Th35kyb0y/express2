@@ -1,0 +1,202 @@
+<header id="mobile-header" class="mobile-header mobile-fixed-top d-flex align-items-center top_red shadow-sm">
+
+    <div class="d-flex align-items-center justify-content-between w-60-p">
+      <a  class="logo d-flex align-items-center" (click)="CloseMenu()" routerLink="/">
+        <!-- <img src="./../../../../assets/images/mobile-h-logo.png" alt="" width="80px"> -->
+        <img src="http://cfx.ceasefire.biz/assets/LOGO_express.svg" width="220" height="100" alt="" />
+        <span class="d-none d-lg-block">Ceasefire Express </span>
+      </a>
+      <!-- <i class="fa fa-bars mobile-toggle-sidebar-btn text-light" (click)="onClickToggle()"></i> -->
+    </div><!-- End Logo -->
+
+  
+
+ 
+
+    <nav class="mobile-header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+
+       
+
+        <li class="nav-item  pe-3 mx-4">
+
+            <!-- <ng-container *ngIf="!isLoggedIn()">
+                <button type="button" class="btn btn-outline-light"  (click)="logIn('Log in')">Login</button>
+            </ng-container> -->
+            <i class="fa fa-bars mobile-toggle-sidebar-btn text-light" (click)="onClickToggle()"></i>
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav>
+    <!-- End Icons Navigation -->
+  
+
+    
+ <!-- ======= Sidebar ======= -->
+ <aside id="mobile-sidebar" class="mobile-sidebar px-3">
+
+    <ul class="mobile-sidebar-nav" id="mobile-sidebar-nav">
+
+      <li class="nav-item mt-5 ">
+       
+        <!-- <a class="nav-link bg-color-m mt-3" routerLink="/" (click)="CloseMenu()">
+            <img src="http://cfx.ceasefire.biz/assets/LOGO_express.svg" width="150" height="50" alt="" />
+        </a>  -->
+      </li>
+      <!-- <li class="nav-item mt-3 ">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search"
+                aria-label="Search by product" aria-describedby="basic-addon2" [(ngModel)]="searchInput">
+            <button class="input-group-text input" id="basic-addon2" (click)="searchProduct()">Search</button>
+        </div>
+      </li> -->
+      <!-- End Dashboard Nav -->
+
+      <ng-container *ngIf="menusList.length>=5">
+        <ng-container *ngFor="let item of menusList;let i=index;">
+            <li class="nav-item" *ngIf="i==0">
+                <a class="nav-link scrollto z1" routerLink="/" (click)="CloseMenu()">{{menusList[0].menuName}} 
+                    
+                </a>
+              
+            </li>
+            <li class="nav-item" *ngIf="i==1">
+                <a class="nav-link collapsed"  data-bs-target="#collection-nav" data-bs-toggle="collapse" href="#">{{item.menuName}} 
+                    <i class="fa fa-caret-down ms-auto"></i>
+                </a>
+                <ul id="collection-nav" class="nav-content collapse " data-bs-parent="#mobile-sidebar-nav">
+                    <li *ngFor="let item of collectinsList;let i=index">
+                      
+                      <a (click)="getChildren(item)">{{item.collectionName}}</a>
+                    </li>
+                    
+                  </ul>
+            </li>
+            
+            <li class="nav-item" *ngIf="i==2">
+                <a class="nav-link collapsed" (dblclick)="goToApplicationArea();CloseMenu()" 
+                data-bs-target="#application-nav" data-bs-toggle="collapse" href="#">{{item.menuName}}
+                <i class="fa fa-caret-down ms-auto"></i>
+            </a>
+                <ul id="application-nav" class="nav-content collapse " data-bs-parent="#mobile-sidebar-nav">
+                    <li *ngFor="let item of areasList;let i=index">
+                      
+                      <a  routerLink='{{item.url}}'  [queryParams]="{ id: item.id}" (click)="CloseMenu()">{{item.name}}</a>
+                    </li>
+                    
+                  </ul>
+            </li>
+            <li class="nav-item" *ngIf="i==3">
+                <a class="nav-link scrollto z1" (dblclick)="goToSegment();CloseMenu();" 
+                data-bs-target="#segment-nav" data-bs-toggle="collapse" href="#">{{item.menuName}}
+                <i class="fa fa-caret-down ms-auto"></i>
+            </a>
+                <ul id="segment-nav" class="nav-content collapse " data-bs-parent="#mobile-sidebar-nav">
+                    <li *ngFor="let item of segmentsList;let i=index">
+                      
+                      <a  (click)="getSegment(item)"  >{{item.name}}</a>
+                    </li>
+                    
+                  </ul>
+            </li>
+            <li class="nav-item" *ngIf="i==3">
+                <a class="nav-link scrollto z1" routerLink="/exp-type/i-need-fire-audit-for-my-premises"  (click)="CloseMenu()">{{item.menuName}}</a>
+            </li>
+        
+        </ng-container>
+
+      </ng-container>
+
+  
+    </ul>
+
+  </aside><!-- End Sidebar-->
+  </header>
+<header class="sub-header">
+  <div class="row py-3">
+    <div class="col-5">
+      <div class="input-group mx-3">
+        <input type="text" class="form-control" placeholder="Search"
+            aria-label="Search by product" aria-describedby="basic-addon2" [(ngModel)]="searchInput">
+        <button class="input-group-text input" id="basic-addon2" (click)="searchProduct()"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </div>
+    </div>
+    <div class="col-5">
+      <nav class="mobile-header-nav ms-auto">
+        <ul class="d-flex align-items-center">
+  
+          <!-- <li class="nav-item d-block d-lg-none">
+            <a class="nav-link nav-icon search-bar-toggle " href="#">
+              <i class="bi bi-search"></i>
+            </a>
+          </li> -->
+  
+          <li class="nav-item ">
+  
+            <a *ngIf="isLoggedIn()" class="nav-link nav-icon" (click)="toggleDropdown()">
+              <i class="fa fa-bell text-light"></i>
+              <span class="badge bg-dark badge-number">{{ notificationtotal }}</span>
+            </a><!-- End Notification Icon -->
+  
+            <ul class="dropdown-menu" [ngClass]="{ 'show': dropdownOpen }">
+              <!-- <li *ngFor="let notification of notifications">{{ notification }}</li> -->
+              <app-notification (notificationEvent)="toggleDropdown()" #appNotification></app-notification>
+              <li *ngIf="notifications.length === 0">No new notifications</li>
+            </ul><!-- End Notification Dropdown Items -->
+  
+          </li><!-- End Notification Nav -->
+  
+          <li class="nav-item ">
+  
+            <a class="nav-link nav-icon" routerLink="/products/MyCart">
+              <i class="fa fa-shopping-cart text-light"></i>
+              <span class="badge bg-dark badge-number">{{cart}}</span>
+            </a><!-- End Messages Icon -->
+  
+  
+          </li><!-- End Messages Nav -->
+  
+          <li class="nav-item  pe-3">
+  
+              <ng-container *ngIf="!isLoggedIn()">
+                  <button type="button" class="btn btn-outline-light"  (click)="logIn('Log in')">Login</button>
+              </ng-container>
+              <ng-container *ngIf="isLoggedIn()">
+  
+                  <ng-template #popoverContent>
+                             
+                      <div class="custom-popover">
+                          <ul>
+                              <li>{{firstName}}</li>
+                            <li>
+                              <a routerLink="/customer-dashboard">   My Account</a>
+                           
+                              </li>
+                              <li>
+                                  <a (click)="logout()">   Log Out</a>
+                               
+                                  </li>
+                          </ul>
+                        </div>
+  
+                    
+  
+                      
+                     </ng-template>
+  
+                  <a class="profile-icon nav-link nav-profile" id="dropdownMenuButton"  [ngbPopover]="popoverContent"  >
+                      {{ nameFirstCharector }}
+                        
+                  </a>
+  
+              </ng-container>
+  
+           
+          </li><!-- End Profile Nav -->
+  
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

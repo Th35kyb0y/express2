@@ -1,0 +1,48 @@
+<div class="modal-header">
+    <h5 class="modal-title">Customer Satisfaction Survey</h5>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal('Dismissed')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body p-0" style="height:80vh;overflow: auto;">
+
+    <div class="rating-container">
+        <h2>User Rating for <span>Order # {{item.orderNumber}}</span></h2>
+        <form (ngSubmit)="submitRatings();$event.stopPropagation()">
+        <div *ngFor="let question of questions;let i=index;" class="question-container">
+            <label>{{i+1}}. {{ question.text }}</label>
+            <div class="rating-options">
+            <button type="button" *ngFor="let star of [1, 2, 3, 4, 5]" 
+                    [ngClass]="{ 'selected': star <= question.rating }" 
+                    (click)="question.rating = star">
+                ★
+            </button>
+            </div>
+        </div>
+        <div class="surveyQuestion">
+            <div>7. Would you like to recommend Ceasefire to anyone ?</div>
+            <div class="form-check">
+              <input class="form-check-input" [(ngModel)]="postData.recommendCeasefire" type="radio" name="recommendCeasefireRadios" id="recommendCeasefireRadios1" value="1">
+              <label class="form-check-label" for="recommendCeasefireRadios1">
+               Yes
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" [(ngModel)]="postData.recommendCeasefire" type="radio" name="recommendCeasefireRadios" id="recommendCeasefireRadios2" value="0">
+              <label class="form-check-label" for="recommendCeasefireRadios2">
+               No
+              </label>
+            </div>
+        </div>
+        
+            <div class="form-group surveyQuestion">
+            <label for="otherRemarks"> Anything else you want to share with us ?</label>
+            <textarea [(ngModel)]="postData.OtherRemarks" class="form-control" id="otherRemarks"  name="otherRemarks"  rows="5" maxlength="20000"></textarea>
+          </div>
+       
+         
+        <button type="submit" class="submit-button mt-2">Submit</button>
+        </form>
+    </div>
+  
+  </div>

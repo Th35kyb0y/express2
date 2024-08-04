@@ -1,0 +1,73 @@
+
+<div class="container-fluid mt-10f"> 
+
+ 
+
+
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div  id="tabs">
+              
+                <ul class="nav nav-pills nav-justified mt-4 " id="pills-tab" role="tablist">
+                  <li class="nav-item br-t" >
+                    <a class="nav-link active" id="search-tab-products1" 
+                    data-bs-toggle="pill" href="#search-tab-products" role="tab" aria-controls="search-tab-products" aria-selected="true">Products ({{products}})</a>
+                  </li>
+                  <li class="nav-item br-t" >
+                    <a class="nav-link" 
+                    data-bs-toggle="pill" href="#search-tab-spares" role="tab" aria-controls="search-tab-spares" aria-selected="false" 
+                    id="search-tab-spares1" >Spares ({{SparesCount}})</a>
+                  </li>
+                  <li class="nav-item br-t" >
+                    <a class="nav-link" 
+                    data-bs-toggle="pill" href="#search-tab-videos" role="tab" aria-controls="search-tab-videos" aria-selected="false" 
+                    id="search-tab-videos1" >Videos ({{VideoCounts}})</a>
+                  </li>
+                  <li class="nav-item br-t" >
+                    <a class="nav-link " 
+                    data-bs-toggle="pill" href="#search-tab-presentations" role="tab" aria-controls="search-tab-presentations" aria-selected="false" 
+                    id="search-tab-presentations1">Presentations ({{PresentationsCounts}})</a>
+                  </li>
+                  <li class="nav-item br-t" >
+                    <a class="nav-link "
+                    data-bs-toggle="pill" href="#search-tab-brochures" role="tab" aria-controls="search-tab-brochures" aria-selected="false" 
+                    id="search-tab-brochures1" >Brochures ({{BrochuresCounts}})</a>
+                  </li>
+                  <li class="nav-item br-t" >
+                    <a class="nav-link " 
+                    data-bs-toggle="pill" href="#search-tab-techspec" role="tab" aria-controls="search-tab-techspec" aria-selected="false" 
+                    id="search-tab-techspec1">Techspec ({{TechspecCounts}})</a>
+                  </li>
+
+                </ul>
+              
+              
+              </div>
+
+              <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="search-tab-products" role="tabpanel" aria-labelledby="search-tab-products-tab">
+                  <app-search-tab-products [searchContent]="_searchContent" (productCount)="getProductCounts($event)"> </app-search-tab-products>
+                </div>
+                <div class="tab-pane fade" id="search-tab-spares" role="tabpanel" aria-labelledby="search-tab-spares-tab">
+                    <app-search-tab-spares [searchContent]="_searchContent" (sparesCount)="getSparesCounts($event)"></app-search-tab-spares>
+                </div>
+                <div class="tab-pane fade" id="search-tab-videos" role="tabpanel" aria-labelledby="search-tab-videos-tab">
+                    <app-search-tab-videos  [searchContent]="_searchContent"(videoCount)="getVideoCounts($event)"></app-search-tab-videos>
+                </div>
+                <div class="tab-pane fade" id="search-tab-presentations" role="tabpanel" aria-labelledby="search-tab-presentations-tab">
+                    <app-search-tab-presentations  [searchContent]="_searchContent" (presentationsCount)="getPresentationsCounts($event)" ></app-search-tab-presentations>
+                </div>
+                <div class="tab-pane fade" id="search-tab-brochures" role="tabpanel" aria-labelledby="search-tab-brochures-tab">
+                    <app-search-tab-brochures [searchContent]="_searchContent" (BrochuresCount)="getBrochuresCounts($event)"></app-search-tab-brochures>
+                </div>
+                <div class="tab-pane fade" id="search-tab-techspec" role="tabpanel" aria-labelledby="search-tab-techspec-tab">
+                    <app-search-tab-techspec [searchContent]="_searchContent" (TechspecCount)="getTechspecCounts($event)"></app-search-tab-techspec>
+                </div>
+              </div>
+
+        </div>
+
+
+    </div>
+</div>

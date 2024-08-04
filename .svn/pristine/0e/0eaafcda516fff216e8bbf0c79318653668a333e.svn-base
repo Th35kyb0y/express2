@@ -1,0 +1,79 @@
+
+
+  <div class="container">
+
+    <div class="top_red" style="height: 70px;">
+      <img src="https://cfx.ceasefire.biz/assets/LOGO_express.svg">
+    </div>
+
+    <div class="card" *ngIf="isShowMessage">
+  
+      <div class="card-body">
+        <h5 class="card-title">Message</h5>
+        <p class="card-text">{{Message}}</p>
+       
+      </div>
+    </div>
+  <div class="card" *ngIf="!isShowMessage">
+    
+      <div class="col-12 container mt-5 mb-5">
+           
+          <div class="row align-items-center ">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+  
+                <!-- change-password.component.html -->
+                <form [formGroup]="resetPasswordForm" (ngSubmit)="onSubmit()">
+                   
+                  
+                    <div class="mb-3">
+                      <label for="newPassword" class="form-label">New Password:</label>
+                      <input type="password" class="form-control" id="newPassword" 
+                      [ngClass]="{ 'is-invalid': submitted && f['newPassword'].errors }"
+                      formControlName="newPassword" />
+  
+                      <div *ngIf="submitted && f['newPassword'].errors" class="form-text text-danger">
+                        <div *ngIf="f['newPassword'].errors['required']">New Password is required.</div>
+                        <div *ngIf="f['newPassword'].errors['minlength']">
+                            New Password must be at least 6 characters long.
+                        </div>
+                        <div *ngIf="f['newPassword'].errors['maxlength']">
+                            New Password must not exceed 40 characters
+                        </div>
+                      </div>
+  
+                    </div>
+                  
+                    <div class="mb-3">
+                      <label for="confirmPassword" class="form-label">Confirm Password:</label>
+                      <input type="password" class="form-control" 
+                      [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }"
+                      id="confirmPassword" formControlName="confirmPassword" />
+  
+                      <div
+                        *ngIf="submitted && f['confirmPassword'].errors"
+                        class="form-text text-danger"
+                    >
+                        <div *ngIf="f['confirmPassword'].errors['required']">
+                        Confirm Password is required
+                        </div>
+                        <div *ngIf="f['confirmPassword'].errors['matching']">
+                        Confirm Password does not match
+                        </div>
+                    </div>
+  
+                    </div>
+                  
+                    <button type="submit" class="btn btn-danger w-100">Submit</button>
+                    
+                  </form>
+  
+  
+            </div>
+            <div class="col-lg-3">
+  
+            </div>
+        </div>
+        </div>
+    </div>
+  </div>

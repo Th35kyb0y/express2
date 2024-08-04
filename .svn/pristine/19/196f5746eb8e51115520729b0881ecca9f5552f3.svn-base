@@ -1,0 +1,80 @@
+<!-- text start here-->
+<div class="row" *ngIf="product.length>0">
+    <!-- text end here-->
+    <!--2nd carousel start here-->
+    <div class="row carousel-part mt-4 ">
+        <div class="container view1 mt-4">Recommended For You</div>
+        <div class="container">
+            <div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel">
+                <div class="carousel-inner mb-4 ">
+                    <div class="carousel-item active ">
+                        <div class="row mb-4 mt-4 car_h">
+                            <ng-container *ngFor="let item of product | slice:0:6">
+                            <!-- <app-add-to-cart-view-product [product]="product" [isViewProduct]="false"></app-add-to-cart-view-product> -->
+
+                                <!-- <app-add-to-cart-view-product [product]="item" [isViewProduct]="false"></app-add-to-cart-view-product> -->
+                                <div style="width: 240px;">
+                                    <div class="col card-img-carousel mb-4">
+                                        <img class="img-fluid mt-3 " src="{{item.imagePath}}" width="120" height="80"
+                                            alt="banner" routerLink="/product-detail/{{item.name | catname}}">
+                                        <div class="card-body">
+                                            <p class="card-text p-2 p_name" routerLink="/product-detail/{{item.name | catname}}">{{item.name}}</p>
+                                            <p class="card-text-total"><i class="fa fa-inr" style="font-size: 0.8rem; color: red;"></i>{{item.price}}</p>
+                                            <a href="javascript:void(0)" (click)="addToCart(item)" class="btn btn-danger">{{checkAddToCart(item)}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row mb-4 mt-4">
+                            <ng-container *ngFor="let item of product | slice:0:5">
+                                <div style="width: 240px; ">
+                                    <div class="col card-img-carousel mb-4">
+                                        <img class="img-fluid mt-3 " src="{{item.ImagePath}}" width="120" height="80"
+                                            alt="banner">
+                                        <div class="card-body">
+                                            <p class="card-text">{{item.ProductName}}</p>
+                                            <p class="card-text-total"><i class="fa fa-inr"
+                                                    style="font-size: 0.8rem; color: red;"></i>{{item.MRP}}</p>
+                                            <a href="#" class="btn btn-danger">Add To Cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row mb-4 mt-4">
+                            <ng-container *ngFor="let item of product | slice:0:5">
+                                <div style="width: 240px; ">
+                                    <div class="col card-img-carousel mb-4">
+                                        <img class="img-fluid mt-3 " src="{{item.ImagePath}}" width="120" height="80"
+                                            alt="banner">
+                                        <div class="card-body">
+                                            <p class="card-text">{{item.ProductName}}</p>
+                                            <p class="card-text-total"><i class="fa fa-inr"
+                                                    style="font-size: 0.8rem; color: red;"></i>{{item.MRP}}</p>
+                                            <a href="#" class="btn btn-danger">Add To Cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

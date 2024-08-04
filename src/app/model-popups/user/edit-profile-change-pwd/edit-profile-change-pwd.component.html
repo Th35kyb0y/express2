@@ -1,0 +1,177 @@
+<div class="modal-header">
+    <h4 class="modal-title"></h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal('Dismissed')">
+ 
+    </button>
+  </div>
+  <div class="modal-body">
+
+
+
+        <!-- SignUp -->
+
+        <div class="container-fluid" *ngIf="type=='Edit Profile'">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="">
+                      <h5 class="text-center mb-3">Edit Profile</h5> 
+                        <form [formGroup]="userProfile">
+                            <div class="mb-1">
+                                <label for="fullname" class="form-label">Full Name</label>
+                                <div style="display: flex;">
+                                    <input type="text" placeholder="First Name" class="form-control" name="firstName" required
+                                        formControlName="firstName" style="width: 330px;" />
+                                       
+                                    <input type="text" placeholder="Last Name" class="form-control" name="lastName" required
+                                        formControlName="lastName" style="width:330px; margin-left: 10px;" />
+                                       
+                                      
+                                 
+                                </div>
+                                <div style="display: flex;">
+                                    <div *ngIf="userProfile.get('firstName')?.hasError('required') && userProfile.get('firstName')?.touched"
+                                    class="text-danger" style="width: 180px;">First Name is required</div>
+                                    <div *ngIf="userProfile.get('lastName')?.hasError('required') && userProfile.get('lastName')?.touched"
+                                    class="text-danger" style="width: 180px;">Last Name is required</div>
+                                </div>
+                            </div>
+                            <div class="mb-1">
+                                <label for="mobile" class="form-label">Mobile Number</label>
+                                <input type="tel" maxlength="10" class="form-control" id="mobile"
+                                    placeholder="Enter Your Mobile Number" name="mobile" required
+                                    formControlName="mobile" (keypress)="keyPress($event)"> 
+                                   
+                                    <div *ngIf="userProfile.get('mobile')?.hasError('required') && userProfile.get('mobile')?.touched"
+                                    class="text-danger">Mobile is required</div>
+                                    <div *ngIf="userProfile.get('mobile')?.hasError('minlength') && userProfile.get('mobile')?.touched"
+                                    class="text-danger"> Mobile must be at least 10 characters long.</div>
+                            </div>
+                            <div class="mb-1">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter Your Email" name="email"
+                                    readonly formControlName="email">
+                                 
+                             
+                            </div>
+                            
+                            <div class="d-grid mt-3">
+                                <button class="btn btn-danger" (click)="updateProfile()">Update</button>
+                                <p class="text-center">Update Password? 
+                                    <a  style="color: blue; cursor: pointer;"
+                                    (click)="type='Password'">click here</a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        
+            </div>
+        
+        
+        </div>
+
+        <div class="container-fluid" *ngIf="type=='Password'">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="">
+                        <div class="card-body">
+                            <h5 class="text-center mb-3">Update Password</h5>
+                            <form [formGroup]="changePasswordForm" (ngSubmit)="onSubmit()">
+                                <div class="mb-3">
+                                  <label for="currentPassword" class="form-label">Current Password:</label>
+                                  <input type="password" class="form-control" id="currentPassword" 
+                                  formControlName="currentPassword" 
+                                  [ngClass]="{ 'is-invalid': submitted && f['currentPassword'].errors }"
+                                  />
+
+                                 
+                                  <div *ngIf="submitted && f['currentPassword'].errors"  class="form-text text-danger">
+                                    <ng-container *ngIf="f['currentPassword'].errors['required']">
+                                        Current Password is required.
+                                    </ng-container>
+                                   
+                                  </div>
+                                </div>
+                              
+                                <div class="mb-3">
+                                  <label for="newPassword" class="form-label">New Password:</label>
+                                  <input type="password" class="form-control" id="newPassword" 
+                                  [ngClass]="{ 'is-invalid': submitted && f['newPassword'].errors }"
+                                  formControlName="newPassword" />
+
+                                  <div *ngIf="submitted && f['newPassword'].errors" class="form-text text-danger">
+                                    <div *ngIf="f['newPassword'].errors['required']">New Password is required.</div>
+                                    <div *ngIf="f['newPassword'].errors['minlength']">
+                                        New Password must be at least 6 characters long.
+                                    </div>
+                                    <div *ngIf="f['newPassword'].errors['maxlength']">
+                                        New Password must not exceed 40 characters
+                                    </div>
+                                  </div>
+
+                                </div>
+                              
+                                <div class="mb-3">
+                                  <label for="confirmPassword" class="form-label">Confirm Password:</label>
+                                  <input type="password" class="form-control" 
+                                  [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }"
+                                  id="confirmPassword" formControlName="confirmPassword" />
+
+                                  <div
+                                    *ngIf="submitted && f['confirmPassword'].errors"
+                                    class="form-text text-danger"
+                                >
+                                    <div *ngIf="f['confirmPassword'].errors['required']">
+                                    Confirm Password is required
+                                    </div>
+                                    <div *ngIf="f['confirmPassword'].errors['matching']">
+                                    Confirm Password does not match
+                                    </div>
+                                </div>
+
+                                </div>
+                              
+                                <button type="submit" class="btn btn-danger w-100">Update Password</button>
+                                <p class="text-center">Edit profile? 
+                                    <a  style="color: blue; cursor: pointer;"
+                                    (click)="type='Edit Profile'" type="button">Click Here</a>
+                              </form>
+ 
+                              
+
+                            <!-- change-password.component.html -->
+                                <!-- <form [formGroup]="changePasswordForm" (ngSubmit)="onSubmit()">
+                                    <label for="oldPassword">Old Password:</label>
+                                    <input type="password" formControlName="oldPassword" />
+                                
+                                    <label for="newPassword">New Password:</label>
+                                    <input type="password" formControlName="newPassword" />
+                                
+                                    <label for="confirmPassword">Confirm Password:</label>
+                                    <input type="password" formControlName="confirmPassword" />
+                                
+                                    <button type="submit" [disabled]="changePasswordForm.invalid" class="btn btn-danger w-100">Change Password</button>
+                                    <p class="text-center">Edit profile? 
+                                        <a  style="color: blue; cursor: pointer;"
+                                        (click)="type='Edit Profile'" type="button">Edit Profile</a>
+                                </form> -->
+  
+<!--                           
+                            <form>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                                </div>
+                                <button type="submit" class="btn btn-danger w-100">Submit</button>
+                                <p class="text-center">Edit profile? 
+                                    <a  style="color: blue; cursor: pointer;"
+                                    (click)="type='Edit Profile'">Edit Profile</a>
+                            </form> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+  </div>

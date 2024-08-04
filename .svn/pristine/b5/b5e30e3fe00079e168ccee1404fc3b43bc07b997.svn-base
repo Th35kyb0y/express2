@@ -1,0 +1,230 @@
+<!-- main start here-->
+<main id="main">
+    <section class="inner-page p-0 mobile_mtop " >
+      <div class="container">
+        <div class="row mt-4">
+          <div class="col-12 middle">
+  
+          </div>
+          <!--sidebarTop end here-->
+  
+          <!-- <div class="container-fluid mt-1">
+            <div class="d-flex justify-content-between mb-lg-0 mt-3">
+              <div class="mb-0">
+                <p>Billing Address</p>
+              </div>
+              <div>
+                <p>Sub Total:₹{{cartService.cartTotal() }} ({{cartService.cartTotalItems()}} Items) 
+                  <span style="margin-left: 10px;"><button class="btn btn-danger btn-sm ml-2" 
+                    (click)="addAddress('Add',null)">+Add New Address</button></span>
+                </p>
+               
+  
+              </div>
+  
+            </div>
+  
+            <hr class="mt-0 mb-1">
+  
+          </div> -->
+          <div class="container mt-0">
+            <div class="d-flex justify-content-between mt-0">
+              <div class="col-8 px-3 red_s py-2">
+                <p class="">Billing Address</p>
+              </div>
+              <div>
+                <p class="fs-6 fw-bold">
+                  <span style="margin-left: 10px;"><button class="btn btn-outline-danger ml-2" data-bs-toggle="modal"
+                      (click)="addAddress('Add',null)">+Add New Address</button></span>
+                </p>
+                
+  
+              </div>
+  
+            </div>
+           
+  
+          </div>
+          <div class="container">
+  
+            <div class="row d-flex">
+              <div class="col-8">
+                <div class="row">
+                  <ng-container *ngFor="let item of addresses;let i=index">
+                    <div class="col-12 " (click)="item.IsEditInstruction=false">
+                      <div class="card shadow-sm mb-2 bg-body rounded p-2">
+                     
+                          <div>
+                            <p>{{item.addressType}}</p>
+                          </div>
+                        
+      
+                      
+                      <div class="card-body p-2 ">
+                        <div class="form-check pull-left">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault-{{i+1}}" id="flexRadioDefault-{{i+1}}"
+                          [checked]="selBillAdd(item)"
+                          (click)="saveBillAdd(item);$event.stopPropagation();">
+                          <label class="form-check-label" for="flexRadioDefault-{{i+1}}">
+                        
+                          </label>
+                        </div>
+                        <p class="mb-0">{{item.firstName}} {{item.lastName}} {{item.mobile}}</p>
+                          <p class="mb-0">
+                            {{item.companyName}} {{item.line1}} {{item.line2}} {{item.city}} {{item.state}}
+                          </p>
+                          <!-- <p class="mb-0">Phone number: {{item.mobile}}</p> -->
+                          <p class="mb-0 mx-4">Email: {{item.email}}</p>
+                          <p class="mb-0 text-primary mx-4" *ngIf="!item.IsEditInstruction"> <a (click)="item.IsEditInstruction=true;$event.stopPropagation();">  Billing Instruction: {{item.deliveryInstruction}}</a></p>
+                          <div class="input-group mb-3" *ngIf="item.IsEditInstruction" (click)="item.IsEditInstruction=true;$event.stopPropagation();">
+                            <input type="text" class="form-control" 
+                            [(ngModel)]="item.deliveryInstruction" name="deliveryInstruction" id="deliveryInstruction" 
+                            (ngModelChange)="onInputChange(item)" placeholder="Delivery Instruction" aria-label="Delivery Instruction" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-secondary" type="button" 
+                            (click)="item.IsEditInstruction=false;$event.stopPropagation();" id="button-addon2">Save</button>
+                          </div>
+      
+      
+                        </div> 
+                        <div class="d-flex justify-content-start gap-2 mx-4" style="height: 40px;">
+                          <!-- <div class="form-check">
+                            <label class="form-check-label" for="setAsDefault">
+                              <p class="fs-6" style="margin-right: 5px;"> Set Default</p>
+                            </label>
+                            <input class="form-check-input" type="radio" name="setAsDefault" id="setAsDefault"
+                              [checked]="item.isDefault?true:false" (change)="setDetault(item,$event)">
+      
+                          </div> -->
+                          <!-- <div class="vr  border border-dark "
+                          style="height: 15px; margin-top: 5px; margin-left: 10px; margin-right: 10px; font-weight:bolder;">
+    
+                        </div> -->
+    
+                          <div>
+                            <p style="cursor: pointer;"  (click)="addAddress('Edit',item);$event.stopPropagation();">
+                              <i class="far fa-edit" style="color: grey;"></i> Edit
+                            </p>
+                          </div>
+                 
+               
+      
+                        </div>
+                      </div>
+      
+                    </div>
+                   
+    
+    
+    
+    
+                  </ng-container>
+                </div>
+              </div>
+
+              <div class="card col-4 px-0">
+                <h5 class="card-header"><b>Details</b></h5>
+                <div class="card-body font_s18">
+                  <div class="row _3LxTgx">
+
+                    <div class="col-4 pull-left">Sub Total:</div>
+                    <div class="col-8 pull-left text_right">₹{{cartService.cartTotal() }} ({{cartService.cartTotalItems()}} Items)</div>
+                   </div>
+
+
+                  <h5 class="card-text">Discount :<span class="pull-right">₹    {{cartService.cartDiscount()}}</span></h5>
+
+                </div>
+              </div>
+
+  
+             
+  
+            </div>
+            <div class="d-flex justify-content-end mt-4">
+              <!-- <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" [(ngModel)]="isbillingAddressSame" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  <p style="font-size: small;">Shipping Address is same as Billing Address</p>
+                </label>
+              </div> -->
+              <button (click)="gotoToProcessOrder()" class="btn btn-sm btn-outline-danger mb-2" >Proceed to Order Summary
+                </button>
+              <!-- <button routerLink="/user/billing-address" class="btn btn-sm btn-danger" style="height: 30px;">Proceed to
+                billing
+                option</button> -->
+  
+            </div>
+  
+  
+          </div>
+          <!-- <div class="container">
+  
+            <div class="row">
+  
+              <ng-container *ngFor="let item of addresses;let i=index">
+                <div class="col-4">
+                  <div class="card" style="width: 17rem; min-height: 200px; width: 320px;">
+                    <div class="card-header d-flex justify-content-between mb-0" style="height: 40px; ;">
+                      <div>
+                        <p>{{item.addressType}}</p>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                        [checked]="selBillAdd(item)"
+                        (click)="saveBillAdd(item)">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                      
+                        </label>
+                      </div>
+  
+                    </div>
+                    <div class="card-body m-auto ">
+                      <p class="mb-0" style="margin-top: -10px;">{{item.firstName}} {{item.lastName}}</p>
+                      <p class="mb-0">
+                        {{item.companyName}} {{item.line1}} {{item.line2}} {{item.city}} {{item.state}}
+                      </p>
+                      <p class="mb-0">Phone number: {{item.mobile}}</p>
+                      <p class="mb-0">Email: {{item.email}}</p>
+                      <p class="mb-0">GST Number: {{item.gsT_Number}}</p>
+
+  
+                    </div>
+                    <div class="card-footer d-flex justify-content-start gap-2" style="height: 40px;">
+                      
+                      <div>
+                        <p style="cursor: pointer;"  (click)="addAddress('Edit',item)">
+                          <i class="far fa-edit" style="color: grey;"></i> Edit
+                        </p>
+                      </div>
+                      <div class="vr  border border-dark "
+                        style="height: 15px; margin-top: 5px; margin-left: 10px; font-weight:bolder;">
+  
+                      </div>
+  
+  
+                    </div>
+
+                
+                  </div>
+                </div>
+              </ng-container>
+           
+             
+  
+            </div>
+            <div class="d-flex justify-content-end mt-2 mb-3">
+  
+              <button (click)="gotoToProcessOrder()" class="btn btn-sm btn-danger mb-2" style="height: 30px;">
+                Proceed To
+                Complete
+                Order</button>
+            
+  
+            </div>
+          </div> -->
+        
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- End #main -->

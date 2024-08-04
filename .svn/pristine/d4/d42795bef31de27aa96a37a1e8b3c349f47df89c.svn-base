@@ -1,0 +1,294 @@
+
+<app-cs-left-nav></app-cs-left-nav>
+    <div class="bg_grey">
+    <div id="main" style="margin-left: 5%;">
+<app-cs-header [isNotFromMailer]="false" [title]="'Dashboard'"></app-cs-header>
+<div  class="fixed-button-container">
+  <!-- <button *ngIf="toShowNextBtn" (click)="handleNext('Customer')" class="btn btn-danger">Next</button> -->
+  <button *ngIf="toShowNextBtnMailer" (click)="handleNext('Mailer')" class="btn btn-danger">Next</button>
+  <button *ngIf="toShowNextBtnMode" (click)="handleNext('Mode')" class="btn btn-danger">Next</button>
+</div>
+<div class="row">
+  <div class="col-10 pull-left">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb mx-3">
+    <ng-container *ngFor="let breadcrumb of breadcrumbs; let last = last">
+      <li class="breadcrumb-item" [ngClass]="{ 'disabled': last }">
+        <ng-container *ngIf="last; else notLast">
+          <span>{{ breadcrumb.label }}</span>
+        </ng-container>
+        <ng-template #notLast>
+          <a style="cursor: pointer;" (click)="handleBreadCrumb(breadcrumb)">{{ breadcrumb.label }}</a>
+          <span aria-hidden="true">&raquo;</span>
+        </ng-template>
+      </li>
+    </ng-container>
+  </ol> 
+</nav>
+</div>
+<div class="col-2 pull-left text-center">
+
+  <button *ngIf="toShowMailCat" (click)="previewReport(report)" class="btn btn-danger btn-sm mx-3">Report</button>
+</div>
+</div>
+<div *ngIf=" toShowMailCat" class="row mt-3" > 
+
+<div class="col-12">
+<div *ngFor="let item of dataMailer">
+    <div *ngIf="item.typeName === 'Category'" class="category-card col-3 pull-left" [class.selected]="item.selected">
+      <div class="card-content">
+        <div class="image-container">
+          <img [src]="item.categoryImgURL" alt="{{ item.categoryName }}" class="category-image">
+        </div>
+        <div class="category-name pb-2"  (click)="getMailerAndCategory_ByCard(item.id, item.categoryName,item.id)" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+         <span class="fw-bold fs-5 col-12"> {{ item.categoryName }}</span>
+        </div>
+
+      </div>
+    </div>
+
+
+<!-- mailer div -->
+
+<div *ngIf="item.typeName === 'Mailer' && item.typeName != 'Category'" class="category-card col-3 pull-left">
+  <div class="card-content">
+    <div class="image-container border-bottom">
+      <img [src]="item.mailerThumbnailImgUrl" alt="{{ item.mailerName }}" class="category-image rounded-top">
+    </div>
+    <div class="category-name border-bottom" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+      {{ item.mailerName }}
+    </div>
+    <button class="btn col-8 m-2" [ngClass]="{'btn-primary text-white': item.selected, 'btn-danger': !item.selected}" (click)="toggleSelection(item)">
+      {{ item.selected ? 'Selected' : 'Select' }}
+    </button>
+  </div>
+</div>
+
+
+
+
+
+  </div>
+</div>
+</div> 
+  
+<!-- Mode Selection -->
+<div style="display: flex;" *ngIf="showMode">
+  <div  class="category-card">
+    <div class="card-content">
+      <div class="image-container">
+        <img  src="https://cfx.ceasefire.biz/assets/sidebar_icon/email.jpg" class="category-image">
+      </div>
+      <div class="d-flex justify-content-center" style="height: 49px;">
+        <input [(ngModel)]="isEmailSelected" type="checkbox" name="" id="">
+      <div class="category-name fs-5 font-weight-bold m-2">
+    Email
+      </div>
+     
+    </div>
+    </div>
+  </div>
+  <div class="category-card">
+    <div class="card-content">
+      <div class="image-container">
+        <img  src="https://cfx.ceasefire.biz/assets/sidebar_icon/whatsapp_thumbnail.jpg" class="category-image">
+      </div>
+      <div class="d-flex justify-content-center" style="height: 49px;">
+        <input [disabled]="selectedMailer.whatsAppContent==''"  [(ngModel)]="isWPSelected" type="checkbox" name="" id="">
+      <div class="category-name fs-5 font-weight-bold m-2">
+    WhatsApp
+      </div>
+
+    </div>
+  </div>
+  </div>
+</div>
+  
+  <!-- Mail Send Section -->
+<div  *ngIf="toShowMailSendSection">
+  <div class="row mb-3">
+  <div class="col-3 m-2">
+    <label for="gg">Select Customer</label>
+    <select [(ngModel)]="newCustbyAddMore"  name="gg" class="form-control col-6" id="" >
+      <option value="0">Select</option>
+      <option *ngFor="let option of list" [value]="option.userId">{{ option.companyName }}</option>
+      <option value="NotInList">Not In List</option>
+    </select>
+  
+  </div>
+  <div class="col-2 add_grid">
+
+    <button  *ngIf="newCustbyAddMore!='NotInList'"  (click)="addMoreCust()" class="btn btn-primary">Add To Grid</button>
+  </div>
+</div>
+
+  <div  class="row col-12">
+    <div *ngIf="newCustbyAddMore=='NotInList'" class="col-12 row ">
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Customer Name:</label>
+          <input  type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="notInList.companyName" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Contact Person Name:</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1"  [(ngModel)]="notInList.contactPersonName" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Email ID:</label>
+          <input  type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="notInList.email" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Phone Number:</label>
+          <input  type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="notInList.mobile" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <button  (click)="addNotInList()" class="btn btn-primary">Add To Grid</button>
+        </div>
+      </div>
+
+
+ 
+
+  </div>
+<!-- <button (click)="toshowAddMore=true" class="btn btn-danger btn-sm m-2">Add More Customer To Send Mail</button> -->
+  <table class="table table-bordered" id="cs-registration-table">
+    <thead class="thead-light">
+      <tr>
+        <th>Select</th>
+        <th>Customer Name</th>
+        <th>Contact Person Name</th>
+        <th>Email ID</th>
+        <th>Phone Number</th>
+      </tr> 
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of selectedCustomers">
+        <td><input type="checkbox" [checked]="item.selected" (change)="toggleSelectionCustomerSend(item)"></td>
+        <td>{{item.companyName}}</td>
+        <td>{{item.contactPersonName}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.mobile}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row d-flex">
+  <button (click)="sendMail()" class="btn btn-success m-2 col-1">Send</button>
+  <button *ngIf="isEmailSelected" (click)="previewMail(content)"  class="btn btn-danger m-2 col-1">Preview</button>
+</div>
+</div>
+</div>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Mailer Content</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body disabled-content" [innerHTML]="mailerContent"></div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Close</button>
+  </div>
+</ng-template>
+
+
+<ng-template #report let-modal>
+  <div class="" > <!-- Adjust max-width as needed -->
+    <div class="">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Mailer Report</h4>
+        <button (click)="downloadReport()" class="btn btn-success btn-sm" style="margin-left: 65%;">Download Excel</button>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      </div>
+      <div class="modal-body">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>S.NO</th>
+                <th>Mailer Name</th>
+                <th>Sent By</th>
+                <th>Sent Date</th>
+                <th>Mode</th>
+                <th>Sent To</th>
+                <!-- <th>Action</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let mailer of mailers; let i = index;">
+                <td>{{i+1}}</td>
+                <td>{{ mailer.mailerName }}</td>
+                <td>{{ mailer.sendBy }}</td>
+                <td>{{ mailer.sendDate | date: 'dd MMM yyyy' }}</td>
+                <td>{{ mailer.mode }}</td>
+                <!-- <td>{{ mailer.sendTo }}</td> -->
+                <td><button class="btn btn-primary btn-sm" (click)="viewMailer(mailer, reportCustomer)">View</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Close</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+
+
+
+<ng-template #reportCustomer let-modal>
+  <div> <!-- Adjust max-width as needed -->
+    <div>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Customer Mailer Report</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      </div>
+      <div class="modal-body">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Customer Name</th>
+                <th>Company Name</th>
+                <th>Mobile No</th>
+                <th>Email</th>
+                <!-- <th></th> -->
+                <!-- <th>Action</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let mailer of mailersCustomers">
+                <td>{{ mailer.customerName }}</td>
+                <td>{{ mailer.companyName }}</td>
+                <td>{{ mailer.customerEmail}}</td>
+                <td>{{ mailer.customerMobile}}</td>
+
+                <!-- <td>{{ mailer.mode }}</td> -->
+                <!-- <td>{{ mailer.sendTo }}</td> -->
+                <!-- <td><button class="btn btn-primary" (click)="viewMailer(mailer)">View</button></td> -->
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Close</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+
+
+  
+

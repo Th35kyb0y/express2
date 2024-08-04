@@ -1,0 +1,223 @@
+<div class="container-fluid">
+
+
+<div class="row pull-left">
+
+
+    <div class="col-12 text-center">
+        <div class="col-4 bg_blue pull-left recom_m" style="margin-left: 420px; margin-top:12px">Recommended Fire Solutions for:
+            {{name}}</div>
+            <!-- <div class="col-4 pull-left p-3">Need Help?
+<a (click)="goCQRS()" class="btn btn-outline-danger">Fill Inputsheet</a>
+
+            </div> -->
+
+
+    </div>
+    <ng-container *ngIf="onResize_PlatformService.isMobile">
+
+       
+
+        <a class="ProductFilter-popover-btn filter_bg px-3 py-3"   (click)="openFilter()">
+            <i class="fa fa-filter" aria-hidden="true"></i> Apply Filter
+        </a>
+
+       
+    </ng-container>
+    <div class="col-12 mt-4">
+        <div class="col-lg-3 col-md-3 col-xs-12 pull-left" *ngIf="!onResize_PlatformService.isMobile">
+            <h5>Filter By</h5>
+            <hr>
+               <!-- Type -->
+               <div class="accordion" id="accordionExample" *ngIf="LinkedCollectionType.length>0">
+ 
+                <h5>Type</h5>
+                <div class="accordion-item">
+           
+                    <div  class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div *ngFor="let item of LinkedCollectionType;let i=index">
+                                <div class="form-check">
+                                    <input class="form-check-input p-0" type="checkbox" value=""
+                                    [checked]="item.isSelected"
+
+                                    (change)="filterCollectionProduct($event,item.collectionId, item.collectionName)"
+                                    [id]="item.collectionName"
+                                    >
+                                    <label class="form-check-label   mb-0 custom-font"  [for]="item.collectionName" for="flexCheckDefault">
+                                        {{ item.collectionName}}
+                                    </label>
+                                </div>
+                            <!-- <p *ngFor="let item of objCategory1List;let i=index"><a href="#">{{item.cat1Name}}</a></p> -->
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+                <!-- <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Technology Type
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div *ngFor="let item of objCategory1List;let i=index">
+                                <div class="form-check">
+                                    <input class="form-check-input p-0" type="checkbox" value=""
+                                     (change)="filterCategory3($event, item.cat1Id.toString(), item.cat1Name)">
+                                    <label class="form-check-label   mb-0 custom-font" for="flexCheckDefault">
+                                        {{ item.cat1Name}}
+                                    </label>
+                                </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Agent Type
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div *ngFor="let item of objCategory3List;let i=index">
+                            <div class="form-check">
+                                <input class="form-check-input p-0" type="checkbox" value=""
+                                 (change)="filterCategory3($event, item.cat3Id.toString(), item.cat3Name)">
+                                <label class="form-check-label   mb-0 custom-font" for="flexCheckDefault">
+                                    {{ item.cat3Name}}
+                                </label>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+                </div> -->
+
+ 
+        </div>
+            <div class="accordion" id="accordionExample" *ngIf="LinkedCollection.length>0">
+ 
+                <h5>Agent</h5>
+                <div class="accordion-item">
+           
+                    <div  class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div *ngFor="let item of LinkedCollection;let i=index">
+                                <div class="form-check">
+                                    <input class="form-check-input p-0" type="checkbox" value=""
+                                    [checked]="item.isSelected"
+
+                                    (change)="filterCollectionProduct($event,item.collectionId, item.collectionName)"
+                                    [id]="item.collectionName"
+                                    >
+                                    <label class="form-check-label   mb-0 custom-font"  [for]="item.collectionName" for="flexCheckDefault">
+                                        {{ item.collectionName}}
+                                    </label>
+                                </div>
+                            <!-- <p *ngFor="let item of objCategory1List;let i=index"><a href="#">{{item.cat1Name}}</a></p> -->
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+                <!-- <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Technology Type
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div *ngFor="let item of objCategory1List;let i=index">
+                                <div class="form-check">
+                                    <input class="form-check-input p-0" type="checkbox" value=""
+                                     (change)="filterCategory3($event, item.cat1Id.toString(), item.cat1Name)">
+                                    <label class="form-check-label   mb-0 custom-font" for="flexCheckDefault">
+                                        {{ item.cat1Name}}
+                                    </label>
+                                </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Agent Type
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div *ngFor="let item of objCategory3List;let i=index">
+                            <div class="form-check">
+                                <input class="form-check-input p-0" type="checkbox" value=""
+                                 (change)="filterCategory3($event, item.cat3Id.toString(), item.cat3Name)">
+                                <label class="form-check-label   mb-0 custom-font" for="flexCheckDefault">
+                                    {{ item.cat3Name}}
+                                </label>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+                </div> -->
+
+
+        </div>
+     
+
+
+    </div>
+
+        <div class="col-lg-9 col-md-9 col-xs-12 pull-left ml-1">
+            <div class="col-lg-3 col-md-3 col-xs-12 pull-left p-3 m-3 border" *ngFor="let item of Products;let i=index" style="width: 18rem;">
+                <a href="javascript:void(0);" (click)="GoToroductDetail(item)"> <img src="{{item.shortDescription}}"
+                        class="img-fluid" alt="" />
+                </a>
+                <hr>
+                <div class="pull-left item_n col-12" style="height:50px;">
+                    <a href="javascript:void(0);" style="cursor: pointer;" (click)="GoToroductDetail(item)"> {{item.name}}</a>
+                </div>
+
+                <div class="pull-left mt-1 col-12"><span class="price_p">
+                    <i class="fa fa-inr" aria-hidden="true"></i>{{item.price}}</span>
+                    <!-- <span class="og_price"><i class="fa fa-inr"
+                            aria-hidden="true"></i>{{item.price}}</span><span class="discount_per">(20% Off)</span> -->
+                </div>
+                <div class="pull-left mt-1">
+                    <app-add-to-cart-view-product [product]="item" [isViewProduct]="false"></app-add-to-cart-view-product>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+</div>
+</div>

@@ -1,0 +1,159 @@
+<!-- <div class="row ">
+    <div class="col-12 text-center segment-card">
+        <div class="row">
+
+
+            <ng-container *ngFor="let data of collectins;let i=index">
+                <div class=" col-xs-12 col-md-3 col-sm-6  item_2 mb-3 border mx-2" style="cursor: pointer;">
+
+                    <a (click)="getChildren(data)" routerLinkActive="active">
+
+
+                        <div class="">
+                            <ng-container *ngIf="!data.imagePath">
+
+                                <h3 class="card_text-1 ">{{data.collectionName}}</h3>
+                                <p class="cate_0">{{data.description}}</p>
+                                <span class="card_1">
+                                    <button type="button" id="b_00" class="">ENTER</button>
+                                    <i class="fa fa-chevron-circle-right" id='fa_button'></i>
+
+                                </span>
+                            </ng-container>
+                            <ng-container *ngIf="data.imagePath">
+
+                                <span>
+                                    <img width="244" height="244" [src]="data.imagePath?imtUrl+''+data.imagePath:'/assets/img/not_available.jpg'"
+                                       alt="" />
+                                   </span>
+
+                            </ng-container>
+
+
+
+                        </div>
+
+
+                    </a>
+                </div>
+            </ng-container>
+
+        </div>
+    </div>
+
+</div> -->
+
+
+<!-- text start here-->
+<div class="row" *ngIf="product.length>0">
+  <!-- text end here-->
+  <!--2nd carousel start here-->
+  <div class="row carousel-part mt-4 ">
+      <div class="container view1 mt-4">Recommended For You</div>
+      <div class="container">
+          <div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel">
+            <div class="carousel-inner mb-4 ">
+                <div class="carousel-item active" 
+                >
+                    <div class="row mb-4 mt-4 car_h">
+                        <ng-container  *ngFor="let item of product;let i=index;">
+                            <ng-container *ngIf="!item.isProduct">
+
+                                <div style="width: 240px;" routerLink="/products" [queryParams]="{ catId: item.collectionId}">
+                                    <div class="col card-img-carousel mb-4">
+                                        <img class="img-fluid mt-3 " [src]="item.imagePath?imtUrl+''+item.imagePath:'/assets/img/not_available.jpg'" width="120" height="80"
+                                            alt="banner"  >
+                                        <div class="card-body">
+                                            <p class="card-text p-2 p_name" >{{item.collectionName}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <ng-container *ngIf="item.isProduct">
+    
+                                <div style="width: 240px;" >
+                                    <div class="col card-img-carousel mb-4" (click)="GoFireExtinguisherDetail(item)">
+                                        <img class="img-fluid mt-3 " src="{{item.imagePath}}" width="120" height="80"
+                                            alt="banner"  >
+                                        <div class="card-body">
+                                            <p class="card-text p-2 p_name" >{{item.collectionName}}</p>
+                                            <p class="card-text-total"><i class="fa fa-inr" style="font-size: 0.8rem; color: red;"></i>{{item.price}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                       
+                    </div>
+                </div>
+             
+                
+                
+            </div>
+
+
+              <!-- <div class="carousel-inner mb-4 ">
+                  <div class="carousel-item active ">
+                      <div class="row mb-4 mt-4 car_h">
+                          <ng-container *ngFor="let item of product | slice:0:6">
+
+                              <div style="width: 240px;" routerLink="/products" [queryParams]="{ catId: item.collectionId}">
+                                  <div class="col card-img-carousel mb-4">
+                                      <img class="img-fluid mt-3 " src="{{'https://cfx.api.ceasefire.biz/'+item.imagePath}}" width="120" height="80"
+                                          alt="banner"  >
+                                      <div class="card-body">
+                                          <p class="card-text p-2 p_name" >{{item.collectionName}}</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </ng-container>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                      <div class="row mb-4 mt-4">
+                          <ng-container *ngFor="let item of product | slice:0:5">
+                              <div style="width: 240px; " routerLink="/products" [queryParams]="{ catId: item.collectionId}">
+                                  <div class="col card-img-carousel mb-4">
+                                      <img class="img-fluid mt-3 " src="{{'https://cfx.api.ceasefire.biz/'+item.imagePath}}" width="120" height="80"
+                                          alt="banner">
+                                      <div class="card-body">
+                                          <p class="card-text">{{item.collectionName}}</p>
+
+                                      </div>
+                                  </div>
+                              </div>
+                          </ng-container>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                      <div class="row mb-4 mt-4">
+                          <ng-container *ngFor="let item of product | slice:0:5">
+                              <div style="width: 240px; " routerLink="/products" [queryParams]="{ catId: item.collectionId}">
+                                  <div class="col card-img-carousel mb-4">
+                                      <img class="img-fluid mt-3 " src="{{'https://cfx.api.ceasefire.biz/'+item.imagePath}}" width="120" height="80"
+                                          alt="banner">
+                                      <div class="card-body">
+                                          <p class="card-text">{{item.collectionName}}</p>
+
+                                      </div>
+                                  </div>
+                              </div>
+                          </ng-container>
+                      </div>
+                  </div>
+
+              </div> -->
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                  data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                  data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+              </button>
+          </div>
+      </div>
+  </div>
+</div>

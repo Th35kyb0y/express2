@@ -1,0 +1,56 @@
+<div class="container py-3" >
+	
+		
+		
+
+		<div class="row row-cols-1 row-cols-md-3 mt-3">
+			
+			<div class="col-12">
+				<div class="card mb-4 rounded-3 shadow-sm">
+					<div class="card-header py-2 card_header_red">
+						<h5 class="my-0 fw-normal">Order Summary</h5>
+					</div>
+					<div class="card-body row font_22 p-5">
+						<div class="col-6">
+							<ul class="list-unstyled">
+								<li>Base Value:</li>
+
+								<li>Discount:</li>
+								<li>Design Charges: </li>
+								<li>Delivery Charge:</li>
+								<li>Installation Charge:</li>
+
+								<li>Taxable Value: </li>
+								<li>GST Amount:</li>
+								<li class="bold_g">Grand Total:</li>
+								<li></li>
+
+							</ul>
+						</div>
+						<div class="col-6 text-right" style="text-align: right; font-weight: 500;">
+							<ul class="list-unstyled">
+								<li>₹ {{OrderSummary.totalBaseValue}}</li>
+
+								<li> ₹ {{OrderSummary.totalDiscountValue}}</li>
+								<li> ₹ {{OrderSummary.totalDesignCharges}}</li>
+								<li> ₹ {{OrderSummary.totalDeliveryCharge}}</li>
+								<li> ₹ {{OrderSummary.totalInstallationCharge}}</li>
+								<li> ₹ {{OrderSummary.totalTaxableValue}}</li>
+								<li>₹ {{OrderSummary.totalTaxValue}}</li>
+								<li class="bold_g"> ₹ {{OrderSummary.totalPaybleValue}}</li>
+
+							</ul>
+
+						</div>
+						
+					</div>
+					<div class="col-12 pb-4" style="text-align: center;"><button class="btn btn-outline-danger col-3" (click)="PayNow()"
+						*ngIf="OrderSummary.orderresponse.isEditable">Pay Now</button></div>
+				</div>
+			</div>
+
+		</div>
+
+
+
+</div>

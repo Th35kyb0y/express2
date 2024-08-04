@@ -1,0 +1,33 @@
+.breadcrum{
+  max-width: 100%!important;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.2784313725);
+    float: left;
+    margin-bottom: 30px;
+    ul{
+      margin:10px 27px;
+      width:90%;
+      float:left;
+      li{
+        width: auto;
+        float: left;
+        margin-right: 10px!important;
+        font-size: 12px;
+        font-weight: 600;
+        color: #727070;
+        span{
+          margin-left: 8px;
+          font-weight: 600;
+        }
+        a{
+          color: #727070;
+          cursor: pointer;
+        }
+      }
+    }
+    .a-back{
+      padding: 8px;
+    float: right;
+    cursor: pointer;
+    color:#2b4d85;
+    }
+  }

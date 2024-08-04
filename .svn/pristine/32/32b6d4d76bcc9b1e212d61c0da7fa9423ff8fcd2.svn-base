@@ -1,0 +1,41 @@
+.fixed-header {
+    position: fixed;
+    width: 100%;
+    background-color: #c6000c;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    top: 0px;
+    left: 0px !important;
+  }
+
+  .fixed-header _ngcontent-ng-c3483917808
+  
+  { left: 0px !important;}
+
+  .fixed-menu{ top: 13% !important;}
+
+  .fixed-body {
+    margin-top: 50px; /* Adjust based on your header height */
+    padding: 20px;
+  }
+  .fa {
+    font-size: 18px;
+    padding: 2px;
+}
+.margin_r{ margin-right: 10px;}
+.nav {
+  background: #fff;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #c6000c !important;
+  border-bottom: 5px solid #c6000c !important;
+background-color: #fff !important;}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #353535;
+  text-decoration: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;}

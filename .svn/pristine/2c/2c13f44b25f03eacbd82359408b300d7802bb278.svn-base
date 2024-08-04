@@ -1,0 +1,145 @@
+<div class="container " style="margin-left: 20px; margin-top: 140px;height:400px">
+    <!-- <h3>Shopping Cart</h3> -->
+    <!-- <p class="text-primary">Deselect All</p> -->
+
+    <div class="row ">
+        <div class="col-10 mb-0">
+            <div class="d-flex justify-content-between mt-0">
+                <h6>Shopping Cart</h6>
+                <h6 class="text-end">Price</h6>
+            </div>
+            <hr class="mt-1 mb-1">
+
+            <ng-container *ngFor="let item of cart;let i=index">
+                <div class="row pb-3">
+                    <div class="col-lg-2 text-start" routerLink="/product-detail/{{item.name | catname}}">
+                        <img src="{{item.imagePath}}" alt="image loading" height="120px" width="120px">
+
+                    </div>
+                    <div class="col-lg-8 mt-2">
+                        <h6 class="text-start fs-7">
+                            {{item.name}} ({{item.code}})
+                        </h6>
+                        <h6 class="text-danger mb-0">
+                           ₹  {{item.price}}
+                        </h6>
+
+                        <div class="d-flex  align-items-center gap-3 mb-0 mt-2">
+                            <h6 class="text-secondary mb-0 font-weight-normal font_w">
+                                Price:     <span class="text-decoration-line-through">₹   {{item.price}}</span>
+                            </h6>
+
+
+                           
+                            <h6 class=" mb-0 discount_price font-weight-normal font_w">
+                              Discount: ₹  {{item.price}}(20%)
+                            </h6>
+                            <!-- <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Add Installation
+                                </label>
+                            </div> -->
+                        </div>
+
+                        <div class="d-flex align-items-center mb-0 mt-2">
+                            <div class="btn-group btn-group-sm text-center align-items-center border border-dark">
+                                <button type="button" class="btn" (click)="dec(i)">-</button>
+                                <button type="button" class="btn">{{item.qty}}</button>
+                                <button type="button" class="btn" (click)="inc(i)">+</button>
+                            </div>
+
+                            <div class="vr mx-2"></div>
+                            <a href="javascript:void(0)" (click)="removeFromCat(i)" style="height: 35px;" class="text-decoration-none btn btn-danger">
+                                <p class=" mb-0"><i class="fa fa-trash" aria-hidden="true"></i></p>
+                            </a>
+
+                            <div class="vr mx-3"></div>
+                            <!-- <a href="" class="text-decoration-none">
+                                <p class="mt-3 text-success">200 in Stock</p>
+                            </a> -->
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 mt-2">
+                        <h6 class="text-end">₹  {{item.price * item.qty}}</h6>
+
+                    </div>
+
+                </div>
+                <hr class="mt-0">
+            </ng-container>
+
+            <div class="no-content" *ngIf="cart.length==0">
+                <div class="no-content-img">
+                    <img class="img-fluid" src="/assets/no-content.png"/>
+                </div>
+                <div class="no-content-text text-center">
+                    No Product Found
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-12 ">
+            <div class="d-flex justify-content-between mt-0">
+                <h6>Order Summary</h6>
+            </div>
+            <div class="card" style="width: 22rem; background-color:whitesmoke;">
+
+                <div class="card-body">
+
+                    <div style="display: flex;">
+                        <!-- <div>
+                            <i class="fas fa-exclamation-circle text-success"></i>
+                        </div> -->
+                        <div>
+                            <!-- <p class="free-delivery">Part of your order qualifies for FREE Delivery.
+                                <span>
+                                    <p class="fs-7">Select this option at checkout
+                                        <a href="#" class="text-decoration-none text-primary">Details</a>
+                                    </p>
+                                </span>
+                            </p> -->
+                        </div>
+
+                    </div>
+
+
+
+                    <h6 class="card-text font-weight-normal font_w">Subtotal ({{cart.length}} Items):₹    {{getTotalAmount()}}</h6>
+                    <div class="d-grid">
+                        <button (click)="proceedToCheckout()" class="btn btn-danger mt-1"
+                        [disabled]="cart.length==0"
+                        >Proceed to checkout</button>
+                        <!-- <button class="btn btn-danger mt-1" data-bs-toggle="modal" data-bs-target="#checkoutmodal">Proceed to Checkout</button> -->
+
+                        <div class="modal fade" id="checkoutmodal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            bs-dis aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <!-- <div class="modal-header"> -->
+                                    <!-- <h1 class="modal-title fs-5" id="loginModalLabel">Modal title</h1> -->
+                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                                    <!-- </div> -->
+                                    <div class="modal-body mt-1">
+                                        <app-login></app-login>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-primary">Save changes</button>
+                                </div> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>

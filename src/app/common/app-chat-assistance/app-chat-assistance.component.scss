@@ -1,0 +1,42 @@
+.app-chat-assistance {
+
+    .float-button {
+        display: flex;
+        width: 68px;
+        height: 61px;
+        background-color: rgb(233 100 100);
+        opacity: 0.8;
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+        position: fixed;
+        right: 0px;
+        font-size: 18px;
+        cursor: pointer;
+        // z-index: 9999999;
+        z-index: 9999999999;
+
+        p {
+            width: 52px;
+            height: 40px;
+            opacity: 0.9;
+            margin: 13px
+        }
+
+        &.chat-button {
+            top: 316px;
+        }
+        &.quick-button {
+            top: 173px;
+        }
+
+
+        &.call-button {
+            top: 244px;
+        }
+
+    }
+
+    .callbtn:hover {
+        // background-color: yellow;
+      }
+}

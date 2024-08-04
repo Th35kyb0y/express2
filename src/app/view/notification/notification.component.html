@@ -1,0 +1,22 @@
+
+
+
+         <div *ngIf="notifications.length>0">
+            <li *ngFor="let notification of notifications">
+                <a (click)="sendProposal(notification)" class="top-text-block">
+                  <div class="top-text-heading">{{ notification.notificationContent }}</div>
+                  <div class="top-text-light">{{ notification.createdOn | date }}</div>
+                </a> 
+              </li>
+             <li>
+              <div class="loader-topbar"> <a (click)="goToNotification()" >View All</a></div>
+             </li> 
+         </div>
+         
+         <div *ngIf="notifications.length==0" class="text-center font-bold pb-3 text-danger">
+            <span>No new notifications!</span>
+         </div>
+
+
+
+  

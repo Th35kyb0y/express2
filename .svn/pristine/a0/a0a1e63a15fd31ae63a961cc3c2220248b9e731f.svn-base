@@ -1,0 +1,375 @@
+<button *ngIf="cncMachineTableData.length>0 && !showCNCFields" (click)="showCNC(true)" type="button" class="btn btn-danger pull-right"> Add More Machine </button>
+<form *ngIf="cncMachineTableData.length==0 || showCNCFields" (ngSubmit)="onSubmit()" #systemForm="ngForm" class="form-container">
+
+<div class="border_btm col-12 mt-3 mb-2">
+    <h5>CQRS System Detail</h5>
+  </div>
+  <div class="border_btm mb-3 col-12 mt-3">
+    <h5>Fire Signal Notification Devices/ Alarm Kit Requiremnt</h5>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class=" form-group mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Alarm required</label>
+        <select [(ngModel)]="cncMachineData.alarmRequired" [ngModelOptions]="{standalone: true}" class="form-control form-select" id="exampleFormControlSelect1" >
+          <option selected="selected" value="">-Select-</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+          <option value="idk">I don't know</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm-4" *ngIf="cncMachineData.alarmRequired=='Yes' && isCS">
+      <div class=" form-group mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Alarm Option</label>
+        <select placement="bottom" [ngbTooltip]="panel" [(ngModel)]="cncMachineData.alarmOption" [ngModelOptions]="{standalone: true}" class="form-control form-select" id="exampleFormControlSelect1" >
+          <option selected="selected" value="">-Select-</option>
+          <option value="Hooter">Hooter</option>
+          <option value="Panel">Panel</option>
+        </select>
+      </div>
+    </div>
+    <div *ngIf="isCS" class="col-sm-4">
+      <div class=" form-group mb-3">
+        <label for="exampleFormControlInput1" class="form-label">CQRS Type:</label>
+        <select placement="bottom" [ngbTooltip]="diContent"  [(ngModel)]="cncMachineData.cqrsType" [ngModelOptions]="{standalone: true}" class="form-control form-select" id="exampleFormControlSelect1" >
+          <option selected="selected" value="">-Select-</option>
+          <option value="Direct">Direct</option>
+          <option value="Indirect">Indirect</option>
+
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="row col-12">
+    <div class="col-12 row ">
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Machine Name:</label>
+          <input placement="bottom" [ngbTooltip]="machineName"  type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="cncMachineData.machineName" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-12 border_btm">
+        <h6>Dimensions of Tooling Area</h6>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Length (MM):</label>
+          <input placement="bottom" [ngbTooltip]="lengthContent" type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="cncMachineData.dimensionsLength" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Depth (MM):</label>
+          <input placement="bottom" [ngbTooltip]="widthContent" type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="cncMachineData.dimensionsWidth" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Height (MM):</label>
+          <input placement="bottom" [ngbTooltip]="heightContent" type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="cncMachineData.dimensionsHeight" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Do you want to protect electical panel?</label>
+          <select [(ngModel)]="cncMachineData.electicalPanelRequired" [ngModelOptions]="{standalone: true}" class="form-control form-select" id="exampleFormControlSelect1" >
+            <option selected="selected" value="">-Select-</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+      </div>
+      <div class="row" *ngIf="cncMachineData.electicalPanelRequired=='Yes' && isCS">
+        <div class="col-sm-4">
+          <div class=" form-group mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Length (mm):</label>
+            <input [(ngModel)]="cncMachineData.dimensionsLengthEp" [ngModelOptions]="{standalone: true}" placement="bottom" [ngbTooltip]="lengthContentep"  type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" >
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class=" form-group mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Depth (mm):</label>
+            <input [(ngModel)]="cncMachineData.dimensionsWidthEp" [ngModelOptions]="{standalone: true}" placement="bottom" [ngbTooltip]="widthContentep"  type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" >
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class=" form-group mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Height (mm):</label>
+            <input [(ngModel)]="cncMachineData.dimensionsHeightEp" [ngModelOptions]="{standalone: true}" placement="bottom" [ngbTooltip]="heightContentep"  type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" >
+          </div>
+        </div>
+      </div>
+    
+      <div class="border_btm mb-3 col-12 mt-3" *ngIf="cncMachineData.electicalPanelRequired=='Yes' && isCS">
+        <h6>Row and Column of Electrical Room</h6>
+      </div>
+      <div class="row" *ngIf="cncMachineData.electicalPanelRequired=='Yes' && isCS">
+        <div class="col-sm-4">
+          <div class=" form-group mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Total Row of Cabinet:</label>
+            <input  placement="bottom" [ngbTooltip]="rowContent"  [(ngModel)]="cncMachineData.totalRowofEP" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" >
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class=" form-group mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Total Column of Cabinet:</label>
+            <input   placement="bottom" [ngbTooltip]="colContent" [(ngModel)]="cncMachineData.totalColumnofEP" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isCS" class="col-sm-4">
+      <div class=" form-group mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Choose Position:</label>
+        <select placement="bottom" [ngbTooltip]="ChoosePosition" [(ngModel)]="cncMachineData.cylinderPosition" [ngModelOptions]="{standalone: true}" class="form-control" id="exampleFormControlSelect1" >
+          <option selected="selected" value="">-Select-</option>
+          <option value="Left hand">Left hand</option>
+          <option value="Right hand">Right hand</option>
+          <option value="Back side">Back side</option>
+        </select>
+      </div>
+    </div>
+    <div *ngIf="isCS" class="col-12 row">
+      <div class="col-12 border_btm">
+        <h6>Distance Between wall to CNC Machine</h6>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">L.H.S (MM):</label>
+          <input placement="bottom" [ngbTooltip]="lhs" [disabled]="cncMachineData.cylinderPosition !== 'Left hand'" type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="cncMachineData.distanceLHS" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">R.H.S (MM):</label>
+          <input placement="bottom" [ngbTooltip]="rhs" [disabled]="cncMachineData.cylinderPosition !==  'Right hand'"   type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="cncMachineData.distanceRHS" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Back (MM):</label>
+          <input placement="bottom" [ngbTooltip]="back" [disabled]="cncMachineData.cylinderPosition !== 'Back side'"   type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="cncMachineData.distanceBack" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+    </div>
+ 
+
+  </div>
+  <div *ngIf="isCS" class="row col-12">
+    <div class="col-12 row border_right mr-4">
+      <div *ngIf="cncMachineTableData.length > 0" class="col-12 border_btm">
+        <h6>Distance Between Two Battery Room</h6>
+      </div>
+      <div  *ngIf="cncMachineTableData.length+1!=1" class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Battery Room {{cncMachineTableData.length}} & {{cncMachineTableData.length+1}} (MM):</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="cncMachineData.distanceBetweenTwoCNC" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <!-- <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Room Name:</label>
+          <div class="multi-select" (click)="toggleOptions()">
+            <div class="selected-items">
+              <div *ngFor="let item of selectedItems" class="selected-item btn-sm btn btn-outline-danger badge_danger ">
+                {{ item }}
+                <a (click)="removeItem(item)" class="btn close_btn btn-sm" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+              </div>
+            </div>
+            <div class="dropdown" #dropdown>
+              <input class="form-control room_name" type="text" [(ngModel)]="newItem" (keydown.enter)="addItem()" placeholder="Add new item" [ngModelOptions]="{standalone: true}">
+              <button type="button" (click)="addItem()" class="btn btn-danger add_new">+</button>
+            </div>
+            
+            <div class="options mt-2" *ngIf="showOptions" (click)="handleDropdownClick($event)">
+              <div class="list-group list_g">
+                <button *ngFor="let option of options" class="list-group-item list-group-item-action" (click)="selectItem(option)">
+                  {{ option }}
+                </button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        </div> -->
+    </div>
+   
+  </div>
+  <div class="row col-12 pr-0 mt-3">
+    <div class="col-10"></div>
+    <div class="col-2 pr-0 text_right">
+    <button *ngIf="cncMachineData.id==0" type="submit" class="btn btn-danger"> Add To Grid </button>
+    <button *ngIf="cncMachineData.id!=0" type="button" (click)="update()" class="btn btn-danger btn-sm "> Update </button>
+    </div>
+    </div>
+  </form>
+
+  <table *ngIf="cncMachineTableData.length > 0" class="table table-bordered mt-3">
+    <thead>
+      <tr>
+        <th>Machine Name</th>
+        <th>Length</th>
+        <th>Width</th>
+        <th>Height</th>
+        <th *ngIf="isCS">Electrical Panel Required</th>
+        <th *ngIf="isCS">Electrical Panel Length</th>
+        <th *ngIf="isCS">Electrical Panel Width</th>
+        <th *ngIf="isCS">Electrical Panel Height</th>
+        <td *ngIf="isCS">Total Row of Electrical Panel Cabinet</td>
+        <td *ngIf="isCS">Total Column of Electrical Panel Cabinet</td>
+        <th *ngIf="isCS">L.H.S</th>
+        <th *ngIf="isCS">R.H.S</th>
+        <th *ngIf="isCS">Back</th>
+        <th *ngIf="isCS">Distance Between Machines</th>
+<th *ngIf="isCS">cylinderPosition</th>
+      <!-- <th>Room Name</th> -->
+      <th >Alarm required</th>
+      <th *ngIf="isCS">Alarm Option</th>
+        <th class="width_td pull-left">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of cncMachineTableData let i = index">
+        <td>{{ data.machineName }}</td>
+        <td>{{ data.dimensionsLength }}</td>
+        <td >{{ data.dimensionsWidth }}</td>
+        <td>{{ data.dimensionsHeight }}</td>
+        <td *ngIf="isCS">{{ data.electicalPanelRequired }}</td>
+        <td *ngIf="isCS">{{ data.dimensionsLengthEp }}</td>
+        <td *ngIf="isCS">{{ data.dimensionsWidthEp }}</td>
+        <td *ngIf="isCS">{{ data.dimensionsHeightEp }}</td>
+        <td *ngIf="isCS">{{ data.totalRowofEP }}</td>
+        <td *ngIf="isCS">{{ data.totalColumnofEP}}</td>
+        <td *ngIf="isCS">{{ data.distanceLHS }}</td>
+        <td *ngIf="isCS">{{ data.distanceRHS }}</td>
+        <td *ngIf="isCS">{{ data.distanceBack }}</td>
+        <td *ngIf="isCS">{{ data.distanceBetweenTwoCNC }}</td>
+        <td *ngIf="isCS">{{data.cylinderPosition}}</td>
+        <!-- <td>{{getStringArray(data.roomNames).join(', ')}}</td> -->
+        <td>{{ data.alarmRequired }}</td>
+        <td *ngIf="isCS">{{ data.alarmOption }}</td>
+        <td class="width_td pull-left">
+          <button type="button" (click)="editRow(i,data)" class="btn btn-sm text-success pull-left"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          <button type="button" (click)="deleteRow(i,data)" class="btn btn-sm text-danger pull-left m-left"><i class="fa fa-trash" aria-hidden="true"></i></button>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <ng-template #tipContent
+  >Hello, 
+  <img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/Area_images/Area_%2020240129190225.jpg" style="height: 200px;width: 200px;">
+  </ng-template
+>
+
+<ng-template #rowContent
+  >
+  <img *ngIf="off==false" src="https://i.ibb.co/55HjDt2/rows.jpg" style="height: 200px;width: 200px;">
+  </ng-template
+>
+
+<ng-template #colContent
+  >
+  <img *ngIf="off==false" src="https://i.ibb.co/yP6qr5B/Total-column.jpg" style="height: 200px;width: 200px;">
+  </ng-template
+>
+<ng-template #heightContent
+  >
+  <img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/cnc_machine/cnc_hight.jpg" style="height: 200px;width: 200px;">
+  </ng-template
+>
+<ng-template #widthContent
+  >
+  <img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/cnc_machine/cnc_depth.jpg" style="height: 200px;width: 200px;">
+  </ng-template
+>
+<ng-template #lengthContent
+  >
+  <img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/cnc_machine/cnc_length.jpg" style="height: 200px;width: 200px;">
+  </ng-template
+>
+
+<ng-template #lhs
+>
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/cnc_machine/cnc_left.jpg" style="height: 200px;width: 200px;">
+</ng-template
+>
+
+<ng-template #rhs
+>
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/cnc_machine/cnc_right.jpg" style="height: 200px;width: 200px;">
+</ng-template
+>
+
+<ng-template #back
+>
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/cnc_machine/cnc_back.jpg" style="height: 200px;width: 200px;">
+</ng-template
+>
+<ng-template #directIN
+> 
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/direct_indirect.jpg" style="height: 200px;width: 300px;">
+</ng-template
+>
+
+<ng-template #panel
+> 
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/panel_hooter.jpg" style="height: 200px;width: 300px;">
+</ng-template
+>
+
+<ng-template #diContent
+  >
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/direct_indirect.jpg" style="height: 200px;width: 300px;">
+
+  <p>Choose <b>Direct </b>when you have multiple cabinets with the largest cabinet's volume from among them is not greater then 2 m cube. </p>
+  <br>
+
+  <p>Choose <b>Indirect </b>when you have a singular or limited no of equal volume cabinets whose combine volume is 2 m cube and above.</p>
+  </ng-template
+>
+<ng-template #lengthContentep
+>
+<img *ngIf="off==false" src="https://i.ibb.co/DbpjkJT/Length.jpg" style="height: 200px;width: 200px;">
+</ng-template
+>
+<ng-template #heightContentep
+>
+<img *ngIf="off==false" src="https://i.ibb.co/nQhLYhN/hight.jpg" style="height: 200px;width: 200px;">
+</ng-template
+>
+<ng-template #machineName
+>
+<p>Enter identifier name for your machine.
+</p>
+<!-- <img *ngIf="off==false" src="https://i.ibb.co/nQhLYhN/hight.jpg" style="height: 200px;width: 200px;"> -->
+</ng-template
+>
+<ng-template #ChoosePosition
+>
+<p>Enter where your agent cylinder is to be positioned in respect to your CNC Machine.
+</p>
+<!-- <img *ngIf="off==false" src="https://i.ibb.co/nQhLYhN/hight.jpg" style="height: 200px;width: 200px;"> -->
+</ng-template
+>
+<ng-template #widthContentep
+>
+<img *ngIf="off==false" src="https://i.ibb.co/0ymqBtt/width.jpg" style="height: 200px;width: 200px;">
+</ng-template
+>
+<ng-template #contentCabinet let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title"></h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p>{{modelText}}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="showCNC(true);modal.dismiss('Cross click')">Yes</button>
+    <button type="button" class="btn btn-outline-dark" (click)="showCNC(false);modal.dismiss('Cross click')">No</button>
+  </div>
+</ng-template>

@@ -1,0 +1,43 @@
+
+<div id="mySidebar" class="sidebar" (mouseover)="toggleSidebar1()" (mouseout)="toggleSidebar1()">
+  
+    <div class="p_left"><img src="http://cfx.ceasefire.biz/assets/LOGO_express2.webp" width="220" height="40" alt=""></div>
+    
+<a (click)="ApiService.goCSDashBoard()" href="javascript:void(0)"  class="nav_link active"><img  src="https://cfx.ceasefire.biz/assets/sidebar_icon/dashboard.svg" class="side_menu"  height="20px" width="20px"><span class="nav_name">Dashboard</span> </a>
+
+<a  (click)="csModelService.addNewRegistration(0,'New')" href="javascript:void(0)"  class="nav_link active"><img  src="https://cfx.ceasefire.biz/assets/sidebar_icon/register.webp" class="side_menu"  height="20px" width="20px"><span class="nav_name">Register Customer</span> </a>
+<a 
+routerLink="/cs/cs-spancowise" href="javascript:void(0)"  class="nav_link active"><img  src="https://cfx.ceasefire.biz/assets/sidebar_icon/user2.webp" class="side_menu"  height="20px" width="20px"><span class="nav_name">Spancowise</span> </a>
+<!-- <a href="javascript:void(0)"  class="nav_link active"><img  src="https://cfx.ceasefire.biz/assets/sidebar_icon/exp_conversion_date.webp" class="side_menu"  height="20px" width="20px"><span class="nav_name">Exp Conversion Date</span> </a> -->
+<a (click)="csModelService.downloadTemplate('CSRegistration')" href="javascript:void(0)"  class="nav_link active"><img  src="https://cfx.ceasefire.biz/assets/sidebar_icon/download_template.webp" class="side_menu"  height="20px" width="20px"><span class="nav_name">Download Template </span> </a>
+<a routerLink="/cs/cs-projects" href="javascript:void(0)"  class="nav_link active"><img  src="https://cfx.ceasefire.biz/assets/sidebar_icon/project.webp" class="side_menu"  height="20px" width="20px"><span class="nav_name">Project</span> </a>
+<a (click)=" fileInput.click() " href="javascript:void(0)"  class="nav_link active"><img  src="https://cfx.ceasefire.biz/assets/sidebar_icon/bulk_upload.webp" class="side_menu"  height="20px" width="20px"><span class="nav_name">
+    <input type="file" style="display: none;" (change)="csModelService.onCSRegistredFileSelected($event)" #fileInput 
+          accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" >
+    Bulk Upload</span> 
+</a>
+<a 
+routerLink="/cs/cs-proposal-reports" 
+href="javascript:void(0)"  
+class="nav_link active">
+<img  src="https://cfx.ceasefire.biz/assets/sidebar_icon/proposal_1.webp" class="side_menu"  height="20px" width="20px">
+<span class="nav_name">Proposal</span>
+ </a>
+<a 
+routerLink="/cs/cs-reports" 
+href="javascript:void(0)"  
+class="nav_link active">
+<img  src="https://cfx.ceasefire.biz/assets/sidebar_icon/sales1.webp" class="side_menu"  height="20px" width="20px">
+<span class="nav_name">Sales Summary Reports</span>
+ </a>
+
+ <a 
+routerLink="/cs/mailer" 
+href="javascript:void(0)"  
+class="nav_link active">
+<img  src="https://cfx.ceasefire.biz/assets/sidebar_icon/mailer1.webp" class="side_menu"  height="20px" width="20px">
+<span class="nav_name">Mailer</span>
+ </a>
+
+</div>
+

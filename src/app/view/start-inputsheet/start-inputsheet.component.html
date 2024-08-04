@@ -1,0 +1,97 @@
+<!-- <main id="main">
+    <section class="inner-page p-0  sec_body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="col-xs-12 col-md-4 px-4 py-1 pull-left" style="height: 100%;">
+
+                        <h2 class="mb-4">
+                            Carrying out Fire Audit Survey for<br>
+                            <span style="color:#FF6161;">{{objInputsheetLists[0].title}}</span>
+                        </h2>
+
+                        <p>  <img src="https://cfx.ceasefire.biz/assets/Area_images/CQRS3.png" width="390" height="400" alt=""></p>
+                    </div>
+
+                    <div class="col-xs-12 col-md-7 pl-5 pr-1 pt-1 pb-1 pull-left ml-3"
+                        *ngFor="let item of objInputsheetLists ;let i=index">
+                        <div class="col-12 pull-left">
+                            <div class="col-md-9 pull-left font-w">
+                                <h4>{{item?.mainPageTitle}}</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 pull-left" style="font-size: 16px;
+                            line-height: 35px;">The specialised automatic heat sensing tube-based micro-environment fire suppression system is characterised by its unique criteria, which are essential for its effective operation. One key aspect is the consideration of the volume of the space where it is deployed, ensuring that the system can efficiently cover the designated area. Additionally, the system's effectiveness relies on various surrounding variables,<br><br> such as the type and volume of the extinguishing agent used, as well as the length of the heat sensing tube. These factors are carefully calibrated to ensure optimal performance in detecting and suppressing fires within the specified micro-environment. By customising these parameters, the system can effectively mitigate fire risks while minimising damage and ensuring the safety of occupants and assets. In this section you’ll learn how to capture all essential inputs that are mandatory to design the CQRS that is most suitable for your space. </div>
+                            <div class="col-md-12 pull-left" style="text-align: left;">
+                                <span>
+                                    <button class="btn btn-outline-danger mt-3" (click)="OpenInputsheet()">Get Started <i
+                                            class="fa fa-arrow-circle-right ar_icon" aria-hidden="true"></i></button>
+
+                                </span>
+
+                            </div>
+                            <div class="col-12 b_btm"></div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main> -->
+
+
+
+
+
+<main id="main">
+  <section class="inner-page p-0  sec_body">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-12">
+                  <div class="col-xs-12 col-md-4 p-5 pull-left" >
+
+                      <h2 class="mb-4">
+                          <!-- Carrying out Fire Audit Survey for<br> -->
+                          <span style="color:#FF6161;">{{objInputsheetLists[0].mainPageTitle}}</span>
+                      </h2>
+
+                      <p>  <img [src]="objInputsheetLists[0].mainPageImagePath" class="img-fluid" alt=""></p>
+                  </div>
+
+                  <div class="col-xs-12 col-md-7 p-5 pull-left ml-3">
+                      <div class="col-12 pull-left">
+                          <div class="col-md-9 pull-left font-w">
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-12 pull-left" style="font-size: 16px;
+                          line-height: 35px;">
+                          <!-- {{objInputsheetLists[0].mainPageImageDescription}} -->
+                          <span [innerHtml]="objInputsheetLists[0].mainPageImageDescription"></span>
+                        </div>
+                          <div class="col-md-12 pull-left" style="text-align: left;">
+                              <span>
+                                  <button class="btn btn-outline-danger mt-3" (click)="OpenInputsheet()">Get Started <i
+                                          class="fa fa-arrow-circle-right ar_icon" aria-hidden="true"></i></button>
+
+                              </span>
+
+                          </div>
+                          <div class="col-12 b_btm"></div>
+                      </div>
+
+
+                  </div>
+
+
+              </div>
+          </div>
+      </div>
+  </section>
+</main>
+

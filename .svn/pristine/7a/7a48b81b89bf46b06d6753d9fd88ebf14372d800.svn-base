@@ -1,0 +1,94 @@
+.m_t5{ margin-top: 47px;}
+
+
+.m_t5{ margin-top: 47px;}
+
+
+.w-list-btn {
+  position: absolute;
+  right: 0;
+  top: -7%;
+}
+.hart-share {
+  cursor: pointer;
+  float: right;
+  position: relative;
+  padding: 10px;
+  border: 1px solid #F6F6F6;
+  border-radius: 50%;
+  margin: 10px 0;
+  width: 40px;
+  height: 40px;
+}
+
+.hart-share i {
+  width: 100%;
+  text-align: center;
+}
+
+.outerImg {
+  width: 210px;
+  height: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;}
+
+
+  .new-sec .f_left {
+      float: left;
+  }
+ 
+  .new-sec .border_right {
+     
+      padding-left: 2%;
+  }
+
+  .new-sec .border_box {
+      border: 1px solid #ccc;
+      margin-bottom: 1%;
+      float: left;
+      height: auto;
+      width: 100%;
+  }
+  .despro ul {
+  margin: 0 0 0 19px;
+}
+
+.new-sec .line_t {
+  text-decoration: line-through;
+}
+
+.new-sec .text_b {
+  font-weight: 600;
+  font-size: 18px;}
+
+  .new-sec .text_b {
+      font-weight: 600;
+      font-size: 18px;}
+
+      .new-sec .text_b {
+          font-weight: 600;
+          font-size: 18px;}
+
+  .despro {
+      color: gray;
+      padding: 15px 0;}
+
+
+      .price_1{    padding-left: 243px;}
+
+      .box_h{min-height: 530px;}
+
+      .nav-link:hover {
+        background-color: #f3f3f3;
+        color: #000;
+      }
+    
+      .nav-link {
+     
+        color: #252f81;
+        border-bottom: 1px solid #ccc;
+        border-radius: 0px;
+      }
+    

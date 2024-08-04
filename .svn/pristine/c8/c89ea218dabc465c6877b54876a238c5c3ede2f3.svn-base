@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name - Resume</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-oZBO1eW8DpLXRPePRdfM7RRU2h5WK92iI4j6WzL4lFqZ5Pb/6PZg7L+Pc1PTWEm" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+      color: #495057;
+    }
+    .projects-section .project-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .resume-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    h1, h2, h3, h4, h5 {
+      color: #192a56;
+    }
+
+    .section-title {
+      border-bottom: 2px solid #192a56;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .experience-item,
+    .education-item {
+      margin-bottom: 30px;
+    }
+
+    .experience-item h3,
+    .education-item h3 {
+      color: #192a56;
+    }
+
+    .experience-item p,
+    .education-item p {
+      color: #6c757d;
+    }
+
+    .skill-item {
+      display: inline-block;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      padding: 8px 15px;
+      background-color: #192a56;
+      color: #ffffff;
+      border-radius: 5px;
+    }
+
+    .contact-info {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .contact-info li {
+      margin-bottom: 10px;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      color: #192a56;
+      margin-right: 15px;
+      font-size: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #101d35;
+    }
+
+    .objective-section {
+      margin-bottom: 30px;
+    }
+
+    .objective-section h2 {
+      color: #192a56;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container resume-container">
+    <header class="text-center">
+      <h1>Deepak Mishra</h1>
+      <p class="lead">Full Stack Developer </p>
+    </header>
+
+    <div class="objective-section">
+      <h2>Objective</h2>
+      <p>Dedicated and results-driven SQL Database Administrator with a proven track record of optimizing database performance, ensuring data integrity, and implementing robust security measures. Adept at designing, implementing, and maintaining complex SQL database systems, I bring a wealth of expertise in administering and fine-tuning databases for optimal efficiency. My proficiency extends to a comprehensive skill set in .NET, Node.js, React, and Angular, enabling seamless integration of database solutions into dynamic web applications</p>
+    </div>
+
+    <section>
+      <h2 class="section-title">Experience</h2>
+
+      <div class="experience-item">
+        <h3>Database Administrator</h3>
+        <p><strong>Ceasefire</strong> - Mohan Estate | May 2022 - Dec 23</p>
+        <li>Spearheaded the implementation and optimization of a complex CRM system, utilizing SQL database expertise to enhance data storage, retrieval, and reporting capabilities.</li>
+    <li>Collaborated with cross-functional teams to integrate .NET, Node.js, React, and Angular into the CRM solution, ensuring a seamless user experience and improved customer relationship management.</li> 
+    
+    </div>
+
+      <div class="experience-item">
+        <h3>Database Developer</h3>
+        <p><strong>Ensosar</strong> - Remote | Jan 2021 - Feb 2022</p>
+        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis justo vitae massa tincidunt eleifend.</p> -->
+   <li>Played a key role in the development of a cutting-edge social media application, contributing expertise in SQL database design and administration.</li> 
+<li>Implemented database solutions to handle large volumes of user-generated content, optimizing performance and scalability for a dynamic social platform.</li>    
+</div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Projects</h2>
+  
+        <div class="project-item">
+          <h3>Ceasefire CRM Implementation</h3>
+          <p>Ceasefire CRM is an innovative customer relationship management (CRM) solution designed to revolutionize the way organizations manage and nurture their customer interactions. This project involved the end-to-end implementation of Ceasefire CRM to enhance our client's customer engagement processes.</p>
+        <h4>Key Features</h4>
+        <li>
+            Contact Management: Implemented a robust contact management system to organize and consolidate customer information, including interactions, preferences, and communication history.</li>
+<li>Lead and Opportunity Tracking: Utilized Ceasefire CRM's lead management capabilities to streamline the sales pipeline, from lead acquisition to deal closure</li>
+<li>Marketing Automation: Integrated marketing automation tools within Ceasefire CRM to execute targeted campaigns, track engagement, and analyze the effectiveness of marketing efforts</li>
+<li>Custom Reporting and Analytics: Developed customized reports and analytics dashboards to provide insights into customer behavior, sales performance, and marketing ROI</li>
+<li>User Training and Adoption: Conducted comprehensive training sessions to ensure that users across departments are proficient in navigating and utilizing Ceasefire CRM to its full potential</li>
+        
+        </div>
+  
+        <div class="project-item">
+          <h3>Database Infrastructure Enhancement</h3>
+          <p>
+            The Database Infrastructure Enhancement project is a strategic initiative aimed at optimizing and fortifying our organization's database environment. This comprehensive project involves the evaluation, redesign, and implementation of key database components to ensure scalability, performance, and data integrity</p>
+      <h4>Key Activities : </h4>
+            <li>Database Health Check: Perform a comprehensive health check of the existing database infrastructure to identify areas for improvement and potential risks</li>
+      <li>Performance Tuning: Utilize advanced monitoring tools and analysis techniques to fine-tune database performance, optimizing query execution and resource utilization.</li>
+      <li>Security Auditing: Conduct thorough security audits, identify vulnerabilities, and implement measures to enhance database security, including user authentication, authorization, and data encryption</li>
+    <li>Backup and Retention Policy Update: Review and update the data backup and retention policy to align with business needs and regulatory requirements, ensuring the availability of historical data as needed</li>    
+    <h4>Result :</h4>
+    <li>Achieved a 30% improvement in database performance, leading to faster response times and increased user satisfaction</li>
+<li>Strengthened database security measures, reducing the risk of unauthorized access by 20%</li>    
+<li>Implemented a robust disaster recovery solution, reducing downtime in the event of system failures by 40%.</li>
+</div>
+
+
+<div class="project-item">
+    <h3> Database Migration and Upgrade</h3>
+    <p>The Database Migration and Upgrade project involve seamlessly transitioning our existing database infrastructure to a more advanced platform while upgrading to the latest version. This strategic initiative aims to enhance system performance, ensure data security, and unlock new features for improved efficiency</p>
+  <h4>Key Activities: </h4>
+  <li>
+    Data Migration: Transfer existing data seamlessly to the new platform, minimizing downtime and ensuring data integrity throughout the process.</li>
+<li>Compatibility Testing: Conduct rigorous testing to ensure applications and systems function seamlessly with the upgraded database version.</li>
+<li>Performance Testing: Validate the enhanced performance of the upgraded database, optimizing query execution and response times.</li>
+
+  
+  </div>
+
+
+
+
+      </section>
+
+      
+  
+
+    <section>
+      <h2 class="section-title">Education</h2>
+
+      <div class="education-item">
+        <h3>BCA</h3>
+        <p><strong>IGNOU</strong> - delhi | 2022</p>
+      </div>
+
+      
+    </section>
+
+    <section>
+      <h2 class="section-title">Skills</h2>
+      <div class="skill-item">SQL (Structured Query Language)</div>
+      <div class="skill-item">T-SQL (Transact-SQL)</div>
+      <div class="skill-item">Microsoft SQL Server</div>
+      <div class="skill-item">MySQL</div>
+      <div class="skill-item">Microsoft SQL Server Management Studio (SSMS)</div>
+      <div class="skill-item">SQL Server Agent Jobs</div>
+      <div class="skill-item">.NET (C#)</div>
+      <div class="skill-item">Nodejs</div>
+      <div class="skill-item">ReactJS</div>
+      <div class="skill-item">Angular</div>
+
+      <div class="skill-item">HTML</div>
+      <div class="skill-item">CSS</div>
+      <div class="skill-item">JavaScript</div>
+      <!-- Add more skill items as needed -->
+    </section>
+
+    <section>
+      <h2 class="section-title">Contact Information</h2>
+      <ul class="contact-info">
+        <li>Email: deepak@kloudrac.com</li>
+       
+        <!-- Add more contact information as needed -->
+      </ul>
+
+      <div class="social-icons text-center">
+        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+        <!-- Add more social icons as needed -->
+      </div>
+    </section>
+  </div>
+
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

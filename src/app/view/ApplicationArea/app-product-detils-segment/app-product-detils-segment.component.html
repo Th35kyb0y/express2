@@ -1,0 +1,78 @@
+
+
+<div class="row pull-left">
+
+ 
+    <div class="col-12 text-center">
+      
+
+    </div>
+    <ng-container *ngIf="onResize_PlatformService.isMobile">
+
+       
+
+        <a class="ProductFilter-popover-btn filter_bg px-3 py-3"   (click)="openFilter()">
+            <i class="fa fa-filter" aria-hidden="true"></i> Apply Filter
+        </a>
+
+       
+    </ng-container>
+    <div class="col-12 mt-4">
+        <div class="col-lg-3 col-md-3 col-xs-12 pull-left" *ngIf="!onResize_PlatformService.isMobile">
+            <h4>Filter By</h4>
+            <hr>
+            <div class="accordion" id="accordionExample">
+
+
+                <div class="accordion-item">
+
+                    <div  class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div *ngFor="let item of LinkedCollection;let i=index">
+                                <div class="form-check">
+                                    <input class="form-check-input p-0" type="checkbox" value=""
+                                    [checked]="item.isSelected"
+
+                                    (change)="filterCollectionProduct($event,item.collectionId, item.collectionName)"
+                                    [id]="item.collectionName"
+                                    >
+                                    <label class="form-check-label   mb-0 custom-font"  [for]="item.collectionName" for="flexCheckDefault">
+                                        {{ item.collectionName}}
+                                    </label>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+        <div class="col-lg-9 col-md-9 col-xs-12 pull-left ml-1">
+            <div class="col-lg-4 col-md-4 col-xs-12 cat_border pull-left p-2 m-1"   *ngFor="let item of Products;let i=index"  style="width: 18rem;">
+                <a href="javascript:void(0);" (click)="GoToroductDetail(item)"> <img src="{{item.shortDescription}}"
+                       class="img-fluid" alt="" />
+                </a>
+                <hr>
+                <div class="pull-left item_n col-12" style="height: 47px;
+    overflow: hidden;">
+                    <a href="javascript:void(0);" style="cursor: pointer;" (click)="GoToroductDetail(item)"> {{item.name}}</a>
+                </div>
+
+                <div class="pull-left mt-1 col-12"><span class="price_p">
+                    <i class="fa fa-inr" aria-hidden="true"></i>{{item.price}}</span>
+                    <!-- <span class="og_price"><i class="fa fa-inr"
+                            aria-hidden="true"></i>{{item.price}}</span><span class="discount_per">(20% Off)</span> -->
+                </div>
+                <div class="pull-left mt-1">
+                    <app-add-to-cart-view-product [product]="item" [isViewProduct]="false"></app-add-to-cart-view-product>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+</div>

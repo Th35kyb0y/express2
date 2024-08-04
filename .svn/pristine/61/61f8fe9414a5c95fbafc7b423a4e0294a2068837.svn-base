@@ -1,0 +1,23 @@
+.modal-header {
+    width: 100%;
+    padding: 1rem; /* Adjust padding as needed */
+    background-color: #f8f9fa; /* Example background color */
+    border-bottom: 1px solid #dee2e6; /* Example border color */
+  }
+
+  @media (min-width: 1200px){}
+.modal-xl {
+    max-width: 1341px !important;}
+
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 80px !important;
+        z-index: 1060;
+        display: none;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        outline: 0;
+    }

@@ -1,0 +1,195 @@
+<!-- main start here-->
+<main id="main">
+  <section class="inner-page p-0 sec_body">
+    <div class="container-fluid ">
+      <div class="row">
+        <div class="col-12 middle">
+          <span class="img_l">
+            <!-- <img src="https://cfx.ceasefire.biz/assets/apartment/Living_Room.png" width="100%" height="350px" alt="apartments" > -->
+            <img [src]="BannerImgUrl" class="img-fluid" alt="No Banner Img">
+          </span>
+          <!-- <span class="btn_img_2">LIVING ROOM</span> -->
+          <span class="btn_img_2">{{buttonName}}</span>
+        </div>
+
+
+      </div>
+
+      <div class="row my-3">
+        <div class="col-12 text-center mb-5">
+          <h4>RECOMMENDED SOLUTIONS</h4>
+        </div>
+
+      </div>
+
+
+      <div class="row">
+        <div class=" row col-12">
+          <div class="col-lg-7 col-md-7 col-xs-12 ">
+            <div class="row mb-5" *ngFor="let i of SegmentAreaData">
+              <div class="col-lg-5 col-md-5 col-xs-12 mx-3 shadow-sm cat_image1">
+
+
+                <img [src]="i.areaImageUrl" alt="apartments" class="img-fluid">
+
+
+              </div>
+              <div class="col-lg-6 col-md-6 col-xs-12 mx-3 cat_image1">
+                <h5>{{i?.title}}</h5>
+                <p class="home_des">{{i?.description}} </p>
+                <!-- <p><a routerLink="/products" [queryParams]="{ catId: i.collectionId ? i.collectionId:0}"
+                    class="btn btn-outline-danger btn-sm learn_more">Learn More ></a></p> -->
+                    <button type="buttton" class="btn btn-outline-danger btn-sm learn_more" (click)="moveToProductList(i)">
+                      Learn More
+                    </button>
+              </div>
+
+            </div>
+            <div class="col-12">
+
+
+
+              <!-- <img src="https://cfx.ceasefire.biz/assets/main_segments/apartments/Offer-1.png" class="img-fluid"
+              alt="apartments"> -->
+
+             <a [routerLink]="couponCodeLink" [queryParams]="{ catId: couponCodeLinkQuery }"> <img [src]="couponCodeBannerImg" class="img-fluid"
+              alt="apartments"></a>
+
+
+            </div>
+            <div class="my-3">
+              <a routerLink="/ContactUs"><img [src]="assistantList[currentIndex]" class="img-fluid my-3"
+                    alt="apartments"></a>
+            </div>
+
+          </div>
+          <div class="col-lg-5 col-md-5 col-xs-12 px-3">
+            <div class="col-12 pull-left border_b ">
+              <div class="col-12 row d-flex">
+                <div class="col-6 line_h2">
+                  <h4>RISK FACTORS</h4>
+                  <!-- <ul>
+
+                                <li>Cigarette Smoking</li>
+                                <li>Fire in Heating / Cooling Appliances</li>
+                                <li>Electrical Short circuit</li>
+                                <li>Fire in Fancy Lighting</li>
+                                <li>Fire Place</li>
+                            </ul> -->
+
+
+                  <!-- <p>{{riskArea1}}</p> -->
+
+
+                  <p [innerHTML]="riskArea1">
+
+                  </p>
+
+                  <!-- <div class="col-12 text-justify p-3" [innerHTML]="modelDescription">
+
+                  </div> -->
+
+                </div>
+
+                <div class="col-6 risk_bg_white_">
+                  <h5>Why not to leave the risks unattended?</h5>
+                  <p>{{riskArea2}}</p>
+
+                </div>
+
+              </div>
+            </div>
+            <div class="col-12 d-flex pull-left quick_link_bg mt-5">
+
+              <div class="col-12">
+                <h4><img src="https://cfx.ceasefire.biz/assets/apartment/quick_links.jpg" class="img-fluid"
+                    alt="apartments"></h4>
+                <ul>
+
+                  <li *ngFor="let i of GetQuickLinkDataList"><span class="quick_first">{{i?.quickLinkHeading}}</span>
+                    <span><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="openModel(i)"><img
+                          src="https://cfx.ceasefire.biz/assets/apartment/plus_icon.jpg"></a></span></li>
+
+                </ul>
+              </div>
+
+
+
+
+
+
+
+            </div>
+
+          
+
+          </div>
+
+
+
+        </div>
+      </div>
+
+      <div class="row my-2">
+        <div class=" col-12 d-flex">
+
+          <img src="https://cfx.ceasefire.biz/assets/Area_images/segment_footer1.webp" class="img-fluid"
+            alt="apartments">
+
+        </div>
+      </div>
+      <!-- <div class="row coupon_bg py-3 mt-5">
+
+        <div class="col-12 d-flex">
+          <img src="https://cfx.ceasefire.biz/assets/offer_banners_areas/Offer.png" class="img-fluid"
+          alt="apartments">
+        </div>
+      </div> -->
+    </div>
+  </section>
+</main>
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header bg_grey1">
+        <h5 class="modal-title d-flex text-wrap" id="exampleModalLabel"><span class="margin_right"><img
+              src="https://cfx.ceasefire.biz/assets/apartment/logo.jpg" width="50" alt="apartments"></span>
+          <span class="bg_choco">{{modelTitle}}</span>
+        </h5>
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body pb-5 bg_grey1">
+        <div class="row col-12" *ngIf="FileType!='No_Image'">
+          <div class="col-lg-7 col-md-7 col-xs-12 text-justify p-3" [innerHTML]="modelDescription"></div>
+          <span class="col-lg-5 col-md-5 cold-xs-12 text-center">
+            <img *ngIf="FileType=='Images'" [src]="ModelImg" alt="apartments" class=" border shadow img-fluid">
+            <iframe *ngIf="FileType=='Video'" width="420" height="220" [src]="getVideoUrl()" frameborder="0"
+              allowfullscreen></iframe>
+
+          </span>
+
+
+        </div>
+
+        <div class="col-12 d-flex" *ngIf="FileType=='No_Image'">
+          <div class="col-12 text-justify p-3" [innerHTML]="modelDescription">
+
+          </div>
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+    </div>
+  </div>
+</div>

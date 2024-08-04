@@ -1,0 +1,293 @@
+<div class="container-fluid" style="margin-top: 126px;">
+    <div class="row">
+
+        <div class="slide-area">
+            <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselItems"
+                (carouselLoad)="carouselTileLoad($event)" class="main-carousel">
+                <div *nguCarouselDef="let item;" class="item" (click)="setImage(item.link)">
+                    <div class="tile" (click)="setImage(item.link)"><img (click)="setImage(item.link)"
+                            src="{{item.link}}"></div>
+                </div>
+                <button NguCarouselNext class="rightRs"><i class="fas fa-angle-up fa-xl fa-fw"></i></button>
+                <button NguCarouselPrev class="leftRs"><i class="fas fa-angle-down fa-xl fa-fw"></i></button>
+
+            </ngu-carousel>
+        </div>
+
+        <div class="col-12 mt-3 ">
+
+            <div class="row">
+                <div class="col-md-6 col-12">
+
+                    <!-- gallery.component.html -->
+                    <div class="divhw">
+                        <!-- Swiper -->
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                              <div class="swiper-slide" *ngFor="let pc of productContent.Image;let i=index">
+                                <img [src]="pc.link"  alt="Gallery Image" 
+                                style="max-height: 80px; width: auto;"  (click)="productContentObj(pc)">
+                            </div>
+                              <!-- <div class="swiper-slide" *ngFor="let image of images">
+                                <img [src]="image" alt="Gallery Image" 
+                                style="max-height: 80px; width: auto;" >
+                            </div> -->
+                              <!-- <div class="swiper-slide">Slide 2</div>
+                              <div class="swiper-slide">Slide 3</div>
+                              <div class="swiper-slide">Slide 4</div>
+                              <div class="swiper-slide">Slide 5</div>
+                              <div class="swiper-slide">Slide 6</div>
+                              <div class="swiper-slide">Slide 7</div>
+                              <div class="swiper-slide">Slide 8</div>
+                              <div class="swiper-slide">Slide 9</div> -->
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                          </div>
+                            </div>
+                    <!-- {{productContent?.ImageFirst?.link}} -->
+                    <div class="image-container d-flex justify-content-center">
+                        <img src="{{productContent?.ImageFirst?.link}}" class="img-fluid" alt=""
+                            style="max-height: 300px; width: auto;" >
+                    </div>
+
+                    <div id="multiImageCarousel" class="carousel slide" data-bs-ride="carousel"
+                        data-bs-interval="false">
+                        <div class="carousel-inner">
+                            <div class="carousel-item" *ngFor="let pc of productContent.Image;let i=index"
+                                [ngClass]="{'active': i === 0 }">
+                                <div class="d-flex gap-3 justify-content-center">
+                                
+                                    <div class="image-group d-flex gap-3">
+                                        <img src="{{pc.link}}" class="all-image img-fluid image-box" alt=""
+                                            style="max-height: 80px; width: auto;" (click)="productContentObj(pc)">
+
+                                    </div>
+                                </div>
+                            </div> 
+
+                            
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#multiImageCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon bg-danger" aria-hidden="true"></span>
+                            <span class="visually-hidden" style="margin-left:50px;">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#multiImageCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon bg-danger" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-12">
+                    <div class="row">
+                        <h6 class="fw-medium mt-3">
+                            {{product?.name}} ({{product?.code}})
+                        </h6>
+                        <div class="button d-flex">
+                            <button class="btn btn-warning btn-sm btn-info rating">
+                                5.0 <span class="rating">&#9733;</span>
+                            </button>
+                            <p class="fs-6 mt-1 mb-0">{{product?.productRatingId}} <span>Ratings</span></p>
+                        </div>
+                        <div class="d-flex gap-2 mt-2">
+                        <h6 class="text-danger mb-0">
+                           ₹   {{product?.price}}
+                        </h6>
+                    </div>
+                        <!-- <div class="d-flex gap-2 mt-2">
+                           
+                            <h6 class="fs-6 strikethrough mb-0">
+                                Price:
+                                <span>₹   </span> {{product?.price}}
+                            </h6>
+                           
+                            <h6 class="text-success mb-0">
+                                <span class="ml-3">Discount:</span> <i class="fas fa-rupee-sign ms-2"></i> 10210 (20%)
+                            </h6>
+                        </div> -->
+                        <div class="d-flex align-items-center mt-2">
+                            <p class="mb-0" style="color: #10A579">{{product?.instock}} in stock</p>
+                        </div>
+                        <div class="mt-2">
+
+                            <div
+                                class="d-flex justify-content-center align-items-center border border-1 add-cart quantity">
+                                <button class="btn btn-sm fs-5 fw-bold" (click)="dec()">-</button>
+                                <h6 class="m-0 mx-2">{{product?.qty}}</h6>
+                                <button class="btn btn-sm fs-5" (click)="inc()">+</button>
+                            </div>
+                        </div>
+                        <div class="mt-3 d-flex">
+                            <button class="btn btn-danger" (click)="addToCart()">{{checkAddToCart(product)}}</button>
+
+                            <button routerLink="/user/checkout" class="btn btn-primary" style="margin-left: 20px;">Go
+                                To Cart</button>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-12 mt-lg-5 ">
+            <div>
+                <!-- nav options -->
+                <ul class="d-flex justify-content-around nav nav-pills mb-3 bg-white" id="pills-tab"
+                    role="tablist" style="color: black;">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-overview-tab" data-bs-toggle="pill"
+                            href="javascript:void(0);" (click)="activeTab('pills-overview')" role="tab"
+                            aria-controls="pills-overview" aria-selected="false">Overview</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-Feature-tab" data-bs-toggle="pill" href="javascript:void(0);"
+                            (click)="activeTab('pills-features')" role="tab" aria-controls="pills-features"
+                            aria-selected="true">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-technical-tab" data-bs-toggle="pill" href="javascript:void(0);"
+                            (click)="activeTab('pills-technical')" role="tab" aria-controls="pills-technical"
+                            aria-selected="false">Technical Specification</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-datasheet-tab" data-bs-toggle="pill" href="javascript:void(0);"
+                            (click)="activeTab('pills-datasheet')" role="tab" aria-controls="pills-datasheet"
+                            aria-selected="false">Data Sheet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-videos-tab" data-bs-toggle="pill" href="javascript:void(0);"
+                            role="tab" (click)="activeTab('pills-videos')" aria-controls="pills-videos"
+                            aria-selected="false">Videos</a>
+                    </li>
+                  
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-brochures-tab" data-bs-toggle="pill" href="javascript:void(0);"
+                            (click)="activeTab('pills-brochures')" role="tab" aria-controls="pills-brochures"
+                            aria-selected="false">Brochure</a>
+                    </li>
+                </ul>
+
+                <!-- content -->
+                <div>
+                    <div class="tab-content p-3 " id="pills-tabContent">
+                        <!-- 1st card -->
+                        <div class="tab-pane fade show active" id="pills-overview" role="tabpanel"
+                            aria-labelledby="pills-overview-tab" *ngIf="productContent?.ProdcutOverview.length>0">
+                            <!-- Content for the "Overview" tab goes here. -->
+                            <div *ngIf="productContent.ProdcutOverview[0].isHtmlLink == false && productContent.ProdcutOverview[0].isPdfLink == false"
+                                [innerHTML]="productContent.ProdcutOverview[0].content"></div>
+                            <iframe *ngIf="productContent.ProdcutOverview[0].isHtmlLink == true"
+                                [src]="productContent.ProdcutOverview[0].link | safe"></iframe>
+                            <a *ngIf="productContent.ProdcutOverview[0].isPdfLink == true"
+                                [href]="productContent?.ProdcutOverview[0].link" target="_blank"
+                                rel="noopener noreferrer">Click here to view </a>
+                        </div>
+                        <!-- 2nd card -->
+                        <div class="tab-pane fade" id="pills-features" role="tabpanel"
+                            aria-labelledby="pills-Feature-tab" *ngIf="productContent?.Features.length>0">
+                            <div *ngIf="productContent.Features[0].isHtmlLink == false && productContent.Features[0].isPdfLink == false"
+                                [innerHTML]="productContent.Features[0].content"></div>
+                            <iframe *ngIf="productContent.Features[0].isHtmlLink == true"
+                                [src]="productContent.Features[0].link | safe"></iframe>
+                            <a *ngIf="productContent.Features[0].isPdfLink == true"
+                                [href]="productContent?.Features[0].link" target="_blank"
+                                rel="noopener noreferrer">Click here to view </a>
+                        </div>
+                        <!-- 3rd card -->
+                        <div class="tab-pane fade" id="pills-technical" role="tabpanel"
+                            aria-labelledby="pills-technical-tab"
+                            *ngIf="productContent?.TechnicalSpecifications.length>0">
+
+                            <!-- <p [innerHtml]="productContent?.TechnicalSpecifications[0].link"></p> -->
+                            <div *ngIf="productContent.TechnicalSpecifications[0].isHtmlLink == false && productContent.TechnicalSpecifications[0].isPdfLink == false"
+                                [innerHTML]="productContent.TechnicalSpecifications[0].content"></div>
+                            <iframe width="1020" height="700" *ngIf="productContent.TechnicalSpecifications[0].isHtmlLink == true"
+                                [src]="productContent.TechnicalSpecifications[0].link | safe"></iframe>
+                            <a *ngIf="productContent.TechnicalSpecifications[0].isPdfLink == true"
+                                [href]="productContent?.TechnicalSpecifications[0].link" target="_blank"
+                                rel="noopener noreferrer">Click here to view </a>
+
+                        </div>
+                        <!-- 4th card -->
+                        <div class="tab-pane fade" id="pills-datasheet" role="tabpanel"
+                            aria-labelledby="pills-datasheet-tab" *ngIf="productContent.DataSheet">
+
+                            <!-- <a [href]="productContent?.DataSheet?.link" target="_blank" rel="noopener noreferrer">Click here to view the
+                                datasheet</a> -->
+
+                            <div *ngIf="productContent.DataSheet.isHtmlLink == false && productContent.DataSheet.isPdfLink == false"
+                                [innerHTML]="productContent.DataSheet.content"></div>
+                            <iframe *ngIf="productContent.DataSheet.isHtmlLink == true"
+                                [src]="productContent.DataSheet.link | safe"></iframe>
+                            <a *ngIf="productContent.DataSheet.isPdfLink == true"
+                                [href]="productContent?.DataSheet.link" target="_blank" rel="noopener noreferrer">Click
+                                here to view </a>
+
+
+                        </div>
+                        <!-- 5th card -->
+
+                        <div class="tab-pane fade" id="pills-videos" role="tabpanel" aria-labelledby="pills-videos-tab">
+                            <div class="text-center" *ngFor="let vl of productContent?.VideoLinks;let i=index">
+                                <!-- <a [href]="vl?.link">{{vl?.link}}</a> -->
+                                <!-- <video width="800" height="500" controls>
+                                    <source [src]="vl?.link" type="video/mp4">
+                                </video> -->
+                               
+                            </div>
+
+                            <iframe width="820" height="420" [src]="getVideoUrl()" frameborder="0"
+                            allowfullscreen></iframe>
+                        </div>
+                        <!-- 6th card -->
+                        <div class="tab-pane fade" id="pills-presentation" role="tabpanel"
+                            aria-labelledby="pills-presentation-tab" *ngIf="productContent?.Presentation">
+                            <!-- Content for the "Presentation" tab goes here. -->
+                            <!-- <p [innerHtml]="productContent?.Presentation.link"></p> -->
+                            <div *ngIf="productContent.Presentation.isHtmlLink == false && productContent.Presentation.isPdfLink == false"
+                                [innerHTML]="productContent.Presentation.content"></div>
+                            <iframe *ngIf="productContent.Presentation.isHtmlLink == true"
+                                [src]="productContent.Presentation.link | safe"></iframe>
+                            <a *ngIf="productContent.Presentation.isPdfLink == true"
+                                [href]="productContent?.Presentation.link" target="_blank"
+                                rel="noopener noreferrer">Click here to view </a>
+                        </div>
+                        <!-- 7th card -->
+                        <div class="tab-pane fade" id="pills-brochures" role="tabpanel"
+                            aria-labelledby="pills-brochures-tab" *ngIf="productContent?.Brochure">
+
+                            <div *ngIf="productContent.Brochure.isHtmlLink == false && productContent.Brochure.isPdfLink == false"
+                                [innerHTML]="productContent.Brochure.content"></div>
+                            <iframe *ngIf="productContent.Brochure.isHtmlLink == true"
+                                [src]="productContent.Brochure.link | safe"></iframe>
+                                <iframe *ngIf="productContent.Brochure.isPdfLink == true"
+                                [src]="productContent.Brochure.link | safe"></iframe>
+                            <!-- <a *ngIf="productContent.Brochure.isPdfLink == true" [href]="productContent?.Brochure.link"
+                                target="_blank" rel="noopener noreferrer">Click here to view </a> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

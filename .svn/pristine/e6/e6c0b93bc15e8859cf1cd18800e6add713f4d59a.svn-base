@@ -1,0 +1,194 @@
+<!-- gallery.component.html -->
+ <div class="mob-mt">
+
+ </div>
+<!-- <div class="swiper swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let data of collectins">
+       
+      </div>
+    </div>
+  
+  </div> -->
+
+  <div class="col-lg-4 col-xs-12 col-md-4 custom_name1 mb-3" >
+    <div class="col-12 item mt-4 mb-4 bg_btn">
+       
+        <!-- <h4 id="text_1">
+            {{rightsideImgTitlt}}
+        </h4>
+        <div class=" ">
+            <div>
+                <img [src]="rightsideImge" class="card-img-top mb-2 mt-2"
+                    alt="...">
+                <div id="card0" class="card-body bg_t ">
+                    <p id="card2" class="card-text">
+                    {{rightsideImgDes}}
+                    </p>
+
+                </div>
+            </div>
+        </div> -->
+
+
+
+        <h4>How Can we help?</h4>
+        <p>Choose your interest to select the <br>
+            most relevant route for yourself.</p>
+
+
+    <span *ngFor="let i of BannerLinkData" class="mt-5">
+
+      
+        <div class="card mt-2 " [routerLink]="i?.link">
+          <button class="btn  item_btn custome-clear p-2">{{i?.title}}<i id="c1 mt-2" class='fas fa-angle-right'></i></button>
+      </div>
+
+    </span>
+
+    </div>
+</div>
+
+  <div class="container" #scrollContainer> 
+    <ng-container  *ngFor="let data of collectins" > 
+      
+           
+            <div class="inner-1 " id="collectins-div">
+                <ng-container *ngIf="!data.imagePath">
+
+                    <h3 class="card_text-1 " (click)="getChildren(data)" >{{data.collectionName}}</h3>
+                    <p class="cate_0">{{data.description}}</p>
+                    <span class="card_1">
+                        <button type="button" id="b_00" class="">ENTER</button>
+                        <i class="fa fa-chevron-circle-right" id='fa_button'></i>
+
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="data.imagePath">
+
+                  
+                        <img (click)="getChildren(data)"  
+                        class="inner-1-img" [src]="data.imagePath?imtUrl+''+data.imagePath:'/assets/img/not_available.jpg'"
+                           alt="" />
+                      
+
+                </ng-container>
+
+
+
+            </div>
+
+        
+    </ng-container>
+  </div>
+
+  <div class="row p-r">
+    <div class="col-1">
+        <div class="talk_expert">
+        
+            <img src="https://ccrmuk.ceasefire.biz/assets/images/talk_expert.png" width="40" alt=""> 
+        </div>
+    </div>
+    <div class="col-11">
+        <div class="container2 mt-4 "> 
+           
+           
+                    <!-- <div class="inner-1"> 
+                         <img src="https://ccrmuk.ceasefire.biz/assets/images/online.png" width="400" alt=""> 
+                        </div>
+                       -->
+                         <!-- <h6 class=" fs-5">Call us at:
+                        </h6>
+                        <span class="mobile_n" >
+                          
+                            <a [href]="'tel:1800 120 3473'" class="mobile_n">1800 120 3473</a>
+                        </span><br>
+                        <span class="mobile_n" >
+                            <a [href]="'tel:9540 666 666'" class="mobile_n">9540 666 666</a>
+                            </span>
+                        <img class="d-block mx-auto" src="/assets/TechSupport.webp" alt="0" width="195"> -->
+                 
+                    <div class="inner-1"> 
+        
+                        <img src="https://ccrmuk.ceasefire.biz/assets/images/online2.png" width="400" alt=""> 
+                        <!-- <h6 class="mb-0  fs-5 text-center mb-2">Book your Exclusive Video
+                            Call:
+                        </h6>
+                        <div class="div_1 ">
+                            <span class="text-center text-color mt-1 "> <a href="#" class="color_red" target="_blank">Click here >>> </a></span>
+                         </div>
+                        <img class="d-block mx-auto" src="/assets/video_Call.jpg" alt="1" width="195"> -->
+        
+                    </div>
+                    <div class="inner-1"> 
+                        <a href="tel:1800 120 3473">
+                        <img src="https://ccrmuk.ceasefire.biz/assets/images/online1.png" width="400" alt=""> </a>
+                        <!-- <h6 class="mb-0 text-center fs-5" id="q1">Avail our Online Chat
+                            Assistance</h6>
+                            <div class="div_1 ">
+                                <span class="text-center text-color mt-1 "> <a href="#" class="color_red" target="_blank">Click here >>> </a></span>
+                             </div>
+                        <img class="d-block mx-auto mt-2" src="/assets/Online Teaching.webp" width="195"
+                            alt="2"> -->
+        
+        
+                    </div>
+                    <div class="inner-1"> 
+        
+                        <img src="https://ccrmuk.ceasefire.biz/assets/images/online3.png" width="400" alt=""> 
+                        <!-- <h6 class="mb-0 text-center fs-5" id="q1">Avail our Online Chat
+                            Assistance</h6>
+                            <div class="div_1 ">
+                                <span class="text-center text-color mt-1 "> <a href="#" class="color_red" target="_blank">Click here >>> </a></span>
+                             </div>
+                        <img class="d-block mx-auto mt-2" src="/assets/Online Teaching.webp" width="195"
+                            alt="2"> -->
+        
+        
+                    </div>
+        
+          </div>
+    </div>
+
+  </div>
+  
+
+  <div class="row mt-4">
+    <div class="col-12 text-center mt-0 mb-2 py-3 text_cease heading_slider">
+        <div class=" text-center">
+            <span>What makes Ceasefire Express the best bet to fulfill your fire safety needs?</span>
+        </div>
+    </div>
+</div>
+    <!--  Banner start here-->
+    <div class="swiper swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" *ngFor="let item of bannerBottom;let i=index">
+            <div class="card item_h1" style="border-right: 1px solid #eaeaea !important; "
+            [style.background]="item.backgroundColor"
+            >
+                <a routerLink="{{item.readMoreLink}}" routerLinkActive="active">
+                    <img id="id_0" src="{{item.fileName}}" class="card-img-top img-fluid" alt="..." style="margin-top: 10px !important;">
+                    <div class="card-body">
+                        <p class="s01"  [style.color]="item.titleColor">{{item.title}}</p>
+                        <p class="line"> </p>
+                        <p class="card-text"  [style.color]="item.descriptionColor">
+                            {{item.content}}
+                        </p>
+                    </div>
+                    <div data-testid="linkElement" class="U2uNPe wixui-button zKbzSQ" aria-disabled="false">
+
+                    </div>
+                </a>
+            </div>
+          </div>
+        </div>
+         <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Navigation -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+      
+      </div>
+               
+      <app-blog></app-blog>

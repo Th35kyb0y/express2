@@ -1,0 +1,218 @@
+
+
+
+
+
+<!-- <div class="container " style="margin-left: 20px; margin-top: 140px;height:400px"> -->
+<div class="container " style="margin-top: 140px;">
+  <!-- <h3>Shopping Cart</h3> -->
+  <!-- <p class="text-primary">Deselect All</p> -->
+
+  <div class="row" *ngIf="cartDetail.length>0">
+      <div class="col-8 mb-0">
+        
+          <div class="d-flex justify-content-between mt-0">
+              <h6>Shopping Cart</h6>
+              <!-- <h6 class="text-end">Price</h6> -->
+          </div>
+          <hr class="mt-1 mb-1">
+ 
+          <ng-container *ngFor="let item of cartDetail;let i=index">
+              <div class="row shadow-lg p-3 mb-2 bg-body rounded">
+                  <div class="col-md-1 col-sm-2 col-2 text-start mr_2" style="    width: 5rem;" >
+                      <img [src]="getProductFirstImageContent(item.contents)" 
+                      class="p-img"
+                      alt="image loading" >
+
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12 recently_viewed mt-2 cart_text ">
+                    <p>{{item.name}} ({{item.code}})</p>
+                      <!-- <h6 class="text-start fs-7">
+                          {{item.name}} ({{item.code}})
+                      </h6> -->
+                        
+
+ 
+                      <div class="date-wise">
+                        <span>₹ {{item.discount.discountedPrice | number:'0.2-2'}}</span>
+                        </div>
+                        <div class="price" *ngIf="item.discount.discountType == 2">
+                            Price:₹ {{item.price | number:'0.2-2'}} | 
+                            <span> Discount:₹ {{item.discount.discountAmount | number:'0.2-2'}} </span>
+                            <span *ngIf="item.discount.value != null && item.discount.value != 0">({{ item.discount.value }}%)</span>
+                        </div> 
+                        <div class="price" *ngIf="item.discount.discountType == 1">
+                           ₹ 
+                            <del>{{item.price | number:'0.2-2'}} </del> 
+                            <ins>{{item.discount.discountedPrice | number:'0.2-2'}} </ins> 
+                            <span>
+                               ₹ 
+                                 {{item.discount.discountAmount | number:'0.2-2'}} </span>
+                        </div>
+
+                        <!-- <div class="price" *ngIf="item.discount.discountType == 0">
+                            <span>₹  {{item.price | number:'0.2-2'}} </span>
+                        </div> -->
+
+                     
+
+                      <!-- <div class="d-flex  align-items-center gap-3 mb-0" *ngIf="item.discount.discountType == 2">
+                          <h6 class="text-secondary mb-0">
+                              <span class="text-decoration-line-through">₹ {{item.price}}</span>
+                          </h6>
+
+
+                          <h6 class="text-danger mb-0">
+                             ₹  {{item.discount.discountAmount |
+                                number:'0.2-2'}} 
+                          </h6>
+                          <h6 class=" mb-0 discount-price">
+                             ₹ <span
+                              *ngIf="item.discount.value != null && item.discount.value != 0">({{
+                              item.discount.value }}%)</span>
+                          </h6> 
+                          
+                      </div>  -->
+
+                      <!-- <div class="d-flex  align-items-center gap-3 mb-0" *ngIf="item.discount.discountType != 2">
+                        <h6 class="mb-0 discount-price">
+                            <span class="text-decoration-line-through">₹ {{item.price}}</span>
+                        </h6>
+
+                        
+                    </div> -->
+                    
+
+                      <!-- <div class="d-flex align-items-center mb-0">
+                          <div class="btn-group btn-group-sm text-center align-items-center border border-danger">
+                              <button type="button" class="btn" (click)="subQuantity(item)">-</button>
+                              <button type="button" class="btn">{{item.quantity}}</button>
+                              <button type="button" class="btn" (click)="addQuantity(item)">+</button>
+                          </div>
+
+                          <div class="vr mx-3"></div>
+                          <a href="javascript:void(0)" (click)="deleteItemFromCart(item)" class="text-decoration-none text-danger">
+                              <p class="mt-3">Delete</p>
+                          </a>
+
+                          <div class="vr mx-3"></div>
+                         
+                      </div> -->
+                  </div>
+
+                  <div class="col-md-6 col-sm-6 col-xs-12 row align-items-center mobile-t-20" > 
+                    
+                        <div class="col-sm-5 col-5">
+                            <table class="m-table">
+                                <tr>
+                                    <td><button (click) ="subQuantity(item)">-</button></td>
+                                    <td>
+                                        <input type="text" class="form-control text-center in-cls" name="quantityInput" id="quantityInput"
+                                        value=" {{ item.quantity }}" (change)="handleInputChangeQty(item,$event)" 
+                                        (keypress)="numberOnly($event, 3)">
+                                        <!-- {{ item.quantity }} -->
+                                    </td>
+                                    <td><button (click) ="addQuantity(item)">+</button></td>
+                                </tr>
+                            </table>
+                        </div> 
+                        <div class="col-sm-5 col-5">₹  {{ item.total | number:'1.2-2'}} </div> 
+                        <div class="col-sm-2 col-2 text-end">
+                            <a href="javascript:(void);" (click)="deleteItemFromCart(item)">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+                        </div>
+               
+                </div>
+                  <!-- <div class="col-lg-2 mt-2">
+                      <h6 class="text-end">₹ {{item.total}}</h6>
+
+                  </div> -->
+
+              </div>
+          
+          </ng-container>
+
+         
+      </div>
+
+      <div class="col-lg-4 col-12" *ngIf="cartDetail.length>0">
+        <div class="d-flex justify-content-between mt-0">
+            <h6>Order Summary</h6>
+            <!-- <h6 class="text-end">Price</h6> -->
+        </div>
+          <div class="card shadow-lg p-3 mb-5 bg-body rounded">
+
+              <div class="card-body">
+
+                  <div style="display: flex;">
+                     
+                      <div>
+                          <!-- <p class="free-delivery">Part of your order qualifies for FREE Delivery.
+                              <span>
+                                  <p class="fs-7">Select this option at checkout
+                                      <a href="#" class="text-decoration-none text-primary">Details</a>
+                                  </p>
+                              </span>
+                          </p> -->
+                      </div>
+
+                  </div>
+
+
+
+                  <h5 class="card-text">Subtotal :<span class="pull-right">₹  {{cartService.cartSubTotal() | number:'0.2-2'}}</span></h5>
+                  <h5 class="card-text">Discount :<span class="pull-right">₹  {{cartService.cartDiscount() | number:'0.2-2'}}</span></h5>
+                  <h5 class="card-text">Total :<span class="pull-right">₹  {{cartService.cartTotal() | number:'0.2-2'}}</span></h5>
+                  <div class="d-grid">
+                      <button  class="btn btn-danger mt-1"
+                      [disabled]="cartDetail.length==0"
+                      (click)="goBillingAddress()" >Proceed to Checkout</button>
+                      <!-- <button class="btn btn-danger mt-1" data-bs-toggle="modal" data-bs-target="#checkoutmodal">Proceed to Checkout</button> -->
+
+                      <div class="modal fade" id="checkoutmodal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                          bs-dis aria-hidden="true">
+                          <div class="modal-dialog">
+                              <div class="modal-content">
+                                  <!-- <div class="modal-header"> -->
+                                  <!-- <h1 class="modal-title fs-5" id="loginModalLabel">Modal title</h1> -->
+                                  <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                                  <!-- </div> -->
+                                  <div class="modal-body mt-1">
+                                     
+                                  </div>
+                                  <div class="modal-footer">
+                                      <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                              </div> -->
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+
+      </div>
+
+
+  </div>
+
+  <div >
+
+    <div class="no-content text-center" *ngIf="cartDetail.length==0">
+        <div class="">
+            <img class="img-fluid" src="https://cfx.ceasefire.biz/assets/images/no_product_found.jpg" width="700" height="480"/>
+        </div>
+        <div class="no-content-text text-center mb-4">
+           
+
+            <button class="btn btn-outline-danger " routerLink="/"> Continue shopping</button>
+        </div>
+        
+        
+    </div>
+  </div>
+

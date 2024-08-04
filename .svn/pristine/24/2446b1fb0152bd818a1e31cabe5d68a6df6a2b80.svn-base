@@ -1,0 +1,118 @@
+<!-- main start here-->
+<main id="main">
+    <section class="inner-page p-0  sec_body">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="bg_img">
+  
+            <div class="bg_white">
+              <div class="col-8 floot">
+                <h5>Fire Solutions for</h5>
+  
+                <h1>Homes</h1>
+  
+                <p>The Ceasefire 360 degree Fire Solutions for homes are designed with one sole purpose in mind: to turn your premises into a fortress. Dependable and untiring, these fire solutions never take a break. The fire extinguishers are always on standby. The detectors are alert, ready to pick up on the first trace of smoke. And the Kitchen Suppression System, is always on guard to safeguard you against any mishap while cooking. After careful consideration, here’s what the experts recommend to protect your home.</p>
+              </div>
+  
+              <div class="col-3 floot ml-3"><img src="../../../../assets/images/homes/box_1_right_img.png"
+                  width="280" height="310" alt="" /></div>
+            </div>
+  
+          </div>
+  
+       
+  
+        </div>
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+                aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                  <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+                </svg>
+                <div class="container">
+    
+                  <!-- -->
+                  <div class="col-12 text-center heading_f my-2">  <h3 class="mb-0">Fire Facts That Need Your Attention</h3></div>
+                  <div class="carousel-caption">
+                   
+                    <p class="opacity-75">There were 160,367 fires in the UK in 2021. Of these fires, 30,479 were in homes.
+    </p>
+                    <p> - Fire and Rescue Services National Statistics 2021 </p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                  <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+                </svg>
+                <div class="container">
+                  <div class="carousel-caption">
+                   
+                    <p>The most common cause of fires in homes was cooking, accounting for 43% of fires. Other common causes of fires in homes included electrical faults (18%), cigarettes (13%), and children playing with matches (7%).
+    </p>
+                    <p> - Fire and Rescue Services National Statistics 2021 </p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                  <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+                </svg>
+                <div class="container">
+                  <div class="carousel-caption">
+                   
+                    <p>Cooking appliances are the leading cause of house fires, followed by smokers' materials and electrical faults. 
+    </p>
+                    <p> - UK Government</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+  
+  
+  
+  
+  
+        <div class="box_6">
+          <div class="col-12 text-center">
+            <h2>HOME FIRE EXTINGUISHERS</h2>
+  
+  <p>
+    HOME FIRE EXTINGUISHERS
+    Ceasefire Home & Car Fire Extinguishers range comprises of two prime range types - The Art Range and The Classic Range. Both are carefully crafted to include aesthetically pleasing fire extinguishers in 500gms and 1 Kg size options and add to the decor of your home. The agent options include the all powerful ABC Powder and  HFC123 Gas (Clean agent; cause zero collateral damage post fire fighting). Select the option that most suits your requirements.</p>
+          </div>
+  
+          <div class="bg_white2 mt-5">
+  
+            <app-app-product-detils-segment [ApplicationAreaId]="2">
+            </app-app-product-detils-segment>
+  
+          </div>
+  
+  
+        </div>
+  
+  
+      
+     
+      </div>
+    </section>
+  </main>

@@ -1,0 +1,34 @@
+@media only screen and (max-width: 1495px) {
+    .video {
+        margin: 0 14px 14px 0;
+        width: 226px;
+    }
+}
+.video {
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+    float: left;
+    margin: 0 14px 14px 0;
+    padding: 18px 14px 18px 14px;
+    text-align: center;
+    width: 258px;
+}
+
+.clear {
+    clear: both;
+    display: block;
+}
+
+.video .thumbnail {
+    border: 3px solid #e8e8e8;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto 14px auto;
+    position: relative;
+    width: 180px;
+}
+
+h5{ color: #2b4d85 ; height: 50px;}
+
+.item_name{ height: 48px;}

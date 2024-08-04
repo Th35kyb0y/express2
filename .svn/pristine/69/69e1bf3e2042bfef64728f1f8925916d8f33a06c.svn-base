@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="container myformm">
+           
+            <!-- Login details -->
+            <div class="card">
+                <h5 class="text-center mb-3">Login to Your Account</h5>
+                <form [formGroup]="user" (ngSubmit)="onSubmit()">
+
+                    <!-- <div class="mb-2">
+                      <label for="mobilenumber" class="form-label">Mobile Number</label>
+                      <input type="number" class="form-control" id="mobilenumber" placeholder="Enter Your Mobile Number" name="mobilenumber">
+                    </div> -->
+                    <div class="mb-2">
+                        <label for="email" class="form-label">Email/Mobile</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter Your Email" 
+                        name="email" formControlName="email">
+                    </div>
+                    <div class="mb-2">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter Your Password"
+                            name="password" formControlName="password">
+                    </div>
+                    <!-- <div class="">
+                        <input type="checkbox" /> Remember me
+
+                    </div> -->
+
+                    <div class="d-grid mt-3">
+                        <button type="submit" class="btn btn-danger">Login</button>
+                    </div>
+                    <!-- <p class="text-center">OR</p>
+                       <input type="checkbox"/> Login with OTP
+                       <button class="btn btn-danger text">Login with OTP</button> -->
+                    <p class="text-center">Don't have an account? <a routerLink="/signup"
+                            style="color: blue; cursor: pointer;">Register here</a></p>
+
+                    <div class="text-center ">
+                        <a href="" class="text-decoration-none">Forgot Password</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

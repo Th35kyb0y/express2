@@ -1,0 +1,54 @@
+.mobile-slide-img{
+    width: 316px;
+    margin-top: -8%;
+    margin-left: -7%;
+}
+
+.mobile-sidebar {
+
+  top: 100px !important;
+}
+
+
+.profile-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e55151;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .custom-popover {
+    width: 200px; /* Customize the width as needed */
+  }
+  
+  .custom-popover ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .custom-popover li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .custom-popover li:last-child {
+    border-bottom: none;
+  }
+
+  .sub-header{
+    position: fixed;
+    top: 60px;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    background-color: #c6000c;
+  }
+  .w-60-p{
+    width: 60%;
+  }

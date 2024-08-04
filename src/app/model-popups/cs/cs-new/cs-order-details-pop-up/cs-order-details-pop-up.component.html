@@ -1,0 +1,177 @@
+<div class="modal-header">
+    <h5 class="modal-title"> Order Detail</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal('Dismissed')">
+      <!-- <span aria-hidden="true">&times;</span> -->
+    </button>
+    
+  </div>
+  <div class="modal-body" style="height: 80vh;overflow: auto;">
+
+
+    <div class="container py-3" *ngIf="OrderSummary">
+      
+    
+      
+            <div class="row">
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-2 ">
+                            <h5 class="my-0 fw-normal">Shipping Address</h5>
+                        </div>
+                        <div class="card-body">
+    
+                            <ul class="list-unstyled">
+                                <li>
+                                    <p>{{shipingAddress.addressType}}</p>
+                                    <p> {{shipingAddress.firstName}} &nbsp; {{shipingAddress.lastName}}</p>
+                                    <p>{{shipingAddress.line1}} ,{{shipingAddress.line2}}
+                                        ,{{shipingAddress.pin}},{{shipingAddress.city}} ,{{shipingAddress.state}}</p>
+                                    Mobile#: {{shipingAddress.mobile}}
+                                    Email: {{shipingAddress.email}}
+                                </li>
+                            </ul>
+    
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-2 ">
+                            <h5 class="my-0 fw-normal">Billing Address</h5>
+                        </div>
+                        <div class="card-body">
+    
+                            <ul class="list-unstyled">
+                                <li>
+                                    <p>{{billingAddress.addressType}}</p>
+                                    <p> {{billingAddress.firstName}} &nbsp; {{billingAddress.lastName}}</p>
+                                    <p>{{shipingAddress.line1}} ,{{billingAddress.line2}}
+                                        ,{{billingAddress.pin}},{{billingAddress.city}} ,{{billingAddress.state}}</p>
+                                    Mobile#: {{billingAddress.mobile}}
+                                    Email: {{billingAddress.email}}
+                                </li>
+                            </ul>
+    
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-2 ">
+                            <h5 class="my-0 fw-normal">Payment Details/Status</h5>
+                        </div>
+                        <div class="card-body" style="height: 151px;">
+    
+                            <ul class="list-unstyled ">
+                                <li>Order Status</li>
+                                <li>{{OrderSummary.orderresponse.status}}</li>
+                            </ul>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-column flex-md-row align-items-center pb-2 mb-3 border-bottom">
+                <div class="col-10">
+                    <h6>Product Items - ({{ OrderSummary.totalQuantity}})</h6>
+                </div>
+                <div class="col-2 text_right">
+                    <h6>
+                        <!-- <a href="javascript:void(0)" (click)="getOrderDetails()" class="red_g">View Detail</a> -->
+                    </h6>
+                </div>
+            </div>
+            <div class="row g-3">
+    
+    
+                <div class="col-2" style="width: 10rem; text-align: center;" *ngFor="let item of products;let i=index">
+                    <div class="card shadow-sm">
+                        <a href="#"><img [src]="item.productImage" width="120" height="120" alt="" /></a>
+    
+                    </div>
+                </div>
+    
+    
+            </div>
+    
+            <div class="row mt-3">
+                <div class="col-8 ">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-2 ">
+                            <h5 class="my-0 fw-normal">Delivery Option</h5>
+                        </div>
+                        <div class="card-body row">
+                            <div class="col-6">
+                                <ul class="list-unstyled">
+    
+                                    <li>Scheduled Delivery:</li>
+                                    <li class="mb-1">Customer PO Number:</li>
+                                    <li>Remark:</li>
+                                </ul>
+                            </div>
+                            <div class="col-6 text-right">
+                                <ul class="list-unstyled">
+                                    <li>Order will be deliver with in 10 to 15 days</li>
+    
+                                    <!-- <li> <input type="text" [(ngModel)]="PayObject.PurchaseOrderNumber"
+                                            class="form-control form-control-sm mb-1" id="fname" name="fname"></li>
+                                    <li> <textarea id="w3review" [(ngModel)]="PayObject.Remark" name="w3review" rows="4"
+                                            cols="42">
+                      </textarea>
+                                    </li> -->
+                                </ul>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-2 ">
+                            <h5 class="my-0 fw-normal">Order Summary</h5>
+                        </div>
+                        <div class="card-body row">
+                            <div class="col-6">
+                                <ul class="list-unstyled">
+                                    <li>Base Value:</li>
+    
+                                    <li>Discount:</li>
+                                    <li>Design Charges: </li>
+                                    <li>Delivery Charge:</li>
+                                    <li>Installation Charge:</li>
+    
+                                    <li>Taxable Value: </li>
+                                    <li>GST Amount:</li>
+                                    <li class="bold_g">Grand Total:</li>
+                                    <li></li>
+    
+                                </ul>
+                            </div>
+                            <div class="col-6 text-right">
+                                <ul class="list-unstyled">
+                                    <li>₹ {{OrderSummary.totalBaseValue}}</li>
+     
+                                    <li> ₹ {{OrderSummary.totalDiscountValue}}</li>
+                                    <li> ₹ {{OrderSummary.totalDesignCharges}}</li>
+                                    <li> ₹ {{OrderSummary.totalDeliveryCharge}}</li>
+                                    <li> ₹ {{OrderSummary.totalInstallationCharge}}</li>
+                                    <li> ₹ {{OrderSummary.totalTaxableValue}}</li>
+                                    <li>₹ {{OrderSummary.totalTaxValue}}</li>
+                                    <li class="bold_g"> ₹ {{OrderSummary.totalPaybleValue}}</li>
+    
+                                </ul>
+    
+                            </div>
+                            <!-- <button class="btn btn-outline-danger col-12" (click)="PayNow()"
+                                *ngIf="OrderSummary.orderresponse.isEditable">Pay Now</button> -->
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+   
+    
+    
+    </div>
+   
+  </div>

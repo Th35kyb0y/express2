@@ -1,0 +1,34 @@
+<!-- tabs.component.html -->
+<div class="modal-header">
+    <h5 class="modal-title"> Approvel</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal('Dismissed')">
+      <!-- <span aria-hidden="true">&times;</span> -->
+    </button>
+   
+  </div>
+  <div class="modal-body" style="  height: 60vh;overflow: auto;">
+
+    <div class="row" >
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+          
+                <label for="ApproverRemarks" class="form-label">Remarks</label>
+                <textarea class="form-control" id="ApproverRemarks" rows="3"
+                [(ngModel)]="approverRemarks"
+                ></textarea>
+           
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-14 col-lg-4 mt-5 pt-2">
+            <ng-container >
+                <button  type="button" class="btn btn-danger pull-left py-2"
+                (click)="RejectApproved(2)" >Reject</button> &nbsp;
+                <button  type="button" class="btn btn-danger pull-left py-2"
+                    (click)="RejectApproved(1)" >Approve</button>
+            </ng-container>
+           
+        </div>
+
+    </div>
+   
+  </div>

@@ -1,0 +1,5 @@
+<div id="payment-div">
+ 
+    <div class="pay-loader"></div>
+    <p>Processing ...</p>
+</div>

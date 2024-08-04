@@ -1,0 +1,24 @@
+.cs-nav-height{
+    min-height: 70px;
+}
+.cs-nav-f{
+    font-size: 13px!important;
+    font-weight: 400;
+    font-family: Inter,Helvetica,sans-serif;
+    
+}
+.cb-border-bottom{
+    border-bottom: 1px solid #564d4d;
+    padding-bottom: 6px;
+    margin-bottom: 9px;
+}
+.fa-cs {
+    font-size: 18px;
+    padding: 2px;
+}
+.row-cs{
+   width: 76%
+}
+
+th{ font-weight: 500;}
+

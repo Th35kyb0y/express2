@@ -1,0 +1,7 @@
+.s0 {
+    font-family: "Poppins";
+    font-weight: normal;
+    color: #000;
+    font-size: 1.1rem;
+    text-align: inherit;
+}

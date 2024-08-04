@@ -1,0 +1,177 @@
+<!-- main start here-->
+<main id="main">
+    <section class="inner-page p-0 sec_body">
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="col-12 middle">
+                    <!--sidebarTop start here-->
+                    <app-sidebar></app-sidebar>
+                    <!--sidebarTop end here-->
+                    <!-- ======= Breadcrumbs ======= -->
+                    <section class="breadcrumbs bredcrumb_top">
+                        <div class="container-fluid ">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <ol class="breadcrumb  card_partd">
+                                    <li class="breadcrumb-item active"><a href="order">Help-Support</a></li>
+                                    <li class="breadcrumb-item"> <a routerLink="/products" routerLinkActive="active"
+                                            style="color: #c6000c">Contact</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- End Breadcrumbs -->
+                    <!-- 1st Backbutton start here-->
+                    <div class="row ">
+                        <div class="col-12 f_left dropdown-field">
+                            <div class="row">
+                                <div class="col-12  back_button">
+                                    <a routerLink="/help-support" routerLinkActive="active">
+                                        <button type="button" class="btn button_b"><i class="fa fa-angle-double-left"
+                                                id="back_b0"></i>Back</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 1st Backbutton end here-->
+                    <!--  profile start here-->
+                    <div class="row mt-2">
+                        <div class="col-8 main_ac_2">Contact Us</div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-12">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class=" main_011">
+                            <div class="col-lg-8 col-md-4 col-sm-4 main_ac_text">
+                                <span>
+                                    <p class="col-12 s0">Get In Touch With Us</p>
+                                    Lorem Ipsum is simply dummy text of the printin and typesetting industry.
+                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- form start here-->
+                    <div class="row ">
+                        <div class="main_01 ">
+                            <div class="col-lg-8 col-md-4 col-sm-4  mt-4">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Days</th>
+                                            <th scope="col">Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Monday</td>
+                                            <td>8:00am - 6:00pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tuesday</td>
+                                            <td>8:00am - 6:00pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Wednesday</td>
+                                            <td>8:00am - 6:00pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Thursday</td>
+                                            <td>8:00am - 6:00pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Friday</td>
+                                            <td>8:00am - 6:00pm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saturday</td>
+                                            <td>Closed</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-lg-8 col-md-4 col-sm-4">
+                                <form method="GET">
+                                    <label for="userN">username <span>*</span></label>
+                                    <input type='text' name=username id=userN
+                                        placeholder="type your name in english please...">
+                                    <label for="pwd">password <span>*</span></label>
+                                    <input type="password" name="pwd" id='pwd' placeholder="type a complex password">
+                                    <label for="email">email <span>*</span></label>
+                                    <input type="email" name="email" id="email" placeholder="type a valid email">
+                                    <label for="phone">phone <span>*</span></label>
+                                    <input type="text" name="phone" id="phone" placeholder="your phone here please...">
+                                    <label for="date">date <span>*</span></label>
+                                    <input type="date" id="birthday" value="2017-01-01" name="birthday"
+                                        placeholder="your phone here please...">
+                                    <input type='submit' value='Submit'>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- form end here-->
+                    <div class="row mt-3">
+                        <div class=" col-12 groove">
+                            <div class=" col-12 col-lg-8 col-md-4 col-sm-4  main_order">
+                                <p> <img src="/assets/address.png" width="50" height="50" alt="image" /></p>
+                                <p class="main_text mt-2">
+                                    <span class="col-12 s0">Our Location </span>
+                                    <span>CEASEFIRE INDUSTRIES UK LTD</span>
+                                    <span>1, Victoria Square, Birmingham B1</span>
+                                    <span>1BD, United Kingdom.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="row ">
+                        <div class="col-lg-8 col-md-4 col-sm-4">
+                            <hr>
+                        </div>
+                    </div> -->
+                    <div class="row mt-3">
+                        <div class=" col-12 groove">
+                            <div class=" col-12 col-lg-8 col-md-4 col-sm-4  main_order">
+                                <p> <img src="/assets/call.png" width="50" height="50" alt="image" /></p>
+                                <p class="main_text mt-2">
+                                    <span class="col-12 s0">Phone Number</span>
+                                    <span>Tel: +44 113 868 6666 / 126 891 9999</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="row ">
+                        <div class="col-lg-8 col-md-4 col-sm-4">
+                            <hr>
+                        </div>
+                    </div> -->
+                    <div class="row mt-3">
+                        <div class=" col-12 groove">
+                            <div class=" col-12 col-lg-8 col-md-4 col-sm-4  main_order">
+                                <p> <img src="/assets/email.png" width="50" height="50" alt="image" /></p>
+                                <p class="main_text mt-2">
+                                    <span class="col-12 s0">Email Address: </span>
+                                    <span>response@ceasefire.co.uk</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- profile end here-->
+                </div>
+            </div>
+            <!-- chat assistant start-->
+              <!-- Chat And Quick Link Button On Right Side -->
+            <!-- <app-chat-assistance></app-chat-assistance> -->
+            <!-- chat assistant ends-->
+            <!--  commoncode start here-->
+            <div class="row">
+                <app-product-recommended></app-product-recommended>
+            </div>
+            <!-- commoncode end here-->
+        </div>
+    </section>
+</main>
+<!-- End #main -->

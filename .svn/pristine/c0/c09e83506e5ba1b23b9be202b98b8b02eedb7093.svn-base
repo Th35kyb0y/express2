@@ -1,0 +1,12 @@
+
+<div class="container breadcrum">
+    <ul *ngIf="catName != '' || productName != ''">
+        <li><a href="/#/">Home</a> <span *ngIf="catName != '' || productName != ''">></span></li>
+        <li><a (click)="goBack()">{{catName}}</a> <span *ngIf="productName != ''">></span></li>
+        <li *ngIf="productName != ''" title="{{productName}}">{{productName.length > 50?productName.substring(0, 50)+'...':productName}} <span></span></li>
+    </ul>
+    <ul *ngIf="catName == '' && productName == '' && pageList.length > 0">
+        <li *ngFor="let p of pageList; let i = index"><a href="{{p.pageLink}}">{{p.pageName}} </a><span *ngIf="pageList.length > (i+1)">></span></li>
+    </ul>
+    <a (click)="goBack()" class="a-back"><i class="fas fa-angle-double-left"></i> Back</a>
+</div>

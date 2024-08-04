@@ -1,0 +1,160 @@
+<app-designheader></app-designheader>
+
+<app-cqrs-inputsheet  [ProspectCode]="proposalCode" [cqrsID]="id" [cD]="id+1" *ngIf="productId==2 && dataRetrieved">
+</app-cqrs-inputsheet>
+
+<div>
+    <app-kitchen-suppression-system  [ProspectCode]="proposalCode" [IID]="id" *ngIf="productId==3 && dataRetrieved">
+    </app-kitchen-suppression-system>
+</div>
+<app-gas-suppression-system [ProspectCode]="proposalCode" [IID]="id" *ngIf="productId==4 && dataRetrieved" ></app-gas-suppression-system>
+<app-fire-extinguisher [ProspectCode]="proposalCode" [IID]="id" *ngIf="productId==11 && dataRetrieved" ></app-fire-extinguisher>
+
+<app-customized-input [ProspectCode]="proposalCode" [IID]="id" *ngIf="productId==13 && dataRetrieved"></app-customized-input>
+
+
+
+<main id="main" *ngIf="showgrid">
+
+            <div class="row mt-5">
+                <div class="col-12 middle">
+                    <section class="breadcrumbs bredcrumb_top">
+                        <div class="container-fluid ">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <ol class="breadcrumb  card_partd">
+                                    <li class="breadcrumb-item active"><a href="order">My Proposal</a></li>
+                                    <li class="breadcrumb-item"> <a routerLink="/products" routerLinkActive="active"
+                                            style="color: #c6000c">Inputsheet</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </section>
+               
+                    <div class="row mt-3" *ngFor="let item of inputsheetData">
+                        <div class=" col-12 groove">
+                            <div class="col-7 main_order">
+                                <!-- <p class="mt-3"> <img src="/assets/img8.jpg" width="90" height="90" alt="image" />
+                                </p> -->
+                                <p class="main_text mt-3">
+                                    <span class="main_0">Product Name: {{item.inputsheetName}}</span>
+                                    <span>Created On: {{item.createdOn | date:"dd-MMM-yyyy hh:mm a"}}</span>
+                                    <!-- <span>Created By: {{item.createdBy}}</span> -->
+                                    <span>Proposal Code: {{item.prospectCode}}</span>
+                                </p>
+                            </div>
+                            <div class="col-4">
+                                <p class="main_text_1 mt-3">
+
+                                    <!-- <span>Proposal status: <span class="main_0"> {{item.proposalStatus}}</span></span> -->
+                                    <span *ngIf="item.proposalStatus=='Pending'">Proposal status: <span class="main_0"> {{item.proposalStatus}}</span></span>
+                                    <span *ngIf="(isCS==false && isDE==false) && (item.proposalStatus=='Pending with Design Cell' || item.proposalStatus=='BOQ in Progress' || item.proposalStatus=='Pending With Customer Support' ||item.proposalStatus=='Pending With Design Head' ) ">Proposal Status: <span class="main_0">Pending With Customer Support</span></span>
+                                    <span *ngIf="(isCS==false && isDE==false) && (item.proposalStatus=='Completed Proposal' || item.proposalStatus=='Submitted To Client'  || item.proposalStatus=='Incomplete Input Sheet')">Proposal Status: <span class="main_0">{{item.status}}</span></span>
+
+
+                                    <!-- <span>Qty:6</span> -->
+                                    <!-- <span class="main_p"> &#8377; 270.4</span> -->
+                                </p>
+                                <p class="main_text_b mt-4">
+                                    <button *ngIf="(!ApiService.getDE() && item.inputsheetName!='Fire Extinguisher') || ApiService.getUserId() || item.inputsheetName!='Fire Extinguisher'" type="button" class="btn btn-outline-danger btn_1" style="margin-right: 10px;" (click)="openInputsheet(item)">Edit</button>
+                                    <button *ngIf="!ApiService.getDE()" (click)="deleteInputSheet(item)" type="button" class="btn btn-outline-danger btn_1"><i
+                                            style="font-size:12px;"></i>Remove</button>
+                                    <button *ngIf="ApiService.getDE() && item.inputsheetName!='Fire Extinguisher'" (click)="viewInputsheet(contentInputsheet,item)" type="button" class="btn btn-outline-danger btn_1"><i class="fa fa-shopping-cart"
+                                            style="font-size:12px; "></i>View and Assign Inputsheet</button>
+                                            <button *ngIf="ApiService.getDE() && item.inputsheetName!='Fire Extinguisher'" (click)="gotoBOQ(item)" type="button" class="btn btn-outline-danger btn_1"><i class="fa fa-shopping-cart"
+                                                style="font-size:12px; "></i>Add BOQ</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" row col-12 text-right mt-3 mb-3">
+                        <div class="col-10"> </div>
+                        <div class="col-2">
+                    <button *ngIf="!ApiService.getDE() && this.proposalType!='Standalone' && inputsheetData.length>0" (click)="ProposalSendForDesignTeamApproval()" type="button" class="btn btn-success btn_1"><i class="fa fa-shopping-cart"
+                        style="font-size:12px; margin-right: 4px;"></i>Submit</button>
+
+
+                        <button *ngIf="ApiService.getDE()" (click)="submitToSales()" type="button" class="btn btn-success btn_1"><i class="fa fa-shopping-cart"
+                            style="font-size:12px; margin-right: 4px;"></i>Submit To Customer</button>
+
+                        </div>  </div>  </div>
+            </div>
+
+
+</main>
+
+
+
+<ng-template #content let-modal>
+	<div class="modal-header expPropsalModel ">
+		<h4 class="modal-title" id="modal-basic-title">Proposal Submitted To Customer Support</h4>
+		<button type="button" class="btn-close  expPropsalModel-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<form>
+			<div class="mb-3">
+				<label for="dateOfBirth">Required Date</label>
+				<div class="input-group">
+                    <input type="date" class="form-control" [(ngModel)]="TaskCompleteDate" [ngModelOptions]="{standalone: true}">
+					<!-- <button class="col-10 f_left side_button my-1 p-1 " style=" width: 18%; height: 80%;">
+                        <input  [ngModelOptions]="{standalone: true}" type="date" id="birthday" [(ngModel)]="TaskCompleteDate" name="birthday"
+                            style="width:166px; height: 31px; background-color: #ededed; border: 1px solid #ccc; border: none; font-size: 21px;color: grey;">
+                    </button> -->
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="ProposalSendForDesignTeamApproval()">Save</button>
+	</div>
+</ng-template>
+
+
+<ng-template #contentInputsheet let-modal>
+	<div class="modal-header expPropsalModel bg-blue">
+		<h4 class="modal-title" id="modal-basic-title">Assign to Designer</h4>
+		<button type="button" class="btn-close  expPropsalModel-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+        <app-cqrs-inputsheet #childComponent [ProspectCode]="proposalCode" [cqrsID]="id" [cD]="id+1" *ngIf="productId === 2" >
+        </app-cqrs-inputsheet>
+        <app-gas-suppression-system [ProspectCode]="proposalCode" [IID]="id" *ngIf="productId==4" ></app-gas-suppression-system>
+        <app-kitchen-suppression-system  [ProspectCode]="proposalCode" [IID]="id" *ngIf="productId==3">
+        </app-kitchen-suppression-system>
+        <form>
+            <div class="row">
+                <div class="col-6 mb-3">
+                  <label for="designerName">Designer Name</label>
+
+                    <div class="input-group">
+                        <select class="form-control" id="designerName" [(ngModel)]="designerCode" [ngModelOptions]="{standalone: true}" required>
+                            <option value="">-- Select--</option>
+                              <ng-container *ngFor="let item of designEmployeeList">
+                                  <option value="{{item.empCode}}">
+                                    {{item.employeeName}} - {{item.empCode}}
+                                  </option>
+                              </ng-container>
+                          </select>
+
+                    </div>
+                </div>
+                <div class="col-6 mb-3">
+                    <label for="taskCompletionDate">Task Completion Date</label>
+                    <div class="input-group">
+                          <input type="date" class="form-control" [(ngModel)]="taskCompletionDate" [ngModelOptions]="{standalone: true}">
+                    </div>
+                </div>
+                <div class= "col-12 mb-3">
+                    <label for="remarks">Remarks</label>
+                    <div class="input-group">
+                          <textarea class="form-control" cols="3" [(ngModel)]="remarks" [ngModelOptions]="{standalone: true}"></textarea>
+                    </div>
+                </div>
+            </div>
+
+
+
+		</form>
+	</div>
+	<div  class="modal-footer mb-5">
+		<button  type="button" class="btn btn-outline-dark mb-5" (click)="AssignToDesigner()">Save</button>
+	</div>
+</ng-template>

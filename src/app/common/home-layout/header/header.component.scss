@@ -1,0 +1,431 @@
+
+
+body{ font-family: Jura; text-transform: capitalize; }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
+/* social-icon */
+.top_icon a {
+    padding-left: 8px;
+    color: #fff;
+
+}
+
+
+.notification-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.bell-icon {
+  cursor: pointer;
+}
+
+.badge {
+  position: absolute;
+    top: 13px;
+    right: 8px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 1px 3px;
+    font-size: 10px;
+
+}
+
+.bell_1{font-size: 25px;
+  padding-top: 15px;
+  padding-right: 12px;}
+
+.dropdown-menu {
+
+  position: absolute;
+  top: 76%;
+  left: -203px;
+  right: -137px;
+  z-index: 1000;
+  min-width: 160px;
+  padding: 10px 0px 0px 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+
+
+
+.m_right{    margin-right: 5px;}
+.top_red_text{padding-top: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: right;
+}
+.sm-icons {
+    flex-direction: row;
+    justify-content: end !important;}
+
+.p_right{padding-right: 36px;}
+
+/* .top_icon_0{
+    padding-left: 11px;
+  } */
+
+
+
+#ex4 .p1[data-count]:after {
+    position: absolute;
+    right: 10%;
+    top: 8%;
+    content: attr(data-count);
+    font-size: 40%;
+    padding: .2em;
+    border-radius: 50%;
+    line-height: 1em;
+    color: white;
+    background: rgba(255, 0, 0, .85);
+    text-align: center;
+    min-width: 1em;
+}
+
+.fa-stack {
+    display: inline-block;
+    height: 2em;
+    line-height: inherit;
+    position: relative;
+    vertical-align: middle;
+    width: 1.5em;
+    font-size: 21px;
+}
+
+.top_icon {
+   
+}
+
+.send_en{ width: 200px; color: #fff !important;}
+
+.back_btn{    border-radius: 23px;
+    background-color: #c6000c;
+    border: #c6000c;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #c6000c;
+    border-color: #c6000c;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #c6000c;
+    border-color: #c6000c;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+    height: 50px !important;}
+
+    
+.user nav {
+	margin:0 auto;
+  height:auto;
+  display:inline-block;
+  background:transparent;
+}
+.pl_4{ padding-left: 60px;}
+.mr_2{margin-right: 6px !important;}
+.whatsapp{background-color: #31bb44 !important; width: 200px !important; height: 55px !important; color: #fff !important; text-align: center;}
+.s_chat{background-color: #c6000c !important; width: 200px !important; height: 55px !important; color: #fff !important; text-align: center;}
+.phone_n{ color: #c6000c; font-size: 22px;}
+.btn_profile{background-color: #0c3c60 !important; width: 171px !important; height: 38px !important; color: #fff !important; text-align: center;}
+.bg_color{ background-color: #f5f7f8; height: 370px;}
+.border_right{ border-right: 1px solid #373737;}
+.bg_color2{ background-color: #f5f7f8; height: 270px;}
+.user nav ul {
+	margin:0;padding:0;
+  list-style-type:none;
+  float:left;
+  display:inline-block;
+}
+
+.user nav ul li {
+	position:relative;
+	margin:0 20px 0 0;
+	float:left;
+  display:inline-block;
+}
+
+.user li > a:after { content: ' »'; } /* Change this in order to change the Dropdown symbol */
+
+.user li > a:only-child:after { content: ''; }
+
+.user nav ul li a {
+	padding:20px;
+  display:inline-block;
+  color:white;
+  text-decoration:none;
+}
+
+.user nav ul li a:hover {
+  opacity:0.5;
+}
+
+.user nav ul li ul {
+	display:none;
+  position:absolute;
+  left:0;
+  background:#37bc9b;
+  float:left;
+}
+
+@media only screen and (max-width: 600px) {
+ 
+.menu{display: none;}
+ 
+}
+
+
+
+
+.user nav ul li ul li {
+	width:100%;
+  border-bottom:1px solid rgba(255,255,255,.3);
+}
+
+ h5 {
+  font-family: Jura;
+  font-size: 14px;
+  font-weight: bold;
+}
+.user{ float: left; width: 127px;}
+
+.menu {
+    // define the height of the menu
+    --menu-height: 40px;
+    // holder and ul general style
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 120px;
+    z-index: 9999999;
+    ul {
+      list-style: none;
+      padding: 8px;
+      margin: 10px 0px 0px 0px;
+      li, li a {
+        opacity: .8;
+        color: #ffffff;      
+        cursor: pointer;
+        transition: 200ms;
+        text-decoration: none;
+        white-space: nowrap;
+        font-weight: 500;
+        &:hover {
+          opacity: 1;
+          color: #0b0f12;
+        }
+        a {
+          display: flex;
+          align-items: center;
+          height: 100%;
+          width: 100%;   
+          color: #0b0f12;   
+        }      
+      }
+
+
+     
+      // lets put an arrow down 
+      // to the li`s with dropdown
+  
+      .link {
+        // links dont need arrow
+        &::before {
+          padding-right: 0;
+          display: none;
+        }      
+      }
+    }
+    // the first ul inside the container
+    // is the menu, so must be visible 
+    // and have its own style
+    > ul {
+      display: flex;
+      height: var(--menu-height);
+      align-items: center;
+      // the first ul elements can be a
+      // link or an li with a nested ul. 
+      // the nested ul will be a dropdown
+      li {
+        position: relative;
+        margin: 0 0px;
+        // the dropdown style
+        ul {
+          visibility: hidden;
+          opacity: 0;  
+          cursor: default;      
+          padding: 0;
+          min-width: 160px;
+          color: #0b0f12;
+          background-color: #fff;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+          position: absolute;
+          top: 164%;
+          left: 18%;
+          transform: translateX(-50%);
+          transition: 200ms;
+          transition-delay: 200ms;
+          // the dropdown items style
+          li {
+            margin: 0;
+            padding: 8px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 30px;
+            padding-right: 40px;
+            // lets put an arrow right
+            // to the inner li`s with
+            // dropdowns
+            &::before {
+              width: 0; 
+              height: 0; 
+              border-top: 5px solid transparent;
+              border-bottom: 5px solid transparent;
+              border-left: 5px solid #FFA500;
+            }
+            // every dropdown after the
+            // first must open to the right
+            ul {
+              top: -2%;
+              left: 100%;
+              transform: translate(0)
+            }
+            &:hover {
+              background-color: #f4f5f6;
+              color: #0b0f12;
+            }
+          }
+        }
+        // on hover an li (not an <a>)
+        // must show its ul (dropdown)
+        &:hover {
+          > ul {
+            opacity: 1;
+            visibility: visible;
+            transition-delay: 0ms;
+            color: #0b0f12;
+          }
+        }
+      }
+    }
+  }
+  
+  
+@media only screen and (max-width: 1495px) {
+  #sayt {
+      width: 414px;
+  }
+}
+#sayt {
+  background: #fff;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+  width: 96%;
+  display: none;
+  position: absolute;
+  top: 56px;
+  padding: 4px 0 0 0;
+  margin: 0;
+  border: 1px solid #e8e8e8;
+  border-top: none;
+  z-index: 2;
+  // left: 362px;
+  overflow: auto;
+    max-height: 500px;
+
+}
+@media only screen and (max-width: 1495px) {
+  #sayt a {
+      width: 378px;
+  }
+}
+#sayt a {
+  float: left;
+  border-top: 1px dashed #e8e8e8;
+  padding: 14px 18px;
+  width: 96%;
+  font-weight: bold;
+  color: #444;
+  text-decoration: none;
+}
+
+#sayt a img {
+  background: #fff;
+  border-right: 1px dashed #e8e8e8;
+  float: left;
+  width: 60px;
+  height: 60px;
+  margin: 0px 18px 8px -18px;
+  padding: 14px 14px;
+
+}
+@media only screen and (max-width: 1495px) {
+  #sayt a span.title {
+      width: 180px;
+  }
+}
+#sayt a span.title {
+  color: #444;
+  float: left;
+  margin: 8px 0 4px 0;
+  width: 200px;
+  font-weight: 500;
+}
+@media only screen and (max-width: 1495px) {
+  #sayt a span.price {
+      width: 100px;
+  }
+}
+#sayt a span.price {
+  border-left: 1px dashed #e8e8e8;
+  float: right;
+  padding: 12px 0 8px 18px;
+  width: 97px;
+}
+#sayt .price {
+  margin: 0px;
+}
+#sayt a span.large-price {
+  display: block;
+  color: #900;
+  font-size: 16px;
+  margin: 0 0 2px 0;
+  font-weight: bold;
+  line-height: 1.1em;
+}
+@media only screen and (max-width: 1495px) {
+  .large-price, .free-price, .now-label {
+      font-size: 24px;
+      margin: 0 0 6px 0;
+      text-decoration-line: line-through;
+  }
+}
+#sayt a span.small-price {
+  display: block;
+  color: #222;
+  font-size: 14px;
+  margin: 0;
+}
+@media only screen and (max-width: 1495px) {
+  .small-price, .tax-exempt {
+      font-size: 20px;
+  }
+}

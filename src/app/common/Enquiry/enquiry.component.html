@@ -1,0 +1,48 @@
+
+
+<div class="row px-5 bg_color">
+  <div class="container my-5 bg_color">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <h1 class="mb-2">Send Your Enquiry</h1>
+        <p>Send your product enquiry here and our teams shall address your requirements ASAP. </p>
+        <form (ngSubmit)="onSubmit()">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="your-name" class="form-label">First Name</label>
+              <input [(ngModel)]="firstName" type="text" class="form-control" id="your-name" name="your-name" required>
+            </div>
+            <div class="col-md-6">
+              <label for="your-surname" class="form-label">Last Name</label>
+              <input [(ngModel)]="lastName" type="text" class="form-control" id="your-surname" name="your-surname" required>
+            </div>
+            <div class="col-md-6">
+              <label for="your-email" class="form-label">Your Email</label>
+              <input [(ngModel)]="email" type="email" class="form-control" id="your-email" name="your-email" required>
+            </div>
+            <div class="col-md-6">
+              <label for="your-subject" class="form-label">Your Phone Number</label>
+              <input maxlength="10" [(ngModel)]="phoneNumber" type="tel" (keypress)="keyPress($event)" class="form-control" id="your-subject" name="your-subject">
+            </div>
+            <div class="col-md-12">
+              <label for="your-subject" class="form-label">Your Address</label>
+              <input [(ngModel)]="address" type="text" class="form-control" id="your-subject" name="your-subject">
+            </div>
+            <div class="col-12">
+              <label for="your-message" class="form-label">Anything else you'd like us to know.</label>
+              <textarea [(ngModel)]="message" class="form-control" id="your-message" name="your-message" rows="3" required></textarea>
+            </div>
+            <div class="col-12">
+              <div class="row">
+                <div class="col-md-6">
+                  <button  type="submit" class="btn btn-dark w-100 fw-bold" >Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+ </div>

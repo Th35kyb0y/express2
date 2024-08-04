@@ -1,0 +1,1955 @@
+<!-- main start here-->
+<main id="main">
+    <section class="inner-page p-0  sec_body">
+      <div class="container-fluid">
+        <div class="row">
+<div class="">
+    <div class="card-header py-2 px-2">
+        
+            <!-- <li class="nav-item p-tab-3">
+                <span
+                    [ngClass]="ShowtabActive == 1 ?'nav-link active ':'nav-link '"
+                    (click)="ShowtabActive = 1" id="InProgressCBA-tab" id="CustomerProposal-tab"
+                    data-toggle="tab" href="#CeasefireToCBAProposalSummary" role="tab" aria-controls="posts"
+                    aria-selected="false">My Purchase Summary</span>
+            </li> -->
+
+          
+      <span  (click)="ShowtabActive = 2" id="CustomerProposalSummary-tab" data-toggle="tab"
+                    href="#CustomerProposalSummary" role="tab" aria-controls="posts"
+                    aria-selected="false"><b>End Customer Proposal Summary</b></span>
+         
+
+    </div>
+
+    </div>
+   <div class="col-12 row mt-2" >
+    <div class="col-6"></div>
+    <div class="col-6" style="text-align: right;">
+    <button *ngIf="(status=='Received From Design Cell '|| status=='Completed Proposal' || status=='Submitted To Client') && proposalType=='System'" class="btn btn-danger btn-sm" >
+  
+        <a  style="cursor: pointer; margin-right: 10px;" title="Download PDF" 
+    (click)="generatePDF('direct')"> Download PDF
+</a>
+</button>
+</div>
+</div>
+<div class="col-12 row mt-2" >
+    <div class="col-6"></div>
+    <div class="col-6"  style="text-align: right;">
+<button *ngIf="(status=='Received From Design Cell '|| status=='Completed Proposal' || status=='Submitted To Client') && proposalType=='Standalone'" class="btn btn-danger btn-sm" >
+    <a   style="cursor: pointer; margin-right: 10px;" title="Download PDF" 
+    (click)="generatePDF('standalone')" > Download PDF
+    </a>
+</button>
+</div>
+</div>
+    <div  *ngFor="let cq of cqrsAll; let i = index" class="row">
+    
+    
+
+        <div class="col-12 mb-3 row mt-3">
+            <div class="col-6">    <h4 id="head">CQRS {{i+1}}</h4></div>
+            <div class="col-6" style="text-align: right;">
+          
+                <button class="btn btn-danger btn-sm" (click)="deleteInputsheet(cq[0].IID)">Delete Inputsheet</button></div>
+            <table 
+                class="table table-bordered mt-2"
+                style="position: relative;" cellspacing="0" cellpadding="0"
+                border-collapse="collapse" border-spacing="0">
+                <thead class="neon_blue">
+           <!-- <h6>gvbghv ytvfty</h6> -->
+    
+                    <tr>
+                        <td class="sort_cell "> # </td>
+                        <td class="sort_cell "> Product </td>
+                        <td class="sort_cell "> Product Image </td>
+                        <td class="sort_cell "> Product Name </td>
+    
+                       
+                        <td class="sort_cell"
+                           
+                            >
+                            <div class="sort_title">
+                                Product Code
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title">
+                                MRP (₹)
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+    
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title  ">
+                                Qty
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+                        <!-- <td class="sort_cell">
+                            Base Value (₹)
+                        </td>
+    
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title">
+                                Discount(%)
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title">
+                                Discount value (₹)
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td> -->
+    
+                        <td class="sort_cell">
+                            Delivery Charges (₹)
+                        </td>
+                        <td class="sort_cell">
+                            Installation Charges (₹)
+                        </td>
+                        <td class="sort_cell">
+                            Design Charge(₹)
+                        </td>
+    
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title  ">
+                                Net Valule (After Discounts & Charges) (₹)
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+                      
+                        <td class="sort_cell"
+                            
+                            >
+                        Action</td>
+    
+                    </tr>
+                </thead>
+    
+                <tbody class="no_vert_bord row_hovers zebraTable">
+                    <tr *ngFor="let cq2 of cq; let j = index">
+                        <td>
+                            <div class="inner-cell-wrapper"> {{ j + 1 }} </div>
+                        </td>
+                        <td class="bold">CQRS</td>
+                        <td>
+                            <img 
+                                style="width:100px;height: 100px;"
+             [src]="cq2.ProductImage" alt="Image"> </td>
+                        <td> {{ cq2.ProductName}} </td>
+                        <td> {{ cq2.ProductCode }} </td>
+                        <td> {{ cq2.ProductPrice }} </td>
+                        <td> {{ cq2.Qty }} </td>
+                        <td> {{cq2.deliveryCharge1}} </td>
+                        <td> {{cq2.insCharge1}} </td>
+                        <td> {{ cq2.designCharge1}} </td>
+                        <td> {{cq2.netValueBeforeGST1}} </td>
+    
+    
+                        <td>
+                            <div style="white-space: nowrap;">
+                                <!-- <a style="cursor: pointer;" class="mr-3"
+                                    title="Add Discount" data-toggle="modal"
+                                    data-target="#finalModal"
+                                    (click)="toshowD=true; AddMoreDiscount(cq, j);">
+                                    <i class="fa fa-plus"
+                                        style="color: #E59900; font-size: 18px; background-color: none;">
+                                    </i>
+                                </a> -->
+                                  
+                <!-- <button (click)="showDiscount(cq2)">Add Discount</button> -->
+                                                        
+                                <a style="cursor: pointer;" class="mr-3"
+                                    title="Delete Product"
+                                    (click)="DeleteProposal(cq, j);">
+                                    <i class="fa fa-trash"
+                                        style="color: red; font-size: 18px; background-color: none;">
+                                    </i>
+                                </a>
+                            </div>
+    
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+                
+            <div class="row">
+                <div class="col-6"></div>
+                <div class="col-6 mb-4" style=" 
+                    float: left;
+                    margin-top: 25px;">
+                    <h5 class="d-flex justify-content-between align-items-center mb-3">
+                        <span style="color:orangered">Product Summary</span>
+                    </h5>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Base Value 
+                                </h6>
+                            </div>
+                            <span class="text-muted"> {{ getbaseValue(cq)}}</span>
+                        </li>
+                      
+                    
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Discount Value 
+                                </h6>
+            
+                            </div>
+                            <input (blur)="changeDisc(cq, $event)" [value]="cq[0].discValue" type="number"  placeholder="Enter Discount">
+                        
+                        </li>
+                        <!-- <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Gross Value 
+                                </h6>
+            
+                            </div>
+                            <span class="text-muted"> {{getTotalPrice(cq) }}
+                            </span>
+                        </li> -->
+            
+                        <!-- <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Delivery Charge (%)</h6>
+                            </div>
+                            <span class="text-muted">{{  | number:'1.2-2' }}</span>
+                        
+                        </li> -->
+                        <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Delivery charge value 
+                                </h6>
+                            </div>
+                            <span class="text-muted">{{ getdelc(cq) }}</span>
+                        
+                        </li>
+                       
+                        
+                        <li *ngIf="cs"  class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on delivery charge(%)</h6>
+                            </div>
+                            <input type="text" style="width: 50px !important;" [value]="cq[0].DiscDeliveryChargePercentage"
+                                 (blur)="setDeliveryChargeFD(cq, $event)">
+                            <span class="text-muted" id="discountedDeliveryCharge"></span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on delivery charge Value</h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].deliveryChargeDiscV}}</span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Final Delivery charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].deliveryChargeFinal}}</span>
+                        </li>
+                
+                        <li  class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Installation charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ getIns(cq) }}</span>
+                        </li>
+                        
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on Ins charge(%)</h6>
+                            </div>
+                            <input type="text" style="width: 50px !important;" [value]="cq[0].DiscInsChargePercentage"
+                                 (blur)="setInsChargeFD(cq, $event)">
+                            <span class="text-muted" id="discountedDeliveryCharge"></span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on Ins charge Value</h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].insChargeDiscV}}</span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Final Ins charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].insChargeFinal}}</span>
+                        </li>
+
+                          <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">
+                                    Design charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ getDc(cq) }}</span>
+                         
+                        </li>
+                      
+                        
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on Design charge(%)</h6>
+                            </div>
+                            <input type="text" style="width: 50px !important;" [value]="cq[0].DiscDesignChargePercentage"
+                                 (blur)="setDesignChargeFD(cq, $event)">
+                            <span class="text-muted" id="discountedDeliveryCharge"></span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on Design charge Value</h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].designChargeDiscV}}</span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Final Design charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].designChargeFinal}}</span>
+                        </li>
+
+
+
+<!-- <h1>esrdgfthjk</h1> -->
+<!--  -->
+
+
+<li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+    <div>
+        <h6 class="my-0" style=" font-size: 13px;">Net Value </h6>
+
+    </div>
+    <!-- <span class="text-muted">{{cq[0].netValueBeforeGST1}}</span> -->
+    <span class="text-muted">{{getNetValueForSystem(cq)}}</span>
+
+</li>
+<li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+    <div>
+        <h6 class="my-0" style=" font-size: 13px;">GST @ 18%</h6>
+
+    </div>
+    <span class="text-muted">{{ getGST(getNetValueForSystem(cq)) }}</span>
+
+</li>
+
+<li class="list-group-item d-flex justify-content-between">
+    <h6 class="my-0">Total Value </h6>
+    <strong>{{ getTotalPrice(cq)}}</strong>
+
+</li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between">
+                            <h6 class="my-0">Save Discounts </h6>
+                            <button class="btn btn-danger" (click)="saveDiscounts(cq[0])">Save</button>
+                        </li>
+                        
+                    </ul>
+                 
+                </div>
+
+            </div>
+
+            <!-- ......end cqrs -->
+        </div>
+    </div>
+    
+    
+    <div  *ngFor="let cq of kssAll; let i = index" class="row">
+      
+    
+               
+        <div class="col-12 mb-3 row mt-3">
+            <div class="col-6">    <h4 id="head">KSS {{i+1}}</h4></div>
+
+            <div class="col-6" style="text-align: right;">
+             
+                <button class="btn btn-danger btn-sm" (click)="deleteInputsheet(cq[0].IID)">Delete Inputsheet</button></div>
+    
+            <table 
+                class="table table-bordered mt-2"
+                style="position: relative;" cellspacing="0" cellpadding="0"
+                border-collapse="collapse" border-spacing="0">
+                <thead class="neon_blue" style="color: #000;
+                background-color: #f8f9fc;">
+           <!-- <h6>gvbghv ytvfty</h6> -->
+    
+                    <tr>
+                        <td class="sort_cell "> # </td>
+                        <td class="sort_cell "> Product </td>
+                        <td class="sort_cell "> Product Image </td>
+                        <td class="sort_cell "> Product Name </td>
+    
+                       
+                        <td class="sort_cell"
+                           
+                            >
+                            <div class="sort_title">
+                                Product Code
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title">
+                                MRP (₹)
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+    
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title  ">
+                                Qty
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+                        <!-- <td class="sort_cell">
+                            Base Value (₹)
+                        </td>
+    
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title">
+                                Discount(%)
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title">
+                                Discount value (₹)
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td> -->
+    
+                        <td class="sort_cell">
+                            Delivery Charges (₹)
+                        </td>
+                        <td class="sort_cell">
+                            Installation Charges (₹)
+                        </td>
+                        <td class="sort_cell">
+                            Design Charge(₹)
+                        </td>
+    
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title  ">
+                                Net Valule (After Discounts & Charges) (₹)
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+                      
+                        <td class="sort_cell"
+                            
+                            >
+                        Action</td>
+    
+                    </tr>
+                </thead>
+    
+                <tbody class="no_vert_bord row_hovers zebraTable">
+                    <tr *ngFor="let cq2 of cq; let j = index">
+                        <td>
+                            <div class="inner-cell-wrapper"> {{ j + 1 }} </div>
+                        </td>
+                        <td class="bold">KSS</td>
+                        <td>
+                            <img 
+                                style="width:100px;height: 100px;"
+                                [src]="cq2.ProductImage" alt="Image"> </td>
+                        <td> {{ cq2.ProductName}} </td>
+                        <td> {{ cq2.ProductCode }} </td>
+                        <td> {{ cq2.ProductPrice }} </td>
+                        <td> {{ cq2.Qty }} </td>
+                        <td> {{cq2.deliveryCharge1}} </td>
+                        <td> {{cq2.insCharge1}} </td>
+                        <td> {{ cq2.designCharge1}} </td>
+                        <td> {{cq2.netValueBeforeGST1}} </td>
+    
+    
+                        <td>
+                            <div style="white-space: nowrap;">
+                                <!-- <a style="cursor: pointer;" class="mr-3"
+                                    title="Add Discount" data-toggle="modal"
+                                    data-target="#finalModal"
+                                    (click)="toshowD=true; AddMoreDiscount(cq, j);">
+                                    <i class="fa fa-plus"
+                                        style="color: #E59900; font-size: 18px; background-color: none;">
+                                    </i>
+                                </a> -->
+                                  
+                <!-- <button (click)="showDiscount(cq2)">Add Discount</button> -->
+                                                        
+                                <a style="cursor: pointer;" class="mr-3"
+                                    title="Delete Product"
+                                    (click)="DeleteProposal(cq, j);">
+                                    <i class="fa fa-trash"
+                                        style="color: red; font-size: 18px; background-color: none;">
+                                    </i>
+                                </a>
+                            </div>
+    
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+                      
+            <div class="row">
+                <div class="col-6"></div>
+                <div class="col-6 mb-4" style=" 
+                    float: left;
+                    margin-top: 25px;">
+                    <h5 class="d-flex justify-content-between align-items-center mb-3">
+                        <span style="color:orangered">Product Summary</span>
+                    </h5>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Base Value 
+                                </h6>
+                            </div>
+                            <span class="text-muted"> {{ getbaseValue(cq)}}</span>
+                        </li>
+                      
+                    
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Discount Value 
+                                </h6>
+            
+                            </div>
+                            <input (blur)="changeDisc(cq, $event)" [value]="cq[0].discValue" type="number"  placeholder="Enter Discount">
+                        
+                        </li>
+                        <!-- <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Gross Value 
+                                </h6>
+            
+                            </div>
+                            <span class="text-muted"> {{getTotalPrice(cq) }}
+                            </span>
+                        </li> -->
+            
+                        <!-- <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Delivery Charge (%)</h6>
+                            </div>
+                            <span class="text-muted">{{  | number:'1.2-2' }}</span>
+                        
+                        </li> -->
+                        <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Delivery charge value 
+                                </h6>
+                            </div>
+                            <span class="text-muted">{{ getdelc(cq) }}</span>
+                        
+                        </li>
+                       
+                        
+                        <li *ngIf="cs"  class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on delivery charge(%)</h6>
+                            </div>
+                            <input type="text" style="width: 50px !important;" [value]="cq[0].DiscDeliveryChargePercentage"
+                                 (blur)="setDeliveryChargeFD(cq, $event)">
+                            <span class="text-muted" id="discountedDeliveryCharge"></span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on delivery charge Value</h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].deliveryChargeDiscV}}</span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Final Delivery charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].deliveryChargeFinal}}</span>
+                        </li>
+                
+                        <li  class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Installation charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ getIns(cq) }}</span>
+                        </li>
+                        
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on Ins charge(%)</h6>
+                            </div>
+                            <input type="text" style="width: 50px !important;" [value]="cq[0].DiscInsChargePercentage"
+                                 (blur)="setInsChargeFD(cq, $event)">
+                            <span class="text-muted" id="discountedDeliveryCharge"></span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on Ins charge Value</h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].insChargeDiscV}}</span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Final Ins charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].insChargeFinal}}</span>
+                        </li>
+
+                          <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">
+                                    Design charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ getDc(cq) }}</span>
+                         
+                        </li>
+                      
+                        
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on Design charge(%)</h6>
+                            </div>
+                            <input type="text" style="width: 50px !important;" [value]="cq[0].DiscDesignChargePercentage"
+                                 (blur)="setDesignChargeFD(cq, $event)">
+                            <span class="text-muted" id="discountedDeliveryCharge"></span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on Design charge Value</h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].designChargeDiscV}}</span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Final Design charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].designChargeFinal}}</span>
+                        </li>
+
+
+
+<!-- <h1>esrdgfthjk</h1> -->
+<!--  -->
+
+
+<li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+    <div>
+        <h6 class="my-0" style=" font-size: 13px;">Net Value </h6>
+
+    </div>
+    <!-- <span class="text-muted">{{cq[0].netValueBeforeGST1}}</span> -->
+    <span class="text-muted">{{getNetValueForSystem(cq)}}</span>
+
+</li>
+<li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+    <div>
+        <h6 class="my-0" style=" font-size: 13px;">GST @ 18%</h6>
+
+    </div>
+    <span class="text-muted">{{ getGST(getNetValueForSystem(cq)) }}</span>
+
+</li>
+
+<li class="list-group-item d-flex justify-content-between">
+    <h6 class="my-0">Total Value </h6>
+    <strong>{{ getTotalPrice(cq)}}</strong>
+
+</li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between">
+                            <h6 class="my-0">Save Discounts </h6>
+                            <button class="btn btn-danger" (click)="saveDiscounts(cq[0])">Save</button>
+                        </li>
+                        
+                    </ul>
+                 
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div  *ngFor="let cq of gssALL; let i = index" class="row">
+  
+    
+               
+        <div class="col-12 mb-3 row mt-3">
+            <div class="col-6">    <h4 id="head">GSS {{i+1}}</h4></div>
+
+            <div class="col-6" style="text-align: right;">
+                <!-- <a *ngIf="status=='Received From Design Cell '|| status=='Completed Proposal' || status=='Submitted To Client'" style="cursor: pointer; margin-right: 10px;" title="Download PDF" 
+                (click)="generatePDF('direct')" ngClass="btn btn-danger btn-sm"> Download PDF
+            </a> -->
+                <button class="btn btn-danger btn-sm" (click)="deleteInputsheet(cq[0].IID)">Delete Inputsheet</button></div>
+    
+            <table 
+                class="table table-bordered mt-2"
+                style="position: relative;" cellspacing="0" cellpadding="0"
+                border-collapse="collapse" border-spacing="0">
+                <thead class="neon_blue" style="color: #000;
+                background-color: #f8f9fc;">
+           <!-- <h6>gvbghv ytvfty</h6> -->
+    
+                    <tr>
+                        <td class="sort_cell "> # </td>
+                        <td class="sort_cell "> Product </td>
+                        <td class="sort_cell "> Product Image </td>
+                        <td class="sort_cell "> Product Name </td>
+    
+                       
+                        <td class="sort_cell"
+                           
+                            >
+                            <div class="sort_title">
+                                Product Code
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title">
+                                MRP (₹)
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+    
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title  ">
+                                Qty
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+                        <!-- <td class="sort_cell">
+                            Base Value (₹)
+                        </td>
+    
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title">
+                                Discount(%)
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title">
+                                Discount value (₹)
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td> -->
+    
+                        <td class="sort_cell">
+                            Delivery Charges (₹)
+                        </td>
+                        <td class="sort_cell">
+                            Installation Charges (₹)
+                        </td>
+                        <td class="sort_cell">
+                            Design Charge(₹)
+                        </td>
+    
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title  ">
+                                Net Valule (After Discounts & Charges) (₹)
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+                      
+                        <td class="sort_cell"
+                            
+                            >
+                        Action</td>
+    
+                    </tr>
+                </thead>
+    
+                <tbody class="no_vert_bord row_hovers zebraTable">
+                    <tr *ngFor="let cq2 of cq; let j = index">
+                        <td>
+                            <div class="inner-cell-wrapper"> {{ j + 1 }} </div>
+                        </td>
+                        <td class="bold">GSS</td>
+                        <td>
+                            <img 
+                                style="width:100px;height: 100px;"
+                                [src]="cq2.ProductImage" alt="Image"> </td>
+                        <td> {{ cq2.ProductName}} </td>
+                        <td> {{ cq2.ProductCode }} </td>
+                        <td> {{ cq2.ProductPrice }} </td>
+                        <td> {{ cq2.Qty }} </td>
+                        <td> {{cq2.deliveryCharge1}} </td>
+                        <td> {{cq2.insCharge1}} </td>
+                        <td> {{ cq2.designCharge1}} </td>
+                        <td> {{cq2.netValueBeforeGST1}} </td>
+    
+    
+                        <td>
+                            <div style="white-space: nowrap;">
+                                <!-- <a style="cursor: pointer;" class="mr-3"
+                                    title="Add Discount" data-toggle="modal"
+                                    data-target="#finalModal"
+                                    (click)="toshowD=true; AddMoreDiscount(cq, j);">
+                                    <i class="fa fa-plus"
+                                        style="color: #E59900; font-size: 18px; background-color: none;">
+                                    </i>
+                                </a> -->
+                                  
+                <!-- <button (click)="showDiscount(cq2)">Add Discount</button> -->
+                                                        
+                                <a style="cursor: pointer;" class="mr-3"
+                                    title="Delete Product"
+                                    (click)="DeleteProposal(cq, j);">
+                                    <i class="fa fa-trash"
+                                        style="color: red; font-size: 18px; background-color: none;">
+                                    </i>
+                                </a>
+                            </div>
+    
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+                
+                   
+            <div class="row">
+                <div class="col-6"></div>
+                <div class="col-6 mb-4" style=" 
+                    float: left;
+                    margin-top: 25px;">
+                    <h5 class="d-flex justify-content-between align-items-center mb-3">
+                        <span style="color:orangered">Product Summary</span>
+                    </h5>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Base Value 
+                                </h6>
+                            </div>
+                            <span class="text-muted"> {{ getbaseValue(cq)}}</span>
+                        </li>
+                      
+                    
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Discount Value 
+                                </h6>
+            
+                            </div>
+                            <input (blur)="changeDisc(cq, $event)" [value]="cq[0].discValue" type="number"  placeholder="Enter Discount">
+                        
+                        </li>
+                        <!-- <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Gross Value 
+                                </h6>
+            
+                            </div>
+                            <span class="text-muted"> {{getTotalPrice(cq) }}
+                            </span>
+                        </li> -->
+            
+                        <!-- <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Delivery Charge (%)</h6>
+                            </div>
+                            <span class="text-muted">{{  | number:'1.2-2' }}</span>
+                        
+                        </li> -->
+                        <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Delivery charge value 
+                                </h6>
+                            </div>
+                            <span class="text-muted">{{ getdelc(cq) }}</span>
+                        
+                        </li>
+                       
+                        
+                        <li *ngIf="cs"  class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on delivery charge(%)</h6>
+                            </div>
+                            <input type="text" style="width: 50px !important;" [value]="cq[0].DiscDeliveryChargePercentage"
+                                 (blur)="setDeliveryChargeFD(cq, $event)">
+                            <span class="text-muted" id="discountedDeliveryCharge"></span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on delivery charge Value</h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].deliveryChargeDiscV}}</span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Final Delivery charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].deliveryChargeFinal}}</span>
+                        </li>
+                
+                        <li  class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Installation charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ getIns(cq) }}</span>
+                        </li>
+                        
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on Ins charge(%)</h6>
+                            </div>
+                            <input type="text" style="width: 50px !important;" [value]="cq[0].DiscInsChargePercentage"
+                                 (blur)="setInsChargeFD(cq, $event)">
+                            <span class="text-muted" id="discountedDeliveryCharge"></span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on Ins charge Value</h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].insChargeDiscV}}</span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Final Ins charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].insChargeFinal}}</span>
+                        </li>
+
+                          <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">
+                                    Design charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ getDc(cq) }}</span>
+                         
+                        </li>
+                      
+                        
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on Design charge(%)</h6>
+                            </div>
+                            <input type="text" style="width: 50px !important;" [value]="cq[0].DiscDesignChargePercentage"
+                                 (blur)="setDesignChargeFD(cq, $event)">
+                            <span class="text-muted" id="discountedDeliveryCharge"></span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on Design charge Value</h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].designChargeDiscV}}</span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Final Design charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].designChargeFinal}}</span>
+                        </li>
+
+
+
+<!-- <h1>esrdgfthjk</h1> -->
+<!--  -->
+
+
+<li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+    <div>
+        <h6 class="my-0" style=" font-size: 13px;">Net Value </h6>
+
+    </div>
+    <!-- <span class="text-muted">{{cq[0].netValueBeforeGST1}}</span> -->
+    <span class="text-muted">{{getNetValueForSystem(cq)}}</span>
+
+</li>
+<li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+    <div>
+        <h6 class="my-0" style=" font-size: 13px;">GST @ 18%</h6>
+
+    </div>
+    <span class="text-muted">{{ getGST(getNetValueForSystem(cq)) }}</span>
+
+</li>
+
+<li class="list-group-item d-flex justify-content-between">
+    <h6 class="my-0">Total Value </h6>
+    <strong>{{ getTotalPrice(cq)}}</strong>
+
+</li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between">
+                            <h6 class="my-0">Save Discounts </h6>
+                            <button class="btn btn-danger" (click)="saveDiscounts(cq[0])">Save</button>
+                        </li>
+                        
+                    </ul>
+                 
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div  *ngFor="let cq of ciALL; let i = index" class="row">
+  
+    
+               
+        <div class="col-12 mb-3 row mt-3">
+            <div class="col-6">    <h4 id="head">Customized Input {{i+1}}</h4></div>
+
+            <div class="col-6" style="text-align: right;">
+                <!-- <a *ngIf="status=='Received From Design Cell '|| status=='Completed Proposal' || status=='Submitted To Client'" style="cursor: pointer; margin-right: 10px;" title="Download PDF" 
+                (click)="generatePDF('direct')" ngClass="btn btn-danger btn-sm"> Download PDF
+            </a> -->
+                <button class="btn btn-danger btn-sm" (click)="deleteInputsheet(cq[0].IID)">Delete Inputsheet</button></div>
+    
+            <table 
+                class="table table-bordered mt-2"
+                style="position: relative;" cellspacing="0" cellpadding="0"
+                border-collapse="collapse" border-spacing="0">
+                <thead class="neon_blue" style="color: #000;
+                background-color: #f8f9fc;">
+           <!-- <h6>gvbghv ytvfty</h6> -->
+    
+                    <tr>
+                        <td class="sort_cell "> # </td>
+                        <td class="sort_cell "> Product </td>
+                        <td class="sort_cell "> Product Image </td>
+                        <td class="sort_cell "> Product Name </td>
+    
+                       
+                        <td class="sort_cell"
+                           
+                            >
+                            <div class="sort_title">
+                                Product Code
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title">
+                                MRP (₹)
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+    
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title  ">
+                                Qty
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+                        <!-- <td class="sort_cell">
+                            Base Value (₹)
+                        </td>
+    
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title">
+                                Discount(%)
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title">
+                                Discount value (₹)
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td> -->
+    
+                        <td class="sort_cell">
+                            Delivery Charges (₹)
+                        </td>
+                        <td class="sort_cell">
+                            Installation Charges (₹)
+                        </td>
+                        <td class="sort_cell">
+                            Design Charge(₹)
+                        </td>
+    
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title  ">
+                                Net Valule (₹)
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+                      
+                        <td class="sort_cell"
+                            
+                            >
+                        Action</td>
+    
+                    </tr>
+                </thead>
+    
+                <tbody class="no_vert_bord row_hovers zebraTable">
+                    <tr *ngFor="let cq2 of cq; let j = index">
+                        <td>
+                            <div class="inner-cell-wrapper"> {{ j + 1 }} </div>
+                        </td>
+                        <td class="bold">Customize Inputsheet</td>
+                        <td>
+                            <img 
+                                style="width:100px;height: 100px;"
+                                [src]="cq2.ProductImage" alt="Image"> </td>
+                        <td> {{ cq2.ProductName}} </td>
+                        <td> {{ cq2.ProductCode }} </td>
+                        <td> {{ cq2.ProductPrice }} </td>
+                        <td> {{ cq2.Qty }} </td>
+                        <td> {{cq2.deliveryCharge1}} </td>
+                        <td> {{cq2.insCharge1}} </td>
+                        <td> {{ cq2.designCharge1}} </td>
+                        <td> {{cq2.netValueBeforeGST1}} </td>
+    
+    
+                        <td>
+                            <div style="white-space: nowrap;">
+                                <!-- <a style="cursor: pointer;" class="mr-3"
+                                    title="Add Discount" data-toggle="modal"
+                                    data-target="#finalModal"
+                                    (click)="toshowD=true; AddMoreDiscount(cq, j);">
+                                    <i class="fa fa-plus"
+                                        style="color: #E59900; font-size: 18px; background-color: none;">
+                                    </i>
+                                </a> -->
+                                  
+                <!-- <button (click)="showDiscount(cq2)">Add Discount</button> -->
+                                                        
+                                <a style="cursor: pointer;" class="mr-3"
+                                    title="Delete Product"
+                                    (click)="DeleteProposal(cq, j);">
+                                    <i class="fa fa-trash"
+                                        style="color: red; font-size: 18px; background-color: none;">
+                                    </i>
+                                </a>
+                            </div>
+    
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+                
+                
+            <div class="row">
+                <div class="col-6"></div>
+                <div class="col-6 mb-4" style=" 
+                    float: left;
+                    margin-top: 25px;">
+                    <h5 class="d-flex justify-content-between align-items-center mb-3">
+                        <span style="color:orangered">Product Summary</span>
+                    </h5>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Base Value 
+                                </h6>
+                            </div>
+                            <span class="text-muted"> {{ getbaseValue(cq)}}</span>
+                        </li>
+                      
+                    
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Discount Value 
+                                </h6>
+            
+                            </div>
+                            <input (blur)="changeDisc(cq, $event)" [value]="cq[0].discValue" type="number"  placeholder="Enter Discount">
+                        
+                        </li>
+                        <!-- <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Gross Value 
+                                </h6>
+            
+                            </div>
+                            <span class="text-muted"> {{getTotalPrice(cq) }}
+                            </span>
+                        </li> -->
+            
+                        <!-- <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Delivery Charge (%)</h6>
+                            </div>
+                            <span class="text-muted">{{  | number:'1.2-2' }}</span>
+                        
+                        </li> -->
+                        <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Delivery charge value 
+                                </h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].deliveryCharge ?cq[0].deliveryCharge:cq[0].deliveryCharge1  }}</span>
+                        
+                        </li>
+                       
+                        
+                        <li *ngIf="cs"  class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on delivery charge(%)</h6>
+                            </div>
+                            <input type="text" style="width: 50px !important;" [value]="cq[0].DiscDeliveryChargePercentage"
+                                 (blur)="setDeliveryChargeFD(cq, $event)">
+                            <span class="text-muted" id="discountedDeliveryCharge"></span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on delivery charge Value</h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].deliveryChargeDiscV}}</span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Final Delivery charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].deliveryChargeFinal}}</span>
+                        </li>
+                
+                        <li  class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Installation charge value </h6>
+                            </div>
+                            <!-- <span class="text-muted">{{ cq[0].insCharge1 }}</span> -->
+                            <span class="text-muted">{{ getIns(cq) }}</span>
+
+                        </li>
+                        
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on Ins charge(%)</h6>
+                            </div>
+                            <input type="text" style="width: 50px !important;" [value]="cq[0].DiscInsChargePercentage"
+                                 (blur)="setInsChargeFD(cq, $event)">
+                            <span class="text-muted" id="discountedDeliveryCharge"></span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on Ins charge Value</h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].insChargeDiscV}}</span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Final Ins charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].insChargeFinal}}</span>
+                        </li>
+
+                          <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">
+                                    Design charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].designCharge1 }}</span>
+                         
+                        </li>
+                      
+                        
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on Design charge(%)</h6>
+                            </div>
+                            <input type="text" style="width: 50px !important;" [value]="cq[0].DiscDesignChargePercentage"
+                                 (blur)="setDesignChargeFD(cq, $event)">
+                            <span class="text-muted" id="discountedDeliveryCharge"></span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on Design charge Value</h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].designChargeDiscV}}</span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Final Design charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].designChargeFinal}}</span>
+                        </li>
+
+
+
+
+
+
+
+
+
+                        <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Net Value </h6>
+            
+                            </div>
+                            <span class="text-muted">{{cq[0].netValueBeforeGST1}}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">GST @ 18%</h6>
+            
+                            </div>
+                            <span class="text-muted">{{ getGST(cq[0].netValueBeforeGST1) }}</span>
+            
+                        </li>
+            
+                        <li class="list-group-item d-flex justify-content-between">
+                            <h6 class="my-0">Total Value </h6>
+                            <strong>{{ getTotalPrice(cq[0].netValueBeforeGST1)}}</strong>
+            
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between">
+                            <h6 class="my-0">Save Discounts </h6>
+                            <button class="btn btn-danger" (click)="saveDiscounts(cq[0])">Save</button>
+                        </li>
+                        
+                    </ul>
+                 
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div  *ngFor="let cq of fireALL; let i = index" class="row col-12 mt-3 mb-2">
+        <div class="col-9">
+        <h5 id="head">STANDALONE {{i+1}}</h5></div>
+
+    <div class="col-3" style="text-align: right;">
+    
+        <button class="btn btn-danger btn-sm" (click)="deleteInputsheet(cq[0].IID)">Delete Inputsheet</button></div>
+   
+    <!-- <button class="btn btn-success w-25" (click)="addNewProduct(cq)">Add New Product</button> -->
+               
+        <div class="col-12 mb-3">
+    
+    
+            <table 
+                class="table table-bordered mt-2  "
+                style="position: relative;" cellspacing="0" cellpadding="0"
+                border-collapse="collapse" border-spacing="0">
+                <thead style=" font-weight: 500;">
+           <!-- <h6>gvbghv ytvfty</h6> -->
+    
+                    <tr>
+                        <td class="sort_cell "> # </td>
+                        <td class="sort_cell "> Product </td>
+                        <td class="sort_cell "> Product Image </td>
+                        <td class="sort_cell "> Product Name </td>
+    
+                       
+                        <td class="sort_cell"
+                           
+                            >
+                            <div class="sort_title">
+                                Product Code
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title">
+                                MRP (₹)
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+    
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title  ">
+                                Qty
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+                        <!-- <td class="sort_cell">
+                            Base Value (₹)
+                        </td>
+    
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title">
+                                Discount(%)
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title">
+                                Discount value (₹)
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td> -->
+    
+                        <td class="sort_cell">
+                            Delivery Charges (₹)
+                        </td>
+                        <td class="sort_cell">
+                            Installation Charges (₹)
+                        </td>
+                        <td class="sort_cell">
+                            Design Charge(₹)
+                        </td>
+    
+                        <td class="sort_cell"
+                            
+                            >
+                            <div class="sort_title  ">
+                                Net Valule (After Discounts & Charges) (₹)
+                            </div>
+                            <div class="cell_sort_arr inactive">
+    
+                            </div>
+                        </td>
+                      
+                        <td class="sort_cell"
+                            
+                            >
+                        Action</td>
+    
+                    </tr>
+                </thead>
+    
+                <tbody class="no_vert_bord row_hovers zebraTable">
+                    <tr *ngFor="let cq2 of cq; let j = index">
+                        <td>
+                            <div class="inner-cell-wrapper"> {{ j + 1 }} </div>
+                        </td>
+                        <td class="bold">STANDALONE</td>
+                        <td>
+                            <img 
+                                style="width:60px;height: 60px;"
+                                [src]="cq2.ProductImage" alt="Image"> </td>
+                        <td> {{ cq2.ProductName}} </td>
+                        <td> {{ cq2.ProductCode }} </td>
+                        <td> {{ cq2.ProductPrice }} </td>
+                        <td> {{ cq2.Qty }} </td>
+                        <td> {{cq2.deliveryCharge1}} </td>
+                        <td> {{cq2.insCharge1}} </td>
+                        <td> {{ cq2.designCharge1}} </td>
+                        <td> {{cq2.netValueBeforeGST1}} </td>
+    
+    
+                        <td>
+                            <div style="white-space: nowrap;">
+                                <!-- <a style="cursor: pointer;" class="mr-3"
+                                    title="Add Discount" data-toggle="modal"
+                                    data-target="#finalModal"
+                                    (click)="toshowD=true; AddMoreDiscount(cq, j);">
+                                    <i class="fa fa-plus"
+                                        style="color: #E59900; font-size: 18px; background-color: none;">
+                                    </i>
+                                </a> -->
+                                  
+                <!-- <button (click)="showDiscount(cq2)">Add Discount</button> -->
+                                                        
+                                <a style="cursor: pointer;" class="mr-3"
+                                    title="Delete Product"
+                                    (click)="DeleteProposal(cq, j);">
+                                    <i class="fa fa-trash"
+                                        style="color: red; font-size: 18px; background-color: none;">
+                                    </i>
+                                </a>
+                            </div>
+    
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+                
+                   
+                    
+            <div class="row">
+                <div class="col-6"></div>
+                <div class="col-6 mb-4" style=" 
+                    float: left;
+                    margin-top: 25px;">
+                    <h5 class="d-flex justify-content-between align-items-center mb-3">
+                        <span style="color:orangered">Product Summary</span>
+                    </h5>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Base Value 
+                                </h6>
+                            </div>
+                            <span class="text-muted"> {{ getbaseValue(cq)}}</span>
+                        </li>
+                      
+                    
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Discount Value 
+                                </h6>
+            
+                            </div>
+                            <input (blur)="changeDisc(cq, $event)" [value]="cq[0].discValue" type="number"  placeholder="Enter Discount">
+                        
+                        </li>
+                        <!-- <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Gross Value 
+                                </h6>
+            
+                            </div>
+                            <span class="text-muted"> {{getTotalPrice(cq) }}
+                            </span>
+                        </li> -->
+            
+                        <!-- <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Delivery Charge (%)</h6>
+                            </div>
+                            <span class="text-muted">{{  | number:'1.2-2' }}</span>
+                        
+                        </li> -->
+                        <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">Delivery charge value 
+                                </h6>
+                            </div>
+                            <span class="text-muted">{{ getdelc(cq) }}</span>
+                        
+                        </li>
+                       
+                        
+                        <li *ngIf="cs"  class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on delivery charge(%)</h6>
+                            </div>
+                            <input type="text" style="width: 50px !important;" [value]="cq[0].DiscDeliveryChargePercentage"
+                                 (blur)="setDeliveryChargeFD(cq, $event)">
+                            <span class="text-muted" id="discountedDeliveryCharge"></span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on delivery charge Value</h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].deliveryChargeDiscV}}</span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Final Delivery charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].deliveryChargeFinal}}</span>
+                        </li>
+                
+                        <li  class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Installation charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ getIns(cq) }}</span>
+                        </li>
+                        
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on Ins charge(%)</h6>
+                            </div>
+                            <input type="text" style="width: 50px !important;" [value]="cq[0].DiscInsChargePercentage"
+                                 (blur)="setInsChargeFD(cq, $event)">
+                            <span class="text-muted" id="discountedDeliveryCharge"></span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on Ins charge Value</h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].insChargeDiscV}}</span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Final Ins charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].insChargeFinal}}</span>
+                        </li>
+
+                          <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style=" font-size: 13px;">
+                                    Design charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ getDc(cq) }}</span>
+                         
+                        </li>
+                      
+                        
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on Design charge(%)</h6>
+                            </div>
+                            <input type="text" style="width: 50px !important;" [value]="cq[0].DiscDesignChargePercentage"
+                                 (blur)="setDesignChargeFD(cq, $event)">
+                            <span class="text-muted" id="discountedDeliveryCharge"></span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Disc. on Design charge Value</h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].designChargeDiscV}}</span>
+                        </li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                            <div>
+                                <h6 class="my-0" style="font-size: 13px;">Final Design charge value </h6>
+                            </div>
+                            <span class="text-muted">{{ cq[0].designChargeFinal}}</span>
+                        </li>
+
+
+
+<!-- <h1>esrdgfthjk</h1> -->
+<!--  -->
+
+
+<li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+    <div>
+        <h6 class="my-0" style=" font-size: 13px;">Net Value </h6>
+
+    </div>
+    <!-- <span class="text-muted">{{cq[0].netValueBeforeGST1}}</span> -->
+    <span class="text-muted">{{getNetValueForSystem(cq)}}</span>
+
+</li>
+<li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+    <div>
+        <h6 class="my-0" style=" font-size: 13px;">GST @ 18%</h6>
+
+    </div>
+    <span class="text-muted">{{ getGST(getNetValueForSystem(cq)) }}</span>
+
+</li>
+
+<li class="list-group-item d-flex justify-content-between">
+    <h6 class="my-0">Total Value </h6>
+    <strong>{{ getTotalPrice(cq)}}</strong>
+
+</li>
+                        <li *ngIf="cs" class="list-group-item d-flex justify-content-between">
+                            <h6 class="my-0">Save Discounts </h6>
+                            <button class="btn btn-danger" (click)="saveDiscounts(cq[0])">Save</button>
+                        </li>
+                        
+                    </ul>
+                 
+                </div>
+
+            </div>
+            <!-- ......end cqrs -->
+        </div>
+    </div>
+  
+
+   <div><h5>FINAL PRODUCTS</h5></div> 
+<div class="pane-hScroll" id="style-1">
+    <!-- <a href='javascript:void(0)' style="float: right;" (click)="UpdateAllRowProposal()" >Apply 1st row as All Row </a> -->
+    <table
+        class="table table-bordered mytable"
+        style="position: relative;" cellspacing="0" cellpadding="0" id="mytable"
+        border-collapse="collapse" border-spacing="0">
+        <thead style=" font-weight: 500;">
+            <tr>
+                <td class="sort_cell "> # </td>
+                <td class="sort_cell "> Product Category </td>
+                <td class="sort_cell "> Product Image </td>
+
+                <td class="sort_cell"
+                    >
+                    <div class="sort_title restrict">
+                        Product Name
+                    </div>
+                    <div class="cell_sort_arr inactive">
+
+                    </div>
+                </td>
+                <td class="sort_cell"
+                  >
+                    <div class="sort_title restrict">
+                        Product Code
+                    </div>
+                    <div class="cell_sort_arr inactive">
+
+                    </div>
+                </td>
+                <td class="sort_cell"
+                    
+                    >
+                    <div class="sort_title restrict">
+                        MRP (₹)
+                    </div>
+                    <div class="cell_sort_arr inactive">
+
+                    </div>
+                </td>
+           
+                <td class="sort_cell"
+                    
+                   >
+                    <div class="sort_title restrict ">
+                        Qty
+                    </div>
+                    <div class="cell_sort_arr inactive">
+
+                    </div>
+                </td>
+                <td class="sort_cell">
+                    Total Value 
+                </td>
+                <!-- <td class="sort_cell">
+                    Action
+                </td> -->
+
+            </tr>
+        </thead>
+      
+            <tbody class="no_vert_bord row_hovers zebraTable">
+                <tr *ngFor="let PS of finalProducts; let i = index">
+                    <td>
+                        <div class="inner-cell-wrapper"> {{ i + 1 }} </div>
+                    </td>
+                    <!-- <td class="bold">{{PS.ProductId}}</td> -->
+                    <td [ngSwitch]="PS.ProductId">
+                      <ng-container *ngSwitchCase="2">CQRS</ng-container>
+                      <ng-container *ngSwitchCase="3">KSS</ng-container>
+                      <ng-container *ngSwitchCase="4">GSS</ng-container>
+                      <ng-container *ngSwitchCase="13">Customize Inputsheet</ng-container>
+
+                      <ng-container *ngSwitchCase="11">STANDALONE</ng-container>
+
+                    </td>
+                    
+                    
+                    <td>
+                        <img *ngIf="PS.ProductCode != ''"
+                            style="width:60px;height:60px;"
+                            [src]="PS.ProductImage" alt="Image" >
+
+                    </td>
+                    <td> {{ PS.ProductName}} </td>
+                    <td> {{ PS.ProductCode }} </td>
+                    <td> {{ PS.ProductPrice }} </td>
+             
+                
+                    <td> {{ PS.Qty }} </td>
+                    <td> {{ ((PS.ProductPrice) * PS.Qty).toFixed(2)}} </td>
+                    <td>
+                        <!-- <div style="white-space: nowrap;">
+                            <a style="cursor: pointer;" class="mr-3"
+                                title="Add Discount" 
+                                data-toggle="modal"
+                                data-target="#finalModal"
+                                (click)="AddMoreDiscount(PS, i);"
+                                >
+                                <i class="fa fa-plus"
+                                    style="color: #E59900; font-size: 18px; background-color: none;">
+                                </i>
+                            </a>
+                            <a style="cursor: pointer;" class="mr-3"
+                                title="Delete Product"
+                                (click)="DeleteProposal(PS);">
+                                <i class="fa fa-trash"
+                                    style="color: red; font-size: 18px; background-color: none;">
+                                </i>
+                            </a>
+                        </div> -->
+
+                    </td>
+                </tr>
+            </tbody>
+        
+    </table>
+<!-- cqrs table = -->
+
+
+
+<div  class="row">
+    <div class="col-6"></div>
+    <div class="col-6 mb-1" style=" 
+        float: left;
+        margin-top: 25px;">
+        <h5 class="d-flex justify-content-between align-items-center mb-3">
+            <span style="color:orangered">FINAL Summary</span>
+        </h5>
+        <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                <div>
+                    <h6 class="my-0" style=" font-size: 13px;">Base Value 
+                    </h6>
+                </div>
+                <span class="text-muted"> {{ baseValueFinal | number:'1.2-2'}}</span>
+            </li>
+        
+            <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                <div>
+                    <h6 class="my-0" style=" font-size: 13px;">Delivery Charge Value 
+                    </h6>
+                </div>
+                <span class="text-muted"> {{ deliveryCharge | number:'1.2-2'}}</span>
+            </li>
+        
+            <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                <div>
+                    <h6 class="my-0" style=" font-size: 13px;">Design Charge Value 
+                    </h6>
+                </div>
+                <span class="text-muted"> {{ designCharge | number:'1.2-2'}}</span>
+            </li>
+        
+
+            <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                <div>
+                    <h6 class="my-0" style=" font-size: 13px;">Installation Charge Value 
+                    </h6>
+                </div>
+                <span class="text-muted"> {{ insCharge | number:'1.2-2'}}</span>
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                <div>
+                    <h6 class="my-0" style=" font-size: 13px;">NET Value 
+                    </h6>
+                </div>
+                <span class="text-muted"> {{ netValueBeforeGST | number:'1.2-2'}}</span>
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                <div>
+                    <h6 class="my-0" style=" font-size: 13px;">GST Charge Value 
+                    </h6>
+                </div>
+                <span class="text-muted"> {{ getGST(netValueBeforeGST) | number:'1.2-2'}}</span>
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between lh-condensed py-2">
+                <div>
+                    <h6 class="my-0" style=" font-size: 13px;">FINAL Value 
+                    </h6>
+                </div>
+                <span class="text-muted"> {{ getFinalBalue( netValueBeforeGST,getGST(netValueBeforeGST)) | number:'1.2-2'}}</span>
+            </li>
+
+        </ul>
+    </div>
+    <div class="col-12 row">
+        <div class="col-9"></div>
+        <div class="col-3">
+<!-- <button *ngIf="status!='Submitted To Client' && proposalType!='Standalone' " class="btn btn-success mb-2 w-100" (click)="generatePDF('from Submit'); submitProposal()">Submit</button> -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- \ -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

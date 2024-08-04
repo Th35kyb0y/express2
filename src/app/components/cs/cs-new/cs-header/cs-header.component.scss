@@ -1,0 +1,19 @@
+.btn-position{
+    position: absolute;
+    left: 30%;
+    top: 72%;
+}
+
+// ::ng-deep .popover {
+//     max-width: 500px; 
+//   }
+
+  ::ng-deep .custom-popover .popover {
+    max-width: 500px;
+    width: 500px;
+  }
+
+.bg_white{ background-color: #fff;}
+.page_heading{    border-bottom: 1px solid #ccc;
+  background-color: #fff;
+}

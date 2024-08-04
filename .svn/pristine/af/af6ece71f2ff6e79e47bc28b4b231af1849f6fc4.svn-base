@@ -1,0 +1,57 @@
+
+<div class="modal-header">
+    <!-- <h4 class="modal-title"> <img src="/assets/images/logo_white.png" width="150" height="53" alt="" /></h4> -->
+    <h5 class="modal-title">Follow Up History </h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal('Dismissed')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+  </div>
+  <div class="modal-body" style="  height: 70vh;overflow: auto;">
+
+
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Project Name</th>
+                <th>Follow Up Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Follow Up Type</th>
+                <th>SPANCO</th>
+                <th>Product Category 1</th>
+                <th>Product Category 2</th>
+                <th>Product Category 3</th>
+                <th>Next Follow Up Date</th>
+                <th>Sales Pitch</th>
+                <th>ProspectCode</th>
+                <th>Expected Closure Value</th>
+                <th>Notes</th>
+                <th>Remark</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of followuplist">
+                <td>{{ProjectName}}</td>
+                <td>{{item.followUpDate | date :'dd-MM-yy'}}</td>
+                <td>{{item.startTime}}</td>
+                <td>{{item.endTime}}</td>
+                <td>{{item.followUpType}}</td>
+                <td>{{item.spanco}}</td>
+                <td>{{item.category_1Name}}</td>
+                <td>{{item.category_2Name}}</td>
+                <td>{{item.category_3Name}}</td>
+                <td>{{item.nextFollowUpDate}}</td>
+                <td>{{item.sales_Pitch}}</td>
+                <td>{{item.prospectCode}}</td>
+                <td>(₹) {{item.expected_ClosureValue}}</td>
+                <td>{{item.notes}}</td>
+                <td>{{item.remark}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+<div class="table-responsive overflow-scroll">
+
+</div>
+</div>

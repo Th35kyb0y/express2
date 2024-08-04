@@ -1,0 +1,47 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Hood Name</th>
+        <th>Hood Length (mm)</th>
+        <th>Hood Width (mm)</th>
+        <th>Hood Height (mm)</th>
+        <th>Hood Type</th>
+        <th>No Of Plenum</th>
+        <th>Largest Appliance Oil Cap. (L)</th>
+        <th>View Plenums </th>
+        <th>View Duct </th>
+
+      </tr>
+    </thead>
+    <tbody>
+   
+        <ng-container *ngFor="let plenum of data; let j = index">
+          <tr>
+            <td>{{ plenum.hoodName }}</td>
+            <td>{{ plenum.hoodLength }}</td>
+            <td>{{ plenum.hoodWidth }}</td>
+            <td>{{ plenum.hoodHeight }}</td>
+            <td>{{ plenum.hoodType }}</td>
+            <td>{{ plenum.noOfPlenum }}</td>
+            <td>{{ plenum.largestApplianceOilCap }}</td>
+            <td>
+              <button  (click)="viewPlenum(j)">
+                view
+                <!-- <mat-icon>visibility</mat-icon> -->
+              </button>
+              <!-- Add other actions as needed -->
+            </td>
+            <td>
+              <button  (click)="viewDuct(j)">
+                view
+                <!-- <mat-icon>visibility</mat-icon> -->
+              </button>
+              <!-- Add other actions as needed -->
+            </td>
+          </tr>
+        </ng-container>
+ 
+    </tbody>
+  </table>
+</div>

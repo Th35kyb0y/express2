@@ -1,0 +1,101 @@
+<main id="main">
+    <section class="inner-page p-0 sec_body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 middle grey_bg">
+                    <div class="col-12">
+                        <h4>CEASEFIRE IN-PANEL TUBE BASED FIRE SUPPRESSION SYSTEMS</h4>
+                    </div>
+
+                    <div class="col-3 pull-left">
+                        <div class="box">
+                            <h4>Wet CHemical</h4>
+
+                        </div>
+
+                    </div>
+                    <div class="col-3 pull-left">
+                        <div class="box">
+                            <h4>Wet CHemical</h4>
+
+                        </div>
+
+                    </div>
+                    <div class="col-6 pull-left"><img
+                            src="http://cfx.ceasefire.biz/assets/inner_page_images/shop_quicklinks.webp"
+                            class="img_side" width="550" height="370"></div>
+
+                </div>
+
+
+
+                <div class="col-12 middle yellow_bg mt-5">
+                    <div class="col-12">
+                        <h4>CEASEFIRE IN-PANEL TUBE BASED FIRE SUPPRESSION SYSTEMS</h4>
+                    </div>
+
+                    <!-- <div class="col-3 pull-left">
+                        <div class="box">
+                            <h4>Wet CHemical</h4>
+
+                        </div>
+
+                    </div>
+                    <div class="col-3 pull-left">
+                        <div class="box">
+                            <h4>Wet CHemical</h4>
+
+                        </div>
+
+                    </div> -->
+                  
+                        <div class="col-6 f_left  ">
+                           <div class="row">
+                                <div class=" col-xs-12 col-md-6 col-sm-5 item_2" 
+                                    *ngFor="let data of categorys;let i=index">
+                                    <a routerLink="/products/category/{{this.category.name | catname}}/sub-category/{{data.name | catname}}"
+                                        routerLinkActive="active">
+                                        <div class="card-block mt-4 position-relative">
+                                            <h3 class="card_text-2">{{data.name}}</h3>
+                                            <p class="cate_0">{{data.description}}</p>
+                                            <span class="card_4">
+                                                <button type="button" id="b_00">ENTER</button>
+                                                <i class="fa fa-chevron-circle-right" id='fa_button'></i>
+                                            </span>
+                                            <span class="card_3">
+                                                <img src="{{data.imagePath}}" height="180" width="185" alt="" />
+                                            </span>
+                                        </div>
+                                    </a>
+                                </div></div>
+
+                        
+                        </div>
+                  
+
+                    <div class="col-6 pull-left right_img mt-5"><img
+                            src="http://cfx.ceasefire.biz/assets/inner_page_images/informed_purchase.webp"
+                            class="img_side" width="550" height="370"></div>
+
+                </div>
+
+                <div class="col-12 middle grey_bg mt-5">
+                    <div class="col-12 text-center mb-3">
+                        <h4>
+                            TAKE THE EXPRESS ADVANTAGE</h4>
+                    </div>
+
+                    <div class="col-7 pull-left"><img
+                            src="http://cfx.ceasefire.biz/assets/inner_page_images/fire_suits_you.webp" class="img_side"
+                            width="590" height="370"></div>
+                    <div class="col-5 pull-left"><img
+                            src="http://cfx.ceasefire.biz/assets/inner_page_images/fire_survey.webp" class="img_side"
+                            width="290" height="370"></div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+</main>

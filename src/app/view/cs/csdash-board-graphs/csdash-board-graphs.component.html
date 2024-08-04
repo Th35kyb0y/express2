@@ -1,0 +1,176 @@
+<!-- Fixed Header -->
+<header class="fixed-header">
+	<!-- Your header content goes here -->
+
+	<nav class="navbar cs-nav-height">
+		<div class="row row-cs">
+			<div class="col-9 px-4 pt-2" style="text-align: left;">
+				<h4>Graphical Report</h4>
+			</div>
+			<div class="col-md-2 pt-2" style="
+		 font-weight: 500;
+	 ">
+				{{ApiService.AdminName}}
+			</div>
+			<div class="col-md-1 pt-2" style="text-align: right;">
+
+				<button class="btn btn-danger" (click)="logout()">Logout</button>
+			</div>
+		</div>
+
+	</nav>
+
+</header>
+
+<!-- Fixed Left Menu -->
+<nav class="fixed-menu">
+
+	<div class="container mt-5 cs-nav-f ">
+		<div class="d-flex flex-stack px-4 px-lg-6 py-6 py-lg-10 cb-border-bottom">
+
+			<a href="/blaze-html-pro/index.html">
+				<img alt="Logo" src="/assets/images/logo_white.png" class="h-25px h-lg-30px">
+			</a>
+
+
+		</div>
+		<div class="addScroll">
+			<div class="row">
+
+
+				<div class="col-12 col-md-4">
+					<a href="javascript:void(0)" class="btn btn-custom btn-outline btn-icon  btn-flex flex-column flex-center 
+          w-lg-90px h-lg-90px w-70px h-70px cs-div-border box-min-w mb-2" style="height: 94px; width: 93px;"
+						data-kt-button="true" (click)="registration('New',0)">
+
+						<p class="mb-2 s-color">
+							<i class="fa fa-registered" aria-hidden="true"></i>
+						</p>
+						<span class="fs-7 fw-bold s-color cs-nav-f">Registration</span>
+
+					</a>
+
+				</div>
+				<div class="col-12 col-md-4">
+					<input type="file" style="display: none;" (change)="onCSRegistredFileSelected($event)" #fileInput
+					accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+					<a href="javascript:void(0)" (click)=" fileInput.click() "
+						class="btn btn-custom btn-outline btn-icon  btn-flex flex-column flex-center w-lg-90px h-lg-90px w-70px h-70px cs-div-border box-min-w"
+						data-kt-button="true">
+
+						<p class="mb-2 s-color">
+							<i class="fa fa-upload" aria-hidden="true"></i>
+						</p>
+						<span class="fs-7 fw-bold s-color cs-nav-f">Bulk Upload</span>
+
+					</a>
+
+				</div>
+				<div class="col-12 col-md-4">
+					
+					<a href="javascript:void(0)" (click)="downloadTemplate('CSRegistration')" class="btn btn-custom btn-outline btn-icon  btn-flex flex-column 
+          flex-center w-lg-90px h-lg-90px w-70px h-70px cs-div-border box-min-w" data-kt-button="true">
+
+						<p class="mb-2 s-color">
+							<i class="fa fa-download" aria-hidden="true"></i>
+						</p>
+						<span class="fs-7 fw-bold s-color cs-nav-f">Download Template</span>
+
+					</a>
+
+				</div>
+
+
+				<div class="col-12 col-md-4">
+         
+					<a  [routerLink]="'/cs/cs-dashboard'"
+					class="btn btn-custom btn-outline btn-icon  btn-flex flex-column 
+					flex-center w-lg-90px h-lg-90px w-70px h-70px cs-div-border box-min-w " data-kt-button="true">
+					  
+					  <p class="mb-2 s-color">
+						<i class="fa fa-users" aria-hidden="true"></i>
+					  </p> 
+					  <span class="fs-7 fw-bold s-color cs-nav-f">    Customer Support  </span> 
+					
+				  </a>
+					
+				  </div>
+
+				<div class="col-12 col-md-4">
+					
+					<a routerLink="/cs/cs-project"
+						class="btn btn-custom btn-outline btn-icon  btn-flex flex-column 
+          flex-center w-lg-90px h-lg-90px w-70px h-70px cs-div-border box-min-w" style="height: 94px; width: 89px;"
+						data-kt-button="true">
+
+						<p class="mb-2 s-color">
+							<i class="fa fa-file-text" aria-hidden="true"></i>
+						</p>
+						<span class="fs-7 fw-bold s-color cs-nav-f">Project</span>
+
+					</a>
+
+				</div>
+				<div class="col-12 col-md-4">
+					
+					<a routerLink="/cs/cs-proposal"
+						class="btn btn-custom btn-outline btn-icon  btn-flex flex-column 
+          flex-center w-lg-90px h-lg-90px w-70px h-70px cs-div-border box-min-w" style="height: 94px; width: 89px;"
+						data-kt-button="true">
+
+						<p class="mb-2 s-color">
+							<i class="fa fa-file-text" aria-hidden="true"></i>
+						</p>
+						<span class="fs-7 fw-bold s-color cs-nav-f">Proposals</span>
+
+					</a>
+
+				</div>
+
+
+			</div>
+
+		</div>
+
+	</div>
+
+</nav>
+
+<!-- Scrollable Body -->
+<div class="scrollable-body">
+	<!-- Your scrollable body content goes here -->
+	<!-- table.component.html -->
+<!-- 
+	<div class="container mt-4">
+		<div class="col-6">
+			<img alt="Logo" src="/assets/images/logo_white.png" class="h-25px h-lg-30px">
+
+		</div>
+
+
+	</div> -->
+	
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-6 mt-1">
+				<canvas id="linecanvas" width="400" height="400"></canvas>
+			</div>
+			<div class="col-6">
+				<canvas id="piecanvas" width="400" height="400"></canvas>
+			</div>
+			<div class="col-6 mt-5 ">
+				<canvas id="scattercanvas" width="400" height="400"></canvas>
+			</div>
+			<div class="col-6 mt-4">
+				<canvas id="polarAreacanvas" width="400" height="400"></canvas>
+			</div>
+
+		</div>
+		
+	</div>
+	
+	
+
+	<!-- Add more content as needed -->
+</div>

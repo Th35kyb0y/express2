@@ -1,0 +1,5 @@
+<div class="container-fluid payment-mt" *ngIf="paymentId">
+    <!-- <iframe style="position: absolute; height: 100%; border: none" frameBorder="0" [src]="urlSafe"></iframe> -->
+<app-pay-u [paymentId]="paymentId"></app-pay-u>
+</div>
+

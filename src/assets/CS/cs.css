@@ -1,0 +1,102 @@
+body {
+    padding-top: 70px; /* Adjust this value according to your fixed header height */
+}
+
+.fixed-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 29%;
+    z-index: 1000;
+}
+
+.addScroll{
+    overflow-x: hidden;
+    overflow-y:auto;
+    max-height: 80%;
+  }
+
+.fixed-menu {
+    position: fixed;
+    height: 100%;
+    width: 30%;
+   /*  width: 250px; Adjust the width of your left menu */
+   /* top: 56px;  Adjust this value based on the height of your fixed header */
+    top :0%;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
+    background-color: #f8f9fa; /* Set the background color of your left menu */
+    border-right: 1px solid #dee2e6; /* Optional: Add a border on the right */
+}
+
+
+.s-color{
+    color: rgba(255,255,255,.8);
+}
+.fixed-menu .container{
+    background: #171946;
+    padding: 20px 20px 20px 20px;
+    margin: 20px;
+    margin-top: 20%;
+    height: 88%;
+   
+    border-radius: 9%;
+    padding-top: 20px;
+    width: 88%;
+    color: rgba(255,255,255,.8);
+    
+}
+.fixed-menu .container .card{
+    background: transparent;
+    border: 2px solid #565353;
+    
+}
+/* .fixed-menu .card{
+    background: black;
+    padding: 20px 20px 20px 20px;
+    margin: 20px;
+    margin-top: 20%;
+    height: 80%;
+    color: white;
+    
+} */
+
+.scrollable-body {
+    margin-left: 30%;
+   /* margin-left: 250px; /* Adjust this value based on the width of your left menu */
+    padding: 15px; /* Add padding for content inside the body */
+    padding-top: 70px;
+}
+.cs-div-border{
+    border: 1px solid #363434;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #c6000c;
+    color: white;
+  }
+  .box-min-w{
+    min-width: 96px;
+    min-height: 96px;
+  }
+  

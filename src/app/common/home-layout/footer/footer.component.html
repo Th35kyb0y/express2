@@ -1,0 +1,86 @@
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="col-12 for_mobile">
+        <img src="https://ccrmuk.ceasefire.biz/assets/images/footer_top_border.png" class="img-fluid" alt="logo">
+        
+    </div>
+    <div class="footer-top mt-5">
+        <div class="container-fluid">
+            <div class="row text-center">
+                <div class="col-12 for_mobile py-3">
+                    <img src="https://ccrmuk.ceasefire.biz/assets/images/logo_footer.png" class="img-fluid" alt="logo">
+                    
+                </div>
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h5>Office </h5>
+                    <p> {{contactUS.address}}
+                        <br><br>
+                        <strong>Call us at:</strong> <br>
+                    <p>{{contactUS.contactNo}}</p><br>
+                </div>
+
+
+                <div class="col-lg-3 col-md-6 footer-links px-5">
+                    <h5 class="footerLink">Shop</h5>
+                    <!-- <a [routerLink]="[item.link]" *ngFor="let item of bottomLink;let i=index"><p>{{item.title}}</p>
+                    </a> -->
+
+                    <a [routerLink]="[item.PageLink]" [queryParams]="{ catId: item. catId}" *ngFor="let item of bottomLink; let i = index">
+                        <p class="footerLink">{{ item.title }}</p>
+                      </a>
+
+                    <!-- <a [href]="item.link" target="_blank" rel="noopener noreferrer" *ngFor="let item of bottomLink; let i=index">
+                      <p>{{ item.title }}</p>
+                  </a> -->
+
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links3 line_h px-5">
+                    <h5>Info</h5>
+
+
+                    <p><a routerLink="OurStory" >Our Story</a></p>
+                    <p><a routerLink="ContactUs" >Contact</a></p>
+                    <p><a routerLink="Refund-Policy" >Refund Policy</a></p>
+                    <p><a routerLink="Terms-Condition" >Terms and Conditions</a></p>
+                    <p><a routerLink="PrivacyPolicy" >Privacy Policy</a></p>
+                    <p> <a routerLink="TermsService" >Terms of Service</a></p>
+                    <p> <a routerLink="CookiesPolicy" >Cookies Policy</a></p>
+
+
+
+
+
+
+
+                </div>
+                <div class="col-lg-3 col-md-6 footer-newsletter">
+                    <h4>Get Special Deals & Offers</h4>
+                    <p class="email_mobile">Email Address*</p>
+                    <form (ngSubmit)="subscribe()">
+                        <input
+                        type="email" [(ngModel)]="email" name="email" required placeholder="Enter your email" ><br>
+                        <input type="submit" value="Subscribe" class="mt-2">
+                    </form>
+                    <div class="social-links text-md-right pt-3 pt-md-0 mt-3 mb-4 ">
+                        <p class="mb-0 follow_us">Follow us:</p>
+                        <ul class="sm-icons1">
+                            <li><a href="https://www.facebook.com/CeasefireIndustriesPvtLtd/" target="_blank"><img src="assets/fb.png" width="30" height="30" alt="" /></a></li>
+                            <li><a href="https://www.linkedin.com/company/ceasefire-industries-ltd/"  target="_blank"> <img src="assets/linkdin.png" width="30" height="30" alt="" /></a></li>
+                            <li> <a href="https://twitter.com/CeasefireIndia"  target="_blank"><img src="assets/twiter.png" width="30" height="30" alt="" /></a></li>
+                            <li><a href="https://www.instagram.com/ceasefireindia/"  target="_blank"> <img src="assets/instagram.png" width="30" height="30" alt="" /></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="container d-md-flex py-4 footer_btm">
+        <div class="me-md-auto text-center text-md-start">
+            <div class="copyright text-right ">
+                &copy; Copyright 2024 &nbsp;&nbsp;<strong><span>Ceasefire</span></strong>- All Right Reserved
+            </div>
+        </div>
+
+    </div> -->
+</footer>

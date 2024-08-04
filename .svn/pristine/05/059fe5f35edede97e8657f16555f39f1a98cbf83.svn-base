@@ -1,0 +1,47 @@
+
+
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Follow Up Date</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Follow Up Type</th>
+                    <th>SPANCO</th>
+                    <th>Product Category 1</th>
+                    <th>Product Category 2</th>
+                    <th>Product Category 3</th>
+                    <th>Next Follow Up Date</th>
+                    <th>Expected Closure Date</th>
+                    <th>Sales Pitch</th>
+                    <th>Notes</th>
+                    
+                    <th>Remark</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of followuplist">
+                    <td>{{item.customerName}}</td>
+                    <td>{{item.followUpDate | date :'dd-MM-yy'}}</td>
+                    <td>{{item.startTime}}</td>
+                    <td>{{item.endTime}}</td>
+                    <td>{{item.followUpType}}</td>
+                    <td>{{item.spanco}}</td>
+                    <td>{{item.category_1Name}}</td>
+                    <td>{{item.category_2Name}}</td>
+                    <td>{{item.category_3Name}}</td>
+                    <td>{{item.nextFollowUpDate | date :'dd-MM-yy'}}</td>
+                    <td>{{item.expected_Closure_Date | date :'dd-MM-yy'}}</td>
+                    <td>{{item.sales_Pitch}}</td>
+                    <td>{{item.notes}}</td>
+                    <td>{{item.remark}}</td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+
+

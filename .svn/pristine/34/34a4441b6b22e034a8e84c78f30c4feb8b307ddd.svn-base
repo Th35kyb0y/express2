@@ -1,0 +1,261 @@
+
+
+
+<app-cs-left-nav></app-cs-left-nav>
+    <div class="bg_grey">
+    <div id="main">
+      <app-cs-header [title]="'My Customer'"></app-cs-header>
+    
+    
+    <!-- <div class="row"> -->
+      <div  class="fixed-button-container">
+        <button *ngIf="toShowMailerBtn" (click)="handleEmailerBtn()" class="btn btn-danger">Send Emailer</button>
+     
+
+      </div>
+      
+    <div class="grey-bg container-fluid">
+      <section id="minimal-statistics">
+     
+  
+        <div class="col-12 ">
+          <!-- <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Filter by name"
+             
+              (input)="applyFilter()"
+            />
+          </div> -->
+          <div class="row">
+            <div class="col-2">
+              <div class="mb-3">
+                <label for="CustomerName" class="form-label">Customer Name</label>
+                <input type="text" [(ngModel)]="filterObj.companyName" class="form-control" id="CustomerName" placeholder="Customer Name">
+                </div>
+            </div>
+            <div class="col-2">
+              <div class="mb-3">
+                <label for="EmailID" class="form-label">Email ID</label>
+                <input type="text" class="form-control" [(ngModel)]="filterObj.email"  id="EmailID" placeholder="Email ID">
+                </div>
+            </div>
+            <div class="col-2">
+              <div class="mb-3">
+                <label for="Status" class="form-label">Status</label>
+                <select class="form-select" aria-label="Default select example"
+                id="Status" name="Status"
+                [(ngModel)]="filterObj.Status">
+                  <option value="">--Select--</option>
+                  <option value="0"> Pending</option>
+                  <option value="1">Approved</option>
+                  <option value="2">Rejected</option>
+                
+                </select>
+                </div>
+            </div>
+            <div class="" style="width: 14rem;">
+              <div class="mb-3">
+                <label for="Type" class="form-label">Customer Support Team</label>
+                <select class="form-select" aria-label="Default select example"
+                id="Type" name="Type"
+                [(ngModel)]="filterObj.EmpCode">
+                  <option value="">--Select--</option>
+                  <ng-container *ngFor="let item of CSList">
+                    <option [value]="item.EmpCode">{{item.Name}}</option>
+                  </ng-container>
+                
+                
+                </select>
+        
+                </div>
+            </div>
+            <!-- <div class="col-3">
+              <div class="mb-3">
+                <label for="Type" class="form-label">Type</label>
+                <select class="form-select" aria-label="Default select example"
+                id="Type" name="Type"
+                [(ngModel)]="filterObj.type">
+                  <option value="">--Select--</option>
+                  <option value="Self">Self</option>
+                  <option value="Customers">Customers</option>
+                </select>
+        
+                </div>
+            </div> -->
+            <div class=" pt-2" style="width: 22rem;">
+              <button class="btn btn-danger mt-4 me-2" (click)="Filter()">
+                Search
+              </button>
+              <button class="btn btn-danger mt-4" (click)="clear()">
+                Clear
+              </button>
+              <button  class="btn btn-primary mt-4 mx-2" (click)="csModelService.addNewRegistration(0,'New')">Register Customer </button>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="row">
+            <div class="col-md-12 overflow-scroll" style="max-height:340px;">
+              <table class="table table-bordered table-hover table-striped w-auto" id="cs-registration-table">
+                <thead class="thead-light ">
+                    <tr>
+                      <th>Action</th>
+                        <th>Select</th>
+                        <th >ID</th>
+                        <th >Customer Name</th>
+                        <th >Contact Person Name</th>
+                        <th >Email ID</th>
+                        <th >Phone Number</th>
+                        <th >Last Follow Up Date</th>
+                        <th >Enq Ref</th>
+                        <th  >SA Status</th>
+                        <th  >Request Date & Time</th>
+                        <th >Approval Date & Time</th>
+                        <th >Created By</th>
+            
+                      
+                    </tr> 
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of list">
+                      <td>
+        
+                        <ng-template #popoverContent>
+                         
+                          <div class="d-grid gap-2">
+                            <button class="btn btn-danger" type="button" (click)="callInvalk(item)">
+                              <i class="fa-cs fa fa-phone mr-2" aria-hidden="true"></i>
+                              Call
+                            </button>
+                            
+                            <button class="btn btn-danger" type="button" (click)="ViewDetails(item)">
+                              <i class="fa-cs fa fa-eye mr-2" aria-hidden="true"></i>
+                              View Detail
+                            </button>
+                            
+                            <!-- <button class="btn btn-danger" type="button" *ngIf="ApiService.IsAdMin && item.isApproved==0">Approve /Reject</button> -->
+                            <ng-container *ngIf="!ApiService.IsAdMin">
+                              <button class="btn btn-danger" type="button"
+                              title="Create Prospect" (click)="createProspect(item)"><i class="fa-cs fa fa-cart-plus mr-2" aria-hidden="true"></i>
+                              Create Prospect
+                          </button>
+                          <button class="btn btn-danger" type="button"
+                          title=" Prospects" (click)="getProspectList(item)"><i class="fa-cs fa fa-list mr-2" aria-hidden="true"></i>
+                           Prospects
+                      </button>
+
+                              <button class="btn btn-danger" type="button"
+                              title="Follow Up" (click)="followUp(item,'Add')">
+                              <i class="fa-cs fa fa-users mr-2" aria-hidden="true"></i> Follow Up
+                          </button>
+                          <button class="btn btn-danger" type="button"
+                              title="Follow Up History" (click)="followUp(item,'history')">
+                              <i class="fa-cs fa fa-history mr-2" aria-hidden="true"></i> Follow Up History
+                          </button>
+                          <button class="btn btn-danger" type="button"
+                              title="Create Proposal" (click)="createProposal(item)"><i class="fa fa-file-text mr-2"
+                                  aria-hidden="true"></i>
+                                  Create Proposal
+                              </button>
+                          <button  *ngIf="!item.enq_Ref"   class="btn btn-danger" type="button"(click)="assignEnquery(item)"><i class="fa-cs fa fa-list-alt mr-2"
+                                  aria-hidden="true"></i> Assign enquiry to SA
+                              
+                              </button>
+                          <button *ngIf="item.enq_Ref" class="btn btn-danger" type="button"
+                              title="Enquiry Status" (click)="enqueryStatus(item)"><i class="fa-cs fa fa-book mr-2"
+                                  aria-hidden="true"></i>
+                                  Enquiry Status
+                              </button>
+                          <button class="btn btn-danger" type="button"
+                              title="Create Order" (click)="createOrder(item)"><i class="fa-cs fa fa-cart-plus mr-2" aria-hidden="true"></i>
+                              Create Order
+                          </button>
+                          
+                          <button class="btn btn-danger" type="button"
+                              title="View Order" (click)="ViewOrder(item)"><i class="fa-cs fa fa-shopping-bag mr-2" aria-hidden="true"></i>
+                              View Orders
+                          </button>
+                          
+                              <button class="btn btn-danger" type="button"
+                              title="View Proposal" (click)="sendProposal(item)"><i class="fa-cs fa fa-envelope mr-2"
+                                  aria-hidden="true"></i>
+                                  View Proposals
+                              </button>
+                             
+          
+                          </ng-container>
+                          </div>
+      
+                          
+                         </ng-template>
+                        <button type="button" class="btn btn-sm btn-danger" [ngbPopover]="popoverContent" popoverTitle="Actions">
+                          <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                        </button>
+      
+          
+                      </td>
+                <td><input type="checkbox" [checked]="item.selected" (change)="toggleSelectionCustomer(item)"></td>
+                      
+                        <td>{{item.userId}}</td>
+                        <td>{{item.companyName}} </td>
+                        <td>{{item.contactPersonName}}</td>
+                        <td>{{item.email}}</td>
+                        <td>
+                          <a href="javascript:void(0)"  (click)="callInvalk(item)">{{item.mobile}}</a>
+                            
+                        </td>
+            
+                        <td>{{item.followUpDate}}</td>
+                        <td>{{item.enq_Ref}}</td>
+                        
+                        <td>
+                          <a href="javascript:void(0);" title="{{item.approverRemarks}}">
+                            <span class="badge bg-success" 
+                            [ngClass]="[item.isApproved ==1 ? 'bg-success' : item.isApproved ==2 ?'bg-danger': 'bg-info']">{{item.isApproved=='1'?'Approved':item.isApproved=='2'?'Rejected':'Pending'}}</span>
+                          
+                          </a>
+                        
+                          </td>
+            
+                            <td>{{item.entryDate | date:'MMM d, y h:mm a'}}</td>
+                            <td>{{item.approvedDate | date:'MMM d, y h:mm a'}}</td>
+                            <td>{{item.customerCreatedBy}}</td>
+            
+                   
+                      
+            
+                    </tr>
+            
+                </tbody>
+            </table>
+            </div>
+        
+          </div>
+        
+          
+        </div>
+    
+       
+      </section>
+    
+    </div>
+    
+    
+    <!-- </div> -->
+    
+    
+    
+    
+    </div>
+     
+    
+    </div>
+    
+    
+    
+    
+    

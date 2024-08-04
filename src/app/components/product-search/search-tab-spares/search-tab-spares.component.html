@@ -1,0 +1,207 @@
+
+<div class="container-fluid" >
+
+    <div class="container-fluid" *ngIf="showLoaderBar">
+        <div class="loader-container">
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+<ng-container *ngIf="!isProductsListBlank">
+ 
+   
+    <ng-container *ngIf="ONResize_PlatformService.isMobile">
+
+       
+
+        <a class="ProductFilter-popover-btn filter_bg px-3 py-3 mt-5"   (click)="openFilter()">
+            <i class="fa fa-filter" aria-hidden="true"></i> Apply Filter
+        </a>
+
+       
+    </ng-container>
+
+
+    <div class="row">
+
+        <div class="card col-3 p-0 side_filter" id="scroll-nav" *ngIf="!ONResize_PlatformService.isMobile">
+            <div class="card-header bg_red text-white ">
+                <span class="m-0 text-dark">Apply Filter</span>
+                <span class="m-0 pull-right"> <a href="javascript:void(0);" class="clear_filter_1" (click)="clearFilter()">Clear
+                        Filter</a> </span>
+
+            </div>
+
+            <ul class="list-group list-group-flush p-2 mt-2 ">
+                <div>
+                    <p class="filter_heading"><span class="arrow_label"> </span>
+
+                        <span class="number">
+                            <!-- <i class="fa fa-angle-down" aria-hidden="true" *ngIf="!toggleCollection"></i>
+                            <i class="fa fa-angle-up" aria-hidden="true"  *ngIf="toggleCollection"></i> -->
+                        </span>
+                    </p>
+                    
+                    <li class="list-group-item p-0 mt-4 custom-font">
+
+                        <ul class="list-unstyled mt-0 mb-0">
+                            <li class="" *ngFor="let cat of collections;let i=index">
+                                <ng-container >
+                                
+                                    <div class="form-check">
+                                        <!-- <input type="checkbox" class="form-check-input p-0" value="" [id]="cat.collectionName"
+                                            [checked]="cat.isSelected" [disabled]="cat.noOfProduct==0"
+                                            (change)="filterCollections($event, cat.collectionId, cat.collectionName)">
+                                        <label class="form-check-label mb-0 custom-font" [for]="cat.collectionName">
+                                            {{cat.collectionName}} 
+                                        </label> -->
+                                        <a class="nav-link" aria-current="page" href="javascript:void(0)" 
+                                        (click)="filterProduct(cat)">
+                                            {{cat.collectionName}}    (<span [innerHtml]="cat.noOfProduct"></span>)
+                                           
+                                        </a>
+                                    </div>
+                                    <div>
+                                      
+                                    </div>
+                                </ng-container>
+                                
+                            </li>
+                        </ul>
+                    </li>
+                </div>
+                <!-- Collection filters -->
+                
+
+
+            </ul>
+
+
+        </div>
+
+        <div class="col-9 details_p" [ngClass]="{'col-12': ONResize_PlatformService.isMobile}">
+
+            <nav *ngIf="totalPages>1">
+                <ul class="pagination justify-content-end my-2">
+                    <li class="page-item" [class.disabled]="page === 1">
+                        <a class="page-link" (click)="page = page - 1" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+
+                    <!-- <li class="page-item active">
+                    <a class="page-link">{{ page }}</a>
+                  </li> -->
+                    <li *ngFor="let pg of pages" class="page-item" [class.active]="pg === page">
+                        <a class="page-link" (click)="changePage(pg)">{{ pg }}</a>
+                    </li>
+
+                    <li class="page-item" [class.disabled]="page === totalPages">
+                        <a class="page-link" (click)="page = page + 1" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+                <div class="card  mb-3" *ngFor="let item of paginatedData;let i=index">
+                    <div class="row ">
+                        <div class="col-md-3 ">
+                            <span class="wishlist_heart_icon">
+                                <app-add-remove-wish-list [item]="item"></app-add-remove-wish-list>
+                            </span>
+                            <img [src]="getProductFirstImageContent(item.contents)" class="img-fluid rounded-start mt-2"
+                            [alt]="item.alt" [title]="item.alt_title">
+                             
+                              
+                                <!-- <a href="#" target="_blank" class="wishlist_heart_icon"> <i class="fa fa-heart" aria-hidden="true"></i> </a> -->
+                        </div>
+                        <div class="col-md-9">
+                            <div class="card border_left d-flex justify-content-around p-3">
+                                <h5>{{item.name}} ({{item.code}})</h5>
+
+                                <!-- <div class="button d-flex  mt-">
+                                    <button class="custom-btn rating-button text ">5.0<span
+                                            class="star-icon">&#9733;</span></button>
+                                    <p class="mb-2 mt-1"> {{item.productRatingId}} <span>ratings</span> </p>
+                                </div> -->
+                                <p class="fs-6 mb-0 mt-0 text-success">
+                                    <span *ngIf="item.instock != '0'" class="text-success">{{item.instock}}
+                                        InStock </span>
+                                    <span *ngIf="item.instock == '0'" style="color:red">
+                                        Not Available
+                                        <span style="color:green"> (Available On Order)</span>
+                                    </span>
+                                    <!-- {{item.inStock}} InStock -->
+                                </p>
+
+                                <p class="mb-0 fw-bold " *ngIf="item.discount.discountType == 2">
+                                    <span class="text-decoration-line-through ">Price: ₹{{item.price | number:'0.2-2'}}</span>
+                                    <span class="m-lg-2 text-success">Discount:
+                                        ₹
+                                        <!-- {{item.currency.symbol}} -->
+                                        {{item.discount.discountAmount |
+                                        number:'0.2-2'}} <span
+                                            *ngIf="item.discount.value != null && item.discount.value != 0">({{
+                                            item.discount.value }}%)</span>
+                                    </span>
+                                </p>
+                                <p class="mt-0 fw-bold mb-0 text-danger" *ngIf="item.discount.discountType != 2">
+                                    ₹{{item.price | number:'0.2-2'}} &nbsp; 
+                                   
+                                </p>
+                                <!-- <p>
+                                    <app-add-remove-wish-list [item]="item"></app-add-remove-wish-list>
+                                    
+                                </p> -->
+                                <p class="fs-7 mb-3" [innerHTML]="item.shortDescription">
+                                </p>
+
+                                <!-- <div class="d-flex gap-3"> -->
+                                <div>
+                                    <app-add-to-cart-view-product [product]="item"></app-add-to-cart-view-product>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="totalPages>1">
+                    <nav>
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item" [class.disabled]="page === 1">
+                                <a class="page-link" (click)="page = page - 1" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+        
+                            <!-- <li class="page-item active">
+                            <a class="page-link">{{ page }}</a>
+                          </li> -->
+                            <li *ngFor="let pg of pages" class="page-item" [class.active]="pg === page">
+                                <a class="page-link" (click)="changePage(pg)">{{ pg }}</a>
+                            </li>
+        
+                            <li class="page-item" [class.disabled]="page === totalPages">
+                                <a class="page-link" (click)="page = page + 1" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </ng-container>
+                
+            
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="isProductsListBlank">
+    <div class="container text-center">
+        <img src="https://cfx.ceasefire.biz/assets/images/no_product_found2.png">
+    </div>
+   
+</ng-container>
+ 
+
+</div>
+

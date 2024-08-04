@@ -1,0 +1,142 @@
+.quantity {
+  width: 100px;
+}
+.divhw{ float: left;}
+
+.thumb_left{    max-height: 90px; margin-top: 5px;
+  text-align: center;
+  width: auto;
+  width: 90px;
+  border: 1px solid #d3d3d3;}
+
+.rating {
+  color: #fff;
+  background-color: #ffa41c;
+  border: #ff8f00;
+  margin-right: 4px;
+  border-radius: 20px;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+  color: #f83b68 !important;
+  font-weight: 500;
+  border-radius: 20px !important;
+  background-color: #fff !important;
+  border: 1px solid #f83b68 !important;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.nav-pills .nav-link,
+.nav-pills .show>.nav-link {
+  color: #45464d !important;
+  font-weight: 500;
+  width: 198px;
+  text-align: center;
+  border-radius: 20px !important;
+  background-color: #fff !important;
+  border: 1px solid #bfc0c6 !important;
+}
+
+.box_s{padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;}
+
+
+
+
+.divhw {
+  width: 114px;
+  border: 0px solid;
+  height: 260px;
+}
+  /* Media queries for mobile devices */
+  @media (max-width: 600px) {
+   
+    .divhw {
+      width: 80px!important;
+    }
+    .thumb_left {
+     
+      width: 70px!important;
+    
+  }
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+
+}
+
+.wishlist_heart_icon{ 
+  position: absolute;
+  top: 161px;
+  left: 568px;
+}
+
+a:hover{ color: red !important;}
+.wishlist_heart_icon a:hover{ color: red !important;}
+
+.swiper-vertical :is(.swiper-button-next, .swiper-button-prev) {
+  left: 50%;
+  transform: rotate(90deg);
+  transform-origin: left center;
+}
+
+.swiper-vertical .swiper-button-prev {
+  top: calc(var(--swiper-navigation-size) / 2);
+}
+
+.swiper-vertical .swiper-button-next {
+  top: auto;
+  bottom: calc(var(--swiper-navigation-size) / 2);
+}
+
+@media only screen and (max-width: 600px) {
+  .search_n {
+    display: none;
+  }
+  .wishlist_heart_icon {
+    position: absolute;
+    top: 161px;
+    left: 357px;}
+
+    .nav-pills .nav-link, .nav-pills .show > .nav-link {
+      color: #45464d !important;
+      font-weight: 500;
+      width: 100%;
+      margin-bottom: 17px;
+      text-align: center;
+      border-radius: 20px !important;
+      background-color: #fff !important;
+      border: 1px solid #bfc0c6 !important;
+  }
+}
+
+
+  .image-container {
+    width: auto; /* set your desired maximum width */
+    max-height: 300px; /* set your desired maximum height */
+  
+  }
+  
+  .image-container img {
+    width: auto;
+    height: 300px;
+  }
+

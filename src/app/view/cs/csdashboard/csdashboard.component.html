@@ -1,0 +1,207 @@
+<div class="fixed-header">
+    <header>
+        <app-csheader></app-csheader>
+    </header>
+</div>
+
+<div class="fixed-body">
+    <main>
+        <input type="file" style="display: none;" (change)="onCSRegistredFileSelected($event)" #fileInput 
+        accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" >
+
+        <div class="container marketing">
+
+            <ul class="nav nav-pills mb-2 mt-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                        aria-selected="true">Customer Support</button>
+                </li>
+                <li class="nav-item ml-3" role="presentation">
+                    <button class="nav-link" id="pills-project-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-project" type="button" role="tab" aria-controls="pills-project"
+                        aria-selected="false">Project</button>
+                </li>
+
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <div class="row">
+                        <div class="col-12 row mt-2 mb-2 pr-0">
+                            <div class="col-7 pull-left mt-1">
+                                <a href="javascript:void(0)" class="btn btn-danger btn-sm margin_r" (click)="registration('New',0)">Registration</a>
+                                <a href="javascript:void(0)" class="btn btn-danger btn-sm margin_r" (click)=" fileInput.click() ">Bulk Upload</a>
+                                <a href="javascript:void(0)" class="btn btn-danger btn-sm margin_r" (click)="downloadTemplate('CSRegistration')">Download Template</a>
+                                <a href="javascript:void(0)" class="btn btn-danger btn-sm margin_r" (click)="Pay()">Pay</a>
+                                <!-- <a href="javascript:void(0)" class="btn btn-danger btn-sm margin_r" *ngIf="ApiService.IsAdMin" (click)="approveReject(blnkItem,'ApproveAll')">Approve All</a> -->
+                            </div>
+                            <div class="col-5 pull-left pr-0" style="text-align: right;">
+                                <a href="javascript:void(0)" class="btn btn-danger btn-sm" (click)="excelDownloadService.downloadTableAsExcel('cs-registration-table','cs-registration-table')"><i class="fas fa-file-excel-o mr-1"
+                                        aria-hidden="true"></i>Export to Excel</a>
+
+
+                            </div>
+                        </div>
+                        <table class="table table-bordered" id="cs-registration-table">
+                            <thead class="thead-light">
+                                <tr>
+                                    
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Customer Name</th>
+                                    <th scope="col">Contact Person Name</th>
+                                    <th scope="col">Email ID</th>
+                                    <th scope="col">Phone Number</th>
+                                    <th scope="col">Last Follow Up Date</th>
+                                    <th scope="col">Enq Ref</th>
+                                    <th scope="col">SA Status</th>
+
+                                    <th scope="col">Action</th>
+                                </tr> 
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of list">
+                                  
+                                    <td>{{item.userId}}</td>
+                                    <td>{{item.companyName}} </td>
+                                    <td>{{item.contactPersonName}}</td>
+                                    <td>{{item.email}}</td>
+                                    <td>{{item.mobile}}</td>
+
+                                    <td>{{item.followUpDate}}</td>
+                                    <td>{{item.enq_Ref}}</td>
+                                    <td><span class="badge bg-success" 
+                                        [ngClass]="[item.isApproved ==1 ? 'bg-success' : item.isApproved ==2 ?'bg-danger': 'bg-info']">{{item.isApproved=='1'?'Approved':item.isApproved=='2'?'Rejected':'Pending'}}</span></td>
+                                   
+
+                                    <td>
+                                        <a href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-placement="top"
+                                            title="View Detail" (click)="ViewDetails(item)">
+                                            <i class="fa fa-eye mr-2" aria-hidden="true"></i>
+                                           
+                                        </a>
+                                        <ng-container *ngIf="ApiService.IsAdMin && item.isApproved==0">
+                                            <a href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-placement="top"
+                                            title="Approve /Reject" (click)="approveReject(item,'ApproveOne')">
+                                            <i class="fa fa-users mr-2" aria-hidden="true"></i>
+                                        </a>
+                                        </ng-container>
+                                        <ng-container *ngIf="!ApiService.IsAdMin">
+                                            <a href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-placement="top"
+                                            title="Follow Up" (click)="followUp(item,'Add')">
+                                            <i class="fa fa-users mr-2" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-placement="top"
+                                            title="Follow Up History" (click)="followUp(item,'history')">
+                                            <i class="fa fa-history mr-2" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-placement="top"
+                                            title="Create Proposal" (click)="createProposal(item)"><i class="fa fa-file-text mr-2"
+                                                aria-hidden="true"></i></a>
+                                        <a href="javascript:void(0)" *ngIf="!item.enq_Ref"  class="text-danger" data-toggle="tooltip" data-placement="top"
+                                            title="Assign enquiry to SA" (click)="assignEnquery(item)"><i class="fa fa-list-alt mr-2"
+                                                aria-hidden="true"></i> 
+                                                <!-- <i class="fas fa-tasks"></i> -->
+                                            </a>
+                                        <a *ngIf="item.enq_Ref" href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-placement="top"
+                                            title="Enquiry Status" (click)="enqueryStatus(item)"><i class="fa fa-book mr-2"
+                                                aria-hidden="true"></i></a>
+                                        <a href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-placement="top"
+                                            title="Create Order" (click)="createOrder(item)"><i class="fa fa-cart-plus mr-2" aria-hidden="true"></i></a>
+                                        
+                                        <a href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-placement="top"
+                                            title="View Order" (click)="ViewOrder(item)"><i class="fa fa-shopping-bag mr-2" aria-hidden="true"></i></a>
+                                        
+                                            <a href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-placement="top"
+                                            title="View Proposal" (click)="sendProposal(item)"><i class="fa fa-envelope mr-2"
+                                                aria-hidden="true"></i></a>
+
+                                        </ng-container>
+
+                                    </td>
+                                    <!-- <td>Follow Up, Proposal, Price List, Brochure, Order, Emailer </td>-->
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                    
+
+                </div>
+                <div class="tab-pane fade" id="pills-project" role="tabpanel" aria-labelledby="pills-project-tab">
+                    <div class="row">
+                        <div class="col-12 row mt-2 mb-2 pr-0">
+                            <div class="col-5 pull-left mt-1">
+                                <a href="javascript:void(0)" class="btn btn-danger btn-sm" (click)="createGroup()">Create Group</a>
+
+                            </div>
+                            <div class="col-7 pull-left pr-0" style="text-align: right;">
+                                <a href="javascript:void(0)" class="btn btn-danger btn-sm" (click)="excelDownloadService.downloadTableAsExcel('cs-project-table','cs-project-table')"><i class="fas fa-file-excel-o mr-1"
+                                        aria-hidden="true"></i>Export to Excel</a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-bordered" id="cs-project-table">
+                        <thead class="thead-light">
+                            <tr>
+                               
+                                <th scope="col">ID</th>
+                                <th scope="col">Project Name</th>
+                                <th scope="col">Created date</th>
+                                <th scope="col">Total Customer</th>
+                                <th scope="col">Last Follow Up Date</th>
+
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of list2">
+                               
+                                <td>{{item.projectId}}</td>
+                                <td>{{item.projectName}}</td>
+                                <td>{{item.created_At | date:'dd-MM-yyyy'}}</td>
+                                <td>
+                                    <span class="badge bg-info">{{item.totalUser}}</span>
+                                    </td>
+                                    <td>{{item.lastProjectFollowUpDetails?.followUpDate | date:'dd-MM-yyyy'}}</td>
+
+                                <td>
+                                    <a href="javascript:void(0)" class="color-primary" data-toggle="tooltip" data-placement="top"
+                                        title="View Detail" (click)="getProjectDetails(item)">
+                                        <i class="fa fa-eye mr-2" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="javascript:void(0)" class="color-primary" data-toggle="tooltip" data-placement="top"
+                                        title="Follow Up" (click)="addProjectFollowUp(item)">
+                                        <i class="fa fa-users mr-2" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="javascript:void(0)" class="text-primary" data-toggle="tooltip" data-placement="top"
+                                    title="Follow Up History" (click)="followUpHistory(item)">
+                                    <i class="fa fa-history mr-2" aria-hidden="true"></i>
+                                </a>
+                                </td>
+                                <!-- <td>Follow Up, Proposal, Price List, Brochure, Order, Emailer </td>-->
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+
+            <!-- Button trigger modal -->
+
+
+
+        </div><!-- /.container -->
+
+
+
+    </main>
+
+</div>

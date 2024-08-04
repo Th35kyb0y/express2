@@ -1,0 +1,1326 @@
+<div class="container mt-0">
+
+    <div class="topic">Create your Input sheet</div>
+
+    <div class="content">
+        <input type="radio" name="slider" [checked]="selectedOption === 1" id="home" (change)="updateSelection(1)">
+        <input type="radio" name="slider" [checked]="selectedOption === 2" id="blog" (change)="updateSelection(2)">
+        <input type="radio" name="slider" [checked]="selectedOption === 3" id="help" (change)="updateSelection(3)">
+
+        <div class="list shadow p-3 mb-5 bg-body rounded heading_tab">
+            
+            <label for="home" class="home">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-1-circle-fill m_left" viewBox="0 0 16 16">
+<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M9.283 4.002H7.971L6.072 5.385v1.271l1.834-1.318h.065V12h1.312z"/>
+</svg>  <span>Inputsheet</span>
+            </label>
+            <label for="blog" class="blog">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-2-circle-fill m_left" viewBox="0 0 16 16">
+<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.646 6.24c0-.691.493-1.306 1.336-1.306.756 0 1.313.492 1.313 1.236 0 .697-.469 1.23-.902 1.705l-2.971 3.293V12h5.344v-1.107H7.268v-.077l1.974-2.22.096-.107c.688-.763 1.287-1.428 1.287-2.43 0-1.266-1.031-2.215-2.613-2.215-1.758 0-2.637 1.19-2.637 2.402v.065h1.271v-.07Z"/>
+</svg> <span>Room Details</span>
+            </label>
+            <label for="help" class="help">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-3-circle-fill m_left" viewBox="0 0 16 16">
+<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-8.082.414c.92 0 1.535.54 1.541 1.318.012.791-.615 1.36-1.588 1.354-.861-.006-1.482-.469-1.54-1.066H5.104c.047 1.177 1.05 2.144 2.754 2.144 1.653 0 2.954-.937 2.93-2.396-.023-1.278-1.031-1.846-1.734-1.916v-.07c.597-.1 1.505-.739 1.482-1.876-.03-1.177-1.043-2.074-2.637-2.062-1.675.006-2.59.984-2.625 2.12h1.248c.036-.556.557-1.054 1.348-1.054.785 0 1.348.486 1.348 1.195.006.715-.563 1.237-1.342 1.237h-.838v1.072h.879Z"/>
+</svg><span>Attachments</span>
+            </label>
+          
+            <div class="slider"></div>
+        </div>
+
+        <div class="text-content">
+            <div class="home text">
+               
+    <div class="card shadow p-3 pt-0 mb-5 bg-body rounded border-0" style="min-height: 1500px;">
+<!-- <h5 class="card-header">Enter Inputsheet Information</h5>-->
+<div class="card-body inp_t pt-0">
+<div id="inputsheet" class="tab-pane fade show active">
+  <div class=" pt-3">
+    <!-- <h5>System Requirement (CQRS)</h5> -->
+  </div>
+  <label class="custom-control-label" for="customSwitch2">Switch off if you don't need help filling this
+    documents.</label>
+  <div class="toggle-switch" [class.active]="!off" (click)="togglee()">
+    <div class="toggle-slider"></div>
+  </div>
+  <div class="pull-right help1">
+    <i (click)="downloadFile()" class="fa-xl fa fa-info-circle" aria-hidden="true" title="Click here to view filling instructions"></i>
+  </div>
+  <div class="row mt-4">
+    <div class="col-12 mb-2 border_btm"><h5>System Requirement</h5></div>
+    <div class="col-md-3 col-lg-4 mb-2">
+        <div class="form-group">
+            <label class="control-label">
+                Premises to be Protected:</label>
+            <select Class="form-control  form-select" [(ngModel)]="objGSSEntity.productCategory">
+                <option value="">-Select-</option>
+                <option value="UPS Room">UPS Room</option>
+                <option value="Server Room">Server Room</option>
+                <option value="Engine Room">Engine Room</option>
+                <option value="Office Room">Office Room</option>
+                <option value="Storage Area">Storage Area</option>
+                <option value="Other">Other</option>
+               
+            </select>
+        </div>
+    </div>
+    <div class="col-md-3 col-lg-4 mb-2" *ngIf="objGSSEntity.productCategory=='Other'">
+        <div class="form-group">
+            <label class="control-label">Premise Name</label>
+            <input  type="text" class="form-control "  [(ngModel)]="objGSSEntity.premiseNameOther" />
+        </div>
+    </div>
+    <div class="col-md-3 col-lg-4 mb-2">
+      <div class="form-group">
+          <label class="control-label">
+              System:</label>
+          <select Class="form-control  form-select" [(ngModel)]="objGSSEntity.system">
+              <option value="">-Select-</option>
+              <option value="Gas Suppression System">Gas Suppression System</option>
+              <option value="Water Suppression System">Water Suppression System</option>
+              <option value="Don't Know">Don't Know</option>
+          </select>
+      </div>
+  </div>
+
+    <div class="col-md-3 col-lg-4 mb-2" *ngIf="isCS">
+        <div class="form-group">
+            <label class="control-label">Type Of Hazard Class:</label>
+            <select placement="bottom" [ngbTooltip]="Hazard" Class="form-control  form-select" [(ngModel)]="objGSSEntity.typeOfHazardClass" (change)="showChemicalFunction($any($event.target).value)">
+                <option value="">-Select-</option>
+                <!-- <option value="A">A (Fire involving solids with deep-seated heat)</option>
+                <option value="B">B (Fire involving inflammable liquids)</option>
+                <option value="C">C (Fire involving electricity-initiated fire)</option>
+                <option value="A&C">A&C (Fire involving solids with deep-seated heat and electricity-initiated fire)</option>
+                <option value="Don't Know">Don't Know</option> -->
+
+                <ng-container *ngIf="objGSSEntity.system=='Water Suppression System'">
+                    <option value="A">A (Fire involving solids with deep-seated heat)</option>
+                <option value="B">B (Fire involving inflammable liquids)</option>
+                <option value="C">C (Fire involving flammable gases)</option>
+                <!-- <option value="A&C">A&C (Fire involving solids with deep-seated heat and electricity-initiated fire)</option> -->
+                <option value="Don't Know">Don't Know</option>
+                  </ng-container>
+                  <ng-container *ngIf="objGSSEntity.system=='Gas Suppression System'">
+                    <option value="A">A (Fire involving solids with deep-seated heat)</option>
+                <option value="B">B (Fire involving inflammable liquids)</option>
+                <option value="C">C (Fire involving electricity-initiated fire)</option>
+                <option value="A&C">A&C (Fire involving solids with deep-seated heat and electricity-initiated fire)</option>
+                <option value="Don't Know">Don't Know</option>
+                  </ng-container>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-3 col-lg-4 mb-2" *ngIf="(objGSSEntity.typeOfHazardClass=='B' && isCS)">
+        <div class="form-group">
+            <label class="control-label">Type of Chemical Used</label>
+            <input  type="text" class="form-control "  [(ngModel)]="objGSSEntity.typeOfChemicalUsed" (change)="onTypeOfEqChange($any($event.target).value,content)"/>
+        </div>
+    </div>
+
+    <div class="mt-3" *ngIf="objGSSEntity.system!=''">
+        <label>Agent Type</label><br>
+
+        <ng-container >
+
+         
+            <div class="form-group mt-3">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Select</th>
+                    <th style="width: 15%;">Agent</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr [class.selected-row]="objGSSEntity.agentType === 'TBD'" >
+                        <td>
+                          <input type="radio" name="extinguishingAgent" [(ngModel)]="objGSSEntity.agentType" value="TBD">
+                        </td>
+                        <td>
+                          <label>TBD</label>
+                        </td>
+                        <td>
+                          <small>Considering your unique requirement Ceasefire design cell will decide the most appropriate extinguishing agent.
+                           </small>
+                        </td>
+                      </tr>
+                  <tr *ngIf="objGSSEntity.system=='Gas Suppression System'" [class.selected-row]="objGSSEntity.agentType === 'HFC-227ea'">
+                    <td>
+                      <input type="radio" name="extinguishingAgent" [(ngModel)]="objGSSEntity.agentType" value="HFC-227ea">
+                    </td>
+                    <td>
+                      <label>HFC-227ea</label>
+                    </td>
+                    <td>
+                      <small title="Residue free, versatile and eco-conscious, zero ODP, this agent is applicable on fire Class A, B, C and requires closed environments to extinguishing fire.">Residue free, versatile and eco-conscious, zero ODP, this agent is applicable on fire Class A, B, C and requires closed environments to extinguishing fire.</small>
+                    </td>
+                  </tr>
+
+                  <tr *ngIf="objGSSEntity.system=='Gas Suppression System'" [class.selected-row]="objGSSEntity.agentType === 'FK-5-1-12'">
+                    <td>
+                      <input type="radio" name="extinguishingAgent" [(ngModel)]="objGSSEntity.agentType" value="FK-5-1-12">
+                    </td>
+                    <td>
+                      <label>FK-5-1-12</label>
+                    </td>
+                    <td>
+                      <small title="Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C. It requires closed environments to extinguish fires. ">Residue free eco-efficient and optimized, it has zero ODP and GWP of less than 1. FK is the go-to agent for Class A, B, C. It requires closed environments to extinguish fires. </small>
+                    </td>
+                  </tr>
+                  <tr *ngIf="objGSSEntity.system=='Gas Suppression System'" [class.selected-row]="objGSSEntity.agentType === 'CO2'">
+                    <td>
+                      <input type="radio" name="extinguishingAgent" [(ngModel)]="objGSSEntity.agentType" value="CO2">
+                    </td>
+                    <td>
+                      <label>CO2</label>
+                    </td>
+                    <td>
+                      <small title="Residue free. It has zero ODP. CO2 is perfect for fire Class B, C, making it ideal for high-risk enclosed spaces like, Generator room, electrical room, enclosed engine compartments etc.">Residue free.  It has zero ODP. CO2 is perfect for fire Class B, C, making it ideal for high-risk enclosed spaces like, Generator room, electrical room, enclosed engine compartments etc.</small>
+                    </td>
+                  </tr>
+                  <tr *ngIf="objGSSEntity.system=='Gas Suppression System'" [class.selected-row]="objGSSEntity.agentType === 'Inert Gas'">
+                    <td>
+                      <input type="radio" name="extinguishingAgent" [(ngModel)]="objGSSEntity.agentType" value="Inert Gas">
+                    </td>
+                    <td>
+                      <label>Inert Gas</label>
+                    </td>
+                    <td>
+                      <small title="Residue free naturally occurring non-reactive gas, Works on Class A, B, C and electrically started fires. It requires closed environment to extinguish fires. It is ideal for protecting areas with inflammable reactive material."> Residue free naturally occurring non-reactive gas, Works on Class A, B, C and electrically started fires. It requires closed environment to extinguish fires. It is ideal for protecting areas with inflammable reactive material.</small>
+                    </td>
+                  </tr>
+                  <tr *ngIf="objGSSEntity.system=='Water Suppression System'" [class.selected-row]="objGSSEntity.agentType === 'Water'">
+                    <td>
+                      <input type="radio" name="extinguishingAgent" [(ngModel)]="objGSSEntity.agentType" value="Water">
+                    </td>
+                    <td>
+                      <label>Water</label>
+                    </td>
+                    <td>
+                      <small title="Clean fresh water.">Clean fresh water.</small>
+                    </td>
+                  </tr>
+                  <tr *ngIf="objGSSEntity.system=='Water Suppression System'" [class.selected-row]="objGSSEntity.agentType === 'Watermist'">
+                    <td>
+                      <input type="radio" name="extinguishingAgent" [(ngModel)]="objGSSEntity.agentType" value="Watermist">
+                    </td>
+                    <td>
+                      <label>Watermist</label>
+                    </td>
+                    <td>
+                      <small title="Clean potable water.">Clean potable water.</small>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              
+            </div>
+            
+        </ng-container>
+
+        
+      </div>
+    <!-- <div class="col-md-3 col-lg-4 mb-2">
+        <div class="form-group">
+            <label class="control-label">AGENT TYPE:</label>
+            <select Class="form-control" [(ngModel)]="objGSSEntity.agentType" (change)="showInertFunction($any($event.target).value)">
+                <option value="">-Select-</option>
+                <option value="HFC227ea">HFC227ea</option>
+                <option value="FK-5-1-12">FK-5-1-12</option>
+                <option value="CO2">CO2</option>
+                <option value="Inert Gas">Inert Gas</option>
+                
+            </select>
+        </div>
+    </div> -->
+    <div class="col-md-3 col-lg-4 mb-2" *ngIf="(objGSSEntity.agentType=='Inert Gas' && isCS)">
+        <div class="form-group">
+            <label class="control-label">Select Agent for Inert Gas:</label>
+            <select Class="form-control form-select" [(ngModel)]="objGSSEntity.agentForInertGas">
+                <option value="">-Select-</option>
+                <option value="CF-IG 01 -Argon 100%">CF-IG 01 -Argon 100%</option>
+                <option value="CF-IG 100 -Nitrogen 100%">CF-IG 100 -Nitrogen 100%</option>
+                <option value="CF-IG 55 -Nitrogen 50% +Argon 50%">CF-IG 55 -Nitrogen 50% +Argon 50%</option>
+                <option value="CF-IG 541 -Nitrogen 52%+Argon 40%+CO2 8%">CF-IG 541 -Nitrogen 52%+Argon 40%+CO2 8%</option>
+            </select>
+        </div>
+    </div>
+    <!-- <div class="col-md-3 col-lg-4">
+        <div class="form-group">
+            <label class="control-label">DESIGN CONCENTRATION %V/V</label>
+            <input type="text" class="form-control "  [(ngModel)]="objGSSEntity.designConcentration"/>
+        </div>
+    </div>
+    <div class="col-md-3 col-lg-4">
+        <div class="form-group">
+            <label class="control-label">DESIGN TEMPERATURE °C:</label>
+            <select Class="form-control" [(ngModel)]="objGSSEntity.designTemperature">
+                <option value="">-Select-</option>
+                <option value="-20">-20</option>
+                <option value="-15">-15</option>
+                <option value="-10">-10</option>
+                <option value="-5">-5</option>
+                <option value="0">0</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+                <option value="30">30</option>
+                <option value="35">35</option>
+                <option value="40">40</option>
+                <option value="45">45</option>
+                <option value="50">50</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-3 col-lg-4">
+        <div class="form-group">
+            <label class="control-label">Other</label>
+            <input type="text" class="form-control "  [(ngModel)]="objGSSEntity.otherTemperature"/>
+        </div>
+    </div>
+    <div class="col-md-3 col-lg-4">
+        <div class="form-group">
+            <label class="control-label">DESIGN PRESSURE BAR:</label>
+            <select Class="form-control" [(ngModel)]="objGSSEntity.designPressureBar">
+                <option value="">-Select-</option>
+                <option value="25">25</option>
+                <option value="42">42</option>
+            </select>
+        </div>
+    </div> -->
+
+    <div class="col-md-3 col-lg-4" *ngIf="isCS && objGSSEntity.system=='Gas Suppression System'">
+        <div class="form-group">
+            <label class="control-label">Altitude of Installation Location (M):</label>
+            <input type="text" class="form-control " placement="bottom" [ngbTooltip]="Altitude" [(ngModel)]="objGSSEntity.equAltitude"/>
+        </div>
+    </div>
+    <div class="col-md-3 col-lg-4" *ngIf="objGSSEntity.system=='Gas Suppression System'">
+        <div class="form-group">
+            <label class="control-label">Installation location (State/City):</label>
+            <select Class="form-control form-select" [(ngModel)]="objGSSEntity.installationLocation">
+                <option value="">-Select-</option>
+                <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+    </div>
+
+
+              
+              
+
+
+
+            <div class="blog text">
+                <div class="card shadow p-3 pt-0 mb-5 bg-body rounded border-0" style="min-height: 1500px;" >
+<!-- <h5 class="card-header">Enter Inputsheet Information</h5>-->
+<div class="card-body inp_t pt-0">
+    <div class="col-12 mt-3 border_btm"><h5>Supperesion System Details</h5></div>
+      
+    <div class="row">
+        <div class="col-md-3 col-lg-4 mb-2">
+            <div class="form-group">
+                <label class="control-label">Room Name:</label>
+                <input type="text" class="form-control"  [(ngModel)]="objGSSRoomEntity.roomName"/>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-4 mb-2">
+            <div class="form-group">
+                <label class="control-label">Room Length (M):</label>
+                <input placement="bottom" [ngbTooltip]="length" placeholder="0" type="number" class="form-control" [(ngModel)]="objGSSRoomEntity.roomLength"/>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-4 mb-2">
+            <div class="form-group">
+                <label class="control-label">Room Width (M):</label>
+                <input placement="bottom" [ngbTooltip]="width" placeholder="0" type="number" class="form-control"  [(ngModel)]="objGSSRoomEntity.roomWidth" (blur)="calculateArea()"/>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-4 mb-2">
+            <div class="form-group">
+                <label class="control-label">Room Area (M²):</label>
+                <input placeholder="0" type="number" class="form-control "  [(ngModel)]="objGSSRoomEntity.roomArea"/>
+            </div>
+        </div>
+    <!-- </div>
+    <p-divider align="center">
+        <span class="p-tag">Hight in Meter</span>
+    </p-divider>
+    <div class="row"> -->
+        <div class="col-md-3 col-lg-4 mb-2"  *ngIf="isCS">
+            <div class="form-group">
+                <label class="control-label">Ceiling Void (C.V.) (M):</label>
+                <input placeholder="0" placement="bottom" [ngbTooltip]="cv" type="number" class="form-control" [(ngModel)]="objGSSRoomEntity.ceilingVoid"/>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-4 mb-2" *ngIf="isCS">
+            <div class="form-group">
+                <label class="control-label">Room Void (R.V.) (M):</label>
+                <input placeholder="0" placement="bottom" [ngbTooltip]="rv" type="number" class="form-control" [(ngModel)]="objGSSRoomEntity.roomVoid"/>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-4 mb-2" *ngIf="isCS">
+            <div class="form-group">
+                <label class="control-label">Floor Void (F.V.) (M):</label>
+                <input placeholder="0" placement="bottom" [ngbTooltip]="fv" type="number" class="form-control" [(ngModel)]="objGSSRoomEntity.floorVoid"/>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-4 mb-2" *ngIf="isCS && objGSSEntity.system=='Gas Suppression System'">
+            <div class="form-group">
+                <label class="control-label">System Type Required:</label>
+                <select placement="bottom" [ngbTooltip]="Stand" Class="form-control form-select" [(ngModel)]="objGSSRoomEntity.systemTypeRequired">
+                    <option value="">-Select-</option>
+                    <option value="Main">Main</option>
+                    <option value="Main+Standon">Main+Stand By Online</option>
+                    <option value="Main+Standof">Main+Stand By Offline</option>
+                </select>
+            </div>
+        </div>
+    
+    </div>
+ 
+       <div  *ngIf="isCS" class="col-12 border_btm"> <h5>Additional Requirement</h5></div>
+    <div class="row"  *ngIf="isCS">
+        <div class="col-md-3 col-lg-4 mb-2">
+            <div class="form-group">
+                <label class="control-label">GSM Dialler:</label>
+                <select placement="bottom" [ngbTooltip]="gsm" Class="form-control form-select" [(ngModel)]="objGSSRoomEntity.gsmDialler">
+                    <option value="">-Select-</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-4 mb-2">
+            <div class="form-group">
+                <label class="control-label">Additional Hooter:</label>
+                <select Class="form-control form-select" [(ngModel)]="objGSSRoomEntity.additionalHooter" (change)="showCableFunction($any($event.target).value)">
+                    <option value="">-Select-</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-4 mb-2" *ngIf="showCable">
+            <div class="form-group">
+                <label class="control-label">Cable Quantity  ( Distance Between Gas Release Panel And Additional Hooter  ) (M):</label>
+                <input type="number" class="form-control" [(ngModel)]="objGSSRoomEntity.cableQuantity"/>
+            </div>
+        </div>
+        <div style="display: none;" class="col-md-3 col-lg-4 mb-2">
+            <div class="form-group">
+                <label class="control-label">Gas Release Panel:</label>
+                <select Class="form-control form-select" [(ngModel)]="objGSSRoomEntity.gasReleasePanel">
+                    <option value="">-Select-</option>
+                    <option value="Ceasefire">Ceasefire</option>
+                    <option value="Local">Local</option>
+                    <!-- <option value="Ravel2">Ravel2</option>
+                    <option value="Ravel4">Ravel4</option> -->
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-4 mb-2">
+            <div class="form-group">
+                <label class="control-label">Mechanical Activation accessories:</label>
+                <select Class="form-control form-select" [(ngModel)]="objGSSRoomEntity.mechanicalActivationAccessories">
+                    <option value="">-Select-</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-4 mb-2" *ngIf="objGSSEntity.system=='Gas Suppression System'">
+            <div class="form-group">
+                <label class="control-label">Container location:</label>
+                <select Class="form-control form-select"  [(ngModel)]="objGSSRoomEntity.containerLocation" (change)="showDistanceFunction($any($event.target).value)">
+                    <option value="">-Select-</option>
+                    <option value="Inside the room">Inside the room</option>
+                    <option value="Other location">Other location</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-4 mb-2" *ngIf="showDistance">
+            <div class="form-group">
+                <label class="control-label">Provide walking distance b/w protected
+                    Room to container location (in M):</label>
+                <input placeholder="0" type="number" class="form-control "  [(ngModel)]="objGSSRoomEntity.walkingDistance"/>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-4 mb-2" *ngIf="showDistance">
+            <div class="form-group">
+                <label class="control-label">Ambient Temperature of Other Location (°C)</label>
+                <input placeholder="0" type="number" class="form-control "  [(ngModel)]="objGSSRoomEntity.ambientTemperature"/>
+            </div>
+        </div>
+    
+        
+    </div>
+    <div class="row"  *ngIf="isCS && objGSSEntity.system=='Water Suppression System'">
+      <div class="col-md-3 col-lg-4 mb-2">
+        <div class="form-group">
+            <label class="control-label">
+              Product Type:</label>
+            <select placement="bottom" [ngbTooltip]="ProductTypeTool" Class="form-control form-select"  [(ngModel)]="objGSSRoomEntity.productType" >
+                <option value="">-Select-</option>
+                <option value="Inhouse">Inhouse</option>
+                <option value="Outsource">Outsource</option>
+            </select>
+        </div>
+        
+    </div>
+    <div class="col-md-3 col-lg-4 mb-2" >
+      <div class="form-group">
+          <label class="control-label">Provide the type Of building to be protected:</label>
+          <select class="form-control" [(ngModel)]="objGSSRoomEntity.typeOfBuilding">
+            <option value="" selected>Select building type</option>
+            <option value="Residential">Residential</option>
+            <option value="Commercial">Commercial</option>
+            <option value="Industrial">Industrial</option>
+            <option value="Educational">Educational</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Other">Other</option>
+          </select>
+      </div>
+  </div>
+  <div class="col-md-3 col-lg-4 mb-2" *ngIf="objGSSRoomEntity.typeOfBuilding=='Other'">
+    <div class="form-group">
+        <label class="control-label">Type Of Building Name</label>
+        <input  type="text" class="form-control "  [(ngModel)]="objGSSRoomEntity.typeOfBuildingOther" />
+    </div>
+</div>
+  <div class="col-md-3 col-lg-4 mb-2">
+    <div class="form-group">
+        <label class="control-label">
+          Select the type Of Construction:</label>
+        <select Class="form-control form-select"  [(ngModel)]="objGSSRoomEntity.typeOfConstruction" >
+            <option value="">-Select-</option>
+            <option value="New">New</option>
+            <option value="Existing building">Existing building</option>
+            <option value="Expansion of existing building">Expansion of existing building</option>
+        </select>
+    </div>
+    
+</div>
+<div class="col-md-3 col-lg-4 mb-2" >
+  <div class="form-group">
+      <label class="control-label">Provide the type of protection suggested by Client/consultant/architect:</label>
+      <input placeholder="" type="text" class="form-control "  [(ngModel)]="objGSSRoomEntity.protectionSuggested"/>
+  </div>
+</div>
+<div  *ngIf="isCS" class="col-12 border_btm"> <h5>Details of Room/Shed/Warehouse/Hangars etc. to be Protected by Auto Quell System:</h5></div>
+<div class="col-md-3 col-lg-4 mb-2" >
+  <div class="form-group">
+      <label class="control-label">Type of equipment/area :</label>
+      <input placeholder="" type="text" class="form-control "  [(ngModel)]="objGSSRoomEntity.typeEquipmentArea"/>
+  </div>
+</div>
+<div class="col-md-3 col-lg-4 mb-2" >
+  <div class="form-group">
+      <label class="control-label">	Name of equipment/area :</label>
+      <input placeholder="" type="text" class="form-control "  [(ngModel)]="objGSSRoomEntity.nameEquipmentArea"/>
+  </div>
+</div>
+
+<form [formGroup]="form" >
+  <div class="form-group" formArrayName="fields">
+    <label>Size of equipment/area :</label>
+    <div *ngFor="let fieldGroup of fields.controls; let i = index" class="row mb-3" [formGroupName]="i">
+      <div class="col">
+        <label class="control-label">	Length in meters :</label>
+        <input type="number" placeholder="0" class="form-control" formControlName="length" >
+      </div>
+      <div class="col">
+        <label class="control-label">	Width in meters :</label>
+        <input type="number" placeholder="0" class="form-control" formControlName="width" >
+      </div>
+      <div class="col">
+        <label class="control-label">	Height in meters :</label>
+        <input type="number" placeholder="0" class="form-control" formControlName="height" >
+      </div>
+      <div class="col-auto">
+        <button type="button" class="btn btn-danger" (click)="removeField(i)">Remove</button>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary" (click)="addField()">
+    {{ fields.length === 0 ? 'Add Equipment Details' : 'Add More' }}
+  </button>
+  <!-- <button type="submit" class="btn btn-success">Submit</button> -->
+</form>
+
+<div class="col-md-3 col-lg-4 mb-2">
+  <div class="form-group">
+      <label class="control-label">
+        Whether client has agreed for? :</label>
+      <select Class="form-control form-select"  [(ngModel)]="objGSSRoomEntity.clientAgreedFor" >
+          <option value="">-Select-</option>
+          <option value="Pump Base">Pump Base</option>
+          <option value="Cylinder Base">Cylinder Base</option>
+      </select>
+  </div>
+  
+</div>
+<div class="col-md-3 col-lg-4 mb-2">
+  <div class="form-group">
+      <label class="control-label">
+        Whether existing Fire Fighting System is installed:</label>
+      <select Class="form-control form-select"  [(ngModel)]="objGSSRoomEntity.existingSystemInstalled" >
+          <option value="">-Select-</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+      </select>
+  </div>
+  
+</div>
+<div class="col-md-3 col-lg-4 mb-2" *ngIf="objGSSRoomEntity.clientAgreedFor=='Pump Base' && objGSSRoomEntity.existingSystemInstalled=='Yes'">
+  <div class="form-group">
+      <label class="control-label">
+        Whether existing water tanks can be used for water based system?:</label>
+      <select Class="form-control form-select"  [(ngModel)]="objGSSRoomEntity.existingWaterTanks" >
+          <option value="">-Select-</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+      </select>
+  </div>
+</div>
+<div class="col-md-3 col-lg-4 mb-2"  *ngIf="objGSSRoomEntity.clientAgreedFor=='Pump Base' && objGSSRoomEntity.existingSystemInstalled=='Yes'">
+  <div class="form-group">
+      <label class="control-label">Further Information/Comments,if any :</label>
+      <input placeholder="" type="text" class="form-control "  [(ngModel)]="objGSSRoomEntity.furtherInformation"/>
+  </div>
+</div>
+<div class="col-md-3 col-lg-4 mb-2" *ngIf="objGSSRoomEntity.clientAgreedFor=='Pump Base' && objGSSRoomEntity.existingSystemInstalled=='Yes'">
+  <div class="form-group">
+      <label class="control-label">
+        Select the type of existing water source :</label>
+      <select Class="form-control form-select"  [(ngModel)]="objGSSRoomEntity.existingWaterSource" >
+          <option value="">-Select-</option>
+          <option value="Raw Water">Raw Water</option>
+          <option value="Filter Water">Filter Water</option>
+      </select>
+  </div>
+</div>
+<div class="col-md-3 col-lg-4 mb-2" *ngIf="objGSSRoomEntity.existingWaterSource=='Raw Water'">
+  <div class="form-group">
+      <label class="control-label">
+        Mulitple filtration is applicable :</label>
+      <select Class="form-control form-select"  [(ngModel)]="objGSSRoomEntity.mulitpleFiltration" >
+          <option value="">-Select-</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+      </select>
+  </div>
+</div>
+<div class="col-md-3 col-lg-4 mb-2" *ngIf="objGSSRoomEntity.clientAgreedFor=='Pump Base' && objGSSRoomEntity.existingSystemInstalled=='Yes'">
+  <div class="form-group">
+      <label class="control-label">
+        Whether building is protected with fire protection system?</label>
+      <select Class="form-control form-select"  [(ngModel)]="objGSSRoomEntity.buildingProtected" >
+          <option value="">-Select-</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+      </select>
+  </div>
+</div>
+<div class="row" *ngIf="objGSSRoomEntity.buildingProtected=='Yes'">
+  <div class="col-md-3 col-lg-4 mb-2" >
+    <div class="form-group">
+        <label class="control-label">
+          Select the type of existing system installed :</label>
+        <select Class="form-control form-select"  [(ngModel)]="objGSSRoomEntity.typeExistingSystem">
+            <option value="">-Select-</option>
+            <option value="Hydrant">Hydrant</option>
+            <option value="Sprinkler">Sprinkler</option>
+            <option value="Foam">Foam</option>
+            <option value="Gas flooding">Gas flooding</option>
+        </select>
+    </div>
+  </div>
+  <div class="col-md-3 col-lg-4 mb-2">
+    <div class="form-group">
+        <label class="control-label">
+          Select the type of existing fire alarm system installed:</label>
+        <select Class="form-control form-select"  [(ngModel)]="objGSSRoomEntity.typeExistingFireAlarm" >
+            <option value="">-Select-</option>
+            <option value="Conventional">Conventional</option>
+            <option value="Addressable">Addressable</option>
+            <option value="Wireless">Wireless</option>
+        </select>
+    </div>
+  </div>
+  <div class="col-md-3 col-lg-4 mb-2">
+    <div class="form-group">
+      <label class="control-label">Tick on the type of existing pumps installed:</label>
+      <div class="form-check" *ngFor="let pump of pumps; let i = index">
+        <input class="form-check-input" type="checkbox" id="{{ 'pump' + i }}" [(ngModel)]="selectedPumps[pump]" [value]="pump">
+        <label class="form-check-label" [for]="'pump' + i">
+          {{ pump }}
+        </label>
+      </div>
+    </div>
+  </div>
+  
+  <form [formGroup]="formPump">
+    <div class="form-group" formArrayName="fieldsPump">
+      <label>Capacity of Main desiel Pump(s) :</label>
+      <div *ngFor="let fieldGroupP of fieldsPump.controls; let i = index" class="row mb-3" [formGroupName]="i">
+        <div class="col">
+          <label class="control-label">Discharge in LPM or Cu. Meter/Hr:</label>
+          <input type="number" class="form-control" formControlName="dischargeinLPM" placeholder="0">
+        </div>
+        <div class="col">
+          <label class="control-label">Head in MWC or Bars:</label>
+          <input type="number" class="form-control" formControlName="headinMWC" placeholder="0">
+        </div>
+        <div class="col-auto">
+          <button type="button" class="btn btn-danger" (click)="removeFieldPump(i)">Remove</button>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="addFieldPump()">
+      {{ fieldsPump.length === 0 ? 'Add Pump Details' : 'Add More' }}</button>
+    <!-- <button type="submit" class="btn btn-success">Submit</button> -->
+  </form>
+  
+  <form [formGroup]="formTanks">
+    <label>Details of water storage Tanks :</label>
+    <div class="form-group" formArrayName="fieldsTanks">
+      <div *ngFor="let fieldGroupT of fieldsTanks.controls; let i = index" class="row mb-3" [formGroupName]="i">
+        <div class="col">
+          <label class="control-label">Location Of Tanks :</label>
+          <input type="number" class="form-control" formControlName="locationOfTanks" placeholder="0">
+        </div>
+        <div class="col">
+          <label class="control-label">Capacity of Tanks in liters :</label>
+          <input type="number" class="form-control" formControlName="CapacityOfTanks" placeholder="0">
+        </div>
+        <div class="col-auto">
+          <button type="button" class="btn btn-danger" (click)="removeFieldTanks(i)">Remove</button>
+        </div>
+      </div>
+      
+    </div>
+    <button type="button" class="btn btn-primary" (click)="addFieldTanks()">
+      {{ fieldsTanks.length === 0 ? 'Add Tank Details' : 'Add More' }}</button>
+    <!-- <button type="submit" class="btn btn-success">Submit</button> -->
+  </form>
+</div>
+
+<div class="col-12" >
+  <div class="form-group">
+      <label class="control-label">Remarks</label>
+      <textarea class="form-control" rows="3" [(ngModel)]="objGSSRoomEntity.remarks"></textarea>
+      
+  </div>
+</div>
+    </div>
+    <div class="col-12 ">
+        <div class="form-group">
+            
+            <button *ngIf="isUpdate==false" pButton class="mt-4 btn btn-danger pull-right" (click)="addToGrid(contentGSSRoom)">Add to Grid</button>
+            <button *ngIf="isUpdate" pButton class="mt-4 btn btn-danger pull-right" (click)="update()">Update</button>
+      
+        </div>
+    </div>
+    <div class="mt-3 mb-3" style="width: 948px; overflow: scroll;">
+    <table class="table table-bordered table-responsive">
+        <thead>
+          <tr>
+            <th>Sr. No.</th>	
+            <th>Room Name</th>	
+            <th>length (M)</th>	
+
+            <th>Width (M)</th>	
+            <!--  -->
+            <th>Area(M²)</th>	
+            <th *ngIf="isCS">Ceiling Void (C.V.) (M)</th>	
+            <th *ngIf="isCS">Room Void (R.V.) (M) </th>	
+            <th *ngIf="isCS">Floor Void (F.V.) (M)</th>	
+            <th *ngIf="isCS  && objGSSEntity.system=='Gas Suppression System'">System Type Required</th>	
+            <th *ngIf="isCS">Total Volume in M³</th>	
+            <!-- <th>Common System Zones</th>	 -->
+            <th *ngIf="isCS">Additional Hooter</th>	
+            <th *ngIf="isCS">Cable Quantity(M)</th>	
+            <!-- <th>Gas Release Panel</th>	 -->
+            <th *ngIf="isCS">Mechanical Activation accessories</th>	
+            <th *ngIf="isCS && objGSSEntity.system=='Gas Suppression System'">Container location</th>
+            <!-- <th *ngIf="isCS">Common System</th>
+            <th *ngIf="isCS">Distance From Previous Room</th> -->
+            <th  *ngIf="isCS && objGSSEntity.system=='Gas Suppression System'" style="width: 100%; float: left;">Walking distance between protected room to container location.</th>
+            <th *ngIf="isCS && objGSSEntity.system=='Gas Suppression System'">Ambient Temperature of Other Location</th>	
+            <th *ngIf="isCS">Product Type</th>
+            <th *ngIf="isCS">Provide the type Of building to be protected</th>
+            <th *ngIf="isCS"> Type Of Building if Other</th>
+            <th *ngIf="isCS">Select the type Of Construction</th>
+            <th *ngIf="isCS">Provide the type of protection suggested by Client/consultant/architect</th>
+            <th *ngIf="isCS">Type of equipment/area</th>
+            <th *ngIf="isCS">Name of equipment/area</th>
+            <th *ngIf="isCS">Whether client has agreed for?</th>
+            <th *ngIf="isCS">Whether existing Fire Fighting System is installed</th>
+            <th *ngIf="isCS">Whether existing water tanks can be used for watermist system?</th>
+            <th *ngIf="isCS">Further Information/Comments, if any</th>
+            <th *ngIf="isCS">Select the type of existing water source</th>
+            <th *ngIf="isCS">Multiple filtration is applicable</th>
+            <th *ngIf="isCS">Whether building is protected with fire protection system?</th>
+            <th *ngIf="isCS">Select the type of existing system installed</th>
+            <th *ngIf="isCS">Select the type of existing fire alarm system installed</th>
+            <th *ngIf="isCS">Type of existing pumps installed</th>
+            <th *ngIf="isCS">Remarks</th>
+            <th *ngIf="isCS">Equipment</th>
+            <th *ngIf="isCS">Pumps</th>
+            <th *ngIf="isCS">Tanks</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of objGSSEntity.roomData; let ind= index;">
+            <td>{{ind+1}}</td>
+            <td>{{i.roomName}}</td>
+            <td>{{i.roomLength}}</td>
+            <td>{{i.roomWidth}}</td>
+            <td>{{i.roomArea}}</td>
+            <td *ngIf="isCS">{{i.ceilingVoid}}</td>
+            <td *ngIf="isCS">{{i.roomVoid}}</td>
+            <td *ngIf="isCS">{{i.floorVoid}}</td>
+            <td *ngIf="isCS && objGSSEntity.system=='Gas Suppression System'">{{i.systemTypeRequired}}</td>
+            <td *ngIf="isCS">{{getVolumeM3(i)}}</td>
+            <td *ngIf="isCS">{{i.additionalHooter}}</td>
+            <td *ngIf="isCS">{{i.cableQuantity}}</td>
+            <!-- <td>{{i.gasReleasePanel}}</td> -->
+            <td *ngIf="isCS">{{i.mechanicalActivationAccessories}}</td>
+            <td *ngIf="isCS && objGSSEntity.system=='Gas Suppression System'">{{i.containerLocation}}</td>
+            <!-- <td *ngIf="isCS">{{i.isCommon}}</td>
+                       <td *ngIf="isCS">{{i.distancePR}}</td> -->
+
+            <td *ngIf="isCS && objGSSEntity.system=='Gas Suppression System'">{{i.walkingDistance}}</td>
+            <td *ngIf="isCS && objGSSEntity.system=='Gas Suppression System'">{{i.ambientTemperature}}</td>
+
+            <td *ngIf="isCS">{{i.productType}}</td>
+            <td *ngIf="isCS">{{i.typeOfBuilding}}</td>
+            <td *ngIf="isCS">{{i.typeOfBuildingOther}}</td>
+            <td *ngIf="isCS">{{i.typeOfConstruction}}</td>
+            <td *ngIf="isCS">{{i.protectionSuggested}}</td>
+            <td *ngIf="isCS">{{i.typeEquipmentArea}}</td>
+            <td *ngIf="isCS">{{i.nameEquipmentArea}}</td>
+            <td *ngIf="isCS">{{i.clientAgreedFor}}</td>
+            <td *ngIf="isCS">{{i.existingSystemInstalled}}</td>
+            <td *ngIf="isCS">{{i.existingWaterTanks}}</td>
+            <td *ngIf="isCS">{{i.furtherInformation}}</td>
+            <td *ngIf="isCS">{{i.existingWaterSource}}</td>
+            <td *ngIf="isCS">{{i.mulitpleFiltration}}</td>
+            <td *ngIf="isCS">{{i.buildingProtected}}</td>
+            <td *ngIf="isCS">{{i.typeExistingSystem}}</td>
+            <td *ngIf="isCS">{{i.typeExistingFireAlarm}}</td>
+            <td *ngIf="isCS">{{ getTruePumps(i.existingPump).join(', ') }}</td>
+            <td *ngIf="isCS">{{i.remarks}}</td>
+            <td *ngIf="isCS"><button class="btn btn-outline-danger mb-2 me-2" (click)="openEq(contentEquip,i.equipment)">
+              View
+            </button></td>
+            <td *ngIf="isCS"><button class="btn btn-outline-danger mb-2 me-2" (click)="openPump(contentPump,i.pump)">
+              View
+            </button></td>
+            <td *ngIf="isCS"><button class="btn btn-outline-danger mb-2 me-2" (click)="openTank(contentTank,i.tanks)">
+              View
+            </button></td>
+            <td class="d-flex justify-content-between">
+                <button class="btn btn-success btn-sm" style="margin-right: 4px;" (click)="editItem(i,ind)"> <i class="fa fa-pencil" aria-hidden="true"></i></button>
+                <button class="btn btn-danger btn-sm"  (click)="removeFromGrid(i,ind)"> <i class="fa fa-trash" aria-hidden="true"></i></button>
+                </td>
+             
+        </tbody>
+      </table>
+    </div>
+
+</div>
+</div>
+
+
+
+            
+
+
+
+            
+            </div>
+            <div class="help text">
+                 <div class="card shadow p-3 mb-5 pt-0 bg-body rounded border-0" style="min-height: 1500px;">
+                <div class="card-body inp_t pt-0">
+                    <form #DocName='ngForm' (ngSubmit)="SaveDocument();">
+                        <div class="card-body row">
+                            <div class="row">
+                                
+                                <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                    <div class="mb-3">
+                                        <label
+                                            class="control-label">
+                                            Room Name</label>
+                                        <select name="DDocType"
+                                            #DDocTypeCtrl="ngModel"
+                                            Class="form-select form-control"
+                                            [(ngModel)]="DocumentType"
+                                        
+                                            required>
+                                            <option value="">-- Select--
+                                            </option>
+                                            <ng-container
+                                                *ngFor="let item of objGSSEntity.roomData">
+                                                <option
+                                                    value="{{item.roomName}}"
+                                                    >
+                                                    {{item.roomName}}
+                                                </option>
+                                            </ng-container>
+                                        </select>
+                                        
+                                    </div>
+                                </div>
+        
+                                <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                    <div class="mb-3">
+                                        <label
+                                            class="control-label">Upload
+                                            Document</label>
+                                        <input type="file" id="file2"
+                                            [(ngModel)]="DocfileToUpload"
+                                            [ngModelOptions]="{standalone: true}"
+                                            (change)="handleFileInput($event)"
+                                            class="form-control"
+                                        >
+                                        <span style=" color: red; margin-top:20px; font-size:13.5px">File accepted *pdf, *word ,*jpg/png , *dwg</span>
+
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6">
+                                        <div class=""
+                                        >
+                                            <button
+                                                class="btn btn-success btn-sm" style="width: 70px;"
+                                                
+                                                [disabled]="DocName.invalid"
+                                                >
+                                              
+                                                Save
+                                            </button>
+        
+        
+                                        </div>
+        
+        
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </form>
+        
+                    <table class="table table-bordered ">
+                        <thead  >
+                            <tr>
+                                <th >
+                                    #
+                        
+                        
+                                </th>
+                                <th >
+                                    Room Name
+                        
+                        
+                                </th>
+                                <th >
+                                    Document Name
+                        
+                                </th>
+                                <th >
+                                  Action
+                        
+                                </th>
+                        
+                            </tr>
+                        </thead>
+                        <tbody >
+                            <tr *ngFor="let doc of objDocumentList; let i = index">
+                        
+                                <td>
+                                    <div class="inner-cell-wrapper">
+                                        {{ i + 1 }}
+                                    </div>
+                                </td>
+                                <td>
+                        
+                                    {{ doc.fileType }}
+                                </td>
+                                <td>
+                                    {{ doc.originalFilesName}}
+                        
+                                </td>
+                        
+                               
+                                <td>
+                                    <a style="cursor: pointer;" class="mr-4" title="Delete Attachements"
+                                    (click)="DeleteSavedFile(doc)">
+                                    <i style="color: #dc3545; font-size: 18px;  background-color: none; "
+                                        class="fa fa-trash"></i>
+                                </a>
+                                &nbsp;&nbsp;
+                                <a style="cursor: pointer;" class="mr-4" title="Download Attachements"
+                                    (click)="FileDownload(doc.filesPath,doc.originalFilesName)">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjsa69ya21Y1Ij8R-tsplT4FdKSZLryqpkjg&usqp=CAU" alt="" height="30px" srcset="">
+                                </a>
+                            
+                            </td>
+                        
+                            </tr>
+                        </tbody>
+                        </table>
+                        <!-- <div class="form-control">
+                            <label class="form-control"for="ff">Remarks:</label>
+                          <textarea cols="3" [(ngModel)]="remarks" type="text" class="form-control"></textarea>
+                          
+                          
+                          </div> -->
+</div> 
+
+</div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+<div class="sc-cgzHhG iePUPQ 4te4tr4e" style="padding-bottom: 1rem;">
+<div class="sc-gMcBNU TehGa">
+  <div class="sc-iyvyFf eboBpz">
+    <button (click)="previoustab()"  class="sc-1kx5g6g-1 elxuhW sc-iLVFha dYzIFA button_footer" role="button" tabindex="0" aria-disabled="false">
+      <span tabindex="-1" class="sc-1kx5g6g-2 iJrIWA">
+        <span class="sc-1kx5g6g-3 dkwpEa">◀ &nbsp; Go back</span></span></button>
+        <div class="sc-dYzWWc fxBUzm">
+          <button [ngbTooltip]="selectedOption==1?nextatzero:(selectedOption==2?nextatone:'')" *ngIf="selectedOption!=3" (click)="nextTab()" role="button" tabindex="0" aria-disabled="false" class="sc-1kx5g6g-1 elxuhW button_footer">
+            <span tabindex="-1" class="sc-1kx5g6g-2 iJrIWA">
+              <span class="sc-1kx5g6g-3 dkwpEa">Next &nbsp;&nbsp; ▶</span></span>
+            </button>
+            <button  placement="top" [ngbTooltip]="SubmitInputsheet" *ngIf="selectedOption===3" (click)="SubmitChangeStatus()" role="button" tabindex="0" aria-disabled="false" class="sc-1kx5g6g-1 elxuhW button_footer">
+              <span tabindex="-1" class="sc-1kx5g6g-2 iJrIWA">
+                <span class="sc-1kx5g6g-3 dkwpEa">Submit Inputsheet &nbsp;&nbsp; ▶</span></span>
+              </button>
+          </div></div></div></div>
+
+          <ng-template #typeChemical
+	>
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/direct_indirect.jpg" style="height: 200px;width: 300px;">
+
+  <p *ngIf="off==false"> <b>Please Attach MSDS Of Chemical In Last Page</b></p>
+	<br>
+
+  <!-- <p *ngIf="off==false">Choose <b>Indirect </b>when you have a singular or limited no of equal volume cabinets whose combine volume is 2 m cube and above.</p> -->
+  </ng-template
+>
+
+
+<ng-template #common
+>
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/direct_indirect.jpg" style="height: 200px;width: 300px;">
+
+<p *ngIf="off==false"> <b>Common System Is Applicable Only Two Adjacent Room On The Same Floor</b></p>
+<br>
+
+<!-- <p *ngIf="off==false">Choose <b>Indirect </b>when you have a singular or limited no of equal volume cabinets whose combine volume is 2 m cube and above.</p> -->
+</ng-template
+>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title"></h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)=" modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <p>{{modelText}}</p>
+    </div>
+    <div class="modal-footer">
+
+      <button type="button" class="btn btn-outline-dark" (click)=" modal.dismiss('Cross click')">Close</button>
+   
+    </div>
+  </ng-template>
+
+
+  
+<ng-template #contentGSSRoom let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title"></h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <p>{{modelText}}</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="handleYesNo('Yes',contentGSSFloor);modal.dismiss('Cross click')">Yes</button>
+      <button type="button" class="btn btn-outline-dark" (click)="handleYesNo('No', contentGSSFloor);modal.dismiss('Cross click')">No</button>
+    </div>
+  </ng-template>
+
+  <ng-template #contentGSSFloor let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title"></h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <p>{{modelText}}</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="handleFloor('same' , contentGSSCommon);modal.dismiss('Cross click')">Same Floor</button>
+      <button type="button" class="btn btn-outline-dark" (click)="handleFloor('another',contentGSSCommon);modal.dismiss('Cross click')">Another Floor</button>
+    </div>
+  </ng-template>
+
+  <ng-template #contentGSSCommon let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title"></h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+<label for="cccc">Common System </label>
+ <select [(ngModel)]="objGSSRoomEntity.isCommon" name="" id="" class="form-control">
+    <option value="yes">Yes</option>
+    <option value="No">No</option>
+ </select>
+ <div *ngIf="objGSSRoomEntity.isCommon=='yes'" >
+<label for="nnn">Enter Distance From Previous Room (M)</label>
+<input type="number" name="" id="" [(ngModel)]="objGSSRoomEntity.distancePR"  class="form-control">
+ </div>
+    </div>
+    <div class="modal-footer">
+        <button (click)="handleCommonSubmit(); modal.dismiss('Cross click')" class="btn btn-primay">Submit</button>
+
+    </div>
+  </ng-template>
+
+  <!-- 
+   -->
+
+   <ng-template #tipContent
+  >Hello, 
+  <img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/Area_images/Area_%2020240129190225.jpg" style="height: 200px;width: 100%;">
+  </ng-template
+>
+
+<ng-template #rowContent
+  >
+  <img *ngIf="off==false" src="https://i.ibb.co/55HjDt2/rows.jpg" style="height: 200px;width: 100%;">
+  </ng-template
+>
+
+<ng-template #colContent
+  >
+  <img *ngIf="off==false" src="https://i.ibb.co/yP6qr5B/Total-column.jpg" style="height: 200px;width: 100%;">
+  </ng-template
+>
+<ng-template #heightContent
+  >
+  <img *ngIf="off==false" src="https://i.ibb.co/nQhLYhN/hight.jpg" style="height: 200px;width: 100%;">
+  </ng-template
+>
+<ng-template #widthContent
+  >
+  <img *ngIf="off==false" src="https://i.ibb.co/0ymqBtt/width.jpg" style="height: 200px;width: 100%;">
+  </ng-template
+>
+<ng-template #lengthContent
+  >
+  <img *ngIf="off==false" src="https://i.ibb.co/DbpjkJT/Length.jpg" style="height: 200px;width: 100%;">
+  </ng-template
+>
+
+<ng-template #rv
+>
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/GSS/rv.jpg" style="height: 200px;width: 100%;">
+</ng-template
+>
+
+<ng-template #cv
+>
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/Inputsheet_images/Cieling_Void.png" style="height: 200px;width: 100%;">
+</ng-template
+>
+
+<ng-template #fv
+>
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/Inputsheet_images/Floor_Void.png" style="height: 200px;width: 100%;">
+</ng-template
+>
+<ng-template #directIN
+> 
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/direct_indirect.jpg" style="height: 200px;width: 300px;">
+</ng-template
+>
+
+<ng-template #panel
+> 
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/cqrs_Panel.jpg" style="height: 200px;width: 300px;">
+</ng-template
+>
+
+<ng-template #diContent
+  >
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/direct_indirect.jpg" style="height: 200px;width: 300px;">
+
+  <p>Choose <b>Direct </b>when you have multiple cabinets with the largest cabinet's volume from among them is not greater then 2 m cube. </p>
+  <br>
+
+  <p>Choose <b>Indirect </b>when you have a singular or limited no of equal volume cabinets whose combine volume is 2 m cube and above.</p>
+  </ng-template
+>
+
+<ng-template #Altitude
+>
+<p>As per city enquire altitude from the internet.</p>
+</ng-template
+>
+<ng-template #Hazard
+>
+<p>Enquire hazard class as per agent selected.</p>
+</ng-template
+>
+<ng-template #gsm
+>
+<p>Enquire if the customer wants automatic calling to concern people in case of fire.</p>
+</ng-template
+>
+<ng-template #Stand
+>
+<p>Stand-by Online-  refers to a backup or redundant system that is ready to take over in case the main system is under maintenance or activated. A stand by system can be made the main system with the help of change-over switch.</p>
+<p>Stand-by Offline- refers to a backup agent cylinders that are available to replace the main agent cylinders while the earlier spent or under maintenance agent cylinders are not available.</p>
+</ng-template
+>
+<ng-template #length
+>
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/room/room_length.jpg" style="height: 200px;width: 300px;">
+
+</ng-template
+>
+<ng-template #width
+>
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/room/room_width.jpg" style="height: 200px;width: 300px;">
+
+</ng-template
+>
+<ng-template #SubmitInputsheet
+>
+<p *ngIf="off==false"><p>If you want to edit your input post submission please go to my proposal.</p>
+       </ng-template
+>
+<ng-template #nextatzero
+>
+<p>Fill equipment details on next page.</p> 
+</ng-template
+>
+<ng-template #nextatone
+>
+<p>Attach drawing/pdf of room/equipment in next page.</p> 
+</ng-template
+>
+<ng-template #ProductTypeTool
+>
+<p><b>Inhouse:</b>Project to be done by Ceasefire products.</p> 
+<p><b>Outsource:</b>Project estimation to be carried out by Ceasefire team.</p>
+</ng-template
+>
+
+<ng-template #contentEquip let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Size of equipment/area</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+    <table class="table table-bordered table-responsive">
+      <thead>
+        <tr>
+          <th>Sr. No.</th>	
+          <th>Length in meters</th>	
+          <th>Width in meters</th>	
+          <th>Height in meters</th>	
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of equipmentDeatails; let ind= index;">
+          <td>{{ind+1}}</td>
+          <td>{{i.length}}</td>
+          <td>{{i.width}}</td>
+          <td>{{i.height}}</td>
+             </tr>  
+      </tbody>
+    </table>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+	</div>
+</ng-template>
+<ng-template #contentPump let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Size of equipment/area</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+    <table class="table table-bordered table-responsive">
+      <thead>
+        <tr>
+          <th>Sr. No.</th>	
+          <th>Discharge in LPM or Cu. Meter/Hr</th>	
+          <th>Head in MWC or Bars</th>	
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of pumpDetails; let ind= index;">
+          <td>{{ind+1}}</td>
+          <td>{{i.dischargeInLPM}}</td>
+          <td>{{i.headInMWC}}</td>
+             </tr>  
+      </tbody>
+    </table>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+	</div>
+</ng-template>
+<ng-template #contentTank let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Size of equipment/area</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+    <table class="table table-bordered table-responsive">
+      <thead>
+        <tr>
+          <th>Sr. No.</th>	
+          <th>Location Of Tanks</th>	
+          <th>Capacity of Tanks in liters</th>	
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of tankDetails; let ind= index;">
+          <td>{{ind+1}}</td>
+          <td>{{i.locationOfTanks}}</td>
+          <td>{{i.capacityOfTanks}}</td>
+             </tr>  
+      </tbody>
+    </table>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+	</div>
+</ng-template>
+

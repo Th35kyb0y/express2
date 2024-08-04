@@ -1,0 +1,180 @@
+<!-- main start here-->
+<main id="main">
+    <section class="inner-page p-0 sec_body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 middle">
+
+                    <div class="row">
+                        <div class="col-12 s0">
+                            Quick Guide Links
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 s3">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <h3 class="s1 mt-3">HELP TOPICES</h3>
+                            <div>
+                                <ul class="s18">
+                                    <li>Living Room</li>
+                                    <li>CORRIDOR</li>
+                                    <li>KITCHENS</li>
+                                    <li>STAIRWAY</li>
+                                    <li>BEDROOM</li>
+                                    <li>Home Office</li>
+                                    <li>TEMPLE
+                                        </li>
+
+                                    <li>GYM</li>
+
+                                    <li>GARAGE</li>
+
+                                    <li>GENSET</li>
+
+                                    <li>CAR</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-8 ">
+                            <div>
+                                <hr>
+                            </div>
+                            <div class="accordion accordion-flush " id="accordionFlushExample">
+                                <div class="accordion-item ">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <p class="accordion-button collapsed " data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                            aria-controls="flush-collapseOne">
+                                            Living Room
+                                        </p>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">Placeholder content for this accordion, which is
+                                            intended to demonstrate the <code>.accordion-flush</code> class. This is the
+                                            first item's accordion body.</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingTwo">
+                                        <p class="accordion-button collapsed" data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                            aria-controls="flush-collapseTwo">
+                                            What is Ceasefire's product offerings?
+                                        </p>
+                                    </h2>
+                                    <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">Placeholder content for this accordion, which is
+                                            intended to demonstrate the <code>.accordion-flush</code> class. This is the
+                                            second item's accordion body. Let's imagine this being filled with some
+                                            actual content.</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingThree">
+                                        <p class="accordion-button collapsed" data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                            aria-controls="flush-collapseThree">
+                                            What does a fire extinguisher contain?
+                                        </p>
+                                    </h2>
+                                    <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">Placeholder content for this accordion, which is
+                                            intended to demonstrate the <code>.accordion-flush</code> class. This is the
+                                            third item's accordion body. Nothing more exciting happening here in terms
+                                            of content, but just filling up the space to make it look, at least at first
+                                            glance, a bit more representative of how this would look in a real-world
+                                            application.</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingaFour">
+                                        <p class="accordion-button collapsed" data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                            aria-controls="flush-collapseThree">
+                                            How to know which class of fire is meant for which class of fire?
+                                        </p>
+                                    </h2>
+                                    <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">Placeholder content for this accordion, which is
+                                            intended to demonstrate the <code>.accordion-flush</code> class. This is the
+                                            third item's accordion body. Nothing more exciting happening here in terms
+                                            of content, but just filling up the space to make it look, at least at first
+                                            glance, a bit more representative of how this would look in a real-world
+                                            application.</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingFive">
+                                        <p class="accordion-button collapsed" data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                            aria-controls="flush-collapseOne">
+                                            How can I get in touch with a Ceasefire dealer?
+                                        </p>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">Placeholder content for this accordion, which is
+                                            intended to demonstrate the <code>.accordion-flush</code> class. This is the
+                                            first item's accordion body.</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingSix">
+                                        <p class="accordion-button collapsed" data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                            aria-controls="flush-collapseTwo">
+                                            How can Ipurchase a Ceasefir product?
+                                        </p>
+                                    </h2>
+                                    <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">Placeholder content for this accordion, which is
+                                            intended to demonstrate the <code>.accordion-flush</code> class. This is the
+                                            second item's accordion body. Let's imagine this being filled with some
+                                            actual content.</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingSeven">
+                                        <p class="accordion-button collapsed" data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapseSeven" aria-expanded="false"
+                                            aria-controls="flush-collapseSeven">
+                                            What are classesof fire
+                                        </p>
+                                    </h2>
+                                    <div id="flush-collapseSeven" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">Placeholder content for this accordion, which is
+                                            intended to demonstrate the <code>.accordion-flush</code> class. This is the
+                                            third item's accordion body. Nothing more exciting happening here in terms
+                                            of content, but just filling up the space to make it look, at least at first
+                                            glance, a bit more representative of how this would look in a real-world
+                                            application.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                    <!--FQA end here-->
+                </div>
+            </div>
+            <!-- chat assistant start-->
+              <!-- Chat And Quick Link Button On Right Side -->
+            <!-- <app-chat-assistance></app-chat-assistance> -->
+            <!-- chat assistant ends-->
+
+        </div>
+    </section>
+</main>
+<!-- End #main -->

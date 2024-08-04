@@ -1,0 +1,265 @@
+<div class="container py-3 mobile_mtop" style=" margin-top: 115px;">
+  <header>
+    <!-- <div class="d-flex flex-column flex-md-row align-items-center pb-2 mb-3 border-bottom">
+          <h6>Order Number: OR00485</h6>
+      </div> -->
+    <!-- <div class="d-flex flex-column flex-md-row align-items-center pb-2 mb-3 border-bottom">
+          <h6>Order Placed On: 01 Jan, 2024 | Customer PO Number:</h6>
+      </div> -->
+
+
+  </header>
+
+  <main>
+    <div class="row">
+      <div class="col-12 row border_btm mb-3">
+
+        <h4>Order Summary</h4>
+      </div>
+
+      <div class="col-4 margin_top_m">
+        <div class="card mb-4 rounded-3 shadow-sm" style="min-height: 190px;">
+          <div class="card-header py-2">
+            <h5 class="my-0 fw-normal">Shipping Address</h5>
+          </div>
+          <div class="card-body">
+
+            <ul class="list-unstyled" style="cursor: default;">
+              <li>
+                <p>{{shipingAddress.addressType}}</p>
+                <p> {{shipingAddress.firstName}} &nbsp; {{shipingAddress.lastName}}</p>
+                <p>{{shipingAddress.line1}} ,{{shipingAddress.line2}} ,{{shipingAddress.pin}},{{shipingAddress.city}}
+                  ,{{shipingAddress.state}}</p>
+                Mobile#: {{shipingAddress.mobile}}
+                Email: {{shipingAddress.email}}
+                <p>Shipping Instruction : {{shipingAddress.deliveryInstruction}}</p>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card mb-4 rounded-3 shadow-sm" style="min-height: 190px;">
+          <div class="card-header py-2">
+            <h5 class="my-0 fw-normal">Billing Address</h5>
+          </div>
+          <div class="card-body">
+
+            <ul class="list-unstyled" style="cursor: default;">
+              <li>
+                <p>{{billingAddress.addressType}}</p>
+                <p> {{billingAddress.firstName}} &nbsp; {{billingAddress.lastName}}</p>
+                <p>{{shipingAddress.line1}} ,{{billingAddress.line2}} ,{{billingAddress.pin}},{{billingAddress.city}}
+                  ,{{billingAddress.state}}</p>
+                Mobile#: {{billingAddress.mobile}}
+                Email: {{billingAddress.email}}
+                GST Number: {{billingAddress.gsT_Number}}
+                <p>billing Instruction : {{billingAddress.deliveryInstruction}}</p>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-4" style="cursor: default;">
+        <div class="card mb-4 rounded-3 shadow-sm" style="min-height: 216px;">
+          <div class="card-header py-2">
+            <h5 class="my-0 fw-normal">Payment Details/Status</h5>
+          </div>
+          <div class="card-body">
+
+            <ul class="list-unstyled ">
+              <li>Order Status</li>
+              <li class="text-success">InProgress</li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-column flex-md-row align-items-center pb-2 mb-3 border-bottom">
+      <div class="col-lg-10 col-md-10 col-xs-12">
+        <h6>Products - ({{cartService.cartTotalItems()}})</h6>
+      </div>
+      <div class="col-lg-2 col-md-2 col-xs-12 text_right">
+        <h6><a href="javascript:void(0)" (click)="getOrderDetails()" class="red_g">View Detail</a></h6>
+      </div>
+    </div>
+    <div style="
+      overflow-x: scroll;
+      white-space: nowrap;
+         height: 147px;">
+      <div class="row">
+
+
+        <div class="col-2" style="width: 10rem; text-align: center;" *ngFor="let item of products;let i=index">
+          <div class="card shadow-sm">
+            <div>
+              <span><img [src]="getProductFirstImageContent(item.contents)" width="120" height="120" alt="" /></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-7">
+      <div class="col-12 ">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-2 ">
+            <h5 class="my-0 fw-normal">Delivery Option</h5>
+          </div>
+          <div class="card-body row">
+            <div class="col-4">
+              <ul class="list-unstyled">
+
+                <li>Scheduled Delivery:</li>
+                <li class="mb-1">Customer PO Number:</li>
+                <li>Remark:</li>
+              </ul>
+            </div>
+            <div class="col-8 text-right">
+              <ul class="list-unstyled">
+                <li>Order will be delivered in next 10 to 15 days</li>
+
+                <li> <input type="text" [(ngModel)]="PayObject.PurchaseOrderNumber"
+                    class="form-control form-control-sm mb-1" id="fname" name="fname"></li>
+                <li> <textarea id="w3review" [(ngModel)]="PayObject.Remark" name="w3review" rows="3" style="width: 100%;">
+                  </textarea>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-12 d-flex justify-content-around">
+				
+				
+        <div class="mb-3 col-12 card">
+          <div class="card-header">
+            <label for="couponCode" class="form-label">Coupon Code :</label>
+          </div>
+		
+          <div class="card-body" *ngIf="!PayObject.CouponCode">
+        
+          <input type="text" class="form-control input_width mob_1 col-12" 
+          [(ngModel)]="CouponCode" 
+          id="couponCode" name="couponCode" placeholder="Enter coupon code">
+          <div class="py-2 col-3 mob_2">
+            <button type="submit" class="btn btn-outline-danger mt-2 col-12" (click)="ApplyCouponCode()">Apply Coupon</button>
+          </div>
+        </div>
+
+        <div class=" d-flex justify-content-start mt-3" *ngIf="PayObject.CouponCode">
+      
+        <div class="alert alert-success badge_new" role="alert">
+        Your Coupon is applied! {{PayObject.CouponCode }} (₹ {{PayObject.CouponDiscountValue | number:'1.2-2'}})
+        <a href="javascript:void(0);" (click)="resetCoupon()"><i class="fa fa-close"></i></a>
+        </div>
+      </div>
+    </div>
+      
+
+
+       
+    </div> 
+  </div>
+
+      
+      <div class="col-5">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-2 ">
+            <h5 class="my-0 fw-normal">Order Summary</h5>
+          </div>
+          <div class="card-body row">
+            <div class="col-6">
+              <ul class="list-unstyled">
+                <li>Base Value:</li>
+
+                <li>Discount:</li>
+                <li>Design Charges: </li>
+                <li>Delivery Charges:</li>
+                <li>Inst Charges:</li>
+
+                <li>Taxable Value: </li>
+                <li>GST Amount:</li>
+                
+                <li class="bold_g">Grand Total:</li>
+                <li *ngIf="PayObject.CouponCode"></li>
+                <li></li>
+
+              </ul>
+            </div>
+            <div class="col-6 text-right">
+              <ul class="list-unstyled">
+                <li>₹ {{OrderSummary.totalBaseValue | number:'0.2-2'}}</li>
+
+                <li> ₹ {{OrderSummary.totalDiscountValue | number:'0.2-2'}}</li>
+                <li> ₹ {{OrderSummary.totalDesignCharges | number:'0.2-2'}}</li>
+                <li> ₹ {{OrderSummary.totalDeliveryCharge | number:'0.2-2'}}</li>
+                <li> ₹ {{OrderSummary.totalInstallationCharge | number:'0.2-2'}}</li>
+                <li> ₹ 
+					<span [ngClass]="(PayObject.CouponCode == '' || PayObject.CouponCode == null) ? '' : 'my_underline_class'"
+					> {{OrderSummary.totalTaxableValueWithoutCoupon | number:'0.2-2'}}
+				</span>
+					
+					<span *ngIf="PayObject.CouponCode" class="badge rounded-pill bg-info text-dark"> ₹  
+						{{OrderSummary.totalTaxableValue | number:'0.2-2'}} </span>
+				</li>
+                <li >₹ {{OrderSummary.totalTaxValue | number:'0.2-2'}}</li>
+              
+                <li class="bold_g"  
+				> ₹ {{OrderSummary.totalPaybleValue | number:'0.2-2'}}</li>
+                <li class="bold_g"  *ngIf="PayObject.CouponCode"> ₹  
+					{{(OrderSummary.totalPaybleValue - PayObject.CouponDiscountValue) | number:'1.2-2'}} 
+				</li>
+
+              </ul>
+
+            </div>
+			<!-- <div class="col-6">
+				
+				
+					<div class="mb-3">
+					  <label for="couponCode" class="form-label">Coupon Code :</label>
+					  <input type="text" class="form-control" 
+					  [(ngModel)]="CouponCode" 
+					  id="couponCode" name="couponCode" placeholder="Enter coupon code">
+					</div>
+
+
+				 
+			</div> 
+			<div class="col-6 text-right">
+				<div class="py-2">
+					<button type="submit" class="btn btn-outline-primary mt-4" (click)="ApplyCouponCode()">Apply Coupon</button>
+				</div>
+				
+			</div>
+      -->
+            <button class="btn btn-outline-success col-12" (click)="PayNow('Save')" type="button">Save Order</button>
+            <button class="btn btn-outline-danger col-12 mt-2" (click)="PayNow('Pay')" *ngIf="!isCustumerSupport"
+              type="button">Pay Now</button>
+
+            <button class="btn btn-outline-danger col-12 mt-2" (click)="sendPaymentLink()" *ngIf="isCustumerSupport"
+              type="button">Send Payment Link</button>
+          </div>
+        </div>
+      </div>
+
+    
+    <!-- <div class="col-6 text-right">
+      <div class="py-2">
+        <button type="submit" class="btn btn-outline-primary mt-4" (click)="ApplyCouponCode()">Apply Coupon</button>
+      </div>
+      
+    </div> -->
+
+    </div>
+  </main>
+
+
+</div>

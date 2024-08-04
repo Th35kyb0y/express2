@@ -1,0 +1,98 @@
+<!-- main start here-->
+<main id="main">
+    <section class="inner-page p-0 sec_body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 middle">
+                    <!--sidebarTop start here-->
+                    <app-sidebar></app-sidebar>
+                    <!--sidebarTop end here-->
+                    <!-- ======= Breadcrumbs ======= -->
+                    <section class="breadcrumbs bredcrumb_top">
+                        <div class="container-fluid ">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <ol class="breadcrumb  card_partd">
+                                    <li class="breadcrumb-item active"><a href="order">My Account</a></li>
+                                    <li class="breadcrumb-item"> <a routerLink="/products" routerLinkActive="active"
+                                            style="color: #c6000c">WishList</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- End Breadcrumbs -->
+
+                    <!--wishlist start here-->
+                    <div class="row">
+                        <div class="col-12 s0">
+                            My WishList
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row mb-4 mt-4">
+                        <!-- <ng-container *ngFor="let item of product | slice:0:12"> -->
+                        <ng-container *ngFor="let item of product | slice:0:12;let i=index;">
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="col card-img-carousel mb-4 border p-3">
+                                    <div class="col-12 text-center border-bottom pb-2 mb-2" (click)="GoFireExtinguisherDetail(item)">
+                                    <img class="img-fluid mt-3 "  
+                                    [src]="getProductFirstImageContent(item.contents)"
+                                    class="img-fluid"
+                                        alt="banner">
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text p_name" (click)="GoFireExtinguisherDetail(item)">{{item.name}} ({{item.code}})</p>
+                                        <p class="card-text-total mb-2 fw-bold " *ngIf="item.discount.discountType == 2" (click)="GoFireExtinguisherDetail(item)">
+                                            <span class="text-decoration-line-through ">Price: ₹{{item.price}}</span>
+                                            <span class="m-lg-2 text-success">Discount:
+                                                ₹
+                                                <!-- {{item.currency.symbol}} -->
+                                                {{item.discount.discountAmount |
+                                                number:'0.2-2'}} <span
+                                                    *ngIf="item.discount.value != null && item.discount.value != 0">({{
+                                                    item.discount.value }}%)</span>
+                                            </span>
+                                        </p>
+                                        <p class=" card-text-total mt-0 fw-bold mb-2 text-danger text-center" *ngIf="item.discount.discountType != 2" (click)="GoFireExtinguisherDetail(item)">
+                                            ₹{{item.price}} &nbsp; 
+                                           
+                                        </p>
+                                        <!-- <p class="card-text-total"><i class="fa fa-inr"
+                                                style="font-size: 0.8rem; color: red;"></i>{{item.MRP}}</p> -->
+                                                <div class="position-relative w-100">
+                                                    <div style="margin-left: 17%;">
+                                                        <app-add-to-cart-view-product [product]="item" [isViewProduct]="false"></app-add-to-cart-view-product>
+                                                    </div>
+                                                   
+                                                   
+                                                </div>
+                                                <div class="text-center w-100">
+                                                    <a  class="btn btn-outline-danger mt-2 " (click)="remove(item,i)">Remove</a>
+                                                </div>
+
+                                                
+                                        <!-- <a href="#" class="btn btn-danger">add to cart</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <!--wishlist start here-->
+                </div>
+            </div>
+            <!-- chat assistant start-->
+              <!-- Chat And Quick Link Button On Right Side -->
+            <!-- <app-chat-assistance></app-chat-assistance> -->
+            <!-- chat assistant ends-->
+            <!--  commoncode start here-->
+            <div class="row">
+                <app-product-recommended></app-product-recommended>
+            </div>
+            <!-- commoncode end here-->
+        </div>
+    </section>
+</main>
+<!-- End #main -->

@@ -1,0 +1,439 @@
+<!-- home page start here-->
+<main id="main" (window:resize)="onResize($event)">
+
+    <section class="inner-page p-0 sec_body" *ngIf="!onResize_PlatformService.isMobile">
+        <div class="container-fluid ">
+            <div class="row">
+                <!-- <div class="col-12">
+                    <a (click)="gotoPayment()" class="btn btn-danger">Payment</a>
+                </div> -->
+                <div class="col-12 middle btm_content">
+                    <!--sidebarTop start here-->
+                    <div id="side_00" class="col-xs-12 col-md-2 col-lg-2 col-sm-6 f_left side_bar mb-3">
+                    
+
+
+
+                        <div class="side_scrl">
+                            <div class="card">
+                                <div class="" id="d2">
+                                    <h3 class="card-title"> <i class="fa fa-phone"></i><span style="font-size: 22px;">TALK TO OUR </span>
+                                       <span style="font-size: 38px;"> EXPERTS</span></h3>
+                                </div>
+                            </div>
+                         
+                            <div class="div mt-2">
+                                <div class="background-container">
+                                    <div id="onlinechatcarousel" class="carousel slide" data-bs-ride="carousel" data-interval="2000" >
+                                       <!-- <ol class="carousel-indicators">
+                                            <li data-target="#onlinechatcarousel" data-slide-to="0" class="active"></li>
+                                            <li data-target="#onlinechatcarousel" data-slide-to="1"></li>
+                                            <li data-target="#onlinechatcarousel" data-slide-to="2"></li>
+                                        </ol> -->
+                                        <div class="carousel-inner d-flex" id="d2" style="height: 250px; text-align: center; padding: 15px 10px 15px 10px;">
+                                            <div class="carousel-item active">
+                                             
+                                               <h6 class=" fs-5">Call us at:
+                                                </h6>
+                                                <span class="mobile_n" >
+                                                  
+                                                    <a [href]="'tel:1800 120 3473'" class="mobile_n">1800 120 3473</a>
+                                                </span><br>
+                                                <span class="mobile_n" >
+                                                    <a [href]="'tel:9540 666 666'" class="mobile_n">9540 666 666</a>
+                                                    </span>
+                                                <img class="d-block mx-auto" src="/assets/TechSupport.webp" alt="0" width="195"> 
+                                            </div>
+                                            <!-- <div class="carousel-item">
+                                                <h6 class="mb-0  fs-5 text-center mb-2">Book your Exclusive Video
+                                                    Call:
+                                                </h6>
+                                                <div class="div_1 ">
+                                                    <span class="text-center text-color mt-1 "> <a href="#" class="color_red" target="_blank">Click here >>> </a></span>
+                                                 </div>
+                                                <img class="d-block mx-auto" src="/assets/video_Call.jpg" alt="1" width="165">
+
+                                            </div> -->
+                                            <div class="carousel-item">
+                                                <h6 class="mb-0  fs-5 text-center mb-2">Book your Exclusive Video
+                                                    Call:
+                                                </h6>
+                                                <div class="div_1 ">
+                                                    <span class="text-center text-color mt-1 "> <a href="#" class="color_red" target="_blank">Click here >>> </a></span>
+                                                 </div>
+                                                <img class="d-block mx-auto" src="/assets/video_Call.jpg" alt="1" width="195">
+
+                                            </div>
+                                            <div class="carousel-item">
+                                                <h6 class="mb-0 text-center fs-5" id="q1">Avail our Online Chat
+                                                    Assistance</h6>
+                                                    <div class="div_1 ">
+                                                        <span class="text-center text-color mt-1 "> <a href="#" class="color_red" target="_blank">Click here >>> </a></span>
+                                                     </div>
+                                                <img class="d-block mx-auto mt-2" src="/assets/Online Teaching.webp" width="195"
+                                                    alt="2">
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="div mt-3">
+                                <div class="background-container">
+                                    <div id="fireprotectioncarousel" class="carousel slide" data-bs-ride="carousel" data-interval="500">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img src="https://cfx.ceasefire.biz/assets/slidshow_bg.jpg" height="334" class="d-block w-100" alt="...">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="https://cfx.ceasefire.biz/assets/fire_p1.webp" height="334"  class="d-block w-100"
+                                                    alt="...">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="https://cfx.ceasefire.biz/assets/fire_p2.webp" height="334"  class="d-block w-100"
+                                                    alt="...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="overlay fire_b ">
+                                        <div class="card mt-5" style=" background-color: rgba(255, 255, 255, 0.8);">
+                                            <div class="card-body card_fire" style="background-color: rgba(255, 255, 255, 0.8);">
+                                                <p class="card-text fire_01">FIRE PROTECTION THAT BEST SUITS YOUR
+                                                    PREMISES </p>
+                                                <a routerLink="/exp-type/i-need-to-protect-my-premises"><button
+                                                        type="button" class="btn btn-danger btn-sm active" style="border-radius: 0px;">Learn
+                                                        More >></button></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <!-- <app-top-sidebar></app-top-sidebar> -->
+                    </div>
+                    <!--sidebarTop end here-->
+                    <!-- select category start here -->
+                    <div id="sad">
+
+                        <!-- select category end here -->
+                        <div class="row ">
+                            <div class="col-8 text-center segment-card">
+                                <div class="row">
+
+
+                                    <ng-container *ngFor="let data of collectins;let i=index">
+                                        <div class=" col-xs-12 col-md-6 col-sm-6  item_2 mb-3" style="cursor: pointer;">
+
+                                            <a (click)="getChildren(data)" routerLinkActive="active">
+                                                <!-- <div class="card-block mb-4 position-relative">
+                                                    <h3 class="card_text-1 ">{{data.collectionName}}</h3>
+                                                    <p class="cate_0">{{data.description}}</p>
+                                                    <span class="card_1">
+                                                        <button type="button" id="b_00" class="">ENTER</button>
+                                                        <i class="fa fa-chevron-circle-right" id='fa_button'></i>
+
+                                                    </span>
+
+                                                    <span>
+                                                         <img width="160" height="140" [src]="data.imagePath?imtUrl+''+data.imagePath:'/assets/img/not_available.jpg'"
+                                                            alt="" />
+                                                        </span>
+                                                </div> -->
+
+                                                <div class="">
+                                                    <ng-container *ngIf="!data.imagePath">
+
+                                                        <h3 class="card_text-1 ">{{data.collectionName}}</h3>
+                                                        <p class="cate_0">{{data.description}}</p>
+                                                        <span class="card_1">
+                                                            <button type="button" id="b_00" class="">ENTER</button>
+                                                            <i class="fa fa-chevron-circle-right" id='fa_button'></i>
+
+                                                        </span>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="data.imagePath">
+
+                                                        <span>
+                                                            <img class="img-fluid" [src]="data.imagePath?imtUrl+''+data.imagePath:'/assets/img/not_available.jpg'"
+                                                               alt="" />
+                                                           </span>
+
+                                                    </ng-container>
+
+
+
+                                                </div>
+
+
+                                                <!-- <img  src="{{data.imagePath}}" width="350" height="262" alt="" /> -->
+                                            </a>
+                                        </div>
+                                    </ng-container>
+
+                                </div>
+                            </div>
+
+                        
+                         
+                            <div class="side_scrl2 mb-2">
+                                <div class="card show_m">
+                                    <div class="" id="d2">
+                                        <h3 class="card-title"> <i class="fa fa-phone"></i><span style="font-size: 22px;">TALK TO OUR </span>
+                                           <span style="font-size: 38px;"> EXPERTS</span></h3>
+                                    </div>
+                                </div>
+                                <div class="div mt-2">
+                                    <div class="background-container">
+                                        <div id="onlinechatcarousel" class="carousel slide" data-bs-ride="carousel" data-interval="2000" >
+                                           <!-- <ol class="carousel-indicators">
+                                                <li data-target="#onlinechatcarousel" data-slide-to="0" class="active"></li>
+                                                <li data-target="#onlinechatcarousel" data-slide-to="1"></li>
+                                                <li data-target="#onlinechatcarousel" data-slide-to="2"></li>
+                                            </ol> -->
+                                            <div class="carousel-inner d-flex" id="d2" style="height: 250px; text-align: center; padding: 15px 10px 15px 10px;">
+                                                <div class="carousel-item active">
+                                                    <h6 class=" fs-5">Call us at:
+                                                    </h6>
+                                                    <span class="mobile_n" >
+                                                        <!-- <a [href]="'tel:1800 120 3473'" class="mobile_n">1800 120 3473</a> -->
+                                                        1800 120 3473
+                                                        
+                                                    </span><br>
+                                                    <span class="mobile_n" >
+                                                        <!-- <a [href]="'tel:9540 666 666'" class="mobile_n">9540 666 666</a> -->
+                                                        9540 666 666
+                                                        </span>
+                                                    <img class="d-block mx-auto" src="/assets/TechSupport.webp" alt="0" width="195">
+                                                </div>
+                                                <!-- <div class="carousel-item">
+                                                    <h6 class="mb-0  fs-5 text-center mb-2">Book your Exclusive Video
+                                                        Call:
+                                                    </h6>
+                                                    <div class="div_1 ">
+                                                        <span class="text-center text-color mt-1 "> <a href="#" class="color_red" target="_blank">Click here >>> </a></span>
+                                                     </div>
+                                                    <img class="d-block mx-auto" src="/assets/video_Call.jpg" alt="1" width="165">
+    
+                                                </div> -->
+                                                <div class="carousel-item">
+                                                    <h6 class="mb-0  fs-5 text-center mb-2">Book your Exclusive Video
+                                                        Call:
+                                                    </h6>
+                                                    <div class="div_1 ">
+                                                        <span class="text-center text-color mt-1 "> <a href="#" class="color_red" target="_blank">Click here >>> </a></span>
+                                                     </div>
+                                                    <img class="d-block mx-auto" src="/assets/video_Call.jpg" alt="1" width="195">
+    
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <h6 class="mb-0 text-center fs-5" id="q1">Avail our Online Chat
+                                                        Assistance</h6>
+                                                        <div class="div_1 ">
+                                                            <span class="text-center text-color mt-1 "> <a href="#" class="color_red" target="_blank">Click here >>> </a></span>
+                                                         </div>
+                                                    <img class="d-block mx-auto mt-2" src="/assets/Online Teaching.webp" width="195"
+                                                        alt="2">
+    
+                                                </div>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="div mt-3">
+                                    <div class="background-container">
+                                        <div id="fireprotectioncarousel" class="carousel slide" data-bs-ride="carousel" data-interval="500">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="https://cfx.ceasefire.biz/assets/slidshow_bg.jpg" height="334" class="d-block w-100" alt="...">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="https://cfx.ceasefire.biz/assets/fire_p1.webp" height="334"  class="d-block w-100"
+                                                        alt="...">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="https://cfx.ceasefire.biz/assets/fire_p2.webp" height="334"  class="d-block w-100"
+                                                        alt="...">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="overlay fire_b ">
+                                            <div class="card mt-5" style=" background-color: rgba(255, 255, 255, 0.8);">
+                                                <div class="card-body card_fire" style="background-color: rgba(255, 255, 255, 0.8);">
+                                                    <p class="card-text fire_01">FIRE PROTECTION THAT BEST SUITS YOUR
+                                                        PREMISES </p>
+                                                    <a routerLink="/exp-type/i-need-to-protect-my-premises"><button
+                                                            type="button" class="btn btn-danger btn-sm active" style="border-radius: 0px;">Learn
+                                                            More >></button></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                            <div class="col-lg-4 col-xs-12 col-md-4 custom_name1 mb-3" >
+                                <div class="col-12 item mt-4 mb-4 ">
+                                    <!-- <h4 id="text_1">
+                                        How can we help?
+                                    </h4>
+                                    <div class=" ">
+                                        <div>
+                                            <img src="/assets/VIRTUAL ASSISTANCE_edited.webp" class="card-img-top mb-2 mt-2"
+                                                alt="...">
+                                            <div id="card0" class="card-body bg_t ">
+                                                <p id="card2" class="card-text">
+                                                    Whether you know exactly what you need as a
+                                                    fire safety solution for your premises or you are looking to protect
+                                                    a
+                                                    specific kind of area or a building or you are simply looking for
+                                                    professional help to carry
+                                                    out a fire safety audit for your premises; we've got that all sorted
+                                                    for you.
+                                                </p>
+                                                <p id="card3" class="card-text ">
+                                                    Simply choose the route applicable for you below and get started and
+                                                    we will assist you in
+                                                    every step of the way.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <h4 id="text_1" class="hide_mobile">
+                                        {{rightsideImgTitlt}}
+                                    </h4>
+                                    <div class="hide_mobile ">
+                                        <div>
+                                            <img [src]="rightsideImge" class="card-img-top mb-2 mt-2"
+                                                alt="...">
+                                            <div id="card0" class="card-body bg_t ">
+                                                <p id="card2" class="card-text">
+                                                {{rightsideImgDes}}
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+<!--
+                                    <div class="card mt-2 " routerLink="exp-type/i-am-clear-what-i-need">
+                                        <button class="btn  item_btn text-white custome-clear p-2">I am clear What I Need <i id="c1 mt-2" class='fas fa-angle-right'></i></button>
+                                    </div>
+                                    <div class="card mt-2 " routerLink="rightSideButton/RiskAreaDetails">
+                                        <button class="btn  item_btn item_btn text-white custome-clear p-2">
+                                          I need to protect a risk Area <i id="c1 mt-2" class='fas fa-angle-right'></i></button>
+                                    </div>
+                                    <div class="card mt-2 " routerLink="rightSideButton/segmentDetails">
+                                        <button class="btn  item_btn item_btn text-white custome-clear p-2">
+                                            I need to protect my Premises <i id="c1 mt-2"
+                                                class='fas fa-angle-right'></i></button>
+                                    </div>
+                                    <div class="card mt-2 " routerLink="exp-type/i-need-fire-audit-for-my-premises">
+                                        <button class="btn  item_btn item_btn text-white custome-clear p-2">
+                                            I need fire audit of my Premises
+                                            <i id="c1 mt-2" class='fas fa-angle-right'></i></button>
+                                    </div> -->
+
+
+                                <span *ngFor="let i of BannerLinkData">
+
+                                    <div class="bg_mobile1">
+                                    <div class="card mt-2 " [routerLink]="i?.link">
+                                      <button class="btn  item_btn text-white custome-clear p-2">{{i?.title}}<i id="c1 mt-2" class='fas fa-angle-right' style="    float: right;
+    margin-top: 5px;"></i></button>
+                                  </div>
+                                </div>
+
+                                </span>
+
+                                </div>
+                            </div>
+
+
+
+                            <ng-template #content let-offcanvas>
+                                <div class="offcanvas-header">
+                                    <h4 class="offcanvas-title">Offcanvas title</h4>
+                                    <button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <p>One fine body&hellip;</p>
+                                    <div class="text-end">
+                                        <button type="button" class="btn btn-outline-dark" (click)="offcanvas.close('Close click')">Close</button>
+                                    </div>
+                                </div>
+                            </ng-template>
+
+
+                        </div>
+                    </div>
+                    <!-- 2nd Banner end here-->
+                </div>
+            </div>
+            <!-- chat assistant start-->
+              <!-- Chat And Quick Link Button On Right Side -->
+            <!-- <app-chat-assistance></app-chat-assistance> -->
+            <!-- chat assistant ends-->
+            <!--  commoncode start here-->
+
+            <!-- commoncode end here-->
+            <!--  Banner start here-->
+            <div class="row">
+                <div class="col-12 text-center mt-0 mb-2 py-3 text_cease" style="padding-bottom: 95px !important;">
+                    <div class=" text-center">
+                        <span>What makes Ceasefire Express the best bet to fulfill your fire safety needs?</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--  Banner start here-->
+            <div class="row">
+                <div class="col-12 text-center segment-card mb-1">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 p-0 " *ngFor="let item of bannerBottom;let i=index">
+                            <div class="card item_h1" style="border-right: 1px solid #eaeaea !important; "
+                            [style.background]="item.backgroundColor"
+                            >
+                                <a routerLink="{{item.readMoreLink}}" routerLinkActive="active">
+                                    <img id="id_0" src="{{item.fileName}}" class="card-img-top" alt="..." style="margin-top: -90px !important;">
+                                    <div class="card-body">
+                                        <p class="s01"  [style.color]="item.titleColor">{{item.title}}</p>
+                                        <p class="line"> </p>
+                                        <p class="card-text"  [style.color]="item.descriptionColor">
+                                            {{item.content}}
+                                        </p>
+                                    </div>
+                                    <div data-testid="linkElement" class="U2uNPe wixui-button zKbzSQ" aria-disabled="false">
+
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <app-blog></app-blog>
+            <div class="row">
+                <app-product-recommended></app-product-recommended>
+            </div>
+            <!-- chat-popup.component.html -->
+        </div>
+    </section>
+    <ng-container *ngIf="onResize_PlatformService.isMobile">
+
+        <app-app-mobile-home [collectins]="collectins" [imtUrl]="imtUrl" [BannerLinkData]="BannerLinkData"
+        [rightsideImgTitlt]="rightsideImgTitlt" [rightsideImge]="rightsideImge" [rightsideImgDes]="rightsideImgDes" 
+        [bannerBottom]="bannerBottom">
+
+        </app-app-mobile-home>
+    </ng-container>
+
+</main>
+<!-- End home page -->

@@ -1,0 +1,164 @@
+
+
+
+<app-cs-left-nav></app-cs-left-nav>
+    <div class="bg_grey">
+    <div id="main">
+      <app-cs-header [title]="'Project'"></app-cs-header>
+    
+    
+    
+    <div class="row">
+    
+      
+    <div class="grey-bg container-fluid">
+      <section id="minimal-statistics">
+     
+    <div class="row"> 
+      <div class="col-12 container mt-2">
+        <div class="pull-right">
+        
+
+          <button class="btn btn-danger btn-sm px-4"  (click)="createGroup()" ><i class=" fa fa-plus"></i> Create Project</button>
+          <!-- &nbsp;&nbsp;
+          <button class="btn btn-danger" (click)="ApiService.goBack()"><i class="fa fa-arrow-left"></i> Back</button> -->
+        </div>
+      </div>
+  
+          <div class="col-12 container mt-4">
+            
+            <!-- <div class="row">
+              <div class="col-3">
+                <div class="mb-3">
+                  <label for="CustomerName" class="form-label">Customer Name</label>
+                  <input type="text" [(ngModel)]="filterObj.companyName" class="form-control" id="CustomerName" placeholder="Customer Name">
+                  </div>
+              </div>
+              <div class="col-3">
+                <div class="mb-3">
+                  <label for="EmailID" class="form-label">Email ID</label>
+                  <input type="text" class="form-control" [(ngModel)]="filterObj.email"  id="EmailID" placeholder="Email ID">
+                  </div>
+              </div>
+              
+              <div class="col-3 pt-2">
+                <button class="btn btn-danger mt-4 me-2" (click)="Filter()">
+                  Search
+                </button>
+                <button class="btn btn-danger mt-4" (click)="clear()">
+                  Clear
+                </button>
+              </div>
+            </div> -->
+          
+            
+            
+            
+            <div class="row">
+              <div class="col-md-12 overflow-scroll" style="max-height:1200px;">
+                <table class="table table-bordered  table-hover table-striped" id="cs-project-table">
+                  <thead class="thead-light">
+                      <tr>
+                        <th >ID</th>
+                        <th >Project Name</th>
+                        <th >Created date</th>
+                        <th >Total Customer</th>
+                        <th >Last Follow Up Date</th>
+                        <th >Sales Pitch</th>
+                        <th >Notes</th>
+                        <th >Remarks</th>
+            
+                        <th >Action</th>
+                      </tr> 
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of list">
+           
+                      <td>{{item.projectId}}</td>
+                      <td>{{item.projectName}}</td>
+                      <td>{{item.created_At | date:'dd-MM-yyyy'}}</td>
+                      <td>
+                          <span class="badge bg-info">{{item.totalUser}}</span>
+                          </td>
+                          <td>{{item.lastProjectFollowUpDetails?.followUpDate | date:'dd-MM-yyyy'}}</td>
+                          <td>{{item.sales_Pitch}}</td>
+                          <td>{{item.notes}}</td>
+                          <td>{{item.remarks}}</td>
+          
+                      <td>
+        
+                        <ng-template #popoverContent>
+                          <div class="d-grid gap-2">
+                            <button class="btn btn-danger" type="button" (click)="getProjectDetails(item)">
+                              <i class="fa-cs fa fa-eye mr-2" aria-hidden="true"></i>
+                              View Detail
+                            </button>
+        
+                            
+                              <button class="btn btn-danger" type="button"
+                              title="Follow Up" (click)="addProjectFollowUp(item)">
+                              <i class="fa-cs fa fa-users mr-2" aria-hidden="true"></i> Follow Up
+                          </button>
+                          <button class="btn btn-danger" type="button"
+                              title="Follow Up History"  (click)="followUpHistory(item)">
+                              <i class="fa-cs fa fa-history mr-2" aria-hidden="true"></i> Follow Up History
+                          </button>
+                         
+          
+                          </div>
+        
+                          
+                         </ng-template>
+                        <button type="button" class="btn btn-sm btn-danger" [ngbPopover]="popoverContent" popoverTitle="Actions">
+                          <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                        </button>
+                          <!-- <a href="javascript:void(0)" class="color-primary" data-toggle="tooltip" data-placement="top"
+                              title="View Detail" (click)="getProjectDetails(item)">
+                              <i class="fa fa-eye mr-2" aria-hidden="true"></i>
+                          </a>
+                          <a href="javascript:void(0)" class="color-primary" data-toggle="tooltip" data-placement="top"
+                              title="Follow Up" (click)="addProjectFollowUp(item)">
+                              <i class="fa fa-users mr-2" aria-hidden="true"></i>
+                          </a>
+                          <a href="javascript:void(0)" class="text-primary" data-toggle="tooltip" data-placement="top"
+                          title="Follow Up History" (click)="followUpHistory(item)">
+                          <i class="fa fa-history mr-2" aria-hidden="true"></i>
+                      </a> -->
+                      </td>
+                      <!-- <td>Follow Up, Proposal, Price List, Brochure, Order, Emailer </td>-->
+          
+                  </tr>
+              
+                  </tbody>
+              </table>
+              </div>
+          
+            </div>
+          
+            
+          </div>
+    </div>
+
+     
+
+    
+       
+      </section>
+    
+    </div>
+    
+    
+    </div>
+    
+    
+    
+    
+    </div>
+     
+    
+    </div>
+    
+    
+    
+    
+    

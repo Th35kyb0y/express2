@@ -1,0 +1,120 @@
+
+
+
+<app-cs-left-nav></app-cs-left-nav>
+    <div class="bg_grey">
+    <div id="main">
+      <app-cs-header [title]="'Virtually call requests'"></app-cs-header>
+    
+    
+    
+    <div class="row">
+    
+      
+      <div class="grey-bg container-fluid">
+        <section id="minimal-statistics">
+    
+  
+          <div class="col-12">
+
+            <div class="row">
+              <div class="col-3">
+                <div class="mb-3">
+                  <label for="fromDate" class="form-label">From Date</label>
+                  <input type="date" [(ngModel)]="filterObj.fromDate" class="form-control" id="fromDate" placeholder="From Date">
+                  </div>
+              </div>
+              <div class="col-3">
+                <div class="mb-3">
+                  <label for="toDate" class="form-label">To Date</label>
+                  <input type="date" class="form-control" [(ngModel)]="filterObj.toDate"  id="toDate" placeholder="To Date">
+                  </div>
+              </div>
+             
+              <div class="col-3 pt-2">
+                <button class="btn btn-danger mt-4 me-2" (click)="Filter()">
+                  Search
+                </button>
+              
+              </div>
+            </div>
+          
+            
+            
+            
+            <div class="row">
+              <div class="col-md-12 overflow-scroll" style="max-height:450px;">
+                <table class="table table-bordered  table-hover table-striped" id="cs-registration-table">
+                  <thead class="thead-light">
+                      <tr>
+                          
+                       
+                          <th > Name</th>
+                          <th >Email ID</th>
+                          <th >Phone Number</th>
+                          <th >Call Date</th>
+                          <th >Call Time</th>
+                          <th >Created Date</th>
+                         
+                         
+              
+                          <th >Action</th>
+                      </tr> 
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let item of list">
+                        
+                          <td>{{item.virtualName}}</td>
+                          <td>{{item.virtualEmail}} </td>
+                       
+                          <td>
+                            <a href="javascript:void(0)"  (click)="callInvalk(item)">{{item.virtualContactNo}}</a>
+                            
+                          </td>
+              
+                          <td>{{item.select_Date |date:'dd-MMM-yyyy'}}</td>
+                          <td>{{item.selectTime }}</td>
+                          <td>{{item.enteryDate |date:'dd-MMM-yyyy'}}</td>
+                       
+                       
+                          <td >
+          
+                       
+                           
+          
+              
+                          </td>
+                        
+              
+                      </tr>
+              
+                  </tbody>
+              </table>
+              </div>
+          
+            </div>
+          
+            
+          </div>
+      
+         
+        </section>
+      
+      </div>
+      
+    
+    
+    </div>
+    
+    
+    
+    
+    </div>
+     
+    
+    </div>
+    
+    
+    
+    
+    

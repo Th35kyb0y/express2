@@ -1,0 +1,43 @@
+<main id="main">
+    <section class="inner-page p-0  sec_body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <span class="col-12 pull-left mob_mt"><img src="http://cfx.ceasefire.biz/assets/voucher/risk_area.jpg" class="img-fluid"></span>
+                    <div class="col-4  pull-left shadow-sm p-1 m-2" style="width: 24rem;"
+                        *ngFor="let item of category ;let i=index">
+
+                        <div class="col-12">
+
+                            <div class="col-12 pull-left">
+
+                                <div class="col-md-2 pull-left"><img
+                                        src="{{item?.imagePath}}" width="390" height="230" alt="{{item.name}}"></div>
+                            </div>
+                            <div class="col-md-7 pull-left" style="text-align: center;
+                    margin-top: -129px;
+                    margin-left: 88px;">
+                                <span>
+
+                                    <a routerLink="{{item.url}}" class="btn btn-light" style="width: 200px;"
+                                        *ngIf="urlType!='i-am-clear-what-i-need'"> {{item?.name}}
+                                        <i class="fa fa-arrow-circle-right ar_icon" aria-hidden="true"></i>
+                                    </a>
+                                    <a (click)="getChildren(item)" class="btn btn-light" style="width: 200px;"
+                                        *ngIf="urlType=='i-am-clear-what-i-need'"> {{item?.name}}
+                                        <i class="fa fa-arrow-circle-right ar_icon" aria-hidden="true"></i>
+                                    </a>
+
+                                    <!-- <a routerLink="{{gotoCategoryDetail(item)}}" class="shop_btn"> SHOP
+                                <i class="fa fa-arrow-circle-right ar_icon" aria-hidden="true"></i>
+                            </a> -->
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

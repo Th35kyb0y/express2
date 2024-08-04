@@ -1,0 +1,150 @@
+
+
+
+<app-cs-left-nav></app-cs-left-nav>
+    <div class="bg_grey">
+    <div id="main">
+      <app-cs-header [title]="'My Proposal'"></app-cs-header>
+    
+    
+    
+    <div class="row">
+    
+      
+    <div class="grey-bg container-fluid">
+      <section id="minimal-statistics">
+     
+        <!-- <div class="col-12 container mt-2 mb-2">
+          <div class="pull-right mb-2"><button class="btn btn-danger" (click)="ApiService.goBack()"><i class="fa fa-arrow-left"></i> Back</button></div>
+        </div>
+     -->
+       
+      </section>
+    
+    </div>
+
+
+    <div class="col-md-12 overflow-scroll" style="max-height:1200px;">
+      <div class="mb-3 d-flex d-flex justify-content-between">
+
+        <div class="col-md-4">
+          <input type="text" [(ngModel)]="globalFilter" placeholder="Search all columns" class="form-control">
+        </div>
+      
+        <div class="col-md-3 mt-2" style="width: 9rem;">
+          <a href="javascript:void(0)" (click)="excelDownloadService.downloadTableAsExcel('cs-proposal-table','cs-proposal-table')"
+            class="btn btn-success btn-sm "
+            data-kt-button="true">
+          
+              <i class="fas fa-file-excel-o" aria-hidden="true"></i> Download Excel
+        
+          </a>
+          <!-- <button type="button" class="btn btn-primary btn-sm back_btn" (click)="backClicked()"><i class="fa fa-chevron-circle-left mr-2" aria-hidden="true" style="margin-right:3px;"></i>Back </button> -->
+        </div>
+      </div>
+      
+  
+      <table class="table table-bordered table-hover table-striped" id="cs-proposal-table">
+        <thead class="thead-light">
+          <tr>
+            <th>S.No.</th>
+            <th>
+              Customer Name
+              <i class="fas fa-filter" (click)="toggleInput('customerName')" aria-hidden="true"></i>
+              <input *ngIf="showInput['customerName']" type="text" class="form-control" [(ngModel)]="filters.customerName">
+            </th>
+            <th>
+              Proposal Code
+              <i class="fas fa-filter" (click)="toggleInput('proposalCode')" aria-hidden="true"></i>
+              <input *ngIf="showInput['proposalCode']" type="text" class="form-control" [(ngModel)]="filters.proposalCode">
+            </th>
+            <th>
+              Created By
+              <i class="fas fa-filter" (click)="toggleInput('createdBy')" aria-hidden="true"></i>
+              <input *ngIf="showInput['createdBy']" type="text" class="form-control" [(ngModel)]="filters.createdBy">
+            </th>
+            <th >
+              Status
+              <i class="fas fa-filter" (click)="toggleInput('status')" aria-hidden="true"></i>
+              <input *ngIf="showInput['status']" type="text" class="form-control" [(ngModel)]="filters.status">
+            </th>
+            <th>
+              Created On
+              <i class="fas fa-filter" (click)="toggleInput('createdOn')" aria-hidden="true"></i>
+              <input *ngIf="showInput['createdOn']" type="date" class="form-control" [(ngModel)]="filters.createdOnStart">
+              <input *ngIf="showInput['createdOn']" type="date" class="form-control" [(ngModel)]="filters.createdOnEnd">
+            </th>
+            <th>
+              Product Type
+              <i class="fas fa-filter" (click)="toggleInput('productType')" aria-hidden="true"></i>
+              <input *ngIf="showInput['productType']" type="text" class="form-control" [(ngModel)]="filters.productType">
+            </th>
+            <th>
+              Proposal Required Date
+              <i class="fas fa-filter" (click)="toggleInput('proposalRequiredDate')" aria-hidden="true"></i>
+              <input *ngIf="showInput['proposalRequiredDate']" type="date" class="form-control" [(ngModel)]="filters.proposalRequiredDateStart">
+              <input *ngIf="showInput['proposalRequiredDate']" type="date" class="form-control" [(ngModel)]="filters.proposalRequiredDateEnd">
+            </th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of filteredList.slice(startIndex, endIndex); let i=index;">
+            <td>{{startIndex + i + 1}}</td>
+            <td>{{item.customerName}}</td>
+            <td>{{item.proposalCode}}</td>
+            <td>{{item.createdBy}}</td>
+            <td>{{item.status}}</td>
+            <td>{{item.createdOn | date:'dd MMM yyyy'}}</td>
+            <td>{{item.productType}}</td>
+            <td>{{item.proposalRequiredDate === '1900-01-01T00:00:00' ? '' : (item.proposalRequiredDate | date:'dd MMM yyyy')}}</td>
+            <td>
+              <ng-template #popoverContent>
+                <button class="btn btn-danger" type="button" title="View Proposal" (click)="sendProposal(item)">
+                  <i class="fa-cs fa fa-envelope mr-2" aria-hidden="true"></i> View Proposal
+                </button>
+              </ng-template>
+              <button type="button" class="btn btn-sm btn-danger" [ngbPopover]="popoverContent" popoverTitle="Actions">
+                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="prevPage()">Previous</button>
+      </li>
+      <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
+        <button class="page-link" (click)="setPage(page)">{{ page }}</button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <button class="page-link" (click)="nextPage()">Next</button>
+      </li>
+      <li class="page-item">
+        <button class="page-link" (click)="showAll()">Show All</button>
+        </li>
+      </ul>
+  
+      </div>
+      
+
+
+
+    
+    
+    </div>
+    
+    
+    
+    
+    </div>
+      
+    
+    </div>
+    
+    
+    
+    
+    

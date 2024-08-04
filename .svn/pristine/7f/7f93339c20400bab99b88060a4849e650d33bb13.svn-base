@@ -1,0 +1,285 @@
+<section class="about-section">
+    <div class="container">
+        <div class="row">                
+            <div class="content-column col-lg-6 col-md-12 col-sm-12 order-2">
+                <div class="inner-column">
+                    <div class="sec-title">
+                        <!-- <span class="title">CEASEFIRE TODAY</span> -->
+                        <h2>Our Story</h2>
+                    </div>
+                    <div class="text">Ceasefire today is the most trusted fire safety brand in India and a fast emerging global conglomerate. With its globally certified, holistically integrated range of fire fighting solutions, the company is amongst the rarest in the world to have such a diverse product portfolio as part of one eco-system.
+
+                        ​
+                        
+                       </div>
+                  <div class="text">
+                    The company is a leading manufacturer of a 360 degree unified product range that includes a complete line of Fire Extinguishers with -the widest Variety of extinguishing agents, Special Application Extinguishers, Highly advanced
+                        
+                    In-Panel Suppression Systems, Total Flooding Systems, Greenest technologies including Inert Gas Based Suppression Systems, Revolutionary Watermist Based
+                    
+                    Suppression Systems, Extensive range of Watermist and Wet Chemical Based Kitchen Fire Suppression Systems, Hydrant Systems, Fire Alarm Systems and other highly specialised fire fighting technologies.                  </div>
+                    <!-- <div class="btn-box">
+                        <a routerLink="/ContactUs" target="_blank" class="theme-btn btn-style-one">Contact Us</a>
+                    </div> -->
+                </div>
+            </div>
+
+            <!-- Image Column -->
+            <div class="image-column col-lg-6 col-md-12 col-sm-12" style="margin-top: 90px;">
+                <div class="inner-column wow fadeInLeft">
+                  <div class="author-desc">
+                    <h2>CEASEFIRE TODAY</h2>
+                  </div>
+                    <figure class="image-1"><a href="#" class="lightbox-image" data-fancybox="images"><img title="" src="https://static.wixstatic.com/media/cf66d3_e09bc6bd56b14c79a6885728ba22998a~mv2.png/v1/fill/w_1343,h_941,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/cf66d3_e09bc6bd56b14c79a6885728ba22998a~mv2.png" alt=""></a></figure>
+                 
+                </div>
+            </div>
+          
+        </div>
+       <!-- <div class="sec-title">
+                        <h2>Our Journey So Far</h2>
+                    </div>
+      <div class="text">
+            We works on UI/UX and functionality as well so that a plugins comes with proper stucture & stunning looks which suits to your web app & website.
+          </div>
+           <div class="text">
+            We take a small toolkit here and ride it well so that it is fit for your use. One who performs well and looks even better.
+          </div>
+           <div class="text">                
+Here we are trying to give you all kinds of technical content, whether it is related to designing or functionality. We are creating content on a lot of languages and will continue to make it free of cost even if you use it without any problem. Which is a very important thing.
+          </div>
+           <div class="text">
+            Here you can also share the content you create, if our technical team likes it, then we will also share it on our blog.
+          </div>
+           <div class="text">
+            
+In the end, I would say keep visiting our website and enjoy the quality content.
+          </div> -->
+
+         
+    </div>
+</section>
+
+
+  <div class="swiper storySwiper">
+    <div class="swiper-wrapper">
+     <div class="swiper-slide">
+        <div class="box_f">
+        <div class="box1">
+          <h3 class="year">2002</h3>
+          <p class="line_btm"></p>
+         <h5 class="subtitle"> COMPANY IS FOUNDED</h5>
+          
+         <p>Company enters the Indian market as the first of its kind fire safety brand with a range of portable fire extinguishers that are designed for performance, ease-of-use, aesthetics and world-class quality. 
+        </p> 
+         </div>
+        <div class="box2">
+          <h3 class="year">2006</h3>
+          <p class="line_btm"></p>
+         <h5 class="subtitle"> CLEANT AGENT EXTINGUISHERS ARE INTRODUCED. <br>
+
+        WIRELESS, STANDALONE FIRE DETECTION IS INTRODUCED </h5>
+          
+         <p>Ceasefire's product portfolio is enhanced with the introduction of newer, more versatile agents and are introduced in portable & plus sizes. Introduction of wireless detection solutions completes the range towards total protection.    </p>
+
+        </div>
+      </div>
+
+      </div>
+      <div class="swiper-slide">
+        <div class="box_f">
+          <div class="box1">
+            <h3 class="year">2008</h3>
+            <p class="line_btm"></p>
+           <h5 class="subtitle">COMPRESSED AIR FOAM SYSTEM IS INTRODUCED</h5>
+            
+           <p>Company becomes a key fire safety supplier to the Indian defence, NDRF, Police and other government agencies with its flagship air foam fighting solutions. 
+          </p> 
+           </div>
+          <div class="box3">
+            <h3 class="year">2010</h3>
+            <p class="line_btm"></p>
+           <h5 class="subtitle"> FLAGSHIP IN-PANEL FIRE SUPPRESSION TECHNOLOGY IS LAUNCHED  </h5>
+           <p>
+
+            Ceasefire's Tube Based, In-panel system - CQRS, is launched. The revolutionary system receives an overwhelming response as a preferred solution for electrical panel protection, mobile towers, server racks and more.
+          </p>
+             
+          <p>
+            Over 15000 systems are installed in the next 2-3 years, with some of the best names in IT, Telecom, Banking and Manufacturing sector.     
+            
+             </p>
+  
+          </div>
+        </div>
+
+      </div>
+      <div class="swiper-slide">
+        <div class="box_f">
+          <div class="box1">
+            <h3 class="year">2011</h3>
+            <p class="line_btm"></p>
+           <h5 class="subtitle">WATERMIST AGENT IS INTRODUCED</h5>
+            
+           <p>The cleanest, most green fire fighting agent - Watermist is launched. This paves the way forward to making Ceasefire the most prominent brand in the sustainable solutions category in fire segment in the years to come. 
+          </p> 
+           </div>
+          <div class="box3">
+            <h3 class="year">2012</h3>
+            <p class="line_btm"></p>
+           <h5 class="subtitle">TOTAL FLOODING SYSTEMS ARE LAUNCHED</h5>
+
+             
+           <p>Introduction of Room Flooding Systems in Watermist, HFC227ea as agents makes Ceasefire the first of its kind fire safety brand in India to have a 360-degree-integrated fire fighting product portfolio under one banner.  </p>
+  
+          </div>
+        </div>
+
+      </div>
+       <div class="swiper-slide">
+        <div class="box_f">
+          <div class="box1">
+            <h3 class="year">2014</h3>
+            <p class="line_btm"></p>
+           <h5 class="subtitle">KITCHEN FIRE SUPPRESSION SYSTEMS RANGE IS LAUNCHED
+
+           </h5>
+            
+           <p> State-of-the-art fire suppression systems are launched in Watermist and Wet Chemical based agents, with most advanced heat-sensing tube based fire detection.  
+            </p> 
+           </div>
+          <div class="box3">
+            <h3 class="year">2015</h3>
+            <p class="line_btm"></p>
+           <h5 class="subtitle">FIRST AUTOMATIC EXTINGUISHER - LAUNCHER, MAKES HISTORY.</h5>
+
+             
+           <h5 class="subtitle">  FIRST LPCB CERTIFICATION RECEIVED </h5>
+
+           <p> Ceasefire Launcher - the fire extinguisher that doubles up as a modular suppression system is introduced as a first of its kind in the category.  </p>
+            
+           <p> Ceasefire Kitchen Fire Suppression Systems, both Watermist & Wet Chemical agents received the coveted LPCB certification under LPS1223 standard.   </p>
+  
+          </div>
+        </div>
+
+      </div>
+      <div class="swiper-slide">
+        <div class="box_f">
+          <div class="box1">
+            <h3 class="year">2016</h3>
+            <p class="line_btm"></p>
+           <h5 class="subtitle">CEASEFIRE MINI - SMALLEST SUPPRESSION MODULE INTRODUCED </h5>
+            
+           <p> Completely independent, clean agent based, standalone suppression module is launched for automatic, micro environment fire suppression.   </p> 
+           </div>
+          <div class="box3">
+            <h3 class="year">2017</h3>
+            <p class="line_btm"></p>
+           <h5 class="subtitle">CQRS RECEIVES LPCB CERTICATION UNDER LPS1666  </h5>
+
+           <p>Ceasefire Tube Based In-Panel Fire Suppression System receives LPCB certification under LPS1666 standard for its Direct, HFC gas based systems.   
+           </p>
+            
+          
+          </div>
+        </div>
+
+      </div> 
+
+      <div class="swiper-slide">
+        <div class="box_f">
+          <div class="box1">
+            <h3 class="year">2018</h3>
+            <p class="line_btm"></p>
+           <h5 class="subtitle">PRODUCTION CAPACITY REACHES HALF MILLION FIRE PRODUCTS ANNUALLY
+
+           </h5>
+            
+           <p>Ceasefire's India based production facility becomes FPC compliant to top-notch quality agencies in the world like LPCB, BSI, MED, PED and ISO9001. 
+           </p> 
+           </div>
+          <div class="box3">
+            <h3 class="year">2019</h3>
+            <p class="line_btm"></p>
+           <h5 class="subtitle">CEASEFIRE UK IS FOUNDED </h5>
+
+           <p>
+
+            Company's UK operations commence with a fully stocked UK based warehouse, product training facility and team based at office in Birmingham.
+            
+          </p> 
+            
+            <p> Manages over 150 trade partners in UK currently. </p>
+            
+          
+          </div>
+        </div>
+
+      </div> 
+      
+   
+      
+
+  <div class="swiper-slide">
+    <img src="https://cfx.ceasefire.biz/assets/our_story/bg.webp"> 
+
+        <div class="box_f">
+          <div class="box1">
+            <h3 class="year">2022</h3>
+            <p class="line_btm"></p>
+           <h5 class="subtitle">CEASEFIRE TRADE PARTNER NETWORK GROWS TO 1550 WORLDWIDE
+
+           </h5>
+            
+           <p>
+
+            Ceasefire trade partner network gross in India to 1250, 150 on UK and over 50 worldwide in countries including France, Singapore, UAE, Qatar, Saudi Arabia, Kenya, Ghana, Zambia, Ivory Coast, Congo, Nepal, Sri Lanka and more ....
+           </p> 
+           </div>
+          <div class="box3">
+            <h3 class="year">2023</h3>
+            <p class="line_btm"></p>
+           <h5 class="subtitle">
+            RECEIVES UL CERTIFICATION FOR KITCHEN SYSTEMS</h5>
+
+           <p>
+
+            Ceasefire Wet Chemical based kitchen fire suppression system received UL 300 Listing to complete the range to have both EN approved and UL Listed systems under one banner.   
+          </p>
+            
+          
+          </div>
+        </div>
+
+      </div> 
+     
+       
+    
+    
+     
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+
+                
+                        <!-- Swiper -->
+                        <!-- <div class="swiper storySwiper">
+                            <div class="swiper-wrapper">
+                              <div class="swiper-slide" *ngFor="let pc of Ajay ;let i=index">
+                              <div class="swiper-slide" *ngFor="let pc of productContent.Image;let i=index">
+
+                                <img [src]="pc.link"  alt="Gallery Image" class="thumb_left"   (click)="productContentObj(pc)">
+                                <h1>{{pc}}</h1>
+                            </div>
+                            
+                            </div>
+                           
+                          </div>
+                          </div> -->
+
+                          
+                     

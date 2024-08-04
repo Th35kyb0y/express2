@@ -1,0 +1,176 @@
+<div class="modal-header">
+    <h5 class="modal-title">Enquiry Status</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal('Dismissed')">
+
+    </button>
+</div>
+<div class="modal-body">
+  <!-- <div class="row" *ngIf="IsShowLoader">
+    <div class="col-5">
+
+    </div>
+    <div class="col-2">
+      <span class="loader"></span>
+    </div>
+    <div class="col-5">
+
+    </div>
+  </div> -->
+ 
+ 
+    <div class="row">
+        <div class="col-12" style="overflow:auto;max-height:300px">
+          <p *ngIf="List1.length==0" class="text-center mt-3">
+            <span *ngIf="!IsShowLoader1">Record not found</span>
+            <span class="loader" *ngIf="IsShowLoader1"></span>
+          </p>
+            <table class="table">
+                <thead>
+                    <tr><th *ngFor="let header of columns1 ">{{header}}</th></tr>
+
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of List1;let i=index;">
+
+                        <td *ngFor="let cell of columns1 ">{{ row[cell] }}</td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div> 
+
+    <div>
+        <ul class="nav nav-tabs mt-3" id="myTabs">
+            <!-- <li class="nav-item">
+                <a class="nav-link active" id="ENQUIRYMAPPING-tab" data-bs-toggle="tab" href="#ENQUIRYMAPPING" (click)="getSecound(1)">ENQUIRY
+                    MAPPING</a>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link active" id="SUSPECT-tab" data-bs-toggle="tab" href="#SUSPECT" (click)="getSecound(2)">SUSPECT</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="CPS-tab" data-bs-toggle="tab" href="#CPS" (click)="getSecound(3)">CPS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="PROSPECT-tab" data-bs-toggle="tab" href="#PROSPECT" (click)="getSecound(4)">PROSPECT </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="VISIT-tab" data-bs-toggle="tab" href="#VISIT" (click)="getSecound(5)">VISIT </a>
+            </li>
+            <!-- Add more tabs as needed -->
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane fade  " id="ENQUIRYMAPPING">
+                <p *ngIf="List2.length==0" class="text-center mt-3">Record not found</p>
+                <div class="col-12" style="overflow:auto;width:100%">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <!-- Create table header based on the keys of the first object in the array -->
+                        <th *ngFor="let header of columns2 ">{{ header }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Create table rows based on the array of objects -->
+                      <tr *ngFor="let row of List2">
+                        <td *ngFor="let cell of columns2 ">{{ row[cell] }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+            </div>
+            <div class="tab-pane fade show active" id="SUSPECT">
+                <p *ngIf="List2.length==0" class="text-center mt-3">
+                  
+                  <span *ngIf="!IsShowLoader">Record not found</span>
+                  <span class="loader" *ngIf="IsShowLoader"></span>
+                </p>
+
+                <div class="col-12" style="overflow:auto;width:100%">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <!-- Create table header based on the keys of the first object in the array -->
+                        <th *ngFor="let header of columns2 ">{{ header }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Create table rows based on the array of objects -->
+                      <tr *ngFor="let row of List2">
+                        <td *ngFor="let cell of columns2 ">{{ row[cell] }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+            </div>
+            <div class="tab-pane fade" id="CPS">
+                <p *ngIf="List2.length==0" class="text-center mt-3">
+                  <span *ngIf="!IsShowLoader">Record not found</span>
+                  <span class="loader" *ngIf="IsShowLoader"></span>
+                </p>
+                <div class="col-12" style="overflow:auto;width:100%">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <!-- Create table header based on the keys of the first object in the array -->
+                        <th *ngFor="let header of columns2 ">{{ header }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Create table rows based on the array of objects -->
+                      <tr *ngFor="let row of List2">
+                        <td *ngFor="let cell of columns2 ">{{ row[cell] }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+            </div>
+            <div class="tab-pane fade" id="PROSPECT">
+                <p *ngIf="List2.length==0" class="text-center mt-3"> 
+                  <span *ngIf="!IsShowLoader">Record not found</span>
+                  <span class="loader" *ngIf="IsShowLoader"></span></p>
+                <div class="col-12" style="overflow:auto;width:100%">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <!-- Create table header based on the keys of the first object in the array -->
+                        <th *ngFor="let header of columns2 ">{{ header }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Create table rows based on the array of objects -->
+                      <tr *ngFor="let row of List2">
+                        <td *ngFor="let cell of columns2 ">{{ row[cell] }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+            </div>
+            <div class="tab-pane fade" id="VISIT">
+                <p *ngIf="List2.length==0" class="text-center mt-3">
+                   <span *ngIf="!IsShowLoader">Record not found</span>
+                  <span class="loader" *ngIf="IsShowLoader"></span></p>
+                <div class="col-12" style="overflow:auto;width:100%">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <!-- Create table header based on the keys of the first object in the array -->
+                        <th *ngFor="let header of columns2 ">{{ header }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Create table rows based on the array of objects -->
+                      <tr *ngFor="let row of List2">
+                        <td *ngFor="let cell of columns2 ">{{ row[cell] }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>

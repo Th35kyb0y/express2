@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm bg_white mt-3">
+    <div class="container-fluid">
+
+      <div (click)="ApiService.goCSDashBoard()"><img src="http://cfx.ceasefire.biz/assets/LOGO_express_dashboard.webp" class="" width="240" height="50" alt=""></div>
+      <!-- <h4 (click)="ApiService.goCSDashBoard()"><i class="bi bi-back" ></i> {{title}}</h4> -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+     
+
+      &nbsp;&nbsp;
+      <app-cs-search-customer></app-cs-search-customer>
+
+      <!-- <form class="d-flex">
+        <input class="form-control me-2 w_input" type="search" placeholder="Search" 
+        [(ngModel)]="obj.Search" name="Search" id="Search"
+        aria-label="Search">
+        <button class="btn btn-outline-success search_btn" type="submit" (click)="search()">Search</button>
+      </form> -->
+      
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+       
+     
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ApiService.AdminName}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="javascript:void(0)" routerLink="/cs/cs-profile">My Account</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" routerLink="/cs/change-password">Change Password</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" (click)="logout()">Log out</a></li>
+            </ul>
+          </li>
+        </ul>
+      
+      </div>
+
+
+
+  
+    </div>
+  </nav>
+  <div class=" row py-1 mb-3 page_heading">
+    <div class="col-12 px-4">
+    <!-- <div class="col-6" (click)="ApiService.goCSDashBoard()"> {{title}}</div> -->
+    <div class="col-6 pull-left"><h5>{{title}}</h5></div>
+    <div *ngIf="isNotFromMailer" class="col-6 pull-left"><button class="btn btn-outline-danger btn-sm pull-right" (click)="ApiService.goBack()"><i class="fa fa-arrow-left"></i> Back</button></div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="container-fluid payment-mt">
+
+    <!-- <form (ngSubmit)="onSubmit()">
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" [(ngModel)]="paymentData1.amount" name="amount" required>
+      
+        <label for="productInfo">Product Info:</label>
+        <input type="text" id="productInfo" [(ngModel)]="paymentData1.productInfo" name="productInfo" required>
+      
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" [(ngModel)]="paymentData1.firstName" name="firstName" required>
+      
+        <label for="email">Email:</label>
+        <input type="email" id="email" [(ngModel)]="paymentData1.email" name="email" required>
+      
+        <button type="submit">Pay</button>
+      </form> -->
+
+      <!-- <form (ngSubmit)="onSubmit()">
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" [(ngModel)]="paymentData.amount" name="amount" required>
+      
+        <label for="productInfo">Product Info:</label>
+        <input type="text" id="productInfo" [(ngModel)]="paymentData.productInfo" name="productInfo" required>
+      
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" [(ngModel)]="paymentData.firstName" name="firstName" required>
+      
+        <label for="email">Email:</label>
+        <input type="email" id="email" [(ngModel)]="paymentData.email" name="email" required>
+      
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" [(ngModel)]="paymentData.phone" name="phone" required>
+      
+        <label for="udf1">UDF1:</label>
+        <input type="text" id="udf1" [(ngModel)]="paymentData.udf1" name="udf1">
+      
+        <label for="udf2">UDF2:</label>
+        <input type="text" id="udf2" [(ngModel)]="paymentData.udf2" name="udf2">
+      
+        <label for="udf3">UDF3:</label>
+        <input type="text" id="udf3" [(ngModel)]="paymentData.udf3" name="udf3">
+      
+        <label for="udf4">UDF4:</label>
+        <input type="text" id="udf4" [(ngModel)]="paymentData.udf4" name="udf4">
+      
+        <label for="udf5">UDF5:</label>
+        <input type="text" id="udf5" [(ngModel)]="paymentData.udf5" name="udf5">
+      
+        <button type="submit">Pay</button>
+      </form> -->
+      
+      <form #payuForm id="payuForm" [action]="payURL" method="post" style="display: none;">
+      <!-- <form #payuForm id="payuForm" action="https://test.payu.in/_payment" method="post" style="display: none;"> -->
+        <input type="text" name="key" [value]="payuData.key">
+        <input type="text" name="txnid" [value]="payuData.txnid">
+        <input type="text" name="amount" [value]="payuData.amount">
+        <input type="text" name="productinfo" [value]="payuData.productinfo">
+        <input type="text" name="firstname" [value]="payuData.firstname">
+        <input type="text" name="email" [value]="payuData.email">
+        <input type="text" name="phone" [value]="payuData.phone">
+        <input type="text" name="surl" [value]="payuData.surl">
+        <input type="text" name="furl" [value]="payuData.furl">
+        <input type="text" name="hash" [value]="payuData.hash">
+        <input type="text" name="service_provider" [value]="payuData.service_provider">
+        <input type="text" name="udf1" [value]="payuData.udf1">
+        <input type="text" name="udf2" [value]="payuData.udf2">
+        <input type="text" name="udf3" [value]="payuData.udf3">
+        <input type="text" name="udf4" [value]="payuData.udf4">
+        <input type="text" name="udf5" [value]="payuData.udf5">
+      </form>
+      
+      
+    </div>

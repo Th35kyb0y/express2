@@ -1,0 +1,9 @@
+<div class="modal-header">
+    <h4 class="modal-title">Gallery</h4>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal('Dismissed')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+            <app-gallery [images]="images"></app-gallery>
+</div>

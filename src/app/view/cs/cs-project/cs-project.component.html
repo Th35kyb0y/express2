@@ -1,0 +1,250 @@
+  <!-- Fixed Header -->
+  <header class="fixed-header">
+    <!-- Your header content goes here -->
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light cs-nav-height">
+		<div class="row row-cs">
+		 <div class="col-8">
+      <h4>Project</h4>
+     
+			<!-- <div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto topnav" id="myTabs">
+			  
+				  <li class="nav-item">
+					<a class="nav-link " [routerLink]="'/cs'" id="tab1" data-bs-toggle="tab" href="#content1">Customer Support</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link active" [routerLink]="'/cs/cs-project'" id="tab2" data-bs-toggle="tab" href="#content2">Project</a>
+				  </li>
+				 
+				</ul>
+				</div> -->
+		 </div>
+		 <div class="col-md-2 pt-2" style="
+		 font-weight: 500;
+	 ">
+	 {{ApiService.AdminName}}
+	</div>
+	<div class="col-md-1 pt-2" style="text-align: right;"> 
+		
+		<button class="btn btn-danger" (click)="logout()">Logout</button>
+	</div>
+		</div>
+		
+	  </nav>
+	
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light cs-nav-height">
+       
+		
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto topnav" id="myTabs">
+        
+            <li class="nav-item">
+              <a class="nav-link active" id="tab1" data-bs-toggle="tab" href="#content1">Customer Support</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="tab2" data-bs-toggle="tab" href="#content2">Project</a>
+            </li>
+           
+          </ul>
+
+		  <ul class="navbar-nav">
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Menu </a>
+				<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+					<li><a class="dropdown-item" href="#">Action</a></li>
+					<li><a class="dropdown-item" href="#">Another action</a></li>
+					<li>
+						<hr class="dropdown-divider">
+					</li>
+					<li><a class="dropdown-item" href="#">Something else here</a></li>
+				</ul>
+			</li>
+		</ul>
+        </div>
+		
+    </nav> -->
+</header>
+
+<!-- Fixed Left Menu -->
+<nav class="fixed-menu">
+ 
+  <div class="container mt-5 cs-nav-f ">
+    <div class="d-flex flex-stack px-4 px-lg-6 py-6 py-lg-10 cb-border-bottom" >
+    
+      <a href="/blaze-html-pro/index.html">
+          <img alt="Logo" src="/assets/images/logo_white.png" class="h-25px h-lg-30px">
+      </a>
+     
+    
+  </div>
+    <div class="addScroll" >
+      <div class="row">
+      
+
+        <div class="col-12 col-md-4">
+          <a  href="javascript:void(0)" 
+          class="btn btn-custom btn-outline btn-icon  btn-flex flex-column flex-center 
+          w-lg-90px h-lg-90px w-70px h-70px cs-div-border box-min-w" data-kt-button="true" 
+          (click)="createGroup()">
+            
+            <p class="mb-2 s-color">
+              <i class="fa fa-plus" aria-hidden="true"></i>
+            </p> 
+            <span class="fs-7 fw-bold s-color cs-nav-f">Create Project</span> 
+          
+        </a>
+         
+        </div>
+       
+        <div class="col-12 col-md-4">
+
+          <a  href="javascript:void(0)"  (click)="excelDownloadService.downloadTableAsExcel('cs-project-table','cs-project-table')"
+          class="btn btn-custom btn-outline btn-icon  btn-flex flex-column 
+          flex-center w-lg-90px h-lg-90px w-70px h-70px cs-div-border box-min-w" data-kt-button="true">
+            
+            <p class="mb-2 s-color">
+              <i class="fas fa-file-excel-o" aria-hidden="true"></i>
+            </p> 
+            <span class="fs-7 fw-bold s-color cs-nav-f">Export to Excel</span> 
+          
+        </a>
+          
+        </div>
+        <div class="col-12 col-md-4">
+					
+					<a [routerLink]="'/cs/cs-dashboard'"
+						class="btn btn-custom btn-outline btn-icon  btn-flex flex-column 
+          flex-center w-lg-90px h-lg-90px w-70px h-70px cs-div-border box-min-w" data-kt-button="true">
+
+						<p class="mb-2 s-color">
+							<i class="fa fa-users" aria-hidden="true"></i>
+						</p>
+						<span class="fs-7 fw-bold s-color cs-nav-f">Customer Support</span>
+
+					</a>
+
+				</div>
+				<div class="col-12 col-md-4">
+         
+					<a  routerLink="/cs"
+					class="btn btn-custom btn-outline btn-icon  btn-flex flex-column 
+					flex-center w-lg-90px h-lg-90px w-70px h-70px cs-div-border box-min-w " data-kt-button="true">
+					  
+					  <p class="mb-2 s-color">
+						<i class="fa fa-users" aria-hidden="true"></i>
+					  </p> 
+					  <span class="fs-7 fw-bold s-color cs-nav-f">    Graph  </span> 
+					
+				  </a>
+					
+				  </div>
+       
+
+      </div>
+    
+    </div>
+   
+  </div>
+   
+</nav>
+
+<!-- Scrollable Body -->
+<div class="scrollable-body">
+    <!-- Your scrollable body content goes here -->
+   <!-- table.component.html -->
+<div class="container mt-4">
+  <div class="mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Filter by name"
+     
+      (input)="applyFilter()"
+    />
+  </div>
+  <div class="col-md-12 overflow-scroll" style="max-height:1200px;">
+
+    <table class="table  table-bordered  table-hover table-striped" id="cs-project-table">
+      <thead class="thead-light">
+          <tr>
+             
+              <th >ID</th>
+              <th >Project Name</th>
+              <th >Created date</th>
+              <th >Total Customer</th>
+              <th >Last Follow Up Date</th>
+              <th >Sales Pitch</th>
+              <th >Notes</th>
+              <th >Remarks</th>
+  
+              <th >Action</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of list">
+             
+              <td>{{item.projectId}}</td>
+              <td>{{item.projectName}}</td>
+              <td>{{item.created_At | date:'dd-MM-yyyy'}}</td>
+              <td>
+                  <span class="badge bg-info">{{item.totalUser}}</span>
+                  </td>
+                  <td>{{item.lastProjectFollowUpDetails?.followUpDate | date:'dd-MM-yyyy'}}</td>
+                  <td>{{item.sales_Pitch}}</td>
+                  <td>{{item.notes}}</td>
+                  <td>{{item.remarks}}</td>
+  
+              <td>
+
+                <ng-template #popoverContent>
+                  <div class="d-grid gap-2">
+                    <button class="btn btn-danger" type="button" (click)="getProjectDetails(item)">
+                      <i class="fa-cs fa fa-eye mr-2" aria-hidden="true"></i>
+                      View Detail
+                    </button>
+
+                    
+                      <button class="btn btn-danger" type="button"
+                      title="Follow Up" (click)="addProjectFollowUp(item)">
+                      <i class="fa-cs fa fa-users mr-2" aria-hidden="true"></i> Follow Up
+                  </button>
+                  <button class="btn btn-danger" type="button"
+                      title="Follow Up History"  (click)="followUpHistory(item)">
+                      <i class="fa-cs fa fa-history mr-2" aria-hidden="true"></i> Follow Up History
+                  </button>
+                 
+  
+                  </div>
+
+                  
+                 </ng-template>
+                <button type="button" class="btn btn-sm btn-danger" [ngbPopover]="popoverContent" popoverTitle="Actions">
+                  <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                </button>
+                  <!-- <a href="javascript:void(0)" class="color-primary" data-toggle="tooltip" data-placement="top"
+                      title="View Detail" (click)="getProjectDetails(item)">
+                      <i class="fa fa-eye mr-2" aria-hidden="true"></i>
+                  </a>
+                  <a href="javascript:void(0)" class="color-primary" data-toggle="tooltip" data-placement="top"
+                      title="Follow Up" (click)="addProjectFollowUp(item)">
+                      <i class="fa fa-users mr-2" aria-hidden="true"></i>
+                  </a>
+                  <a href="javascript:void(0)" class="text-primary" data-toggle="tooltip" data-placement="top"
+                  title="Follow Up History" (click)="followUpHistory(item)">
+                  <i class="fa fa-history mr-2" aria-hidden="true"></i>
+              </a> -->
+              </td>
+              <!-- <td>Follow Up, Proposal, Price List, Brochure, Order, Emailer </td>-->
+  
+          </tr>
+  
+      </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+    <!-- Add more content as needed -->
+</div>

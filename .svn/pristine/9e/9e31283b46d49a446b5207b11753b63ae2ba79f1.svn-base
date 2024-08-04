@@ -1,0 +1,92 @@
+// .item_2{ border-radius: 10px;}
+
+
+
+body {
+  font-family: 'Poppins';
+  font-weight: normal;
+}
+
+.car_h{ height: 310px !important;}
+
+/* Carousel  */
+.img-fluid {
+  margin-left: 45px;
+}
+
+.p_name{height: 79px;
+  overflow: hidden;}
+
+.card-body {
+  text-align: center;
+}
+
+.view1 {
+  font-weight: 500;
+  font-size: 1.5rem;
+  font-family: 'Poppins';
+  color: #fff;
+}
+
+.card-img-carousel {
+  background: #fff;
+  /* box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05); */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-left: 64px;
+  height: 330px;
+  width: 100%;
+}
+
+.card-text {
+
+  font-family: 'Poppins';
+  font-size: 1rem;
+  font-weight: normal;
+  color: #000;
+}
+
+
+/* carousel buuton */
+
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: #000;
+  width: 6vh;
+  height: 6vh;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-inner {
+  position: relative;
+
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+  text-transform: capitalize;
+}
+
+
+/* carousel part second */
+.carousel-part {
+  background-color: #354d84;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  width: 1rem !important;
+  height: 1rem !important;
+}
+
+.card-text-total {
+  color: red;
+  font-size: 1rem;
+}
+.card-img-carousel{
+  cursor: pointer;
+}

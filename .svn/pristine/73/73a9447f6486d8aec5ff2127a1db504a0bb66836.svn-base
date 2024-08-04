@@ -1,0 +1,37 @@
+
+<main id="main">
+    <section class="inner-page sec_body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="col-md-12 col-xs-12 text-center">
+                        <img src="http://cfx.ceasefire.biz/assets/GreenSolution.png" class="img-fluid" >
+
+                    </div>
+                    <div class="col-md-12 col-xs-12 pt-5 f_21 text-center">
+                        <p>At Ceasefire we are working towards creating both, a safer and a greener future. Our fire fighting solutions are continuously evolving  to become more sustainable and earth friendly with an ever reducing carbon footprint. </p>
+                        <p> Today Ceasefire's green fire fighting range comprises of Watermist based Extinguishers, and Fire Systems, Flourine Free Extinguishers which are earth friendly alternative to chemical-foam based extinguishers, Flouroketone (FK) clean agent based extinguishers with 1 GWP and 0 ODP,  Inert Gas and CO2 based suppression systems and Clean Agent Based Tube Based Systems are leading the way in paving the way in our quest to create a green fire in fire fighting.    </p>
+                    </div>
+
+
+                    </div>
+                    </div>
+
+                    </div>
+                    </section>
+                    <section>
+
+
+                    <div class="py-5" style="background-color: #ccc;">
+
+                        <div class="col-12 text-center ">
+                            <h1>Explore our Green Range</h1>
+
+                            </div>
+
+                            </div>
+                            <app-app-product-details [ApplicationAreaId]="2032">
+                            </app-app-product-details>
+                    </section>
+                    </main>

@@ -1,0 +1,259 @@
+<!-- main start here-->
+<main id="main">
+    <section class="inner-page p-0  sec_body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="bg_img">
+		
+                    <div class="bg_white">
+                        <div class="col-8 floot">
+                    <h5>Fire Solutions for</h5> 
+                        
+                <h1>Server Racks</h1>
+                
+                <p>At Ceasefire, we understand the critical role that server racks play in storing invaluable business data and facilitating seamless operations within your organisation. However, it's important to acknowledge the inherent risks associated with server racks, particularly when it comes to fire hazards.</p>
+                <p>One of the key challenges in mitigating these risks is that server rooms often operate without continuous human presence, which means that potential fires could go undetected until it's too late.</p>
+                </div>
+                
+                <div class="col-3 floot ml-3"><img src="../../../../assets/images/server_rack/server_rack_right1.png" width="200" alt=""/></div>
+                    </div>
+                    
+            </div>
+                
+                <div class="box_2">
+                    <div class="col-9 col-xs-12 floot mt-5">
+                    <h2>
+            Ceasefire: Where Fire Safety<br>
+            Meets Reliability.</h2>
+                        
+                        <p>At Ceasefire, we have taken fire safety for server racks to a whole new level with our specially designed fire suppression systems. Our state-of-the-art solutions are meticulously crafted to detect any sign of fire automatically and take immediate action to extinguish it, all without causing any collateral damage to your valuable equipment.</p>
+            
+             
+            
+            <p>Our proven record speaks volumes – your business's well-being is our top priority. When you choose Ceasefire, you're not just choosing a fire safety solution, you're opting for a partner that's dedicated to upholding the utmost reliability, protecting your assets and providing you with the peace of mind you
+
+                deserve.</p>
+                    </div>
+                    <div class="col-2 floot ml-3"><img src="../../../../assets/images/server_rack/box_2_right_img.png" class="img-fluid" alt=""/></div>
+                
+                </div>
+                
+                </div>
+                <div class="col-12 text-center heading_f my-2">  <h3 class="mb-0">Fire Facts That Need Your Attention</h3></div>
+              <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+                    <div class="container">
+                      <div class="col-12 text-center heading_f">  <h3 class="mb-0">Fire Facts That Need Your Attention</h3></div>
+
+                      <div class="carousel-caption">
+                      
+                        <p class="opacity-75">10,256 electrical panel fires were reported in India in 2021 alone. </p>
+                        <p>- NDMA.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+                    <div class="container">
+                      <div class="carousel-caption">
+                       
+                        <p>56% of industrial fire breakouts are due to electrical faults in control panels.</p>
+                        <p> – The Hindu</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+                    <div class="container">
+                      <div class="carousel-caption">
+                       
+                          <p>As per Fire Services Department, between 2015 and 2021,<br>
+
+                            close to 18,000 of 59,000 fire incidents happened because of electrical short circuits<br>
+                            
+                            in electrical cabinets or junction boxes.</p>
+                        <p>– The Times Of India</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="carousel-item">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+                    <div class="container">
+                      <div class="carousel-caption">
+                          <p>70% of the fire incidents in Mumbai take place due to electrical short circuits.<br> 
+
+                            ‘Electrical Safety is non-Negotiable’ in the city.</p>
+                        <p>- Sunil Rathod, Chief Engineer, BMC to Indian Express</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            
+            
+            <div class="box_4">
+                    <div class="row  text-center">
+                      <div class="col-12">
+                    <h2>Common Causes Of A Server Room Fire</h2>
+                  </div>
+                    <div class="row">
+                      <div class="col-md-1 "></div>
+                        <div class="col-md-2 col-lg-2 col-xs-12">
+                      <img src="https://ccrmuk.ceasefire.biz/assets/images/server_rack/img_1.png" class="img-fluid" alt=""/>
+                    </div>
+                    <div class="col-md-2 col-lg-2 col-xs-12">
+                      <img src="https://ccrmuk.ceasefire.biz/assets/images/server_rack/img_2.png" class="img-fluid" alt=""/>
+                    </div>
+                    <div class="col-md-2 col-lg-2 col-xs-12">
+                      <img src="https://ccrmuk.ceasefire.biz/assets/images/server_rack/img_3.png" class="img-fluid" alt=""/>
+                    </div>
+                    <div class="col-md-2 col-lg-2 col-xs-12">
+                      <img src="https://ccrmuk.ceasefire.biz/assets/images/server_rack/img_4.png" class="img-fluid" alt=""/>
+                    </div>
+                    <div class="col-md-2 col-lg-2 col-xs-12">
+                      <img src="https://ccrmuk.ceasefire.biz/assets/images/server_rack/img_5.png" class="img-fluid" alt=""/>
+                    </div>
+                    </div>
+                  </div>
+                    
+                
+                </div>
+            
+            
+                <div class="box_5 row">
+                    <div class="col-12 text-center mb-2">
+                        <h2>
+                            Cost of Not Addressing The Risk</h2>
+                    </div>
+    
+                    <div class="col-12 mt-5">
+    
+                        <div class="col-3 floot text-center"><img src="../../../../assets/images/server_rack/3_lac.png" class="img-fluid"
+                                alt="" />
+                            <p>Average Server Rack Cost</p>
+                        </div>
+                        <div class="col-3 floot text-center "><img src="../../../../assets/images/server_rack/17_hrs.png" class="img-fluid"
+                                alt="" />
+                            <p>Average Down<br>
+
+                                Time</p>
+                        </div>
+                        <div class="col-3 floot text-center "><img src="../../../../assets/images/server_rack/5_7_lac.png" class="img-fluid"
+                                alt="" />
+                            <p>Downtime Cost Per<br> Hour</p>
+                        </div>
+                        <div class="col-3 floot text-center "><img src="../../../../assets/images/server_rack/40_cr.png"  class="img-fluid"
+                                alt="" />
+                            <p>Consequential Cost</p>
+                        </div>
+    
+                    </div>
+    
+                    <div class="col-12 text-center mt-5 pull-left" style="font-weight: 500;">* Estimated costs as per industry experts and secondary data.</div>
+                </div>
+            
+            <div class="box_6 row">
+                    <div class="col-12 text-center">
+                    <h2>
+            
+                        Safeguards in Just 3 Steps</h2>
+                        
+                        
+                    </div>
+                
+                <div class="bg_white2 mt-5">
+                
+                <div class="col-4 floot mar_top text-center"><img src="../../../../assets/images/electrical_panel/detect.png" width="190" height="188"  alt=""/>
+                    <h3>
+                        DETECT</h3>
+                    <p>Identifies fire at its origin through specialised Heat Sensing Tube.</p>
+            
+                    </div>
+                    
+                    <div class="col-4 floot mar_top text-center"><img src="../../../../assets/images/electrical_panel/TRIGGER.png" width="190" height="188" alt=""/>
+                    <h3>TRIGGER
+                    </h3>
+            
+                    <p>The mechanism triggers autonomously, safeguarding even in unattended situations.</p>
+            
+                    </div>
+                    <div class="col-4 floot mar_top text-center"><img src="../../../../assets/images/electrical_panel/SUPPRESS.png" width="190" height="188"  alt=""/>
+                    <h3>SUPPRESS </h3>
+            
+                    <p>Extinguishes fire rapidly ensuring safety for individuals, machinery, and surroundings. </p>
+            
+                    </div>
+                
+                
+                </div>
+                    
+                
+                </div>
+            
+                <div class="bg_img2">
+                  <div class="col-12 text-center">
+                      <div class="BG_TOP"><h3>Fusion of Flexibility and Expertise</h3></div></div>
+                      <div class="bg_white3">
+                        
+                  <div class="col-12 floot">
+                      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                          <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                          </ol>
+                          <div class="">
+                            <div class="carousel-item active">
+                              <img class="img-fluid" src="../../../../assets/images/server_rack/cqrs_btm_1.png" alt="First slide">
+                            </div>
+                            <!-- <div class="carousel-item">
+                              <img class="d-block w-100" src="../../../../assets/images/electrical_panel/last_img2.png" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                              <img class="d-block w-100" src="../../../../assets/images/electrical_panel/last_img3.png" alt="Third slide">
+                            </div> -->
+                          </div>
+                          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                          </a>
+                        </div>
+  
+  
+                  </div>
+                  
+                  
+              
+                  
+              
+                      
+          </div>
+          </div>
+          <!-- <app-app-product-detils-segment [ApplicationAreaId]="8">
+          </app-app-product-detils-segment> -->
+          <app-app-product-details [ApplicationAreaId]="2017">
+         
+          </app-app-product-details>
+        </div>
+    </section>
+</main>

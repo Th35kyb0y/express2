@@ -1,0 +1,45 @@
+@media (min-width: 576px){}
+.modal-dialog {
+    max-width: 220px !important;
+    margin: 1.75rem auto;}
+
+
+
+.modal-header {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.4rem 1rem !important;
+    background-color: #c6000c !important;
+    color: #fff !important;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: calc(0.3rem - 1px);
+    border-top-right-radius: calc(0.3rem - 1px);}
+
+    .modal-body ul li{ list-style-type: none;}
+
+    .modal-body a:hover{ cursor: pointer;}
+    ol, ul {
+        padding-left: 0rem; line-height: 45px;}
+
+        .modal-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 65% !important;
+            pointer-events: auto;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0,0,0,.2);
+            border-radius: 0.3rem;
+            outline: 0;
+        }
+        .xlModal-quicklink > .modal-dialog {
+            max-width: 300 !important;
+            min-width: 300px !important;
+            width: 100% !important;
+            margin-top: -1px;
+            margin-right: -176px !important;}
+
+            .modal_btn{ width: 250px;}

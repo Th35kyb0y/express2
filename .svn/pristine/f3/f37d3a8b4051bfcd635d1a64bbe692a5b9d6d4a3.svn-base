@@ -1,0 +1,79 @@
+<div class="modal-header">
+    <h5 class="modal-title">Product Details</h5>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal('Dismissed')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body p-0">
+
+
+    <div class="container-fluid" style="max-height: 70vh;overflow: auto;">
+ 
+        <main>
+         
+          <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Product</th>
+            <th scope="col">Qty</th>
+            <th scope="col">Base Value ₹ </th>
+              <th scope="col">Disc%</th>
+               <th scope="col">Disc Value ₹ </th>
+              
+               <th scope="col">Net Value ₹ </th>
+              <th scope="col">Delivery Charge ₹ </th>
+              <th scope="col">Taxable Value ₹ </th>
+              <th scope="col">Tax %</th>
+              <th scope="col">Tax Amount ₹ </th>
+              <th scope="col">Total Value ₹</th>
+           
+         
+          </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let item of OrderSummary;let i=index">
+               
+          <tr >
+            <td class="col-5">
+              <span class="pull-left"> <img 
+                [src]="getProductFirstImageContent(item.contents)"  width="50" height="50" alt=""/></span> 
+      
+          <span class="pull-left p_name_w">{{item.name}} ({{item.productcode}})</span>
+              
+          <span class="pull-left red_g "> Price: ₹{{item.price}}</span>
+       </td>
+            <td class="col-1">{{item.quantity}}</td>
+            <td  class="col-1">{{item.baseValue}}</td>
+            <td class="col-1"> {{item.discountPercent}}</td>
+               <td class="col-1">{{item.discountValue}}</td>
+               <td class="col-1">{{item.netValue}}</td>
+              
+               <td class="col-1">{{item.deliveryCharge}}</td>
+               <td class="col-1">{{item.taxableValue}}</td>
+               <td class="col-1"> {{item.taxPercent}}</td>
+              
+               <td class="col-1"> {{item.taxValue}}</td>
+              <td class="col-1" > {{item.totalValue}}</td>
+          
+                <!-- <a href="javascript:void(0)" class="btn btn-danger btn-sm mr-2" >
+                <i class="fa fa-trash" aria-hidden="true"></i></a><a href="javascript:void(0)" class="btn btn-primary btn-sm" 
+                ><i class="fa fa-eye" aria-hidden="true"></i></a> -->
+          
+          </tr>
+            
+         
+            </ng-container>
+        </tbody>
+      </table>
+      
+       
+      
+        </main>
+      
+        
+      </div>
+
+      
+        
+
+  </div>

@@ -1,0 +1,405 @@
+
+<ng-template #content let-offcanvas>
+	<div class="offcanvas-header">
+		<h4 class="offcanvas-title">Offcanvas title</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+	</div>
+	<div class="offcanvas-body">
+		<p>One fine body&hellip;</p>
+		<div class="text-end">
+			<button type="button" class="btn btn-outline-dark" (click)="offcanvas.close('Close click')">Close</button>
+		</div>
+	</div>
+</ng-template>
+<!-- ======= Header ======= -->
+ <div (window:resize)="onResize($event)">
+ 
+  <ng-container *ngIf="!isMobile">
+
+
+    <header id="header" class="fixed-top">
+      <div class="row top_red ">
+          <div class="col-3 top_icon  ">
+              <h1 class="logo"><a routerLink="/"><img src="http://cfx.ceasefire.biz/assets/LOGO_express.svg" width="220" height="100" alt="" /></a></h1>
+              <!-- <a href="https://www.facebook.com/CeasefireIndustriesPvtLtd/" target="_blank"><img src="assets/fb.png"
+                      width="30" height="30" alt="" /></a>
+              <a href="https://www.linkedin.com/company/ceasefire-industries-ltd/" target="_blank"><img
+                      src="assets/linkdin.png" width="30" height="30" alt="" /></a>
+              <a href="https://twitter.com/CeasefireIndia" target="_blank"><img src="/assets/twiter.png" width="30"
+                      height="30" alt="" /></a>
+              <a href="" target="_blank"><img src="assets/instagram.png" width="30" height="30" alt="" /></a> -->
+          </div>
+          <div class="col-lg-4 col-md-4 col-xs-12 f_left dropdown-field search_n position-relative">
+            <form class="w-100 "  (ngSubmit)="goSearchNew()">
+              <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Search" 
+				  (keyup)="onKey($event);" id="searchInput" name="searchInput"
+                      aria-label="Search by product" aria-describedby="basic-addon2" [(ngModel)]="searchInput">
+                  <button type="button" class="input-group-text input" id="basic-addon2" (click)="goSearchNew()">Search</button>
+                  <!-- <button type="button" class="input-group-text input" id="basic-addon2" (click)="searchProduct()">Search</button> -->
+              </div>
+              </form>
+              <div id="sayt" style="display: none;">
+				
+                <a href="javascript:void(0);"  (click)="GoFireExtinguisherDetail(product)" 
+                *ngFor="let product of searchProductList">
+                    <img [src]="getProductFirstImageContent(product.contents)">
+                    <span class="title" [innerHtml]="product.name"></span>
+                   
+                    <span class="price">
+                      <span >₹ {{product.price | number:'0.2-2'}}
+
+                      </span>
+                    <!-- <span class="small-price"> ₹ {{product.discount.discountAmount |
+                                    number:'0.2-2'}} </span>
+								-->
+								</span> 
+                </a>
+            </div>
+          </div>
+  
+          <div class="menu " >
+              <ul [ngClass]="{'drop' : condition}" (mouseover)="changeStyle($event)" (mouseout)="changeStyle($event)">
+                <!-- <li routerLink="/user/profile">Contact Us 9540 666 666 -->
+                <li >Contact Us 9540 666 666
+  
+  
+  
+                  <!-- <div style="width:30%;" class="bg-info rounded-circle">R</div> -->
+                  <i class="fa fa-angle-down" aria-hidden="true" style="font-size: 10px;"></i>
+                 <ul>
+                  <div class="row p-5 bg_color">
+               <div class="col-4 border_right">
+                  <h4>Call us</h4>
+                  <p>Call Our Support Team<br>
+                      <span class="phone_n"> 9540 666 666</span></p>
+  
+                      <p>Ceasefire Toll Free Number<br>
+  
+                          <span class="phone_n"> 1800 120 3473 </span></p>
+  
+               </div>
+  
+               <div class="col-4 border_right pl_4 ">
+                  <h4>Chat Now</h4>
+                  <p>Chat with our sales & support team for quick <br>answers on product features, pricing and more.<br>
+                <p>
+                  <a href="javascript:void(Tawk_API.toggle())"   class="btn s_chat"><img src="https://img1.wsimg.com/dc-assets/live-engage/images/chat-baloon.svg" class="mr_2" height="20" width="20"> Chat with us</a>
+                  <a href="https://api.whatsapp.com/send/?phone=7669295046&text&type=phone_number&app_absent=0" target="_blank" class="btn whatsapp mt-3"><img src="https://ccrmuk.ceasefire.biz/assets/ProductImage/whats-app_w.png" class="mr_2" height="20" width="20">Whatsapp</a>
+  
+  
+                </p>
+                <p>Hours: 9AM to 6PM</p>
+  
+               </div>
+  
+               <div class="col-4 pl_4 ">
+                <h4>Contact us</h4>
+                <p>B1/H1, Mohan Cooperative Ind Estate, New Delhi  </p>
+              <p>Email ID:<a href="mailto:response@ceasefire.in">response@ceasefire.in</a> </p>
+  
+  
+  
+  
+              <p>Website:<a href="https://www.ceasefire.in/" target="_blank">www.ceasefire.in</a></p>
+  
+  
+              <p class="col-5"><a  routerLink="Enquiry" type="button" class="btn btn-dark btn-sm send_en"><i class="fa fa-question-circle-o" style="margin-right: 5px;" aria-hidden="true"></i>Send Enquiry</a></p>
+  
+  
+             </div>
+  
+  </div></ul>
+                </li>
+  
+  
+              </ul>
+           </div>
+  
+  <!--
+          <div class="col-2 top_red_text " style="    padding-top: 8px;
+          font-size: 16px;
+          font-weight: 500;
+      "> Call Us : 1800 120 3473<br>9540 666 666
+  
+          </div> -->
+  
+  
+  
+  
+  
+          <div class="col-lg-3 col-md-3 col-xs-12 top_icon p_right">
+              <ul class="navbar-nav sm-icons" >
+  
+  
+                <div *ngIf="isLoggedIn()" class="notification-dropdown">
+                  <div class="bell-icon" (click)="toggleDropdown()">
+                    <i class="fa fa-bell bell_1"></i>
+                    <span class="badge">{{ notificationtotal }}</span>
+                  </div>
+                  <ul class="dropdown-menu" [ngClass]="{ 'show': dropdownOpen }">
+                    <!-- <li *ngFor="let notification of notifications">{{ notification }}</li> -->
+                    <app-notification (notificationEvent)="toggleDropdown()" #appNotification></app-notification>
+                    <li *ngIf="notifications.length === 0">No new notifications</li>
+                  </ul>
+                </div>
+                      <!-- <li><a class="nav-link text_icon1  " routerLink="/user/proposal"> -->
+                        <!-- <li><a class="nav-link text_icon1 " >
+  
+                              <div id="ex4">
+                                  <span class="p1 fa-stack fa-2x has-badge text_icon1 mt-1" data-count="0">
+                                      <i class="p3 fa fa-bell fa-stack-1x xfa-inverse " data-count="4b"
+                                          style="font-size: 22px; color: #fff;"></i>
+                                  </span>
+                              </div>
+                          </a></li> -->
+  
+  
+  
+  
+                  <li><a class="nav-link text_icon1 "  routerLink="/products/MyCart">
+                          <div id="ex4">
+                              <span class="p1 fa-stack fa-2x has-badge text_icon1 mt-1 " [attr.data-count]="cart">
+                                  <i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse " data-count="4b"
+                                      style="font-size: 22px; color: #fff;"></i>
+                              </span>
+                          </div>
+                      </a></li>
+                      <li *ngIf="!isLoggedIn()"><a class="nav-link text_icon1" style="padding-top: 16px;" (click)="logIn('Log in')">Login</a>
+                      </li>
+                      <div class="menu login_r" routerLink="/customer-dashboard" *ngIf="isLoggedIn()">
+                          <ul>
+                            <li>{{firstName}}
+                              <h5>My Accounts</h5>
+                              <!-- <i class="fa fa-user-circle-o fa-lg" aria-hidden="true" style="font-size: 24px;"></i> -->
+                              <!-- <ul class="bg_color2">
+                                  <div class="container">
+                                      <div class="card-deck mb-3 text-center">
+  
+                                        <div class="mb-4 box-shadow col-2 pull-left mr_2" style="width: 9rem; text-align:center !important;">
+                                          <div class="">
+                                            <h4 class="my-0 font-weight-normal"><img src="https://i.postimg.cc/fLRsCYjF/dashboard2.png" class="mr_2" height="100" width="100"></h4>
+                                          </div>
+                                          <div class="card-body">
+  
+  
+                                            <button type="button"   routerLink="/customer-dashboard" class="btn ">My Dashboard</button>
+                                          </div>
+                                        </div>
+  
+                                        <div  *ngIf="isDE" class="mb-4 box-shadow col-2 pull-left mr_2" style="width: 9rem; text-align:center !important;">
+                                          <div class="">
+                                            <h4 class="my-0 font-weight-normal"><img src="http://cfx.ceasefire.biz/assets/designer_dash.png" class="mr_2" height="100" width="100"></h4>
+                                          </div>
+                                          <div class="card-body">
+  
+  
+                                            <button type="button"   routerLink="/design"  class="btn ">Designer Dashoard</button>
+                                          </div>
+                                        </div>
+  
+                                        <div class="mb-4 box-shadow col-2 pull-left mr_2" style="width: 9rem; text-align:center !important;">
+                                          <div class="">
+                                            <h4 class="my-0 font-weight-normal"><img src="https://ccrmuk.ceasefire.biz/assets/icons/my_profile1.png" class="mr_2" height="100" width="100"></h4>
+                                          </div>
+                                          <div class="card-body">
+  
+  
+                                            <button type="button" routerLink="/user/profile" class="btn ">My Profile</button>
+                                          </div>
+                                        </div>
+  
+  
+                                        <div class="mb-4 box-shadow col-2 pull-left mr_2" style="width: 9rem; text-align:center !important;">
+                                          <div class="">
+                                            <h4 class="my-0 font-weight-normal"><img src="https://ccrmuk.ceasefire.biz/assets/icons/my_order1.png" class="mr_2" height="100" width="100"></h4>
+                                          </div>
+                                          <div class="card-body">
+  
+  
+                                            <button type="button" routerLink="/user/order"  class="btn ">My Order</button>
+                                          </div>
+                                        </div>
+                                        <div class="mb-4 box-shadow col-2 pull-left mr_2" style="width: 9rem; text-align:center !important;">
+                                          <div class="">
+                                            <h4 class="my-0 font-weight-normal"><img src="https://ccrmuk.ceasefire.biz/assets/icons/my_proposal.png" class="mr_2" height="100" width="100"></h4>
+                                          </div>
+                                          <div class="card-body">
+  
+  
+                                            <button type="button" routerLink="/user/proposal"  class="btn ">My Proposal</button>
+                                          </div>
+                                        </div>
+  
+                                        <div class="mb-4 box-shadow col-2 pull-left mr_2" style="width: 9rem; text-align:center !important;">
+                                          <div class="">
+                                            <h4 class="my-0 font-weight-normal"><img src="https://ccrmuk.ceasefire.biz/assets/icons/change_password1.png" class="mr_2" height="100" width="100"></h4>
+                                          </div>
+                                          <div class="card-body">
+  
+  
+                                            <button type="button" routerLink="/user/changePassword" class="btn ">Change Password</button>
+                                          </div>
+                                        </div>
+  
+  
+  
+  
+                                        <div class="mb-4 box-shadow col-2 pull-left mr_2" style="width: 9rem; text-align:center !important;">
+                                          <div class="">
+                                            <h4 class="my-0 font-weight-normal"><img src="https://ccrmuk.ceasefire.biz/assets/icons/log_out1.png" class="mr_2" height="100" width="100"></h4>
+                                          </div>
+                                          <div class="card-body">
+  
+  
+                                            <button type="button"   (click)="logout()" class="btn ">Log Out</button>
+                                          </div>
+                                        </div>
+  
+                                      </div>
+  
+  
+                                    </div>
+  
+                              </ul> -->
+                            </li>
+  
+  
+                          </ul>
+                       </div>
+  
+                      <!-- <ng-container *ngIf="isLoggedIn()">
+                      <li><a class="nav-link" routerLink="/user/profile" style="    padding-top: 15px;"> <i style="font-size:1rem; color: #fff;    padding-top: 7px;
+                      ">{{firstName}}</i></a>
+                      </li>
+                      <li><a class="nav-link text_icon1 " routerLink="/user/profile"> <i class="fa fa-user-circle"
+                                  style="font-size:22px ; color: #fff; padding-top: 7px;
+                              "></i></a></li>
+  
+                      </ng-container> -->
+  
+                  <!-- <li><a class="nav-link text_icon1 " routerLink="/user/shipping-address">
+                          <div id="ex4">
+                              <span class="p1 fa-stack fa-2x has-badge text_icon1 mt-1 " [attr.data-count]="cart.length">
+                                  <i class="p3 fa fa-shopping-bag fa-stack-1x xfa-inverse " data-count="4b"
+                                      style="font-size: 22px; color: #fff;"></i>
+                              </span>
+                          </div>
+                      </a></li> -->
+              </ul>
+              <!-- <ul class="navbar-nav sm-icons" *ngIf="!isLoggedIn()">
+                  <li><a class="nav-link " (click)="logIn('Log in')"> <i style="font-size:1rem; color: #fff;">Login</i></a>
+                  </li>
+                  <li><a class="nav-link "  (click)="logIn('SignUp')"> <i style="font-size:1rem; color: #fff;">Signup</i></a>
+                  </li>
+  
+              </ul> -->
+              <!-- <div class="user">
+                  <nav>
+                      <ul>
+  
+                        <li><a href="#">User</a>
+                            <ul>
+                                <li><a href="#">Login</a></li>
+                                <li><a href="#">Signup</a></li>
+                            </ul>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div> -->
+  
+          </div>
+  
+  
+      </div>
+      <div class="container-fluid d-flex align-items-center">
+          <!-- <div class="col-1" *ngIf="!isHomePage">
+              <button type="button" class="btn btn-link" (click)="backClicked()">< Back </button>
+          </div> -->
+          <!-- <div class="col-2">
+              <h1 class="logo"><a routerLink="/"><img src="/assets/logo.jpg" width="202" height="100" alt="" /></a></h1>
+          </div> -->
+  
+          <div class="col-12">
+  
+              <nav id="navbar" class="navbar">
+  
+                  <ul *ngIf="menus.length>=5">
+                      <li><a class="nav-link scrollto z1" routerLink="/">{{menus[0].menuName}}</a></li>
+                      <li class="dropdown"><a href="#"><span>{{menus[1].menuName}}</span> <i class="fa fa-caret-down"
+                                  style="font-size:14px"></i></a>
+                          <ul>
+                              <li *ngFor="let item of collectins;let i=index">
+                  					<a (click)="getChildren(item)">{{item.collectionName}}</a>
+                				</li>
+                          </ul>
+                      </li>
+                      <li class="dropdown"><a routerLink="/appAreaneedToProtect"><span>{{menus[2].menuName}}</span>
+                              <i class="fa fa-caret-down" style="font-size:14px"></i></a>
+                          <ul>
+                              <li *ngFor="let item of areas;let i=index"><a
+                                      routerLink='{{item.url}}'  [queryParams]="{ id: item.id}">{{item.name}}</a>
+                              </li>
+  
+                          </ul>
+                      </li>
+                      <li class="dropdown"><a routerLink="/exp-type/i-need-to-protect-my-premises"><span>{{menus[3].menuName}}</span>
+                              <i class="fa fa-caret-down" style="font-size:14px"></i></a>
+                          <ul>
+                              <li *ngFor="let item of segments;let i=index">
+                                <a
+                                (click)="getSegment(item)">{{item.name}}</a>
+  
+                                  <!-- <a
+                                      routerLink='{{item.url}}'>{{item.name}}</a> -->
+                              </li>
+                          </ul>
+                      </li>
+                      <!-- <li><a class="nav-link scrollto" href="#about">Risk Area Protection</a></li> -->
+                      <li><a class="nav-link scrollto o" routerLink="/exp-type/i-need-fire-audit-for-my-premises">{{menus[4].menuName}}</a></li>
+  
+  
+  
+  
+                  </ul>
+                  <!-- <div class="dropdown">
+                      <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       Quicklinks
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
+                    </div> -->
+                  <i class="bi bi-list mobile-nav-toggle"></i>
+                  <div class="col-1" *ngIf="!isHomePage" style="width: 71px !important;">
+                      <button type="button" class="btn btn-outline-danger btn-sm " (click)="backClicked()"><i class="fa fa-chevron-circle-left mr-2" aria-hidden="true" style="margin-right:3px;"></i>Back </button>
+                  </div>
+  
+                  <div class="col-1"  *ngIf="isShowCSHomeBtn">
+  
+                    <button type="button" class="btn btn-primary btn-sm back_btn" (click)="goToCSHome()"><i class="fa fa-home mr-2" aria-hidden="true" style="margin-right:3px;"></i>CS Home </button>
+                </div>
+                <div class="col-1"  *ngIf="isDE">
+  
+                  <button type="button" class="btn btn-primary btn-sm back_btn" (click)="goToDEHome()"><i class="fa fa-home mr-2" aria-hidden="true" style="margin-right:3px;"></i>DE Home </button>
+              </div>
+  
+              </nav>
+  
+  
+          </div>
+  
+      </div>
+  </header>
+  </ng-container>
+  
+  <ng-container *ngIf="isMobile">
+  <app-mobile-header  [menus]="menus" [collectins]="collectins" [areas]="areas" [segments]="segments"></app-mobile-header>
+  </ng-container>
+
+ </div>
+
+
+<!-- End Header -->

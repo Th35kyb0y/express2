@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Ceasefire Express</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.jpg">
+
+
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M3HQNPBMGK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-M3HQNPBMGK');
+</script>
+
+<!--End Google Tag Manager -->
+
+
+
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="./carousel.css" />
+  <link rel="stylesheet" href="./custom.css" />
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2">
+  <script src="/assets/hmac-sha512.js"></script>
+  <script src="https://jssdk.payu.in/bolt/bolt.min.js"></script>
+  <meta name="google-site-verification" content="MWDfVaNvXQYtvYeS6FeEPAV83L4ogO5d4lR93_zBemE" />
+</head>
+
+<body onclick="bodyFunction()">
+  <main id="main" class="main">
+  
+    <app-root></app-root>
+    <script src="https://sboxcheckout-static.citruspay.com/bolt/run/bolt.min.js"></script>
+  </main>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
+  <!-- Google Tag Manager (noscript) -->
+  <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P7FHJ6P6" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript> -->
+  <!-- End Google Tag Manager (noscript) -->
+</body>
+<script>
+
+  function bodyFunction(){
+   try{
+    var x = document.getElementById("sayt");
+    x.style.display = "none";
+   }catch(e){}
+  console.log('bodyFunction')
+  }
+  </script>
+
+</html>

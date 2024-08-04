@@ -1,0 +1,180 @@
+.img_l{    position: absolute;
+  top: 233px;
+  left: 250px;
+  z-index: 999999;
+}
+
+.grey_box{
+  width: 549px;
+  background-color: rgba(132, 111, 72, 0.8);
+  height: 48px;
+  font-size: 32px;
+  color: #fff;
+  padding: 0px 40px 10px 10px;
+  position: absolute;
+  text-align: center;
+  top: 243px;
+  left: 494px;}
+
+.middle{ margin-top: 20px;}
+.white_box {
+  width: 772px;
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 175px;
+  font-size: 17px;
+  color: #000;
+  padding: 10px 10px 10px 240px;
+  position: absolute;
+  text-align: justify;
+  top: 291px;
+  left: 271px;}
+
+
+.explore_btn{ height: 48px;
+  font-size: 32px;
+  color: #fff;
+  padding: 0px 40px 10px 10px;
+  position: absolute;
+  text-align: center;
+  top: 473px;
+  right: 260px;}
+
+  .bg_yellow{ background-color: #ffe8b4; padding: 20px;}
+
+   .bg_living{     width: 313px;
+      height: 300px;}
+
+  .btn_imgh{
+      width: 146px;
+      height: 38px;
+      color: #000;
+      text-align: center;
+      display: block;
+      background-color: rgba(255, 255, 255, 0.9);
+      position: relative;
+      top: -177px;
+      padding: 7px 15px 10px 15px;
+      left: 81px;
+
+  }
+.click_btn a:hover{ cursor: pointer; background-image: url(https://cfx.ceasefire.biz/assets/apartment/click_icon.jpg);}
+  .click_btn{
+
+
+      width: 146px;
+      height: 37px;
+      display: block;
+      color: #000;
+      background-image: url(https://cfx.ceasefire.biz/assets/apartment/click_icon.jpg);
+      position: relative;
+      top: -139px;
+      padding: 10px 15px 10px 15px;
+      left: 43px;
+
+  }
+
+
+.swipperBox {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+.swiper {
+width: 100%;
+height: 500px;
+
+// .none1{ display: none;}
+
+}
+.subtitle{float: left; width: 100%; font-weight: bold;}
+.year{ color: orange; font-size: 50px; font-weight: 500;}
+.line_btm{ width: 100px; height: 10px; border-bottom: 2px solid #000; float: left;}
+.box_f{width: 1000px; height: 200px; position: absolute; top: 80px;}
+.box3{ width: 550px; float: right; clear: both; padding: 20px; text-align: left; margin-top: 30px;  background-color: rgba(255,255,255,0.8);  color: #000;}
+
+.box2{ width: 550px; float: right; clear: both; padding: 20px; text-align: left; margin-top: 30px;  background-color: rgba(255,255,255,0.8); color: #000;}
+.box1{ width: 550px;  float: left; padding: 20px; text-align: left;  background-color: rgba(255,255,255,0.9); color: #000;}
+// .storySwiper{ background: url(https://cfx.ceasefire.biz/assets/our_story/bg.webp) no-repeat; }
+
+.swiper-slide1_bg{background: url(https://cfx.ceasefire.biz/assets/segment_slider/living_slide2.webp) no-repeat !important;}
+
+.swiper-slide2_bg{background: url(https://cfx.ceasefire.biz/assets/segment_slider/corridor_3.webp) no-repeat !important;}
+
+.swiper-slide3_bg{background: url(https://cfx.ceasefire.biz/assets/segment_slider/kitchen_slide.webp) no-repeat !important;}
+
+.swiper-slide4_bg{background: url(https://cfx.ceasefire.biz/assets/segment_slider/bedroom_slide.webp) no-repeat !important;}
+
+.swiper-slide5_bg{background: url(https://cfx.ceasefire.biz/assets/segment_slider/home_office1.jpg) no-repeat !important;}
+
+.swiper-slide6_bg{background: url(https://cfx.ceasefire.biz/assets/segment_slider/temple_slider.webp) no-repeat !important;}
+.swiper-slide7_bg{background: url(https://cfx.ceasefire.biz/assets/segment_slider/car_slide.webp) no-repeat !important;}
+.swiper-slide {
+text-align: center;
+font-size: 18px;
+background: #fff;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.swiper-slide img {
+display: block;
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.swiper-button-prev, .swiper-button-next {
+position: absolute;
+top: var(--swiper-navigation-top-offset, 50%);
+width: 50px;
+height: 50px;
+margin-top: calc(0px - var(--swiper-navigation-size) / 2);
+z-index: 10;
+background-color: #fff;
+padding: 14px !important;
+cursor: pointer;
+display: flex;
+font-size: 12px;
+align-items: center;
+justify-content: center;
+color: #000;}
+
+.carousel-inner{
+  height: 500px !important;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+.img_l{display: none;}
+
+.white_box{display: none;}
+
+.explore_btn{ display: none;}
+
+.grey_box{ display: none;}
+
+.swiper{ display: none;}
+
+
+.btn_imgh {
+  width: 146px;
+  height: 38px;
+  color: #000;
+  text-align: center;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: relative;
+  top: -218px;
+  padding: 7px 15px 10px 15px;
+  left: 116px;
+}
+
+}

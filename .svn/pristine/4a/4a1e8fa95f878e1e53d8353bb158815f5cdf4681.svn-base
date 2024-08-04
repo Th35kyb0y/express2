@@ -1,0 +1,31 @@
+.shop_btn{background-color: #019eaa;
+    padding: 4px 25px 4px 25px;
+    border-radius: 20px;
+    color: #fff;
+}
+
+.m_top{margin-top: 100px;}
+
+.red_heading{color: red;}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #c6000c;
+    border-color: #c6000c;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #c6000c;
+    border-color: #c6000c;
+}
+
+
+.img_text{position: absolute;
+    top: 278px;
+    left: 125px;}
+
+
+    @media only screen and (max-width: 600px) {
+
+.mob_mt{ margin-top: 20px;}
+    }

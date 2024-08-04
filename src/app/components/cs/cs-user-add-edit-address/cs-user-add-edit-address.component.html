@@ -1,0 +1,97 @@
+   
+    <div class="container-fluid">
+
+        <form class="custom-form" [formGroup]="address" (ngSubmit)="saveAddressMaster()">
+            <div class="row ">
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+                <label for="firstName" class="form-label">First Name <span  class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="firstName" formControlName="firstName" >
+				
+                <div *ngIf="isFieldInvalid('firstName') && address.get('firstName')?.touched" class="text-danger">
+                  First Name is required.
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+                <label for="lastName" class="form-label">Last Name <span  class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="lastName" formControlName="lastName" >
+                <div *ngIf="isFieldInvalid('lastName') && address.get('lastName')?.touched" class="text-danger">
+                  Last Name is required.
+                </div>
+              </div>
+           
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+                <label for="CompanyName" class="form-label">Company Name <span  class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="companyName" formControlName="companyName" >
+                <div *ngIf="isFieldInvalid('companyName') && address.get('companyName')?.touched" class="text-danger">
+                  Company Name is required.
+                </div>
+              </div>
+             
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+                  <label for="mobilenumber" class="form-label">Mobile Number <span  class="text-danger">*</span></label>
+                  <input type="number" class="form-control" id="mobile" formControlName="mobile" >
+                  <div *ngIf="isFieldInvalid('mobile') && address.get('mobile')?.touched" class="text-danger">
+                    Mobile Number is required.
+                  </div>
+                </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+              <label for="email" class="form-label">Email address <span  class="text-danger">*</span></label>
+              <input type="email" class="form-control" id="email" formControlName="email" >
+              <div *ngIf="isFieldInvalid('email') && address.get('email')?.touched" class="text-danger">
+                Email address is required.
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+              <label for="zipcode" class="form-label">Zip Code <span  class="text-danger">*</span></label>
+              <input type="tel" class="form-control" id="pincode" formControlName="pincode" >
+              <div *ngIf="isFieldInvalid('pincode') && address.get('pincode')?.touched" class="text-danger">
+                Zip Code  is required.
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+              <label for="line1" class="form-label">Address Line 1 <span  class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="line1" formControlName="line1" >
+              <div *ngIf="isFieldInvalid('line1') && address.get('line1')?.touched" class="text-danger">
+                Address Line 1  is required.
+              </div>
+            </div>
+            
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+                <label for="line2" class="form-label">Address Line 2</label>
+                <input type="text" class="form-control" id="line2" formControlName="line2" >
+              </div>
+           
+          
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+                <label for="City" class="form-label">City <span  class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="city" formControlName="city" >
+				<div *ngIf="isFieldInvalid('city') && address.get('city')?.touched" class="text-danger">
+					City  is required.
+				  </div>  
+			</div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+                <label for="State" class="form-label">State <span  class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="state" formControlName="state" >
+				<div *ngIf="isFieldInvalid('state') && address.get('state')?.touched" class="text-danger">
+					State  is required.
+				  </div>    
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+                <label for="deliveryInstruction" class="form-label">Delivery Instruction </label>
+                <input type="text" class="form-control" id="deliveryInstruction" formControlName="deliveryInstruction" >
+				   
+			</div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-2">
+        <label for="GST_Number" class="form-label">GST Number </label>
+        <input type="text" class="form-control" id="GST_Number" formControlName="gST_Number" >
+   
+</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-4 pt-2">
+				<button [disabled]="address.invalid" type="submit" class="btn btn-danger pull-right">Submit</button>
+			</div>
+            </div>
+          
+          </form>
+    </div>

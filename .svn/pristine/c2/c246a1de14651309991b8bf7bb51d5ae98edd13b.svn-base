@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="row col-12 d-flex">
+    <hr />
+
+    <div
+      class="row col-12 d-flex"
+      *ngIf="ContentTypeId == 2 || ContentTypeId == 3"
+    >
+      <div
+        class="card col-2 text-center p-2 mb-3"
+        style="width: 14rem; margin-right: 25px"
+        *ngFor="let i of ProductData"
+      >
+        <img [src]="i?.imgLink" class="card-img-top" alt="..." class="border-bottom" />
+        <div class="card-body">
+          <p class="p_name1">{{ i?.name }}</p>
+          <a [href]="i?.brochureLink" target="_blank" class="btn btn-primary"
+            >View</a>
+            <button (click)="share()"  class="btn btn-primary btn-sm"
+            *ngIf="isShowCSHomeBtn"><i class="fa fa-share-alt"></i> Share</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row col-12 d-flex" *ngIf="ContentTypeId == 6 && !isShowTechSpec">
+      <div
+        class="card col-2 text-center p-2"
+        style="width: 14rem; margin-right: 25px"
+        *ngFor="let i of ProductData"
+      >
+        <img [src]="i?.imgLink" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <p>{{ i?.name }}</p>
+          <button type="button" class="btn btn-primary"
+           (click)="showtechSepc(i.content)" >View</button>
+           <button (click)="share()"  class="btn btn-primary btn-sm" *ngIf="isShowCSHomeBtn"><i class="fa fa-share-alt"></i> Share</button>
+        </div>
+      </div>
+    </div>
+    <div class="row col-12 d-flex" *ngIf="ContentTypeId == 6 && isShowTechSpec">
+      <div
+        class="col-12 text-center p-2"
+        style=" margin-right: 25px"
+
+      >
+      <div
+      [innerHTML]="techSpect"></div>
+      </div>
+      <div class="cpl-2 col-12">
+      <button type="button" class="btn btn-outline-danger"   (click)="showtechSepc('')"> Close</button>
+
+      </div>
+    </div>
+    <div class="row col-12 d-flex" *ngIf="ContentTypeId == 1 && !isVideoShow">
+      <div
+        class="card col-2 text-center p-2"
+        style="width: 14rem; margin-right: 25px"
+        *ngFor="let i of ProductData"
+      >
+        <img [src]="i?.imgLink" class="card-img-top" alt="..." />
+        <div class="card-body">
+
+
+          <p>{{ i?.name }}</p>
+         <button type="button" class="btn btn-primary" (click)="showVideo(i.brochureLink)">Play Video</button>
+
+        </div>
+      </div>
+    </div>
+    <div class="row col-12 d-flex" *ngIf="ContentTypeId == 1 && isVideoShow">
+      <div
+
+        style=" margin-right: 25px"
+      >
+      <!-- <iframe width="820" height="420" [src]="getVideoUrl()" frameborder="0"
+      allowfullscreen></iframe> -->
+      <iframe width="100%" height="420" [src]="safeVideoUrl" frameborder="0"
+      allowfullscreen></iframe>
+      <button type="button" class="btn btn-outline-danger" (click)="showVideo('')">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

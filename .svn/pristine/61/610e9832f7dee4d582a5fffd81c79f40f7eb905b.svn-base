@@ -1,0 +1,30 @@
+.container-fluid{
+    margin-top: 152px;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 400px;
+    padding: 20px;
+    margin: auto;
+
+    /* background-color: ; */
+}
+
+.form-control {
+    padding: 8px;
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+.custom-form-control {
+    width: 180px;
+}

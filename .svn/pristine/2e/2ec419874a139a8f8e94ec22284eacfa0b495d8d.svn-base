@@ -1,0 +1,49 @@
+<div [ngSwitch]="showDiv1">
+    <div *ngSwitchCase="false" class="col-12 side" id="side_media">
+        <button class=" border_r " type="button" data-toggle="collapse" data-target="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample" style="width: 100%;">
+            <i class='fa fa-align-justify' id="button_fa"><span class="border1">Premises</span></i>
+        </button>
+        <div id="collpase ">
+            <div *ngFor="let item of data" class="side_nav"><a routerLink="/homecar" routerLinkActive="active"
+                    target="_blank">{{item.title}} </a></div>
+
+
+        </div>
+        <!-- category start here-->
+        <div class="col-12 f_left button_div ">
+            <button class="col-10 f_left side_button my-1 p-1 ">
+                <a href="https://www.facebook.com/CeasefireUKLtd" class="pull-left img_w"><img
+                        src="/assets/connect_with_use.jpg" width="100%" height="100%" alt="" /></a>
+                <span class=" side_w">Connect with us for installation service</span>
+            </button>
+            <button class="col-10 f_left side_button my-1 p-1 ">
+                <a href="https://www.facebook.com/CeasefireUKLtd" class="pull-left img_w"><img
+                        src="assets/quick_delivery.jpg" width="100%" height="100%" alt="" /></a>
+                <span class=" side_w">Quick Delivery From 200 inc GST</span>
+            </button>
+            <button class="col-10 f_left side_button my-1 p-1 ">
+                <a href="https://www.facebook.com/CeasefireUKLtd" class="pull-left img_w"><img
+                        src="assets/secure_payment.jpg" width="100%" height="100%" alt="" /></a>
+                <span class=" side_w">Secure Payment with our fast checkout</span>
+            </button>
+            <button class="col-10 f_left side_button my-1 p-1">
+                <a href="https://www.facebook.com/CeasefireUKLtd" class="pull-left img_w"><img
+                        src="assets/live_chat.jpg" width="100%" height="50" alt="" /></a>
+                <span class=" side_w">Live customer Availablle Now</span>
+            </button>
+            <button class="col-10 f_left side_button my-1 p-1 ">
+                <a href="#" class="pull-left img_w"><img src="assets/peace_of_mind.jpg" width="100%" height="100%"
+                        alt="" /></a>
+                <span class=" side_w">Peace of Mind 30 days returns policy</span>
+            </button>
+            <button class="col-10 f_left side_button my-1 p-1  ">
+                <a href="https://www.facebook.com/CeasefireUKLtd" class="pull-left img_w"><img
+                        src="assets/free_replacement.jpg" width="100%" height="100%" alt="" /></a>
+                <span class="side_w">Free Replacements on essential products</span>
+            </button>
+        </div>
+
+
+    </div>
+</div>

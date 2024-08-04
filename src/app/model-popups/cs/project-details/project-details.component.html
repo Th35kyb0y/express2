@@ -1,0 +1,49 @@
+<!-- tabs.component.html -->
+<div class="modal-header">
+    <!-- <h4 class="modal-title"> <img src="/assets/images/logo_white.png" width="150" height="53" alt="" /></h4> -->
+    <h5 class="modal-title"> View Detail</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal('Dismissed')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+
+</div>
+<div class="modal-body" style="  height: 80vh;overflow: auto;">
+
+    <div class="container">
+
+
+       
+        <div class="table-container-projectdetails">
+            <table class="table table-bordered ">
+                <thead class="thead-light sticky-header">
+                    <tr>
+
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Created</th>
+                        <th scope="col">Action</th>
+                     
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of list;let i=index">
+
+                        <td>{{item.userName}} </td>
+                        <td>{{item.created_At | date:'dd-MM-yyyy'}}</td>
+                        <td>
+                            <a href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-placement="top"
+                                        title="View Detail" (click)="delete(item,i)">
+                                        <i class="fa fa-trash mr-2" aria-hidden="true"></i>
+                                    </a>
+                        </td>
+
+
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+     
+    </div>
+</div>

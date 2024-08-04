@@ -1,0 +1,3 @@
+<a (click)="addRemoveWishlist(item)"> <i class="fa fa-heart" aria-hidden="true" 
+    [ngClass]="item.isWishList == true ? 'IsWishList-color' : ''"
+    ></i> </a>

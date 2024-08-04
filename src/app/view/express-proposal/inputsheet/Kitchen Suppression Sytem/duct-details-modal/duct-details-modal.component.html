@@ -1,0 +1,35 @@
+<!-- duct-details-modal.component.html -->
+
+<div>
+    <h3>Duct Data</h3>
+    <table class="table table-bordered table-responsive">
+        <thead>
+            <tr>
+                <th>#</th>
+                <!-- <th>Action</th> -->
+                <th>Type Of Duct</th>
+                <th>No. Of Duct (R)</th>
+                <th>Length (R) (mm)</th>
+                <th>Width (R) (mm)</th>
+                <th>Area (R) (m²)</th>
+                <th>No. Of Duct (C)</th>
+                <th>Diameter (C) (mm)</th>
+                <th>Area (C) (m²)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let duct of ductData; let i = index">
+                <td>{{ i+1 }}</td>
+                <!-- <td><button mat-icon-button (click)="editDuct(duct)"><mat-icon>edit</mat-icon></button></td> -->
+                <td>{{ duct.ductType}}</td>
+                <td>{{ duct.noOfDuctRectangular}}</td>
+                <td>{{ duct.lengthRectangular }}</td>
+                <td>{{ duct.widthRectangular }}</td>
+                <td>{{ duct.areaRectangular }}</td>
+                <td>{{ duct.noOfDuctCircular}}</td>
+                <td>{{ duct.diameterCircular }}</td>
+                <td>{{ duct.areaCircular }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

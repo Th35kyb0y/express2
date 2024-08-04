@@ -1,0 +1,177 @@
+<app-cs-left-nav></app-cs-left-nav>
+<div class="bg_grey">
+  <div id="main">
+    <app-cs-header [title]="'My Order'"></app-cs-header>
+
+
+
+    <div class="row">
+
+ 
+      <div class="grey-bg container-fluid">
+        <section id="minimal-statistics">
+		
+          <!-- <div class="col-12 container mt-2">
+            <div class="pull-right"><button class="btn btn-danger" (click)="ApiService.goBack()"><i
+                  class="fa fa-arrow-left"></i> Back</button></div>
+          </div> -->
+          <div class="col-12 m-2">
+
+			<div class="row align-items-end bg_white py-3 px-1">
+				<div class="col-3">
+				  <label class="form-label">From Date</label>
+				  <div class="input-group">
+					
+					<input type="date"
+								  placeholder="Datepicker"
+								 [(ngModel)]="obj.fromdate"
+								  class=" form-control"
+								  >
+
+					
+				  </div>
+				</div>
+				<div class="col-3">
+				  <label class="form-label">To Date</label>
+				  <div class="input-group">
+					
+					<input type="date"
+								  placeholder="Datepicker"
+								  [(ngModel)]="obj.todate"
+								  class=" form-control"
+								  >
+
+
+				  </div>
+				</div>
+				<div class="col-3">
+				  <label class="form-label">Customers</label>
+				  <div class="input-group">
+					<select class="form-select"   [(ngModel)]="obj.UserId">
+					  <option value="">All</option>
+					  <option *ngFor="let user of Users" value="{{user.userID}}">{{user.name}}</option>
+					</select>
+				  </div>
+				</div>
+				<div class="col-2">
+				  <label class="form-label">Order Status</label>
+				  <div class="input-group">
+					<select class="form-select"   [(ngModel)]="obj.status">
+					  <option value="">All</option>
+					  <option *ngFor="let status of orderStatus" value="{{status.id}}">{{status.status}}</option>
+					</select>
+				  </div>
+				</div>
+				<div class="col-1">
+				  <button type="submit" class="btn btn-danger" (click)="goToSearch()">Search</button>
+				</div>
+			  </div>
+
+			  <div class="row mt-3" *ngFor="let ord of orders ">
+				<div class=" col-12 groove">
+					<div class="col-8 main_order">
+						<p class="spanWidth">
+							<span *ngFor="let ordItem of ord.orderItems; let i = index" >
+								<img *ngIf="3 > i" [src]="ordItem.productImage" [className]="ord.orderItems.length > 1 ? 'imageWidthSmall' : 'imageWidth'" alt="image" />
+								<span *ngIf="i == 3" style="font-size: 20px;">+ {{ord.orderItems.length-3}}</span>
+							</span>
+
+							<!-- <img src="/assets/img8.jpg" width="90" height="90" alt="image" /> -->
+						</p>
+						<p class="main_text mt-2">
+							<span>Order # {{ord.orderNumber}}</span>
+							<span>Order Placed:{{ord.createdDate | date:'dd MMM, YYYY'}}</span>
+							<span>Ship To:
+							  {{ord.orderAddresses.length>0?ord.orderAddresses[0].customerName:''}}
+
+							</span>
+						</p>
+					</div>
+					<div class="col-4 pad_b">
+						<p class="main_text_0 mt-2">
+							<span>{{bindQuantity(ord.orderItems)}}</span>
+							<span class="main_p"> &#8377;{{ord.payableAmount | number:'0.2-2'}}</span>
+						</p>
+					 
+						  <span class="main_text_1 mt-1 pt-3"> 
+							<span class="main_text_1">
+							  <span class="mt-1">order status: <span class="main_0">{{bindStatus(ord)}}</span></span>
+						  </span> 
+							<button type="button" class="btn btn-danger btn-sm btn_1" *ngIf="ord.isEditable" style="margin-right: 5px; width: 49.53px;" (click)="editOrder(ord)">Edit</button>
+							<button type="button" class="btn btn-danger btn-sm" (click)="goDetail(ord)" *ngIf="!ord.isEditable" style="margin-right: 5px;" >Track</button>
+							<button type="button" class="btn btn-success btn-sm" (click)="goDetail(ord)" style="margin-right: 5px;" >View Order</button>
+
+							<button type="button" class="btn btn-success btn-sm btn_1" *ngIf="ord.isReOrder" style="margin-right: 5px;" >Reorder</button>
+				   
+				   </span>       </div>
+				</div>
+			</div>
+
+
+			  
+			  <!-- <div class="row mt-3">
+				<div class="col-md-12 overflow-scroll" style="max-height:1200px;">
+				  <table class="table table-bordered  table-hover table-striped" id="cs-registration-table">
+					<thead class="thead-light">
+						<tr>
+							
+							<th >Image</th>
+							<th >Order No.</th>
+							<th >Order Date</th>
+							
+							<th >Order Status</th>
+							<th >Payable Amount</th>
+							<th >Quantity</th>
+							<th >Customer Name</th>
+							<th>Action</th>
+						</tr> 
+					</thead>
+					<tbody>
+						<tr *ngFor="let item of orders">
+						  <td> 
+							<p class="spanWidth">
+							<span *ngFor="let ordItem of item.orderItems; let i = index" >
+								<img *ngIf="3 > i" [src]="ordItem.productImage" [className]="item.orderItems.length > 1 ? 'imageWidthSmall' : 'imageWidth'" alt="image" />
+								<span *ngIf="i == 3" style="font-size: 20px;">+ {{item.orderItems.length-3}}</span>
+							</span>
+
+						</p>
+					</td>
+							<td>{{item.orderNumber}}</td>
+							<td>{{item.createdDate | date:'dd MMM, YYYY'}} </td>
+							
+							<td>{{item.status}}</td>
+							<td>&#8377;{{item.payableAmount | number:'0.2-2'}}</td>
+				
+							<td>{{bindQuantity(item.orderItems)}}</td>
+							<td>{{item.cbaName}}</td>
+							
+						  <td>
+							<a class="btn btn-danger" (click)="goDetail(item)" >View</a>
+						  </td>
+				
+						</tr>
+				
+					</tbody>
+				</table>
+				</div>
+			
+			  </div> -->
+
+          </div>
+
+
+        </section>
+
+      </div>
+
+
+    </div>
+
+
+
+
+  </div>
+
+
+</div>

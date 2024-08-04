@@ -1,0 +1,188 @@
+<div class="modal-header">
+	<h5 class="modal-title"> Create Prospect</h5>
+	<button type="button" class="btn-close" aria-label="Close" (click)="closeModal('Dismissed')">
+
+	</button>
+
+</div>
+<div class="modal-body" style="height: 80vh;overflow: auto;">
+
+
+	<div class="container py-3">
+
+
+		<div class="row">
+			<div class="col-xl-12 col-lg-12 col-md-12">
+				<label for="companyName" class="form-label">Company Name</label>
+				<input type="text" id="companyName" [(ngModel)]="obj.companyName" class="form-control"
+					aria-describedby="companyNameBlock" readonly>
+			</div>
+			<div class="col-xl-4 col-lg-3 col-md-6">
+				<label for="collection" class="form-label">Collection</label>
+
+				<select id="Collection" [(ngModel)]="collectionId" class="form-select" name="Collection"
+					(change)="onSelectChangeCollection($event)">
+					<option value="">--Select--</option>
+					<ng-container *ngFor="let item of collectins">
+						<option value="{{item.collectionId}}">{{item.collectionName}}</option>
+					</ng-container>
+				</select>
+			</div>
+			<div class="col-xl-4 col-lg-3 col-md-6">
+				<label for="Collection2" class="form-label">Collection 2</label>
+				<select id="Collection2" [(ngModel)]="collectionId2" class="form-select" name="Collection2"
+					(change)="onSelectChangeCollection2($event)">
+					<option value="">--Select--</option>
+					<ng-container *ngFor="let item of collectins2">
+						<option value="{{item.collectionId}}">{{item.collectionName}}</option>
+					</ng-container>
+				</select>
+			</div>
+
+			<div class="col-xl-4 col-lg-3 col-md-6 pt-2">
+				<button class="btn btn-primary mt-4" (click)="Search()">Search</button>
+			</div>
+
+		</div>
+
+		<!-- products-table.component.html -->
+		<div class="row mt-5">
+			<div class="col-xl-4 col-lg-3 col-md-6"></div>
+			<div class="col-xl-4 col-lg-3 col-md-6"></div>
+			<div class="col-xl-4 col-lg-3 col-md-6 text-center">
+				<button class="btn btn-success" (click)="AddToGrid()" *ngIf="!isViewGrid">Add to Grid</button>
+				&nbsp;
+				<button class="btn btn-primary" (click)="isViewGrid=!isViewGrid" *ngIf="!isViewGrid">View Grid</button>
+				&nbsp;
+				<button class="btn btn-primary" (click)="isViewGrid=!isViewGrid" *ngIf="isViewGrid">X</button>
+			</div>
+			<div class="col-xl-12 col-lg-12 col-md-12">
+				<p *ngIf="_products.length==0" class="text-center mt-3">
+
+					
+					<span class="loader" *ngIf="IsShowLoader"></span>
+				</p>
+
+				<!-- Without grid -->
+				<ng-container *ngIf="!isViewGrid">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Image</th>
+								<th scope="col">Product Name</th>
+								<th scope="col">Price</th>
+								<th scope="col">Select</th>
+								<th scope="col">Quantity</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let product of _products; let i = index">
+								<th scope="row">{{ i + 1 }}</th>
+								<td><img [src]="getProductFirstImageContent(product.contents)"
+										class="img-fluid rounded-start mt-2" width="100" [alt]="product.alt"
+										[title]="product.alt_title"></td>
+								<td>{{ product.name }} - {{product.code}}</td>
+								<td>
+	
+									<p class="mb-0 fw-bold " *ngIf="product.discount.discountType == 2">
+										<span class="text-decoration-line-through ">Price: ₹{{product.price}}</span>
+										<span class="m-lg-2 text-success">Discount:
+											₹
+											<!-- {{item.currency.symbol}} -->
+											{{product.discount.discountAmount |
+											number:'0.2-2'}} <span
+												*ngIf="product.discount.value != null && product.discount.value != 0">({{
+												product.discount.value }}%)</span>
+										</span>
+									</p>
+									<p class="mt-0 fw-bold mb-0 text-danger" *ngIf="product.discount.discountType != 2">
+										₹{{product.price}} &nbsp;
+	
+									</p>
+								</td>
+								<td>
+									<input type="checkbox" [(ngModel)]="product.selected">
+								</td>
+								<td>
+									<input type="number" [(ngModel)]="product.quantity" class="form-control" min="1"
+										max="100">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</ng-container>
+
+				<!-- In Grid -->
+				
+				<ng-container *ngIf="isViewGrid">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Image</th>
+								<th scope="col">Product Name</th>
+								<th scope="col">Price</th>
+							
+								<th scope="col">Quantity</th>
+								<th scope="col">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let product of _products_in_grid; let i = index">
+								<th scope="row">{{ i + 1 }}</th>
+								<td><img [src]="getProductFirstImageContent(product.contents)"
+										class="img-fluid rounded-start mt-2" width="100" [alt]="product.alt"
+										[title]="product.alt_title"></td>
+								<td>{{ product.name }} - {{product.code}}</td>
+								<td>
+	
+									<p class="mb-0 fw-bold " *ngIf="product.discount.discountType == 2">
+										<span class="text-decoration-line-through ">Price: ₹{{product.price}}</span>
+										<span class="m-lg-2 text-success">Discount:
+											₹
+											<!-- {{item.currency.symbol}} -->
+											{{product.discount.discountAmount |
+											number:'0.2-2'}} <span
+												*ngIf="product.discount.value != null && product.discount.value != 0">({{
+												product.discount.value }}%)</span>
+										</span>
+									</p>
+									<p class="mt-0 fw-bold mb-0 text-danger" *ngIf="product.discount.discountType != 2">
+										₹{{product.price}} &nbsp;
+	
+									</p>
+								</td>
+								
+								<td>
+									{{product.quantity}}
+								</td>
+								<td>
+									<button class="btn btn-danger" (click)="delete(product,i)">
+										<i class="fa fa-trash" aria-hidden="true"></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div class="row">
+						<div class="col-8"></div>
+						<div class="col-4">
+							<button (click)="Submit()" class="btn btn-success">
+ 								Submit
+							</button>
+						</div>
+					</div>
+				</ng-container>
+				
+			</div>
+
+		</div>
+
+
+
+
+	</div>
+
+</div>

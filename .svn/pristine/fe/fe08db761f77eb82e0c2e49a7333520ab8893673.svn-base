@@ -1,0 +1,8 @@
+.s0{font-family: "Poppins";
+    font-weight: 500;
+    color: #000;
+    font-size: 1.2rem;
+    text-align: inherit;
+    margin-top: 5px;}
+
+    hr{ margin: 5px 0px;}

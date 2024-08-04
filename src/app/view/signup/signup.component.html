@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="container myformm">
+            <div class="card">
+                <h5 class="text-center mb-3">Register Here</h5>
+                <form [formGroup]="user">
+                    <div class="mb-1">
+                        <label for="fullname" class="form-label">Full Name</label>
+                        <div style="display: flex;">
+                            <input type="text" placeholder="First Name" class="form-control" name="firstName" required
+                                formControlName="firstName" style="width: 190px;" />
+                            <input type="text" placeholder="Last Name" class="form-control" name="lastName" required
+                                formControlName="lastName" style="width: 190px; margin-left: 10px;" />
+                        </div>
+                    </div>
+                    <div class="mb-1">
+                        <label for="mobile" class="form-label">Mobile Number</label>
+                        <input type="number" class="form-control" id="mobile"
+                            placeholder="Enter Your Mobile Number" name="mobile" required
+                            formControlName="mobile">
+                    </div>
+                    <div class="mb-1">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter Your Email" name="email"
+                            required formControlName="email">
+                    </div>
+                    <div class="mb-1">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter Your Password"
+                            name="password" required formControlName="password">
+                    </div>
+                    <div class="mb-1">
+                        <label for="confirmpassword" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmpassword"
+                            placeholder="Enter Your Confirm Password" name="confirmpassword" required
+                            formControlName="confirmpassword">
+                    </div>
+                    <div class="d-grid mt-3">
+                        <button class="btn btn-danger" (click)="onSubmit()">Signup</button>
+                        <p class="text-center">Already have an account? 
+                            <a routerLink="/login" style="color: blue; cursor: pointer;">Login here</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

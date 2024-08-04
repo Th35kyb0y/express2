@@ -1,0 +1,106 @@
+.font_d{     font-size: 30px;
+    color: #000; 
+    margin-top: 12px;
+    float: left;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.font_d:hover{     font-size: 30px;
+    color: #ff5f42;
+    margin-top: 12px;
+    cursor: pointer;
+    float: left;
+    margin-left: 20px;
+}
+
+.font_A{     font-size: 30px;
+    color: #000; 
+    margin-top: 0px;
+    float: left;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.font_A:hover{     font-size: 30px;
+    color: #ff5f42;
+    margin-top: 12px;
+    cursor: pointer;
+    float: left;
+    margin-left: 20px;
+}
+a{cursor: pointer;}
+.box1{width: 406px;
+    padding: 10px;
+    position: absolute;
+    top: 510px;
+    left: 50px;
+    height: 104px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+
+}
+
+.a_hover:hover{ color: #000;}
+
+.box:hover{ background-color: rgba(0, 0, 0, 0.8);}
+
+.img_l{ margin-left: 51px;}
+.img_2{ margin-left: 142px;}
+.box2{width: 406px;
+    padding: 10px;
+    position: absolute;
+    top: 510px;
+    right: 50px;
+    height: 104px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+}
+
+
+@media only screen and (max-width: 600px) {
+ 
+    .middle{margin-top:22px;}
+ 
+        .box2 {
+            width: 408px;
+            padding: 10px;
+            position: relative;
+            top: 0px;
+            margin-bottom: 20px;
+            right: 21px;
+            height: 104px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ccc;
+}
+
+.font_d[_ngcontent-ng-c2274082517] {
+    font-size: 30px;
+    color: #000;
+    margin-top: 12px;
+    float: left;
+    margin-bottom: 20px;
+    cursor: pointer;
+    margin-left: 20px;}
+
+.box1 {
+    width: 405px;
+    padding: 10px;
+    position: relative;
+    top: 0px;
+    left: -5%;
+    height: 104px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;}
+
+
+
+    }
+
+    
+  
+    
+    
+
+
+

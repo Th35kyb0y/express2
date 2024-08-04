@@ -1,0 +1,14 @@
+<div class="modal-header">
+  <h4 class="modal-title">QuickLinks</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="closeModal('Dismissed')">
+    <!-- <span aria-hidden="true">&times;</span> -->
+  </button>
+</div>
+<div class="modal-body" style="height: 93vh; text-align: center;">
+  <ul>
+    <li *ngFor="let item of QuickLinkList;let i=index" class="link">
+      <a href="javascript:void(0);" class="btn btn-danger btn-sm modal_btn" (click)="GoToLink(item)"><i class="fa fa-user-o m_right" aria-hidden="true"></i>{{item.linkName}}</a>
+    </li>
+   
+  </ul>
+</div>

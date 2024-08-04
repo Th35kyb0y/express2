@@ -1,0 +1,326 @@
+
+
+
+<app-cs-left-nav></app-cs-left-nav>
+<div class="bg_grey">
+<div id="main">
+  <app-cs-header [title]="'Dashboard'"></app-cs-header>
+
+
+
+<div class="row">
+
+  
+<div class="grey-bg container-fluid">
+  <section id="minimal-statistics">
+ 
+    <div class="row">
+      <div class="col-12 mt-3 d-flex justify-content-evenly">
+      
+      <div class="col-xl-7 col-sm-7 col-12"> 
+        <div class="row">
+        <div class="card p-3 shadow-sm border-0">
+          <div class="card-content">
+            <div class="card-body">
+        
+              <!-- <h5 class="card-title title_Card">Today's Sales</h5>
+              <h6 class="card-subtitle mb-2 text-muted mb-4 subtital">Sales Summary</h6>
+              <div class="col-12 d-flex justify-content-end export_d">
+              <a href="javascript:void(0);" class="btn btn-light export_btn">  <img src="https://cfx.ceasefire.biz/assets/icons/share.png " style="margin-right: 6px;
+                margin-top: -3px;" width="15" height="15">Export</a>
+            </div> -->
+              <div class="media d-flex justify-content-evenly">
+
+
+
+                <div class="col-4 total_sales p-3 mr-3" style="cursor: pointer;"  (click)="gotoPage('cs-my-customers')">
+                  <div class="rounded-circle clr_p text-center circle">
+                    <img src="https://cfx.ceasefire.biz/assets/icons/new_customer.webp " width="15" height="15">
+
+                  </div>
+                  <span class=" sales_n">
+                 <span class="sales_t">{{result.TotalMyCustomer}}</span>
+                </span>
+                <span class="Total_sub">My Customers</span>
+            
+
+                </div>
+
+
+                <div class="col-4 total_sales_y p-3 mr-3" style="cursor: pointer;"  (click)="gotoPage('cs-inbound-customers')">
+                  <div class="rounded-circle clr_y text-center circle">
+                    <img src="https://cfx.ceasefire.biz/assets/icons/new_customer.webp " width="20" height="17" class="o_pic">
+
+                  </div>
+                  <span class=" sales_n">
+                 <span class="sales_y">{{result.TotalMyInBoundCustomer}}</span>
+                </span>
+                <span class="Total_sub">Inbound Customers</span>
+              
+
+                </div>
+
+
+
+                <div class="col-4 total_sales_g p-3 mr-3" style="cursor: pointer;"  (click)="gotoPage('cs-order-reports')">
+                  <div class="rounded-circle clr_g text-center circle">
+                    <img src="https://cfx.ceasefire.biz/assets/icons/total_order.webp " class="pro_sold" width="20" height="20">
+
+                  </div>
+                  <span class=" sales_n">
+                   <span class="sales_g">{{result.TotalMyOrders}}</span>
+                </span>
+                <span class="Total_sub">My Orders</span>
+              
+
+                </div>
+
+
+                <div class="col-4 total_sales_v p-3 mr-3" style="cursor: pointer;"  (click)="gotoPage('cs-proposal-reports')">
+                  <div class="rounded-circle clr_v text-center circle">
+                    <img src="https://cfx.ceasefire.biz/assets/icons/new_customer.webp " width="15" height="15">
+
+                  </div>
+                  <span class=" sales_n">
+                  <span class="sales_v">{{result.TotalMyProposal}}</span>
+                </span>
+                <span class="Total_sub">My Proposals</span>
+            
+
+                </div>
+              </div>
+                <div class="media d-flex justify-content-evenly mt-4">
+
+                <div class="col-4 total_sales_d p-3 mr-3" style="cursor: pointer;"  (click)="gotoPage('cs-projects')">
+                  <div class="rounded-circle clr_d text-center circle">
+                    <img src="https://cfx.ceasefire.biz/assets/sidebar_icon/project.webp " width="15" height="15">
+
+                  </div>
+                  <span class=" sales_n">
+                  <span class="sales_d">{{result.TotalMyProject}}</span>
+                </span>
+                <span class="Total_sub">Project</span>
+             
+
+                </div>
+
+
+                <div class="col-4 total_sales_h p-3 mr-3" style="cursor: pointer;"  routerLink="/cs/cs-smp-enquiry-status">
+                  <div class="rounded-circle clr_h text-center circle">
+                    <img src="https://cfx.ceasefire.biz/assets/icons/new_customer.webp " width="15" height="15">
+
+                  </div>
+                  <span class=" sales_n">
+                  <span class="sales_h">20</span>
+                </span>
+                <span class="Total_sub">Enquiry Status Report</span>
+             
+
+                </div>
+                <!-- <div class="col-4 total_sales_v p-3 mr-3" routerLink="/cs/cs-spancowise">
+                  <div class="rounded-circle clr_v text-center circle">
+                    <img src="https://cfx.ceasefire.biz/assets/icons/new_customer.webp " width="15" height="15">
+
+                  </div>
+                  <span class=" sales_n">
+                  <span class="sales_v">20</span>
+                </span>
+                <span class="Total_sub">Spancowise Report</span>
+              
+
+                </div> -->
+                <!-- <div class="col-4 total_sales_v p-3 mr-3" style="cursor: pointer;" (click)="csModelService.addNewRegistration(0,'New')" > -->
+                <div class="col-4 total_sales_v p-3 mr-3" style="cursor: pointer;" routerLink="/myLibrary"  >
+                  <div class="rounded-circle clr_v text-center circle">
+                    <img src="https://cfx.ceasefire.biz/assets/icons/new_customer.webp " width="15" height="15">
+
+                  </div>
+                  <span class=" sales_n">
+                  <span class="sales_v">0</span>
+                </span>
+                <span class="Total_sub">Library</span>
+                <!-- <span class="Total_sub">Register Customer</span> -->
+            
+
+                </div>
+
+                <div class="col-4 total_sales_v p-3 mr-3" style="cursor: pointer;"  routerLink="/cs/mailer" >
+                  <div class="rounded-circle clr_v text-center circle">
+                    <img src="https://cfx.ceasefire.biz/assets/sidebar_icon/mailer1.webp" width="15" height="15">
+
+                  </div>
+                  <span class=" sales_n">
+                  <span class="sales_v">20</span>
+                </span>
+                <span class="Total_sub">Mailers</span>
+            
+
+                </div>
+
+                
+                <div class="col-4 total_sales_v p-3 mr-3" style="cursor: pointer;"  routerLink="/cs/cs-virtualcall" >
+                  <div class="rounded-circle clr_v text-center circle">
+                    <img src="https://cfx.ceasefire.biz/assets/sidebar_icon/mailer1.webp" width="15" height="15">
+
+                  </div>
+                  <span class=" sales_n">
+                  <span class="sales_v">20</span>
+                </span>
+                <span class="Total_sub">Virtual Call Request</span>
+            
+
+                </div>
+
+              
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-evenly">  
+          <div class="col-md-12 shadow-sm mt-3 card border-0" >
+          <h5 class="card-title title_Card heading2">Recent Sales</h5>
+            <div class="">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th >Image</th>
+                    <th >Order</th>
+                    <th >Order Placed</th>
+                    <th >Ship To</th>
+                    <th >order status</th>
+                    <th >Payable Amount</th>
+                    <th >Quantity</th>
+                    <th >Customer Name</th>
+                 
+                 
+                 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="alert" role="alert" *ngFor="let item of topOrderList">
+                  
+
+                    <td class="d-flex align-items-center"> 
+                      <p class="spanWidth">
+                      <span *ngFor="let ordItem of item.orderItems; let i = index" >
+                        <img *ngIf="3 > i" [src]="ordItem.productImage" [className]="item.orderItems.length > 1 ? 'imageWidthSmall' : 'imageWidth'" alt="image" />
+                        <span *ngIf="i == 3" style="font-size: 20px;">+ {{item.orderItems.length-3}}</span>
+                      </span>
+        
+                    </p>
+                  </td>
+                      <td>{{item.orderNumber}}</td>
+                      <td>{{item.createdDate | date:'dd MMM, YYYY'}} </td>
+                      <td> {{item.orderAddresses.length>0?item.orderAddresses[0].customerName:''}}</td>
+                      <td>{{item.status}}</td>
+                      <td>&#8377;{{item.payableAmount | number:'0.2-2'}}</td>
+                
+                      <td>{{bindQuantity(item.orderItems)}}</td>
+                      <td>{{item.cbaName}}</td>
+
+
+                  </tr>
+                  
+                
+                </tbody>
+              </table>
+
+            </div>
+            <div class="text-right" *ngIf="topOrderList.length>0">
+              <a href="javascript:void(0);" (click)="gotoPage('cs-order-reports')" class="pull-right">View More</a>
+              <br>
+            </div>
+          </div>
+      
+        
+      
+      
+        </div>
+
+        
+      </div>
+   
+      <div class="col-xl-4 col-sm-5 col-12" > 
+        <div class="col-12 card p-3 shadow-sm border-0">
+          <div class="card-content">
+            <div class="card-body">
+              <h5 class="card-title title_Card">Total Orders</h5>
+            
+              <div class="media d-flex justify-content-evenly">
+            
+
+                <!-- <img src="https://cfx.ceasefire.biz/assets/icons/visitor_pic.webp " width="500" height="177" >-->
+                <canvas id="linecanvas" width="500" height="177"></canvas>
+              
+             
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-12 card p-3 shadow-sm border-0 mt-4">
+          <div class="card-content">
+            <div class="card-body">
+              <h5 class="card-title title_Card">Spanco Wise</h5>
+            
+              <div class="media d-flex justify-content-evenly">
+            
+
+                <img src="https://cfx.ceasefire.biz/assets/icons/target_reality.webp  " width="500" height="250" >
+
+
+              
+             
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 card p-3 shadow-sm border-0 mt-4 mb-4">
+          <div class="card-content">
+            <div class="card-body">
+              <h5 class="card-title title_Card">Inbound Enquiries</h5>
+            
+              <div class="media d-flex justify-content-evenly">
+            
+
+                <img src="https://cfx.ceasefire.biz/assets/icons/customer_satisfaction.webp  " width="500" height="240" >
+
+
+              
+             
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+      </div>
+     
+    </div>
+
+   
+  </section>
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+ 
+
+</div>
+
+
+
+

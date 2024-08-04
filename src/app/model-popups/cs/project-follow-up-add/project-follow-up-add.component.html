@@ -1,0 +1,151 @@
+<div class="modal-header">
+    <!-- <h4 class="modal-title"> <img src="/assets/images/logo_white.png" width="150" height="53" alt="" /></h4> -->
+    <h5 class="mb-3">Follow Up Details</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal('Dismissed')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+  </div>
+  <div class="modal-body" style="  height: 80vh;overflow: auto;">
+
+<div class="container my-2">
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+          
+            <form class="custom-form" [formGroup]="followUp" (ngSubmit)="saveFollowUp()">
+                <div class="row g-3">
+
+
+                    <div class="col-md-4">
+                        <label for="followdate" class="form-label">Follow Up Date</label>
+                        <input type="date" class="form-control" id="followdate" name="followdate"
+                        formControlName="FollowUpDate">
+                        <div *ngIf="isFieldInvalid('FollowUpDate') && followUp.get('FollowUpDate')?.touched" class="text-danger">
+                            Follow Up Date is required.
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="StartTime" class="form-label">Start Time</label>
+                        <input type="time" class="form-control" id="StartTime" name="StartTime"  formControlName="StartTime">
+                        <div *ngIf="isFieldInvalid('StartTime') && followUp.get('StartTime')?.touched" class="text-danger">
+                            StartTime is required.
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="EndTime" class="form-label">End Time</label>
+                        <input type="time" class="form-control" id="endtime" name="endtime"
+                        formControlName="EndTime">
+                        <div *ngIf="isFieldInvalid('EndTime') && followUp.get('EndTime')?.touched" class="text-danger">
+                            End Time is required.
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="FollowUpType">Follow Up Type</label>
+                            <select class="form-control" id="FollowUpType"  formControlName="FollowUpType">
+                                <option value="">--select--</option>
+                                <option>Telecalling-Incoming</option>
+                                <option>Telecalling-OutGoing</option>
+                                <option>Video Call</option>
+                                <option>Chat</option>
+                            </select>
+                            <div *ngIf="isFieldInvalid('FollowUpType') && followUp.get('FollowUpType')?.touched" class="text-danger">
+                                Follow Up Type is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="SPANCO">SPANCO</label>
+                            <select class="form-control" id="SPANCO" formControlName="SPANCO"
+                           >
+                            <option value="">--select--</option>
+                            <option *ngFor="let option of spancolist" [value]="option.dropdownName">{{ option.dropdownName }}</option>
+                        </select>
+                            <!-- <select class="form-control" id="OutCome" formControlName="OutCome">
+                                <option>Test1</option>
+                                <option>Test2</option>
+                                <option>Test3</option>
+                            </select> -->
+                            <div *ngIf="isFieldInvalid('SPANCO') && followUp.get('SPANCO')?.touched" class="text-danger">
+                                SPANCO is required.
+                            </div>
+                        </div>
+                    </div>
+                    <ng-container *ngIf="isShowCat">
+
+                        <div class="col-md-4" >
+                            <label for="Category1" class="form-label">Product Category 1 </label>
+
+                            <select class="form-control" id="Category1" formControlName="Category1"
+                                (change)="selectCat2($event)">
+                                <option value="">--select--</option>
+                                <option *ngFor="let option of options1" [value]="option.id">{{ option.name }}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4" >
+                            <label for="Category2" class="form-label">Product Category 2 </label>
+
+                            <select class="form-control" id="Category2" formControlName="Category2"
+                                (change)="selectCat3($event)">
+                                <option value="">--select--</option>
+                                <option *ngFor="let option of options2" [value]="option.id">{{ option.name }}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4" >
+                            <label for="Category3" class="form-label">Product Category 3 </label>
+
+                            <select class="form-control" id="Category3" formControlName="Category3">
+                                <option value="">--select--</option>
+                                <option *ngFor="let option of options3" [value]="option.id">{{ option.name }}</option>
+                            </select>
+                        </div>
+
+                    </ng-container>
+
+                    <div class="col-md-4">
+                        <label for="your-email" class="form-label">Next Follow Up Date</label>
+                        <input type="date" class="form-control" id="nextfollowupdate"
+                            name="nextfollowupdate" formControlName="NextFollowUpDate">
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mb-2 ">
+                        <div class="mb-1">
+                            <label for="Sales_Pitch" class="form-label">Sales Pitch</label>
+                            <input type="text" class="form-control" id="Sales_Pitch" placeholder="Enter Sales Pitch" name="Sales_Pitch"
+                                 formControlName="Sales_Pitch">
+
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mb-2 ">
+                        <div class="mb-1">
+                            <label for="Notes" class="form-label">Notes </label>
+                            <input type="Notes" class="form-control" id="Notes" placeholder="Enter Notes" name="Notes"
+                                 formControlName="Notes">
+
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <label for="your-message" class="form-label">Remark</label>
+                        <textarea class="form-control" id="your-message" name="your-message"
+                            rows="3" formControlName="Remark"></textarea>
+                            <div *ngIf="isFieldInvalid('Remark') && followUp.get('Remark')?.touched" class="text-danger">
+                                Remark is required.
+                            </div>
+                    </div>
+                    <div class="col-4 mt-5">
+                        <div class="row">
+                            <div class="col-md-6 mt-3">
+                                <button [disabled]="followUp.invalid" type="submit"
+                                    class="btn btn-danger w-100 fw-bold">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>

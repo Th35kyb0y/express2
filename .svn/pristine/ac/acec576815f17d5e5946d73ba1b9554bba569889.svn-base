@@ -1,0 +1,668 @@
+<!-- main start here-->
+<main id="main">
+    <section class="inner-page p-0 sec_body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 middle">
+                    <!--sidebarTop start here-->
+                    <app-sidebar></app-sidebar>
+                    <!--sidebarTop end here-->
+                    <!-- ======= Breadcrumbs ======= -->
+                    <section class="breadcrumbs bredcrumb_top">
+                        <div class="container-fluid ">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <ol class="breadcrumb  card_partd">
+                                    <li class="breadcrumb-item active"><a href="order">My Account</a></li>
+                                    <li class="breadcrumb-item"> <a routerLink="/products" routerLinkActive="active"
+                                            style="color: #c6000c">Credit/user/payment-credit</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- End Breadcrumbs -->
+
+                    <!--payment start here-->
+                    <div class="row">
+                        <div class="col-12 s0">
+                            Payment
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <hr>
+                        </div>
+                    </div>
+                    <!-- calender start here-->
+                    <div class="row">
+                        <div class="col-12 f_left button_div ">
+                            <button type="button" class=" dropdown-toggle col-10 f_left side_button my-1 p-1 "
+                                data-bs-toggle="dropdown" aria-expanded="false"
+                                style=" width: 30%; height: 87%; color: grey; display: flex ; justify-content: space-evenly;">Employee
+                                Name</button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                            </ul>
+                            <button type="button" class=" dropdown-toggle col-10 f_left side_button my-1 p-1 "
+                                data-bs-toggle="dropdown" aria-expanded="false"
+                                style=" width: 30%; height: 87%; color: grey; display: flex ; justify-content: space-evenly;">CBA
+                                Name</button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                            </ul>
+                            <button type="button" class=" btn btn-danger col-10 f_left side_button my-1 p-1 "
+                                style=" width: 9%; height: 80%;">Search</button>
+                        </div>
+                    </div>
+                    <!-- calender end here-->
+                    <!--calender icon start-->
+                    <div class="row mt-3">
+                        <div class=" container payment_0">
+                            <div class="col main_order">
+                                <p class="text-center mt-3"><img src="/assets/credit_limit.jpg"
+                                        class="rounded float-start" width="58" height="44" alt="image" /></p>
+                                <p class="main_text mt-3">
+                                    <span>Credit Limit <i class="fa fa-plus"
+                                            style="font-size: 11px; color: red;"></i></span>
+                                    <span><i class="fa fa-inr" style="font-size: 11px; color: #244424;"></i>0/-</span>
+                                </p>
+                            </div>
+                            <div class="col main_order">
+                                <p class="text-center mt-3"><img src="/assets/consumed.jpg"
+                                        class="rounded float-start" width="58" height="44" alt="image" /></p>
+                                <p class="main_text mt-3">
+                                    <span>Consumed</span>
+                                    <span><i class="fa fa-inr" style="font-size: 11px; color: #244424;"></i>39/-</span>
+                                </p>
+                            </div>
+                            <div class="col main_order">
+                                <p class="text-center mt-3"><img src="/assets/balance.jpg" class="rounded float-start"
+                                        width="58" height="44" alt="image" /></p>
+                                <p class="main_text mt-3">
+                                    <span>Balance</span>
+                                    <span><i class="fa fa-inr" style="font-size: 11px; color: #244424;"></i>39/-</span>
+                                </p>
+                            </div>
+                            <div class="col main_order">
+                                <p class="text-center mt-3"><img src="/assets/credit_days.jpg"
+                                        class="rounded float-start" width="58" height="44" alt="image" /></p>
+                                <p class="main_text mt-3">
+                                    <span>Credit Days</span>
+                                    <span>0 Days</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mt-3">
+                            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist"
+                                style="background-color: #fff;">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                        aria-selected="true">Home</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-profile" type="button" role="tab"
+                                        aria-controls="pills-profile" aria-selected="false">Profile</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-contact" type="button" role="tab"
+                                        aria-controls="pills-contact" aria-selected="false">Contact</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content mt-4" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                    aria-labelledby="pills-home-tab">
+                                    <!--heading start-->
+                                    <div class="row mt-2">
+                                        <div class="col-12 main_ac_2 mt-2">Payment History</div>
+                                        <!-- <div class="col-4 main_ac mt-2">
+                                          <button type="button" class="btn btn-outline-info">Export to Excel</button>
+                                        </div> -->
+                                    </div>
+                                    <!--heading ends-->
+                                    <!-- calender start here-->
+                                    <div class="row">
+                                        <div class="col-12 f_left button_div mt-3">
+                                            <button class="col-10 f_left side_button my-1 p-1 "
+                                                style=" width: 18%; height: 80%;">
+                                                <input type="date" id="birthday" value="2017-01-01" name="birthday"
+                                                    style="width:166px; height: 31px; background-color: #ededed; border: 1px solid #ccc; border: none; font-size: 21px;color: grey;">
+                                            </button>
+                                            <button class="col-10 f_left side_button my-1 p-1 "
+                                                style=" width: 18%; height: 80%;">
+                                                <input type="date" id="birthday" value="2017-01-01" name="birthday"
+                                                    style="width:166px; height: 31px; background-color: #ededed; border: 1px solid #ccc; border: none; font-size: 21px;color: grey;">
+                                            </button>
+                                            <button type="button"
+                                                class=" dropdown-toggle col-10 f_left side_button my-1 p-1 "
+                                                data-bs-toggle="dropdown" aria-expanded="false"
+                                                style=" width: 18%; height: 80%; color: grey; display: flex ; justify-content: space-evenly;">Level
+                                                1 CBA
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                <li><a class="dropdown-item" href="#">Something else here</a>
+                                                </li>
+                                                <li>
+                                                    <hr class="dropdown-divider">
+                                                </li>
+                                                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                            </ul>
+                                            <button type="button"
+                                                class=" dropdown-toggle col-10 f_left side_button my-1 p-1 "
+                                                data-bs-toggle="dropdown" aria-expanded="false"
+                                                style=" width: 18%; height: 80%; color: grey; display: flex ; justify-content: space-evenly;">Team</button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                <li><a class="dropdown-item" href="#">Something else here</a>
+                                                </li>
+                                                <li>
+                                                    <hr class="dropdown-divider">
+                                                </li>
+                                                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                            </ul>
+                                            <button type="button"
+                                                class=" btn btn-danger col-10 f_left side_button my-1 p-1 "
+                                                style=" width: 9%; height: 80%;">Search</button>
+                                        </div>
+                                    </div>
+                                    <!-- calender end here-->
+                                    <!-- tables start here-->
+                                    <div class="row">
+                                        <div class="col-12 mt-3">
+                                            <div class="">
+                                                <table class="table table-responsive">
+                                                    <thead class="thead-default">
+                                                        <tr class="table-active ">
+                                                            <th><span class="custom_table mb-4">S.No</span></th>
+                                                            <th><span class="custom_table mt-1">CBA Code
+                                                                    <span class="costum_div_0 mt-2"><i
+                                                                            class="fa fa-caret-up"></i><i
+                                                                            class="fa fa-caret-down"></i></span></span>
+                                                            </th>
+                                                            <th><span class="custom_table mt-1">CBA Name
+                                                                    <span class="costum_div_0 mt-2"><i
+                                                                            class="fa fa-caret-up"></i><i
+                                                                            class="fa fa-caret-down"></i></span></span>
+                                                            </th>
+                                                            <th><span class="custom_table mt-1">Estimated Total
+                                                                    <span class="costum_div_0 mt-2"><i
+                                                                            class="fa fa-caret-up"></i><i
+                                                                            class="fa fa-caret-down"></i></span></span>
+                                                            </th>
+                                                            <th><span class="custom_table mt-1">Required Credit
+                                                                    <span class="costum_div_0 mt-2"><i
+                                                                            class="fa fa-caret-up"></i><i
+                                                                            class="fa fa-caret-down"></i></span></span>
+                                                            </th>
+                                                            <th><span class="custom_table mt-1">Request Date
+                                                                    <span class="costum_div_0 mt-2"><i
+                                                                            class="fa fa-caret-up"></i><i
+                                                                            class="fa fa-caret-down"></i></span></span>
+                                                            </th>
+                                                            <th><span class="custom_table mt-1">Apporoved Credit
+                                                                    <span class="costum_div_0 mt-2"><i
+                                                                            class="fa fa-caret-up"></i><i
+                                                                            class="fa fa-caret-down"></i></span></span>
+                                                            </th>
+                                                            <th><span class="custom_table mt-1">Approver's Remark
+                                                                    <span class="costum_div_0 mt-2"><i
+                                                                            class="fa fa-caret-up"></i><i
+                                                                            class="fa fa-caret-down"></i></span></span>
+                                                            </th>
+                                                            <th><span class="custom_table mt-1">Action Date
+                                                                    <span class="costum_div_0 mt-2"><i
+                                                                            class="fa fa-caret-up"></i><i
+                                                                            class="fa fa-caret-down"></i></span></span>
+                                                            </th>
+                                                            <th><span class="custom_table mt-1 ">Status
+                                                                    <span class="costum_div_0 mt-2"><i
+                                                                            class="fa fa-caret-up"></i><i
+                                                                            class="fa fa-caret-down"></i></span></span>
+                                                            </th>
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>UC0001</td>
+                                                            <td>test cba</td>
+                                                            <td>7000.00</td>
+                                                            <td>7000.00</td>
+
+                                                            <td>30/03/2023</td>
+                                                            <td>7000.00</td>
+                                                            <td>Payment against order Transfer</td>
+                                                            <td>30/03/2023</td>
+                                                            <td>Apporoved</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">2</th>
+                                                            <td>UC0002</td>
+                                                            <td>test cba</td>
+                                                            <td>7000.00</td>
+                                                            <td>7000.00</td>
+
+                                                            <td>30/03/2023</td>
+                                                            <td>7000.00</td>
+                                                            <td>Payment against order Transfer</td>
+                                                            <td>30/03/2023</td>
+                                                            <td>Apporoved</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">3</th>
+                                                            <td>UC0003</td>
+                                                            <td>test cba</td>
+                                                            <td>7000.00</td>
+                                                            <td>7000.00</td>
+
+                                                            <td>30/03/2023</td>
+                                                            <td>7000.00</td>
+                                                            <td>Payment against order Transfer</td>
+                                                            <td>30/03/2023</td>
+                                                            <td>Apporoved</td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- tables end here-->
+                                </div>
+                                <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                    aria-labelledby="pills-profile-tab">
+                                    <div class="tab-content mt-4" id="pills-tabContent">
+                                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                            aria-labelledby="pills-home-tab">
+                                            <!--heading start-->
+                                            <div class="row mt-2">
+                                                <div class="col-12 main_ac_2 mt-2">Payment Transaction</div>
+                                                <!-- <div class="col-4 main_ac mt-2">
+                                                  <button type="button" class="btn btn-outline-info">Export to Excel</button>
+                                                </div> -->
+                                            </div>
+                                            <!--heading ends-->
+                                            <!-- calender start here-->
+                                            <div class="row">
+                                                <div class="col-12 f_left button_div mt-3">
+                                                    <button class="col-10 f_left side_button my-1 p-1 "
+                                                        style=" width: 18%; height: 80%;">
+                                                        <input type="date" id="birthday" value="2017-01-01"
+                                                            name="birthday"
+                                                            style="width:166px; height: 31px; background-color: #ededed; border: 1px solid #ccc; border: none; font-size: 21px;color: grey;">
+                                                    </button>
+                                                    <button class="col-10 f_left side_button my-1 p-1 "
+                                                        style=" width: 18%; height: 80%;">
+                                                        <input type="date" id="birthday" value="2017-01-01"
+                                                            name="birthday"
+                                                            style="width:166px; height: 31px; background-color: #ededed; border: 1px solid #ccc; border: none; font-size: 21px;color: grey;">
+                                                    </button>
+                                                    <button type="button"
+                                                        class=" dropdown-toggle col-10 f_left side_button my-1 p-1 "
+                                                        data-bs-toggle="dropdown" aria-expanded="false"
+                                                        style=" width: 18%; height: 80%; color: grey;">Level 1
+                                                        CBA
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                                        <li><a class="dropdown-item" href="#">Another action</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Something else
+                                                                here</a>
+                                                        </li>
+                                                        <li>
+                                                            <hr class="dropdown-divider">
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Separated link</a>
+                                                        </li>
+                                                    </ul>
+                                                    <button type="button"
+                                                        class=" dropdown-toggle col-10 f_left side_button my-1 p-1 "
+                                                        data-bs-toggle="dropdown" aria-expanded="false"
+                                                        style=" width: 18%; height: 80%; color: grey;">Team</button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                                        <li><a class="dropdown-item" href="#">Another action</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Something else
+                                                                here</a>
+                                                        </li>
+                                                        <li>
+                                                            <hr class="dropdown-divider">
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Separated link</a>
+                                                        </li>
+                                                    </ul>
+                                                    <button type="button"
+                                                        class=" btn btn-danger col-10 f_left side_button my-1 p-1 "
+                                                        style=" width: 9%; height: 80%;">Search</button>
+                                                </div>
+                                            </div>
+                                            <!-- calender end here-->
+                                            <!-- tables start here-->
+                                            <div class="row">
+                                                <div class="col-12 mt-3">
+                                                    <div class="">
+                                                        <table class="table table-responsive">
+                                                            <thead class="thead-default">
+                                                                <tr class="table-active ">
+                                                                    <th><span class="custom_table mb-4">S.No</span></th>
+                                                                    <th><span class="custom_table mt-1">CBA Code
+                                                                            <span class="costum_div_0 mt-2"><i
+                                                                                    class="fa fa-caret-up"></i><i
+                                                                                    class="fa fa-caret-down"></i></span></span>
+                                                                    </th>
+                                                                    <th><span class="custom_table mt-1">CBA Name
+                                                                            <span class="costum_div_0 mt-2"><i
+                                                                                    class="fa fa-caret-up"></i><i
+                                                                                    class="fa fa-caret-down"></i></span></span>
+                                                                    </th>
+                                                                    <th><span class="custom_table mt-1">Estimated Total
+                                                                            <span class="costum_div_0 mt-2"><i
+                                                                                    class="fa fa-caret-up"></i><i
+                                                                                    class="fa fa-caret-down"></i></span></span>
+                                                                    </th>
+                                                                    <th><span class="custom_table mt-1">Required Credit
+                                                                            <span class="costum_div_0 mt-2"><i
+                                                                                    class="fa fa-caret-up"></i><i
+                                                                                    class="fa fa-caret-down"></i></span></span>
+                                                                    </th>
+                                                                    <th><span class="custom_table mt-1">Request Date
+                                                                            <span class="costum_div_0 mt-2"><i
+                                                                                    class="fa fa-caret-up"></i><i
+                                                                                    class="fa fa-caret-down"></i></span></span>
+                                                                    </th>
+                                                                    <th><span class="custom_table mt-1">Apporoved Credit
+                                                                            <span class="costum_div_0 mt-2"><i
+                                                                                    class="fa fa-caret-up"></i><i
+                                                                                    class="fa fa-caret-down"></i></span></span>
+                                                                    </th>
+                                                                    <th><span class="custom_table mt-1">Approver's
+                                                                            Remark
+                                                                            <span class="costum_div_0 mt-2"><i
+                                                                                    class="fa fa-caret-up"></i><i
+                                                                                    class="fa fa-caret-down"></i></span></span>
+                                                                    </th>
+                                                                    <th><span class="custom_table mt-1">Action Date
+                                                                            <span class="costum_div_0 mt-2"><i
+                                                                                    class="fa fa-caret-up"></i><i
+                                                                                    class="fa fa-caret-down"></i></span></span>
+                                                                    </th>
+                                                                    <th><span class="custom_table mt-1 ">Status
+                                                                            <span class="costum_div_0 mt-2"><i
+                                                                                    class="fa fa-caret-up"></i><i
+                                                                                    class="fa fa-caret-down"></i></span></span>
+                                                                    </th>
+
+
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th scope="row">1</th>
+                                                                    <td>UC0001</td>
+                                                                    <td>test cba</td>
+                                                                    <td>7000.00</td>
+                                                                    <td>7000.00</td>
+
+                                                                    <td>30/03/2023</td>
+                                                                    <td>7000.00</td>
+                                                                    <td>Payment against order Transfer</td>
+                                                                    <td>30/03/2023</td>
+                                                                    <td>Apporoved</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">2</th>
+                                                                    <td>UC0002</td>
+                                                                    <td>test cba</td>
+                                                                    <td>7000.00</td>
+                                                                    <td>7000.00</td>
+
+                                                                    <td>30/03/2023</td>
+                                                                    <td>7000.00</td>
+                                                                    <td>Payment against order Transfer</td>
+                                                                    <td>30/03/2023</td>
+                                                                    <td>Apporoved</td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">3</th>
+                                                                    <td>UC0003</td>
+                                                                    <td>test cba</td>
+                                                                    <td>7000.00</td>
+                                                                    <td>7000.00</td>
+
+                                                                    <td>30/03/2023</td>
+                                                                    <td>7000.00</td>
+                                                                    <td>Payment against order Transfer</td>
+                                                                    <td>30/03/2023</td>
+                                                                    <td>Apporoved</td>
+
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- tables end here-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                                    aria-labelledby="pills-contact-tab">
+                                    <div class="tab-content mt-4" id="pills-tabContent">
+                                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                            aria-labelledby="pills-home-tab">
+                                            <!--heading start-->
+                                            <div class="row mt-2">
+                                                <div class="col-12 main_ac_2 mt-2">Outstanding</div>
+                                                <!-- <div class="col-4 main_ac mt-2">
+                                                  <button type="button" class="btn btn-outline-info">Export to Excel</button>
+                                                </div> -->
+                                            </div>
+                                            <!--heading ends-->
+                                            <!-- calender start here-->
+                                            <div class="row">
+                                                <div class="col-12 f_left button_div mt-3">
+                                                    <button class="col-10 f_left side_button my-1 p-1 "
+                                                        style=" width: 18%; height: 80%;">
+                                                        <input type="date" id="birthday" value="2017-01-01"
+                                                            name="birthday"
+                                                            style="width:166px; height: 31px; background-color: #ededed; border: 1px solid #ccc; border: none; font-size: 21px;color: grey;">
+                                                    </button>
+                                                    <button class="col-10 f_left side_button my-1 p-1 "
+                                                        style=" width: 18%; height: 80%;">
+                                                        <input type="date" id="birthday" value="2017-01-01"
+                                                            name="birthday"
+                                                            style="width:166px; height: 31px; background-color: #ededed; border: 1px solid #ccc; border: none; font-size: 21px;color: grey;">
+                                                    </button>
+                                                    <button type="button"
+                                                        class=" dropdown-toggle col-10 f_left side_button my-1 p-1 "
+                                                        data-bs-toggle="dropdown" aria-expanded="false"
+                                                        style=" width: 18%; height: 80%; color: grey;">Level 1
+                                                        CBA
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                                        <li><a class="dropdown-item" href="#">Another action</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Something else
+                                                                here</a>
+                                                        </li>
+                                                        <li>
+                                                            <hr class="dropdown-divider">
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Separated link</a>
+                                                        </li>
+                                                    </ul>
+                                                    <button type="button"
+                                                        class=" dropdown-toggle col-10 f_left side_button my-1 p-1 "
+                                                        data-bs-toggle="dropdown" aria-expanded="false"
+                                                        style=" width: 18%; height: 80%; color: grey;">Team</button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                                        <li><a class="dropdown-item" href="#">Another action</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Something else
+                                                                here</a>
+                                                        </li>
+                                                        <li>
+                                                            <hr class="dropdown-divider">
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="#">Separated link</a>
+                                                        </li>
+                                                    </ul>
+                                                    <button type="button"
+                                                        class=" btn btn-danger col-10 f_left side_button my-1 p-1 "
+                                                        style=" width: 9%; height: 80%;">Search</button>
+                                                </div>
+                                            </div>
+                                            <!-- calender end here-->
+                                            <!-- tables start here-->
+                                            <div class="row">
+                                                <div class="col-12 mt-3">
+                                                    <div class="">
+                                                        <table class="table table-responsive">
+                                                            <thead class="thead-default">
+                                                                <tr class="table-active ">
+                                                                    <th><span class="custom_table mb-4">S.No</span></th>
+                                                                    <th><span class="custom_table mt-1">CBA Code
+                                                                            <span class="costum_div_0 mt-2"><i
+                                                                                    class="fa fa-caret-up"></i><i
+                                                                                    class="fa fa-caret-down"></i></span></span>
+                                                                    </th>
+                                                                    <th><span class="custom_table mt-1">CBA Name
+                                                                            <span class="costum_div_0 mt-2"><i
+                                                                                    class="fa fa-caret-up"></i><i
+                                                                                    class="fa fa-caret-down"></i></span></span>
+                                                                    </th>
+                                                                    <th><span class="custom_table mt-1">Estimated Total
+                                                                            <span class="costum_div_0 mt-2"><i
+                                                                                    class="fa fa-caret-up"></i><i
+                                                                                    class="fa fa-caret-down"></i></span></span>
+                                                                    </th>
+                                                                    <th><span class="custom_table mt-1">Required Credit
+                                                                            <span class="costum_div_0 mt-2"><i
+                                                                                    class="fa fa-caret-up"></i><i
+                                                                                    class="fa fa-caret-down"></i></span></span>
+                                                                    </th>
+                                                                    <th><span class="custom_table mt-1">Request Date
+                                                                            <span class="costum_div_0 mt-2"><i
+                                                                                    class="fa fa-caret-up"></i><i
+                                                                                    class="fa fa-caret-down"></i></span></span>
+                                                                    </th>
+                                                                    <th><span class="custom_table mt-1">Apporoved Credit
+                                                                            <span class="costum_div_0 mt-2"><i
+                                                                                    class="fa fa-caret-up"></i><i
+                                                                                    class="fa fa-caret-down"></i></span></span>
+                                                                    </th>
+                                                                    <th><span class="custom_table mt-1">Approver's
+                                                                            Remark
+                                                                            <span class="costum_div_0 mt-2"><i
+                                                                                    class="fa fa-caret-up"></i><i
+                                                                                    class="fa fa-caret-down"></i></span></span>
+                                                                    </th>
+                                                                    <th><span class="custom_table mt-1">Action Date
+                                                                            <span class="costum_div_0 mt-2"><i
+                                                                                    class="fa fa-caret-up"></i><i
+                                                                                    class="fa fa-caret-down"></i></span></span>
+                                                                    </th>
+                                                                    <th><span class="custom_table mt-1 ">Status
+                                                                            <span class="costum_div_0 mt-2"><i
+                                                                                    class="fa fa-caret-up"></i><i
+                                                                                    class="fa fa-caret-down"></i></span></span>
+                                                                    </th>
+
+
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th scope="row">1</th>
+                                                                    <td>UC0001</td>
+                                                                    <td>test cba</td>
+                                                                    <td>7000.00</td>
+                                                                    <td>7000.00</td>
+
+                                                                    <td>30/03/2023</td>
+                                                                    <td>7000.00</td>
+                                                                    <td>Payment against order Transfer</td>
+                                                                    <td>30/03/2023</td>
+                                                                    <td>Apporoved</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">2</th>
+                                                                    <td>UC0002</td>
+                                                                    <td>test cba</td>
+                                                                    <td>7000.00</td>
+                                                                    <td>7000.00</td>
+
+                                                                    <td>30/03/2023</td>
+                                                                    <td>7000.00</td>
+                                                                    <td>Payment against order Transfer</td>
+                                                                    <td>30/03/2023</td>
+                                                                    <td>Apporoved</td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">3</th>
+                                                                    <td>UC0003</td>
+                                                                    <td>test cba</td>
+                                                                    <td>7000.00</td>
+                                                                    <td>7000.00</td>
+
+                                                                    <td>30/03/2023</td>
+                                                                    <td>7000.00</td>
+                                                                    <td>Payment against order Transfer</td>
+                                                                    <td>30/03/2023</td>
+                                                                    <td>Apporoved</td>
+
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- tables end here-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- chat assistant start-->
+              <!-- Chat And Quick Link Button On Right Side -->
+            <!-- <app-chat-assistance></app-chat-assistance> -->
+            <!-- chat assistant ends-->
+            <!--  commoncode start here-->
+            <div class="row">
+                <app-product-recommended></app-product-recommended>
+            </div>
+            <!-- commoncode end here-->
+        </div>
+    </section>
+</main>
+<!-- End #main -->

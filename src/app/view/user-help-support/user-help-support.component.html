@@ -1,0 +1,91 @@
+<!-- main start here-->
+<main id="main">
+    <section class="inner-page p-0 sec_body" >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 middle">
+                    <!--sidebarTop start here-->
+                    <app-sidebar></app-sidebar>
+                    <!--sidebarTop end here-->
+                    <!-- ======= Breadcrumbs ======= -->
+                    <section class="breadcrumbs bredcrumb_top">
+                        <div class="container-fluid ">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <ol class="breadcrumb  card_partd">
+                                    <li class="breadcrumb-item active"><a href="order">My Account</a></li>
+                                    <li class="breadcrumb-item"> <a routerLink="/products" routerLinkActive="active"
+                                            style="color: #c6000c">Help-Support</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- End Breadcrumbs -->
+
+                    <!--help and support start here-->
+                    <div class="row">
+                        <div class="col-12 s0">
+                            Help Center | Customer Care Support
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 s3">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 f_left main_order gap-3">
+                            <!-- <p class="custom_help">Help & Support</p> -->
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <div class="card" >
+                                    <a routerLink="/contact" routerLinkActive="active">
+                                        <img src="/assets/contact_us.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h4>Contact Us</h4>
+                                            <p>Some quick example text to build on the card title and
+                                                make up the bulk of the card's content.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <div class="card" >
+                                    <a routerLink="/user/order" routerLinkActive="active">
+                                        <img src="/assets/delivery_tracking.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h4>Track Order</h4>
+                                            <p>Some quick example text to build on the card title and
+                                                make up the bulk of the card's content.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <div class="card" >
+                                    <a href="#" routerLinkActive="active">
+                                        <img src="/assets/online_chat.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h4>Online Chat</h4>
+                                            <p>Some quick example text to build on the card title and
+                                                make up the bulk of the card's content.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--help and support end here-->
+                </div>
+            </div>
+            <!-- chat assistant start-->
+              <!-- Chat And Quick Link Button On Right Side -->
+            <!-- <app-chat-assistance></app-chat-assistance> -->
+            <!-- chat assistant ends-->
+            <!--  commoncode start here-->
+            <div class="row">
+                <app-product-recommended></app-product-recommended>
+            </div>
+            <!-- commoncode end here-->
+        </div>
+    </section>
+</main>
+<!-- End #main -->

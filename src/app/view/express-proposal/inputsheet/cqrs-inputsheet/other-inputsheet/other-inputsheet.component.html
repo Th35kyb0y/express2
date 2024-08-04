@@ -1,0 +1,98 @@
+<form  #systemForm="ngForm" class="form-container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class=" form-group mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Name Of Equipment:</label>
+              <input  [(ngModel)]="otherInputsheetData.nameOfEquipment" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name Of Equipment" >
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class=" form-group mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Enclosure Name:</label>
+              <input  [(ngModel)]="otherInputsheetData.enclosureName" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Enclosure Name" >
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class=" form-group mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Length(in mm):</label>
+              <input  [(ngModel)]="otherInputsheetData.length" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Enter Length" >
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class=" form-group mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Height(in mm):</label>
+              <input  [(ngModel)]="otherInputsheetData.height" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Enter Height" >
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class=" form-group mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Depth(in mm):</label>
+              <input  [(ngModel)]="otherInputsheetData.depth" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Enter Depth" >
+            </div>
+          </div>
+          <div *ngIf="isCS" class="col-sm-4">
+            <div class=" form-group mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Fire Class:</label>
+              <input  [(ngModel)]="otherInputsheetData.fireClass" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Fire Class" >
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class=" form-group mb-3">
+              <label for="exampleFormControlInput1" class="form-label">In case of Circular Diameter(in mm):</label>
+              <input  [(ngModel)]="otherInputsheetData.circularDiameter" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Enter Circular Diameter" >
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <div class=" form-group mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Remarks:</label>
+              <textarea  [(ngModel)]="otherInputsheetData.remarks" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Enter Remarks" ></textarea>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="form-group mb-3 text-right pull-right">
+                <div class="col-12 pr-0">
+                    <button type="button" class="btn btn-danger btn-sm " (click)="onSubmit()" > {{editOpen==true?'Update':'Add To Grid'}} </button>
+                    </div>
+            </div>
+          </div>
+    </div>
+
+</form>
+
+<div class="container mt-4">
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>S.No.</th>
+          <th>Name Of Equipment</th>
+          <th>Enclosure Name</th>
+          <th>Length(in mm)</th>
+          <th>Height(in mm)</th>
+          <th>Depth(in mm)</th>
+          <th>Fire Class</th>
+          <th>In case of Circular Diameter(in mm)</th>
+          <th>Remarks</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+
+            <tr *ngFor="let item of this.otherInputsheetDataTable; let i = index"> 
+                <td>{{i+1}}</td>
+                <td>{{item.nameOfEquipment}}</td>
+                <td>{{item.enclosureName}}</td>
+                <td>{{ item.length }}</td>
+                <td>{{ item.height }}</td>
+                <td>{{ item.depth }}</td>
+                <td>{{ item.fireClass }}</td>
+                <td>{{ item.circularDiameter}}</td>
+                <td>{{ item.remarks}}</td>
+                <td class="width_td pull-left">
+                  <button type="button" (click)="editRow(item)" class="btn btn-sm text-success pull-left"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                  <button  type="button" (click)="deleteRow(item)" class="btn btn-sm text-danger pull-left m-left"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                  </td>
+              </tr>
+
+      </tbody>
+    </table>
+  </div>

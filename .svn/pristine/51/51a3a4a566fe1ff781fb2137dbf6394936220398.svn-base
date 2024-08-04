@@ -1,0 +1,143 @@
+<form (ngSubmit)="onSubmit()" #systemForm="ngForm" class="form-container">
+
+<div class="border_btm mb-3 col-12 mt-3">
+    <h5>CQRS System Detail</h5>
+  </div>
+  <!--  <p class="alert alert-success">Some text success or error</p>-->
+  <div class="row col-12">
+    <div class="col-12 row ">
+      <div class="col-12 border_btm">
+        <h6>Dimensions of Server Rack</h6>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Length (MM):</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="serverRackData.dimensionsLength" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Width (MM):</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="serverRackData.dimensionsWidth" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Height (MM):</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="serverRackData.dimensionsHeight" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+    </div>
+    <div class="col-12 row">
+      <div class="col-12 border_btm">
+        <h6>Distance Between wall to Server Rack</h6>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">L.H.S (MM):</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="serverRackData.distanceLHS" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">R.H.S (MM):</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="serverRackData.distanceRHS" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Back (MM):</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="serverRackData.distanceBack" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+    </div>
+      
+         <div class="col-12 row">
+      <div class="col-12 border_btm">
+        <h6>Distance Between Two Server Racks</h6>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Server Rack 1 & 2 (MM):</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="serverRackData.distanceBetweenTwoServerRacks" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Room Name:</label>
+          <div class="multi-select" (click)="toggleOptions()">
+            <div class="selected-items">
+              <div *ngFor="let item of selectedItems" class="selected-item btn-sm btn btn-outline-danger badge_danger ">
+                {{ item }}
+                <a (click)="removeItem(item)" class="btn close_btn btn-sm" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+              </div>
+            </div>
+            <div class="dropdown" #dropdown>
+              <input class="form-control room_name" type="text" [(ngModel)]="newItem" (keydown.enter)="addItem()" placeholder="Add new item" [ngModelOptions]="{standalone: true}">
+              <button type="button" (click)="addItem()" class="btn btn-danger add_new">+</button>
+            </div>
+            
+            <div class="options mt-2" *ngIf="showOptions" (click)="handleDropdownClick($event)">
+              <div class="list-group list_g">
+                <button *ngFor="let option of options" class="list-group-item list-group-item-action" (click)="selectItem(option)">
+                  {{ option }}
+                </button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        </div>
+    
+    </div>
+      
+    
+ 
+    <!-- End -->
+    <!-- End -->
+  </div>
+  <div class="row col-12 pr-0 mt-3">
+    <div class="col-10"></div>
+    <div class="col-2 pr-0">
+    <button *ngIf="serverRackData.id==0" type="submit" class="btn btn-danger"> Add To Grid </button>
+    <button *ngIf="serverRackData.id!=0" type="button" (click)="update()" class="btn btn-danger btn-sm "> Update </button>
+    </div>
+    </div>
+</form>
+<table *ngIf="serverRackTableData.length > 0" class="table table-bordered mt-3">
+  <thead>
+    <tr>
+      <th>Length (MM)</th>
+      <th>Width (MM)</th>
+      <th>Height (MM)</th>
+      <th>L.H.S Distance (MM)</th>
+      <th>R.H.S Distance (MM)</th>
+      <th>Back Distance (MM)</th>
+      <th>Distance Between Two Server Racks</th>
+      <th>Room Name</th>
+
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of serverRackTableData let i = index">
+      <td>{{ data.dimensionsLength }}</td>
+      <td>{{ data.dimensionsWidth }}</td>
+      <td>{{ data.dimensionsHeight }}</td>
+      <td>{{ data.distanceLHS }}</td>
+      <td>{{ data.distanceRHS }}</td>
+      <td>{{ data.distanceBack }}</td>
+      <td>{{ data.distanceBetweenTwoServerRacks }}</td>
+      <td>{{getStringArray(data.roomNames).join(', ')}}</td>
+      <td class="width_td pull-left">
+        <button type="button" (click)="editRow(i,data)" class="btn btn-sm text-success pull-left"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+        <button type="button" (click)="deleteRow(i,data)" class="btn btn-sm text-danger pull-left m-left"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        </td>
+      <!-- <td>
+        <button (click)="editRow(i,data)">Edit</button>
+        <button (click)="deleteRow(i,data)">Delete</button>
+        </td> -->
+    </tr>
+  </tbody>
+</table>
+  <!-- End -->

@@ -1,0 +1,82 @@
+
+
+
+<app-cs-left-nav></app-cs-left-nav>
+    <div class="bg_grey">
+    <div id="main">
+      <app-cs-header [title]="'My Profile'"></app-cs-header>
+    
+    
+    
+    <div class="row">
+    
+      
+    <div class="grey-bg container-fluid">
+      <section id="minimal-statistics">
+     
+    
+
+        <div class="col-12 container mt-2">
+          <div class="pull-right"><button class="btn btn-danger" (click)="ApiService.goBack()"><i class="fa fa-arrow-left"></i> Back</button></div>
+        </div>
+    
+            <div class="col-12 container mt-4">
+              
+             
+            
+              
+              
+              
+                <div class="row">
+                    <div class="col-3">
+                      <div class="mb-3">
+                        <label for="CustomerName" class="form-label"> First Name</label>
+                        <input type="text" [(ngModel)]="data.firstName" class="form-control" id="CustomerName" placeholder="First Name" readonly>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                      <div class="mb-3">
+                        <label for="CustomerName" class="form-label"> Last Name</label>
+                        <input type="text" [(ngModel)]="data.lastName" class="form-control" id="CustomerName" placeholder="Last Name" readonly>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                      <div class="mb-3">
+                        <label for="EmailID" class="form-label">Email ID</label>
+                        <input type="text" class="form-control" [(ngModel)]="data.email"  id="EmailID" placeholder="Email ID" readonly>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                      <div class="mb-3">
+                        <label for="EmailID" class="form-label">Mobile</label>
+                        <input type="text" class="form-control" [(ngModel)]="data.mobile"  id="EmailID" placeholder="Mobile" readonly>
+                        </div>
+                    </div>
+                    
+                  
+                  </div> 
+            
+              
+            </div>
+
+    
+       
+      </section>
+    
+    </div>
+    
+    
+    </div>
+    
+    
+    
+    
+    </div>
+     
+    
+    </div>
+    
+    
+    
+    
+    

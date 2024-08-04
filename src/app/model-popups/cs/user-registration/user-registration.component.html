@@ -1,0 +1,21 @@
+<!-- tabs.component.html -->
+<div class="modal-header">
+    <h5 class="modal-title"> {{type=='Edit'?'View Detail':'Customer Registration'}}</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal('Dismissed')">
+      <!-- <span aria-hidden="true">&times;</span> -->
+    </button>
+    <!-- <div class="row">
+        <div class="col-md-4"> <img src="/assets/images/logo_white.png" width="150" height="53" alt="" /> </div>
+        <div class="col-md-4"> </div>
+        <div class="col-md-4"> 
+            <button class="btn btn-danger" (click)="closeModal('Dismissed')">Logout</button>
+        </div>
+    
+       </div> -->
+  </div>
+  <div class="modal-body card" style="  min-height: 100vh;overflow: auto;">
+
+    <app-cs-user-registration [UserId]="UserId" [type]="type" (passEntry)="registrationEvent($event)"></app-cs-user-registration>
+    
+  </div>
+  

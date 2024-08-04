@@ -1,0 +1,136 @@
+<!-- main start here-->
+<main id="main">
+    <section class="inner-page p-0 sec_body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 middle">
+                    <!-- ======= Breadcrumbs ======= -->
+                    <!-- <section class="breadcrumbs bredcrumb_top">
+                        <div class="container-fluid ">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <ol class="breadcrumb  card_partd">
+                                    <li class="breadcrumb-item active"><a href="order">Home</a></li>
+                                    <li class="breadcrumb-item"> <a routerLink="/productlist" routerLinkActive="active"
+                                            style="color: #c6000c">Premises</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </section> -->
+                    <!-- End Breadcrumbs -->
+                    <!-- 1st back button start here-->
+                    <!-- <div class="row ">
+                        <div class="col-12 f_left dropdown-field">
+                            <div class="row">
+                                <div class="col-12  back_button">
+                                    <a routerLink="" routerLinkActive="active">
+                                        <button type="button" class="btn button_b"><i class="fa fa-angle-double-left"
+                                                id="back_b0"></i>Back</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- 1st back button end here-->
+                    <!--help and support start here-->
+                    <!-- <div class="row">
+                        <div class="col-12 s0">
+                            Help Center | 24*7 Customer Care Support
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-12 s3">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 s1">
+                            How would you like to carry out the fire audit survey of your premises?
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 s2 mt-2">
+                            Choose an option from the following three routes below...
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 f_left main_order gap-1 mt-1">
+                            <div class="col-md-3 col-sm-6 col-xs-12 item mt-4 mb-4">
+                                <div class="card">
+                                    <a routerLink="/segmentlist" routerLinkActive="active">
+                                        <img src="../assets\conference_edited.webp" class="card-img-top" height="230"  alt="...">
+                                        <div class="card-body">
+                                            <p class="s0">
+                                                YOU WOULD LIKE TO CARRY OUT THE FIRE AUDIT SURVEY OF YOUR PREMISES
+                                                YOURSELF</p>
+                                                <p class="card-text" style="height: 100px; overflow: hidden;">
+                                                Be completely independent in carrying out a detailed Fire Audit Survey for your premises using specialised tools in the portal. </p>
+                                            <p class="button_f">
+                                                <a class="btn btn-sp3" routerLink="/FireAuditForYourPremises"
+                                                    routerLinkActive="active">
+                                                    PROCEED
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 item mt-4 mb-4">
+                                <div class="card">
+                                    <a routerLink="/order" routerLinkActive="active">
+                                        <img src="../assets\VIRTUAL ASSISTANCE_edited.webp" class="card-img-top"
+                                            height="230" alt="...">
+                                        <div class="card-body">
+                                            <p class="s0">YOU WOULD LIKE TO TAKE OUR VIRTUAL ASSISTANCE TO CARRY OUT THE AUDIT
+                                            </p>
+                                            <p class="card-text" style="height: 100px; overflow: hidden;">
+                                                Take assistance of our experts virtually to create a foolproof fire safety plan for your premises.</p>
+                                            <p class="button_f">
+
+                                                <!-- <a class="btn btn-sp3" routerLink="/ContactUs"
+                                                    routerLinkActive="active">
+                                                    PROCEED
+                                                </a> -->
+                                                <a class="btn btn-sp3" routerLink="/virtualAssistant"
+                                                    routerLinkActive="active">
+                                                    PROCEED
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 item mt-4 mb-4">
+                                <div class="card">
+                                    <a routerLink="/gift" routerLinkActive="active">
+                                        <img src="../assets\Front office_edited.webp" class="card-img-top" height="230"  alt="...">
+                                        <div class="card-body">
+                                            <p class="s0">CALL OUR EXPERTS OVER TO YOUR PREMISES TO CARRY OUT THE FIRE AUDIT
+                                            </p>
+                                            <p class="card-text" style="height: 100px; overflow: hidden;">
+                                                Invite our experts to your premises to undertake a professional Fire Audit Survey considering every risk and hazard.  </p>
+                                            <p class="button_f"> <a class="btn btn-sp3" routerLink="/ContactUs"
+                                                    routerLinkActive="active">
+                                                    PROCEED
+                                                </a></p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--help and support end here-->
+                </div>
+            </div>
+            <!-- chat assistant start-->
+              <!-- Chat And Quick Link Button On Right Side -->
+            <!-- <app-chat-assistance></app-chat-assistance> -->
+            <!-- chat assistant ends-->
+            <!--  commoncode start here-->
+            <!-- <div class="row">
+                <app-common-code></app-common-code>
+            </div> -->
+            <!-- commoncode end here-->
+        </div>
+    </section>
+</main>
+<!-- End #main -->

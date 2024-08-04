@@ -1,0 +1,1980 @@
+<div class="card-header">
+    <div *ngIf="isSubmit=='true'" class="popup-overlay">
+        <div class="popup-box">
+            <h2>Confirmation</h2>
+            <p>Do You Want To Add More Input Sheets?</p>
+            <div class="buttons-container">
+                <button (click)="handleNo()"  id="no-button" class="no">No</button>
+                <button (click)="handleYes()" id="yes-button" class="yes">Yes</button>
+    
+            </div>
+        </div>
+    </div>
+    <ul class="nav nav-tabs card-header-tabs" id="atomXTab" role="tablist">
+        <li class="nav-item p-tab-3">
+            <a [ngClass]="ShowtabActive == 1 ?'nav-link active ':'nav-link '" id="atomX-tab" data-toggle="tab"
+                role="tab" aria-selected="true" (click)="ShowtabActive = 1; showTabHoodw=1;" href="#Order">Kitchen & Hood details</a>
+        </li>
+        <li class="nav-item p-tab-3">
+            <a [ngClass]="ShowtabActive == 2 ?'nav-link active ':'nav-link '" id="CancelOrder-tab" data-toggle="tab"
+                role="tab" (click)="ShowtabActive = 2; showTabHoodw=2" href="#Input2">Kitchen Equipment details</a>
+        </li>
+        <li class="nav-item p-tab-3">
+            <a [ngClass]="ShowtabActive == 3 ?'nav-link active ':'nav-link '" id="Attachements-tab" data-toggle="tab"
+                (click)="ShowtabActive = 3;showTabHoodw=3;" href="#Attachements" role="tab" aria-controls="posts"
+                aria-selected="false">Attachments</a>
+        </li>
+    </ul>
+</div>
+<div class="card-body">
+    <div class="custom-control custom-control-right custom-switch">
+        <input type="checkbox" [(ngModel)]="ToggleChangeValue" class="custom-control-input" id="customSwitch2">
+        <label class="custom-control-label" for="customSwitch2">Switch off if you don't need help filling this
+            documents.</label>
+    </div>
+    <div class="tab-content mt-3" id="myTabContent">
+        <div [ngClass]="ShowtabActive == 1 ?'tab-pane fade show active':'tab-pane fade'" id="Order" role="tabpanel"
+            aria-labelledby="atomX-tab">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <!-- Tooltip Start -->
+                    <ng-template #tipDuctDelete>Click to delete Duct
+                    </ng-template>
+                    <ng-template #tipDuctAdd>Click to add new Duct
+                    </ng-template>
+                    <ng-template #tipDuct><b>Duct:</b>It is the flue
+                        attached to the top of the hood.
+                    </ng-template>
+                    <ng-template #tipDuctType>
+                        <img id="tool-tip2" src="/assets/images/Inputsheet/duct_2_img.jpg" />
+                    </ng-template>
+                    <!-- <ng-template #tipPlenumCir>
+                            <img id="tool-tip1"
+                                src="/assets/images/Inputsheet/circular_duct.jpg" />
+                        </ng-template>
+                        <ng-template #tipPlenumRec>
+                            <img id="tool-tip1"
+                                src="/assets/images/Inputsheet/rectangular_duct.jpg" />
+                        </ng-template> -->
+                    <ng-template #tipPlenumCir>
+                        <img id="tool-tip1" src="/assets/images/Inputsheet/CIRCULAR DUCT Depth.jpg" />
+                    </ng-template>
+                    <ng-template #tipPlenumRecD>
+                        <img id="tool-tip1" src="/assets/images/Inputsheet/RECTANGULAR DUCT Depth.jpg" />
+                    </ng-template>
+                    <ng-template #tipPlenumRecL>
+                        <img id="tool-tip1" src="/assets/images/Inputsheet/RECTANGULAR DUCT Length.jpg" />
+                    </ng-template>
+              
+                          <!-- <app-tree-node ></app-tree-node> -->
+                      
+                      
+
+                    <!-- Tooltip Start -->
+                    <ng-template #tipPlenumDelete>Click to delete Plenum
+                    </ng-template>
+                    <ng-template #tipPlenum><b>Plenum:</b> It is the
+                        enclosed space between the filters and duct
+                        within the hood.
+                    </ng-template>
+                    <ng-template #tipPlenumAdd>Click to add new Plenum
+                    </ng-template>
+                    <ng-template #tipPlenumType>
+                        <img id="tool-tip2" src="/assets/images/Inputsheet/v_plenum_2_img.jpg" />
+                    </ng-template>
+                    <ng-template #tipPlenumVDepth>
+                        <img id="tool-tip1" src="/assets/images/Inputsheet/V-PLENUM Depth.jpg" />
+                    </ng-template>
+                    <ng-template #tipPlenumVHeight>
+                        <img id="tool-tip1" src="/assets/images/Inputsheet/V-PLENUM Height.jpg" />
+                    </ng-template>
+                    <ng-template #tipPlenumVLength>
+                        <img id="tool-tip1" src="/assets/images/Inputsheet/V-PLENUM Length.jpg" />
+                    </ng-template>
+                    <ng-template #tipPlenumWallDepth>
+                        <img id="tool-tip1" src="/assets/images/Inputsheet/WALL Plenum Depth.jpg" />
+                    </ng-template>
+                    <ng-template #tipPlenumWallHeight>
+                        <img id="tool-tip1" src="/assets/images/Inputsheet/WALL Plenum Height.jpg" />
+                    </ng-template>
+                    <ng-template #tipPlenumWallLength>
+                        <img id="tool-tip1" src="/assets/images/Inputsheet/WALL Plenum Length.jpg" />
+                    </ng-template>
+                    <ng-template #DistOfPlenumLeftHoodEdge>
+                        Distance of plenum's edge from left of the Hood
+                    </ng-template>
+                    <!-- Tooltip End -->
+
+                    <!-- start tooltip -->
+                    <!-- <ng-template #Side_A_CYPosition>Position of the Cylender</ng-template>
+                            <ng-template #Side_A_RunningPipeLength>Running length of supply pipe from cylinder to Hood.
+                            </ng-template>
+                            <ng-template #Side_A_HSTLength>Rnning length of HST from manaul actuator to Hood.</ng-template>
+                            <ng-template #LengthOfWireResponsePannel>Running length of wire from cylinder to response panel
+                            </ng-template>
+                            <ng-template #DistanceEquipTable>Distance between the Salamander base and left edge of the hood
+                            </ng-template>
+                            <ng-template #HeightCountertop>Distance bitween Height Counter top to salamander base (mm).
+                            </ng-template> -->
+
+                    <ng-template #FryerD>
+                        <img id="tool-tip1" src="/assets/images/Inputsheet/FRYER Depth.jpg" />
+                    </ng-template>
+                    <ng-template #FryerW>
+                        <img id="tool-tip1" src="/assets/images/Inputsheet/FRYER Width.jpg" />
+                    </ng-template>
+                    <ng-template #BurnersW>
+                        <img id="tool-tip1" src="/assets/images/Inputsheet/BURNERS Width.jpg" />
+                    </ng-template>
+                    <ng-template #BurnersD>
+                        <img id="tool-tip1" src="/assets/images/Inputsheet/BURNERS Depth.jpg" />
+                    </ng-template>
+                    <ng-template #GriddleW>
+                        <img id="tool-tip1" src="/assets/images/Inputsheet/GRIDDLE Width.jpg" />
+                    </ng-template>
+                    <ng-template #GriddleD>
+                        <img id="tool-tip1" src="/assets/images/Inputsheet/GRIDDLE Depth.jpg" />
+                    </ng-template>
+                    <ng-template #SalamanderD>
+                        <img id="tool-tip1" src="/assets/images/Inputsheet/SALAMANDER Depth.jpg" />
+                    </ng-template>
+                    <ng-template #SalamanderH>
+                        <img id="tool-tip1" src="/assets/images/Inputsheet/SALAMANDER Height.jpg" />
+                    </ng-template>
+                    <ng-template #SalamanderW>
+                        <img id="tool-tip1" src="/assets/images/Inputsheet/SALAMANDER Width.jpg" />
+                    </ng-template>
+
+                    <!-- End Tooltip -->
+
+                    <div class="row">
+                        <div class="col-md-3 col-lg-4">
+                            <div class="form-group">
+                                <label class="control-label required">Type of kitchen suppression
+                                    system</label>
+                                <!--  required: -->
+                                <select Class="form-control form-select for_size" [(ngModel)]=" isUpdate=='true' ? typeOFkiUp: objKSSEntity.TypeOfKitchenRequired ">
+                                    <option selected="selected" value="0">-Select-</option>
+                                    <option  value="Water_Mist">Water Mist(ENVIRO)</option>
+                                    <option   value="KSS-ULTRA_PLUS">Wet Chemical(ULTRA PLUS)</option>
+                                    <option   value="KSS-ULtra(UL)">KSS - ULtra-X(UL)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-lg-4">
+                            <div class="form-group">
+
+                                <label class="control-label required">Does the temperature go below 5°C?</label>
+                                <select Class="form-control form-select for_size" [(ngModel)]=" isUpdate=='true' ? tempUp: objKSSEntity.Temperature">
+                                    <option value="0">-Select-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div *ngIf="objKSSEntity.TypeOfKitchenRequired=='KSS-ULtra(UL)'" class="col-md-3 col-lg-4">
+                            <div class="form-group">
+    
+                                <label class="control-label required" >System Operation Type                                </label>
+                                <select Class="form-control form-select for_size" [(ngModel)]="operated" >
+                                    <option value="0">-Select-</option>
+                                    <option value="ELECTRICAL">ELECTRICAL OPERATED </option>
+                                    <option value="MECHANICAL"> MECHANICAL OPERATED
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-lg-4">
+                            <div class="form-group">
+    
+                                <label class="control-label required">Annunciation device                                </label>
+                                <select Class="form-control form-select for_size" [(ngModel)]="annuc">
+                                    <option value="0">-Select-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-lg-4">
+                            <div class="form-group">
+    
+                                <label class="control-label required" > Requirement                               </label>
+                                <select Class="form-control form-select for_size" [(ngModel)]="wise" >
+                                    <option value="0">-Select-</option>
+                                    <option value="For individual hood">For individual hood                                     </option>
+                                    <option value="Common for kitchen">Common for kitchen   
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div *ngIf="annuc=='Yes'" class="col-md-3 col-lg-4">
+                            <div class="form-group">
+    
+                                <label class="control-label required" >   Annunciation type                             </label>
+                                <select Class="form-control form-select for_size" [(ngModel)]="typeAnnuc" >
+                                    <option value="0">-Select-</option>
+                                    <option value="Response panel with hooter"> Response panel with hooter                             </option>
+                                    <option value="Hooter">Hooter
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 col-lg-4">
+                            <div class="form-group">
+    
+                                <label class="control-label required">Gas shutoff valve                                </label>
+                                <select Class="form-control form-select for_size" [(ngModel)]="gshut" >
+                                    <option value="0">-Select-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div *ngIf="gshut=='Yes'" class="col-md-3 col-lg-4">
+                            <div class="form-group">
+    
+                                <label class="control-label required" >  Requirement                                </label>
+                                <select Class="form-control form-select for_size" [(ngModel)]="wiseGas" >
+                                    <option value="0">-Select-</option>
+                                    <option value="For individual hood ">For individual hood                                   </option>
+                                    <option value="Common for kitchen "> Common for kitchen  
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                    
+                        <div *ngIf="gshut=='Yes' && objKSSEntity.TypeOfKitchenRequired=='KSS-ULtra(UL)' && operated=='MECHANICAL' " class="col-md-3 col-lg-4">
+                            <div class="form-group">
+    
+                                <label class="control-label required" > Gas shutoff valveType                            </label>
+                                <select Class="form-control form-select for_size" [(ngModel)]="gsVtype">
+                                    <option value="0">-Select-</option>
+                                    <option value="ELECTRICAL">ELECTRICAL                        </option>
+                                    <option value="MECHANICAL">MECHANICAL 
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-3 col-lg-4">
+                            <div class="form-group">
+                                <label class="control-label required">No of Kitchen</label>
+                                <select Class="form-control for_size" [(ngModel)]="objKSSEntity.NoOfKitchen"
+                                    (change)="BindKitchenList()">
+                                    <option value="0">-Select-</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div> -->
+                        <!-- <div class="col-md-2">
+                            <div class="form-group">
+                                <label class="control-label required">No. of ducts</label>
+                                <input type="number" min="0" max="999" onkeydown="return event.keyCode !==69"
+                                    onkeypress="if(this.value.length==3) return false" class="form-control for_size"
+                                    [(ngModel)]="objKSSEntity.NoOfKitchen" />
+                            </div>
+                        </div> -->
+
+                        <!-- <a ngbTooltip="Triggered from component" tooltipClass="my-freaky-tooltip" #tt="ngbTooltip">
+                            Open/ Close Tooltip
+                        </a>
+
+                        <button (click)="showTooltip()">Show</button>
+                        <button (click)="hideTooltip()">Hide</button>
+
+                        <ng-template #tolTemplate>
+                            <img id="tool-tip" src="/assets/images/Inputsheet/burners.jpg" />
+                        </ng-template>
+                        <div class="mx-auto" style="width: 200px;">
+                            <button type="button" class="btn btn-primary" [ngbTooltip]="tolTemplate" placement="right"
+                                triggers="click">
+                                Simple demo
+                            </button>
+                        </div>
+                        <button type="button" class="btn btn-outline-secondary" [ngbTooltip]="tipContent">
+                            I've got markup and bindings in my tooltip!
+                        </button> -->
+                    </div>
+
+                    <!-- <h6 class="for_heading"
+                        *ngIf="this.objKSSEntity.NoOfKitchen>this.objKitchenRoomEntityListFilter.length"><u>Provide the
+                            dimensions of kitchen
+                            room {{KitchenRoomNumber}}</u> :</h6>
+                    <div class="row">
+                        <div class="col-md-12 mt-3" *ngIf="objKSSEntity.NoOfKitchen>0">
+                            <div class="row"
+                                style=" border: 1px solid #ddd; padding: 10px 5px 0px 5px;  margin-top: -13px;"> -->
+                    <!-- <span
+                                    style="position: absolute; top: -21px; left: 13px; background-color: #fff;"></span>
+                                <div class="col-md-3 col-lg-4">
+                                    <div class="form-group">
+                                        <label class="control-label required">Name of Kitchen</label>
+                                        <input type="text" class="form-control for_size"
+                                            [(ngModel)]="objKitchenRoomEntity.NameOfKitchen" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-lg-2">
+                                    <div class="form-group ">
+                                        <label class="control-label required">Length(in meter):</label>
+                                        <input type="text" class="form-control for_size" maxlength="6"
+                                            appDecimalNumberDirective
+                                            [(ngModel)]="objKitchenRoomEntity.KitchenLength" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-lg-2">
+                                    <div class="form-group ">
+                                        <label class="control-label required">Width(in meter)</label>
+                                        <input type="text" class="form-control for_size" maxlength="6"
+                                            appDecimalNumberDirective [(ngModel)]="objKitchenRoomEntity.KitchenWidth" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-lg-2">
+                                    <div class="form-group ">
+                                        <label class="control-label required">Height(in meter)</label>
+                                        <input type="text" class="form-control for_size" maxlength="6"
+                                            appDecimalNumberDirective
+                                            [(ngModel)]="objKitchenRoomEntity.KitchenHeight" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-lg-2" style="margin-top: 25px;">
+                                    <div class="form-group">
+                                        <button type="button" class="btn btn-success btn-sm"
+                                            (click)="AddKitchenDetails()"><i class="fa fa-th-large mr"
+                                                aria-hidden="true"></i>Add</button>
+                                    </div>
+                                </div> -->
+
+                                <div *ngIf="wise=='Common for kitchen'" class="kitchenWise">
+
+                                
+                    <h6 class="for_heading"><u>Provide the dimensions of kitchen room</u> :</h6>
+                    <div class="row">
+                        <div class="col-md-12 mt-3">
+                            <div class="row"
+                                style=" border: 1px solid #ddd; padding: 10px 5px 0px 5px;  margin-top: -13px;">
+
+
+                                <!-- Tooltip Start -->
+                                <ng-template #tipkitchenContent1>Kitchen Name</ng-template>
+                                <!-- <ng-template #tipkitchenContent2>{{name}}</ng-template>
+                                <ng-template #tipkitchenContent3>{{name}}</ng-template>
+                                <ng-template #tipkitchenContent4>{{name}}</ng-template>
+                                <ng-template #tipkitchenContent5>{{name}}</ng-template>
+                                <ng-template #tipkitchenContent6>{{name}}</ng-template> -->
+                                <!-- Tooltip End -->
+                                <!-- Table Kitchen Start -->
+                                <table  class="table table-bordered iheight">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Action</th>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Kitchen Name</th>
+                                            <th scope="col">Kitchen Length(mm)</th>
+                                            <th scope="col">Kitchen Width(mm)</th>
+                                            <th scope="col">Kitchen Height(mm)</th>
+                                            <th scope="col">No. of Hoods</th>
+                                            <!-- <th scope="col" *ngIf="IsShow">No. of Hoods</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <ng-container
+                                            *ngFor="let PL of objKitchenRoomEntityList; let Kitchen_i = index;">
+                                            <tr>
+                                                <td>
+                                                    <a style="cursor: pointer;" class="" title="Delete Duct"
+                                                        (click)="DeleteKitchenDetail(Kitchen_i)">
+                                                        <i class="fa fa-trash-o fa-lg fa-2x" style="color: red;"></i>
+                                                    </a>
+                                                    <!-- <a style="cursor: pointer;" class="" title="Add Hood"
+                                                        (click)="addHoods(PL)">
+                                                        <i class="fa fa-plus-square fa-lg fa-2x" style="color: red;"></i>
+                                                    </a> -->
+                                                </td>
+                                                <td> {{ Kitchen_i + 1 }}</td>
+                                                <td> <input type="text" class="form-control for_size"
+                                                        [disabled]="btnAddDetails" [(ngModel)]=" PL.NameOfKitchen"
+                                                        [ngbTooltip]="ToggleChangeValue?tipkitchenContent1:''" /></td>
+                                                <td><input type="text" class="form-control for_size" maxlength="6"
+                                                        [disabled]="btnAddDetails" appDecimalNumberDirective
+                                                        [(ngModel)]="PL.KitchenLength" /></td>
+                                                <td><input type="text" class="form-control for_size" maxlength="6"
+                                                        [disabled]="btnAddDetails" appDecimalNumberDirective
+                                                        [(ngModel)]="PL.KitchenWidth " /></td>
+                                                <td><input type="text" class="form-control for_size" maxlength="6"
+                                                        [disabled]="btnAddDetails" appDecimalNumberDirective
+                                                        [(ngModel)]="PL.KitchenHeight" /></td>
+
+                                                <!-- <td *ngIf="PL.isShowHoods"> -->
+                                                <td>
+                                                    <input type="text" (change)="AddHoodsDetails(PL,Kitchen_i)"
+                                                        [disabled]="btnAddDetails" class="form-control for_size"
+                                                        maxlength="6" appDecimalNumberDirective
+                                                        [(ngModel)]="PL.NoOfHoods" />
+                                                </td>
+
+                                                <!-- <td *ngIf="IsNoOfHoods[i]">
+                                                <input type="text" (change)="AddHoodsDetails(PL,i)" class="form-control for_size" maxlength="6" appDecimalNumberDirective
+                                                [(ngModel)]="PL.NoOfHoods" />
+                                            </td> -->
+                                            </tr>
+
+
+
+                                            <!-- Tooltip Start -->
+                                            <ng-template #tipHoodContent1><b>Hood:</b> This consists of plenum and duct
+                                                with all
+                                                kitchen equipment to be protected under it.</ng-template>
+                                            <ng-template #tipHoodLength>
+                                                <img id="tool-tip2" src="/assets/images/Inputsheet/wall_lentgh.jpg" />
+                                            </ng-template>
+                                            <ng-template #tipHoodHight>
+                                                <img id="tool-tip2" src="/assets/images/Inputsheet/wall_height.jpg" />
+                                            </ng-template>
+                                            <ng-template #tipHoodWidth>
+                                                <img id="tool-tip2" src="/assets/images/Inputsheet/wall_depth.jpg" />
+                                            </ng-template>
+                                            <!-- Tooltip End -->
+
+
+                                            <!-- Table Hood Start -->
+
+                                            <tr *ngIf="PL.objKSSDimensionofHoodEntityList.length>0">
+                                                <td colspan="7">
+                                                    <ng-container
+                                                        *ngFor="let Item of PL.objKSSDimensionofHoodEntityList; let Hood_i=index;">
+                                                        <div>
+                                                            <table
+                                                                class="curve_header_vert_table normal_header_vert_table curve_sort_table fullwidth table-bordered"
+                                                                style="position: relative; text-align: center;"
+                                                                cellspacing="0" cellpadding="0"
+                                                                border-collapse="collapse" border-spacing="0">
+                                                                <thead class="neon_blue" style="color: #000;
+                                                                    background-color: #f8f9fc;">
+                                                                    <tr>
+                                                                        <!-- <th>Action</th> -->
+                                                                        <th>#</th>
+                                                                        <th>Hood Name</th>
+                                                                        <th>Hood Length(mm)</th>
+                                                                        <th>Hood Width(mm)</th>
+                                                                        <th>Hood Height(mm)</th>
+                                                                        <!-- <th>Is Plenum Length<br> Same As Hood</th> -->
+                                                                        <th>No Of Plenum</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td> {{ Hood_i + 1 }}</td>
+                                                                        <td> <input type="text"
+                                                                                class="form-control for_size"
+                                                                                [(ngModel)]="Item.NameofHood"
+                                                                                [ngbTooltip]="ToggleChangeValue?tipHoodContent1:''" />
+                                                                        </td>
+
+                                                                        <td><input type="text"
+                                                                                class="form-control for_size"
+                                                                                maxlength="6" appDecimalNumberDirective
+                                                                                [(ngModel)]="Item.DOHLength"
+                                                                                [ngbTooltip]="ToggleChangeValue?tipHoodLength:''" />
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                class="form-control for_size"
+                                                                                maxlength="6" appDecimalNumberDirective
+                                                                                [(ngModel)]="Item.DOHWidth"
+                                                                                [ngbTooltip]="ToggleChangeValue?tipHoodWidth:''" />
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                class="form-control for_size"
+                                                                                maxlength="6" appDecimalNumberDirective
+                                                                                [(ngModel)]="Item.DOHHeight"
+                                                                                [ngbTooltip]="ToggleChangeValue?tipHoodHight:''" />
+                                                                        </td>
+                                                                        <!-- <td>
+                                                                            <input type="radio" class="radio_s"
+                                                                                [(ngModel)]="Item.IsPlenumLenghtSame"
+                                                                                (click)="ShowPlenumTable(Item,Hood_i,Kitchen_i,Item,$event)"
+                                                                                name="'gender_'+{{Hood_i}}"
+                                                                                value="Yes">Yes
+                                                                            &nbsp;<input type="radio" class="radio_s"
+                                                                                [(ngModel)]="Item.IsPlenumLenghtSame"
+                                                                                (click)="ShowPlenumTable(Item,Hood_i,Kitchen_i,Item,$event)"
+                                                                                name="'gender_'+{{Hood_i}}"
+                                                                                value="No">No
+                                                                        </td> -->
+                                                                        <td> <input type="text"
+                                                                                class="form-control for_size"
+                                                                                (change)="ShowPlenumTableOnfillNoOfPlenum(Item,Hood_i,Kitchen_i,Item,$event)"
+                                                                                [(ngModel)]="Item.NumberOfPlenum" />
+                                                                        </td>
+                                                                    </tr>
+
+
+
+                                                                    <!-- Table Plenum Start -->
+
+                                                                    <tr *ngIf="Item.objPlenumEntityList.length>0">
+                                                                        <td colspan="7">
+                                                                            <div>
+                                                                                <table
+                                                                                    class="curve_header_vert_table normal_header_vert_table curve_sort_table fullwidth table-bordered"
+                                                                                    style="position: relative; text-align: center;"
+                                                                                    cellspacing="0" cellpadding="0"
+                                                                                    border-collapse="collapse"
+                                                                                    border-spacing="0">
+                                                                                    <thead class="neon_blue"
+                                                                                        style="color: #000;
+                                                                                                background-color: #f8f9fc;">
+                                                                                        <tr>
+                                                                                            <th>Action</th>
+                                                                                            <th>#</th>
+                                                                                            <!-- <th>Number Of Plenum</th> -->
+                                                                                            <th>Type Of Plenum</th>
+                                                                                            <th>Plenum Length(mm)</th>
+                                                                                            <th>Plenum Depth(mm)</th>
+                                                                                            <th>Plenum Height(mm)</th>
+                                                                                            <th>Distance of plenum's
+                                                                                                edge from left of the
+                                                                                                Hood</th>
+                                                                                            <!-- <th>Remarks</th> -->
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr
+                                                                                            *ngFor="let Item_Plenum of Item.objPlenumEntityList; let Plenum_i=index;">
+                                                                                            <td>
+                                                                                                <a href="javascript:void()"
+                                                                                                    (click)="deletePlenumRow(Kitchen_i,Hood_i,Plenum_i)"
+                                                                                                    [ngbTooltip]="tipPlenumDelete">
+                                                                                                    <i
+                                                                                                        class="fa fa-trash fa-2x"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                            <td> {{ Plenum_i + 1 }}
+                                                                                            </td>
+                                                                                            <!-- <td> <input type="text"
+                                                                                                    [ngbTooltip]="tipPlenum"
+                                                                                                    class="form-control for_size"
+                                                                                                    [(ngModel)]="Item_Plenum.NumberOfPlenum" />
+                                                                                            </td> -->
+                                                                                            <td>
+                                                                                                <select
+                                                                                                    [ngbTooltip]="ToggleChangeValue?tipPlenumType:''"
+                                                                                                    Class="form-control form-select for_size"
+                                                                                                    [(ngModel)]="Item_Plenum.TypeOfPlenum">
+                                                                                                    <option value="0">
+                                                                                                        -Select-
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="WALL PLENUM">
+                                                                                                        WALL PLENUM
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="V-PLENUM">
+                                                                                                        V-PLENUM
+                                                                                                    </option>
+                                                                                                </select>
+                                                                                            </td>
+                                                                                            <td><input type="text"
+                                                                                                    [ngbTooltip]="ToggleChangeValue?(Item_Plenum.TypeOfPlenum=='WALL PLENUM'?tipPlenumWallLength:Item_Plenum.TypeOfPlenum=='V-PLENUM'?tipPlenumVLength:''):''"
+                                                                                                    [disabled]="Item.IsPlenumLenghtSame=='Yes'"
+                                                                                                    class="form-control for_size"
+                                                                                                    maxlength="6"
+                                                                                                    appDecimalNumberDirective
+                                                                                                    [(ngModel)]="Item_Plenum.PlenumLength" />
+                                                                                            </td>
+                                                                                            <td><input type="text"
+                                                                                                    [ngbTooltip]="ToggleChangeValue?(Item_Plenum.TypeOfPlenum=='WALL PLENUM'?tipPlenumWallDepth:Item_Plenum.TypeOfPlenum=='V-PLENUM'?tipPlenumVDepth:''):''"
+                                                                                                    class="form-control for_size"
+                                                                                                    maxlength="6"
+                                                                                                    appDecimalNumberDirective
+                                                                                                    [(ngModel)]="Item_Plenum.PlenumDepth" />
+                                                                                            </td>
+                                                                                            <td><input type="text"
+                                                                                                    [ngbTooltip]="ToggleChangeValue?(Item_Plenum.TypeOfPlenum=='WALL PLENUM'?tipPlenumWallHeight:Item_Plenum.TypeOfPlenum=='V-PLENUM'?tipPlenumVHeight:''):''"
+                                                                                                    class="form-control for_size"
+                                                                                                    maxlength="6"
+                                                                                                    appDecimalNumberDirective
+                                                                                                    [(ngModel)]="Item_Plenum.PlenumHeight" />
+                                                                                            </td>
+                                                                                            <td><input type="text"
+                                                                                                    class="form-control for_size"
+                                                                                                    appDecimalNumberDirective
+                                                                                                    [(ngModel)]="Item_Plenum.DistOfPlenumLeftHoodEdge" />
+                                                                                            </td>
+                                                                                            <!-- <td><textarea name="comment"
+                                                                                                    class="form-control for_size"
+                                                                                                    [(ngModel)]="Item_Plenum.Remarks"></textarea>
+                                                                                            </td> -->
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <a href="javascript:void(0)"
+                                                                                                    [ngbTooltip]="tipPlenumAdd"
+                                                                                                    (click)="AddNewPlenumRow(Kitchen_i,Hood_i,Item.objPlenumEntityList.length-1)">
+                                                                                                    <i
+                                                                                                        class="fa fa-plus fa-2x"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </td>
+
+                                                                    </tr>
+
+
+
+                                                                    <!-- Table Duct Start -->
+
+                                                                    <tr *ngIf="Item.objKSSHoodDuctEntityList.length>0">
+                                                                        <td colspan="7">
+                                                                            <div>
+                                                                                <table
+                                                                                    class="curve_header_vert_table normal_header_vert_table curve_sort_table fullwidth table-bordered"
+                                                                                    style="position: relative; text-align: center;"
+                                                                                    cellspacing="0" cellpadding="0"
+                                                                                    border-collapse="collapse"
+                                                                                    border-spacing="0">
+                                                                                    <thead class="neon_blue"
+                                                                                        style="color: #000;
+                                                                                                background-color: #f8f9fc;">
+                                                                                        <tr>
+                                                                                            <th>Action</th>
+                                                                                            <th>#</th>
+                                                                                            <th>Number Of Duct</th>
+                                                                                            <th>Plenum</th>
+                                                                                            <th>Type Of Duct</th>
+                                                                                            <th>Duct Length(mm)</th>
+                                                                                            <th>Duct Depth(mm)</th>
+                                                                                            <th>Duct Diameter(mm)</th>
+
+                                                                                            <!-- <th>Action</th> -->
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr
+                                                                                            *ngFor="let Item_Duct of Item.objKSSHoodDuctEntityList; let Duct_i=index;">
+                                                                                            <td>
+                                                                                                <a href="javascript:void(0)"
+                                                                                                    [ngbTooltip]="tipDuctDelete"
+                                                                                                    (click)="deleteDuctRow(Kitchen_i,Hood_i,Duct_i)">
+                                                                                                    <i
+                                                                                                        class="fa fa-trash fa-2x"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                            <td> {{ Duct_i + 1 }}
+                                                                                            </td>
+                                                                                            <td> <input type="text"
+                                                                                                    [ngbTooltip]="ToggleChangeValue?tipDuct:''"
+                                                                                                    class="form-control for_size"
+                                                                                                    maxlength="6"
+                                                                                                    appDecimalNumberDirective
+                                                                                                    [(ngModel)]="Item_Duct.NoOfDuct" />
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <!-- [ngbTooltip]="ToggleChangeValue?tipPlenumType:''" -->
+                                                                                                <select
+                                                                                                    Class="form-control form-select for_size"
+                                                                                                    [(ngModel)]="Item_Duct.TypeOfPlenum">
+                                                                                                    <option value="0">
+                                                                                                        -Select-
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="WALL PLENUM">
+                                                                                                        WALL PLENUM
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="V-PLENUM">
+                                                                                                        V-PLENUM
+                                                                                                    </option>
+                                                                                                </select>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <select
+                                                                                                    [ngbTooltip]="ToggleChangeValue?tipDuctType:''"
+                                                                                                    Class="form-control form-select for_size"
+                                                                                                    [(ngModel)]="Item_Duct.TypeOfDuct">
+                                                                                                    <option value="0">
+                                                                                                        -Select-
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="RECTANGULAR DUCT">
+                                                                                                        RECTANGULAR
+                                                                                                        DUCT
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="CIRCULAR DUCT">
+                                                                                                        CIRCULAR
+                                                                                                        DUCT
+                                                                                                    </option>
+                                                                                                </select>
+                                                                                            </td>
+                                                                                            <td><input type="text"
+                                                                                                    [ngbTooltip]="ToggleChangeValue?(Item_Duct.TypeOfDuct=='CIRCULAR DUCT'?tipPlenumCir:Item_Duct.TypeOfDuct=='RECTANGULAR DUCT'?tipPlenumRecL:''):''"
+                                                                                                    [disabled]="(Item_Duct.TypeOfDuct=='CIRCULAR DUCT'||Item_Duct.TypeOfDuct=='0')"
+                                                                                                    class="form-control for_size"
+                                                                                                    maxlength="6"
+                                                                                                    appDecimalNumberDirective
+                                                                                                    [(ngModel)]="Item_Duct.DuctsLength" />
+                                                                                            </td>
+                                                                                            <td><input type="text"
+                                                                                                    [ngbTooltip]="ToggleChangeValue?(Item_Duct.TypeOfDuct=='CIRCULAR DUCT'?tipPlenumCir:Item_Duct.TypeOfDuct=='RECTANGULAR DUCT'?tipPlenumRecD:''):''"
+                                                                                                    [disabled]="(Item_Duct.TypeOfDuct=='CIRCULAR DUCT'||Item_Duct.TypeOfDuct=='0')"
+                                                                                                    class="form-control for_size"
+                                                                                                    maxlength="6"
+                                                                                                    appDecimalNumberDirective
+                                                                                                    [(ngModel)]="Item_Duct.DuctsWidth" />
+                                                                                            </td>
+                                                                                            <td><input type="text"
+                                                                                                    [ngbTooltip]="ToggleChangeValue?(Item_Duct.TypeOfDuct=='CIRCULAR DUCT'?tipPlenumCir:Item_Duct.TypeOfDuct=='RECTANGULAR DUCT'?tipPlenumRecD:''):''"
+                                                                                                    [disabled]="(Item_Duct.TypeOfDuct=='RECTANGULAR DUCT'||Item_Duct.TypeOfDuct=='0')"
+                                                                                                    class="form-control for_size"
+                                                                                                    maxlength="6"
+                                                                                                    appDecimalNumberDirective
+                                                                                                    [(ngModel)]="Item_Duct.DuctsDiameter" />
+                                                                                            </td>
+                                                                                            <!-- <td><textarea
+                                                                                                        name="comment"
+                                                                                                        class="form-control for_size"
+                                                                                                        [(ngModel)]="Item_Duct.Remarks"></textarea>
+                                                                                                </td> -->
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <a href="javascript:void()"
+                                                                                                    [ngbTooltip]="tipDuctAdd"
+                                                                                                    (click)="AddNewDuctRow(Kitchen_i,Hood_i,(Item.objKSSHoodDuctEntityList.length-1))">
+                                                                                                    <i
+                                                                                                        class="fa fa-plus fa-2x"></i>
+                                                                                                </a>
+                                                                                            </td>
+                                                                                        </tr>
+
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </td>
+
+                                                                    </tr>
+                                                                    <!-- <td>
+                                                                    <a class="mr-2 btn btn-danger btn-sm "
+                                                                        style="color: #fff; cursor: pointer; padding: 6px;"
+                                                                        title="Delete Existing Product Details"
+                                                                        (click)="PropoalExistingProductDelete(ExistingItem)">
+                                                                        <i class="fa fa-trash-o fa-lg"
+                                                                            style="font-size:20px;"
+                                                                            aria-hidden="true">
+                                                                        </i>
+                                                                    </a>
+                                                                </td> -->
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </ng-container>
+                                                </td>
+                                            </tr>
+                                        </ng-container>
+                                    </tbody>
+                                </table>
+
+
+                              
+
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-lg-3" style="margin-top: 25px;">
+                            <div class="form-group">
+                                <!-- <button type="button" class="btn btn-success btn-sm" (click)="AddHoods()"><i class="fa fa-th-large mr" aria-hidden="true"></i>Add To Grid</button> -->
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 col-lg-3" style="margin-top: 25px;">
+                            <div class="form-group">
+                                <!-- [disabled]="ProposalDetail.btnAddDetails==1" -->
+                                <button *ngIf="isAddMore==false" type="button" class="btn btn-success btn-sm" (click)="AddKithchenDetails()"
+                                    [disabled]="btnAddDetails"><i class="fa fa-th-large mr" aria-hidden="true"></i>{{KitchenBtnTitle}}</button>
+
+                                    <button *ngIf="isAddMore==true" type="button" class="btn btn-success btn-sm" (click)="AddKithchenDetails2()"
+                                    [disabled]="btnAddDetails"><i class="fa fa-th-large mr" aria-hidden="true"></i>Add More Kitchen</button>
+                                    <!-- <button type="button" class="btn btn-success btn-sm" (click)="AddKithchenDetails()" *ngIf="btn=='UpdateKitchenDtl'"
+                                    [disabled]="btnAddDetails"><i class="fa fa-th-large mr" aria-hidden="true"></i>Update</button> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style=" overflow: auto; background-color: #fff;">
+                        <table *ngIf="isUpdate!='true'"
+                            class="curve_header_vert_table normal_header_vert_table curve_sort_table fullwidth table-bordered mt-3"
+                            style="position: relative;" cellspacing="0" cellpadding="0" border-collapse="collapse"
+                            border-spacing="0">
+                            <thead class="neon_blue" style="color: #000;
+                                    background-color: #f8f9fc;">
+                                <tr>
+                                    <td> </td>
+                                    <td>#</td>
+                                    <td>
+                                        Kitchen Name
+                                    </td>
+                                    <td>
+                                        Kitchen Length(mm)
+                                    </td>
+                                    <td>
+                                        Kitchen Width(mm)
+                                    </td>
+                                    <td>
+                                        Kitchen Height(mm)
+                                    </td>
+                                    <td>
+                                        No. of Hoods
+                                    </td>
+                                    <td class="sort_cell">
+                                        Action
+                                    </td>
+                                    <td class="sort_cell" style="border-left:none;">
+
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody class="no_vert_bord row_hovers zebraTable">
+                                <ng-container
+                                    *ngFor="let objKitchenRoom of objKitchenRoomEntityListFilter; let i = index">
+                                    <tr>
+                                        <td>
+                                            <a href="javascript:void()" [ngbTooltip]="tipDuctAdd"
+                                                (click)="BindHoodListOfKitchen(objKitchenRoom);">
+                                                <i
+                                                    class="fa fa-plus fa-2x"></i>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <div class="inner-cell-wrapper">
+                                                {{ i + 1 }}
+                                            </div>
+                                        </td>
+                                        <td>{{ objKitchenRoom.NameOfKitchen }}</td>
+                                        <td>{{ objKitchenRoom.KitchenLength }}</td>
+                                        <td>{{ objKitchenRoom.KitchenWidth }}</td>
+                                        <td>{{ objKitchenRoom.KitchenHeight}}</td>
+                                        <td>{{ objKitchenRoom.NoOfHoods }}</td>
+                                        <td>
+
+                                            <a href="javascript:void(0);" style="cursor: pointer;" class="mr-4"
+                                                title="Edit Kitchen Details/View Kitchen Details"
+                                                (click)="KitchenRowAction('EditKitchenDetails',objKitchenRoom)">
+                                                <i style="color: #4caf50; font-size: 20px;  background-color: none; "
+                                                    class="fa fa-pencil"></i>
+                                            </a>
+                                            &nbsp;
+                                            <a href="javascript:void(0);" style="cursor: pointer;" class="mr-4"
+                                                title="Delete Kitchen Details"
+                                                (click)="KitchenRowAction('DeleteKitchenDetails',objKitchenRoom)">
+                                                <i style="color: red; font-size: 20px;  background-color: none; "
+                                                    class="fa fa-trash"></i>
+                                            </a>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="8">
+                                            <div>
+                                                <ng-template #tipDuctAdd>Click to show inputsheet Remarks History
+                                                </ng-template>
+                                                <table
+                                                    class="curve_header_vert_table normal_header_vert_table curve_sort_table fullwidth table-bordered"
+                                                    style="position: relative; text-align: center;" cellspacing="0"
+                                                    cellpadding="0" border-collapse="collapse" border-spacing="0">
+                                                    <thead class="neon_blue" style="color: #000;
+                                                                background-color: #f8f9fc;">
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th scope="col">Hood Name</th>
+                                                            <th scope="col">Hood Lenght(mm)</th>
+                                                            <th scope="col">Hood Width(mm)</th>
+                                                            <th scope="col">Hood Height(mm)</th>
+                                                            <td style="text-align:center"><b>Plenum Details</b></td>
+                                                            <td style="text-align:center"><b>Ducts Details</b></td>
+                                                            <!-- <th scope="col">Action</th> -->
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr
+                                                            *ngFor="let Item of objKSSDimensionofHoodEntityList; let i=index;">
+                                                            <!-- <td>
+                                                                <a href="javascript:void()"
+                                                                    (click)="deletePlenumRow(Kitchen_i,Plenum_i)"
+                                                                    [ngbTooltip]="tipPlenumDelete">
+                                                                    <i class="fa fa-trash fa-2x"></i>
+                                                                </a>
+                                                            </td> -->
+                                                            <td> {{ i + 1 }}
+                                                            </td>
+                                                            <td>{{Item.NameofHood}}</td>
+                                                            <td>{{Item.DOHLength}}</td>
+                                                            <td>{{Item.DOHWidth}}</td>
+                                                            <td>{{Item.DOHHeight}}
+                                                            <td>
+                                                                <table class="table table-bordered iheight">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th scope="col">#</th>
+                                                                            <!-- <th scope="col">No Of Plenum</th> -->
+                                                                            <th scope="col">Type Of Plenum</th>
+                                                                            <th scope="col">Plenum Length</th>
+                                                                            <th scope="col">Plenum Depth</th>
+                                                                            <th scope="col">Plenum Height</th>
+                                                                            <th scope="col"
+                                                                                title="Distance of plenum's edge from left of the Hood">
+                                                                                Dist of plenum</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr
+                                                                            *ngFor="let PLPlenum of Item.objPlenumEntityList; let i = index">
+                                                                            <td> {{ i + 1 }}</td>
+                                                                            <!-- <td>{{PLPlenum.NumberOfPlenum}}</td> -->
+                                                                            <td>{{ PLPlenum.TypeOfPlenum }}</td>
+                                                                            <td>{{ PLPlenum.PlenumLength }}</td>
+                                                                            <td>{{ PLPlenum.PlenumDepth }}</td>
+                                                                            <td>{{ PLPlenum.PlenumHeight }}</td>
+                                                                            <td>{{ PLPlenum.DistOfPlenumLeftHoodEdge }}
+                                                                            </td>
+                                                                            <!-- <td>
+                                                                            <a style="cursor: pointer;" class="mr-4" title="Delete Duct"
+                                                                                (click)="DeleteDucts(PL)">
+                                                                                <i class="fa fa-times-circle" style="color: red;"></i>
+                                                                            </a>
+                                                                        </td> -->
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                            <td>
+                                                                <table class="table table-bordered iheight">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th scope="col">#</th>
+                                                                            <th scope="col">No Of Duct</th>
+                                                                            <th scope="col">Type Of Duct</th>
+                                                                            <th scope="col">Duct Length</th>
+                                                                            <th scope="col">Duct Width</th>
+                                                                            <th scope="col">Duct Diameter</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr
+                                                                            *ngFor="let PLDuct of Item.objKSSHoodDuctEntityList; let i = index">
+                                                                            <td> {{ i + 1 }}</td>
+                                                                            <td>{{ PLDuct.NoOfDuct }}</td>
+                                                                            <td>{{ PLDuct.TypeOfDuct }}</td>
+                                                                            <td>{{ PLDuct.DuctsLength }}</td>
+                                                                            <td>{{ PLDuct.DuctsWidth }}</td>
+                                                                            <td>{{ PLDuct.DuctsDiameter }}</td>
+                                                                            <!-- <td>
+                                                                            <a style="cursor: pointer;" class="mr-4" title="Delete Duct"
+                                                                                (click)="DeleteDucts(PL)">
+                                                                                <i class="fa fa-times-circle" style="color: red;"></i>
+                                                                            </a>
+                                                                        </td> -->
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                </ng-container>
+                            </tbody>
+                        </table>
+
+
+
+
+                        <table *ngIf="isUpdate=='true'"
+                        class="curve_header_vert_table normal_header_vert_table curve_sort_table fullwidth table-bordered mt-3"
+                        style="position: relative;" cellspacing="0" cellpadding="0" border-collapse="collapse"
+                        border-spacing="0">
+                        <thead class="neon_blue" style="color: #000;
+                                background-color: #f8f9fc;">
+                            <tr>
+                                <td> </td>
+                                <td>#</td>
+                                <td>
+                                    Kitchen Name
+                                </td>
+                                <td>
+                                    Kitchen Length(mm)
+                                </td>
+                                <td>
+                                    Kitchen Width(mm)
+                                </td>
+                                <td>
+                                    Kitchen Height(mm)
+                                </td>
+                                <td>
+                                    No. of Hoods
+                                </td>
+                                <td class="sort_cell">
+                                    Action
+                                </td>
+                                <td class="sort_cell" style="border-left:none;">
+
+                                </td>
+                            </tr>
+                        </thead>
+                     
+                    </table>
+
+                    </div>
+                
+                <div class="modal-footer">
+                    <button class="nextbutton" style="vertical-align:middle" (click)="NextStep1()"><span>Next</span>
+
+                    </button>
+
+
+                </div>
+            </div>
+          
+
+</div>
+
+</div>
+
+</div>
+
+
+        <div [ngClass]="ShowtabActive == 2 ?'tab-pane fade show active':'tab-pane fade'" id="Input2" role="tabpanel"
+            aria-labelledby="CancelOrder-tab">
+    
+            <div class="panel panel-default" *ngIf="wise=='Common for kitchen'">
+                <div class="panel-body">
+                    <div class="container">
+                        <!-- Tooltip Start -->
+                        <ng-template #Side_A_CYPosition>Position of the Cylender</ng-template>
+                        <ng-template #Side_A_RunningPipeLength>Running length of supply pipe from cylinder to Hood.
+                        </ng-template>
+                        <ng-template #Side_A_HSTLength>Rnning length of HST from manaul actuator to Hood.</ng-template>
+                        <ng-template #LengthOfWireResponsePannel>Running length of wire from cylinder to response panel
+                        </ng-template>
+                        <ng-template #DistanceEquipTable>Distance between the Salamander base and left edge of the hood
+                        </ng-template>
+                        <ng-template #HeightCountertop>Distance bitween Height Counter top to salamander base (mm).
+                        </ng-template>
+                        <ng-template #ddlProtectionType>Total protection is when whole length of kitchen counter top
+                            under Hood is to be protected.
+                            Zone protection is when specific portion or equipment under the hood is to be protected.
+                            In Case of total protection you do not need to give equipment dimesion and position with
+                            exception of salamander if present.
+                            In case of zonal protection all equipment, dimesion and position has to be provided
+                        </ng-template>
+
+
+     
+
+
+                        <!-- Tooltip End -->
+                        <!-- [ngbTooltip]="ToggleChangeValue?tipkitchenContent1:''" -->
+
+                        <div class="col-md-12 mt-4 mb-4">
+     <!-- hood wise equipment -->
+
+                      
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label class="control-label required">Select Kitchen</label>
+                                    <select [(ngModel)]="objKitchenEquipmentEntity.NameOfKitchen"
+                                        [ngModelOptions]="{standalone: true}" class="form-control form-select for_size"
+                                        (change)="BindHoodForEquipment()">
+                                        <option value="0">--Select--</option>
+                                        <option *ngFor="let item of objKitchenRoomEntityListFilter"
+                                            [value]="item.NameOfKitchen">{{item.NameOfKitchen}}</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label class="control-label required">Select Hood</label>
+                                    <select [(ngModel)]="objKitchenEquipmentEntity.NameOfHood"
+                                        [ngModelOptions]="{standalone: true}" class="form-control form-select for_size"
+                                        (change)="OnKitchenEquipHoodSelect()">
+                                        <option value="0">--Select--</option>
+                                        <option *ngFor="let item of objKSSDOHEntityListForddlHood"
+                                            [value]="item.NameofHood">{{item.NameofHood}}</option>
+                                    </select>
+                                </div>
+
+                                <!-- <div class="form-group col-md-3">
+                                    <label class="control-label required">Kitchen Equipment</label>
+                                    <select [(ngModel)]="objKitchenEquipmentEntity.TypeOfKitchenEquipment"
+                                        [ngModelOptions]="{standalone: true}" class="form-control for_size">
+                                        <option value="0">--Select--</option>
+                                        <option value="Fryer">Fryer</option>
+                                        <option value="Burners">Burners</option>
+                                        <option value="Griddle">Griddle</option>
+                                        <option value="Salamander">Salamander</option>
+                                    </select>
+                                </div> -->
+
+                                <div class="form-group col-md-3">
+                                    <label class="control-label required">Protection Type</label>
+                                    <select [(ngModel)]="objKitchenEquipmentEntity.ProtectionType"
+                                        [ngbTooltip]="ToggleChangeValue?ddlProtectionType:''"
+                                        [ngModelOptions]="{standalone: true}" class="form-control form-select for_size">
+                                        <option value="0">--Select--</option>
+                                        <option value="Total">Total</option>
+                                        <option value="Zone">Zone</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group col-md-3">
+                                    <label class="control-label required">Side</label>
+                                    <select class="form-control form-select for_size" [ngModelOptions]="{standalone: true}"
+                                        (change)="BindKitchenEquipmentDtl()"
+                                        [(ngModel)]="objKitchenEquipmentEntity.Side">
+                                        <option value="0">-Select-</option>
+                                        <option value="Side_A">Side A</option>
+                                        <option value="Side_AB" *ngIf="tempPlenumType=='V-PLENUM'">Side B</option>
+                                        <!-- <option value="Side_AB">Side A and B</option> -->
+                                    </select>
+                                </div>
+                                <div class="card"
+                                    *ngIf="(objKitchenEquipmentEntity.Side=='Side_A'||objKitchenEquipmentEntity.Side=='Side_AB')">
+                                    <h6 class="card-header">Side - A</h6>
+                                    <div class="card-body">
+                                        <div class="col-12">
+
+                                            <table class="table table-bordered iheight"
+                                                *ngIf="(objKitchenEquipmentEntity.Side=='Side_A'||objKitchenEquipmentEntity.Side=='Side_AB')">
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            #
+                                                        </th>
+                                                        <th>
+                                                            Position
+                                                        </th>
+                                                        <th>
+                                                            Running Length of supply pipe/HST/Wire
+                                                        </th>
+                                                        <!-- <th scope="col" title="Cylender Position">Position
+                                                        </th>
+                                                        <th scope="col" title="Distance bitween Cylender and Equipment">
+                                                            Distance</th>
+                                                        <th scope="col" title="Pipe length Distance bitween Hood and Cylender">
+                                                            Pipe(mm)</th>
+                                                        <th scope="col"
+                                                            title="Heat sensing tube length Distance bitween Hood and Cylender">
+                                                            HST(mm)</th>
+                                                        <th scope="col" title="Response Panel requirment">
+                                                            Response Panel</th> -->
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            Cylinder
+                                                        </td>
+                                                        <!-- [ngbTooltip]="ToggleChangeValue?Side_A_CYPosition:''" -->
+                                                        <td>
+                                                            <select class="form-control form-select for_size"
+                                                                [ngModelOptions]="{standalone: true}"
+                                                                [(ngModel)]="objKitchenEquipmentEntity.Side_A_CYPosition">
+                                                                <option value="Left">Left</option>
+                                                                <option value="Right">Right</option>
+                                                            </select>
+                                                        </td>
+                                                        <td
+                                                            [ngbTooltip]="ToggleChangeValue?Side_A_RunningPipeLength:''">
+                                                            <input
+                                                                [(ngModel)]="objKitchenEquipmentEntity.Side_A_RunningPipeLength"
+                                                                maxlength="12" appDecimalNumberDirective type="text"
+                                                                class="form-control">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Manual Release
+                                                        </td>
+                                                        <td>
+                                                            <select class="form-control form-select for_size"
+                                                                [ngModelOptions]="{standalone: true}"
+                                                                [(ngModel)]="objKitchenEquipmentEntity.Side_A_ManualReleasePosition">
+                                                                <option value="Left">Left</option>
+                                                                <option value="Right">Right</option>
+                                                            </select>
+                                                        </td>
+                                                        <td [ngbTooltip]="ToggleChangeValue?Side_A_HSTLength:''"><input
+                                                                [(ngModel)]="objKitchenEquipmentEntity.Side_A_HSTLength"
+                                                                maxlength="12" appDecimalNumberDirective type="text"
+                                                                class="form-control"></td>
+
+                                                        <!-- <td><input [(ngModel)]="objKitchenEquipmentEntity.Side_A_RunningPipeLength"
+                                                                type="text" class="form-control"></td> -->
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Response Panel
+                                                        </td>
+                                                        <td>
+                                                    <tr>
+
+                                                        <select class="form-control form-select for_size"
+                                                            [ngModelOptions]="{standalone: true}"
+                                                            [(ngModel)]="objKitchenEquipmentEntity.ResponsePannel">
+                                                            <option value="0">-Select-</option>
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+                                                        </select> &nbsp; &nbsp;
+                                                        <select class="form-control form-select for_size"
+                                                            *ngIf="objKitchenEquipmentEntity.ResponsePannel=='Yes'"
+                                                            [ngModelOptions]="{standalone: true}"
+                                                            [(ngModel)]="objKitchenEquipmentEntity.ResponsePannelPosition">
+                                                            <option value="Left">Left</option>
+                                                            <option value="Right">Right</option>
+                                                        </select>
+
+                                                    </tr>
+                                                    </td>
+                                                    <td [ngbTooltip]="ToggleChangeValue?LengthOfWireResponsePannel:''">
+                                                        <input
+                                                            [(ngModel)]="objKitchenEquipmentEntity.LengthOfWireResponsePannel"
+                                                            maxlength="12" appDecimalNumberDirective type="text"
+                                                            class="form-control">
+                                                    </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Action</th>
+                                                        <th scope="col">S.No</th>
+                                                        <th scope="col">Type of Kitchen Equipment</th>
+                                                        <th scope="col">Width (mm)</th>
+                                                        <th scope="col">Depth (mm)</th>
+                                                        <th scope="col">Height for Salmander (mm)</th>
+                                                        <th scope="col">Distance of the Kitchen Equipment selected from
+                                                            the left
+                                                            edge of the Hood (mm).
+                                                        </th>
+                                                        <!-- <th scope="col">Distance between the Salamander base and left edge of the
+                                                                hood
+                                                            </th> -->
+                                                        <th>Height from Counter top to salamander base (mm).
+                                                        </th>
+                                                        <!-- <th scope="col">Number of Equipment</th> -->
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- <ng-container
+                                                        *ngFor="let Equipment_item of objKitchenEquipmentEntity.objKitchenEquipmentDetailEntityList; let Equipment_i = index;"> -->
+                                                    <ng-container
+                                                        *ngFor="let Equipment_item of objKitchenEquipmentDetailEntityListForSideA; let Equipment_i = index;">
+                                                        <tr>
+                                                            <td>
+                                                                <a href="javascript:void()"
+                                                                    (click)="deleteEquipmntDtlForSideA(Equipment_i)"
+                                                                    [ngbTooltip]="ToggleChangeValue?tipPlenumDelete:''">
+                                                                    <i class="fa fa-trash fa-2x"></i>
+                                                                </a>
+                                                            </td>
+                                                            <td scope="row">{{Equipment_i+1}}</td>
+                                                            <!-- [disabled]="IsDisableForEquipDtl" -->
+                                                            <td> <select
+                                                                    [(ngModel)]="Equipment_item.KitchenEquipmentName"
+                                                                    class="form-control form-select for_size"
+                                                                    [ngModelOptions]="{standalone: true}">
+                                                                    <option value="0">--Select--</option>
+                                                                    <!-- <option value="F{{Equipment_i+1}}">Fryer</option>
+                                                                        <option value="B{{Equipment_i+1}}">Burners</option>
+                                                                        <option value="G{{Equipment_i+1}}">Griddle</option>
+                                                                        <option value="S{{Equipment_i+1}}">Salamander</option> -->
+                                                                    <option
+                                                                        *ngIf="(objKitchenEquipmentEntity.ProtectionType == 'Zone')"
+                                                                        value="Fryer">Fryer</option>
+                                                                    <option
+                                                                        *ngIf="objKitchenEquipmentEntity.ProtectionType == 'Zone'"
+                                                                        value="Burners">Burners</option>
+                                                                    <option
+                                                                        *ngIf="objKitchenEquipmentEntity.ProtectionType == 'Zone'"
+                                                                        value="Griddle">Griddle</option>
+                                                                    <option
+                                                                        *ngIf="(objKitchenEquipmentEntity.ProtectionType == 'Zone'|| objKitchenEquipmentEntity.ProtectionType == 'Total')"
+                                                                        value="Salamander">Salamander</option>
+                                                                </select></td>
+                                                            <td><input
+                                                                    [ngbTooltip]="ToggleChangeValue?(objKitchenEquipmentDetailEntityListForSideA[Equipment_i].KitchenEquipmentName =='Salamander'?SalamanderW:(objKitchenEquipmentDetailEntityListForSideA[Equipment_i].KitchenEquipmentName =='Griddle'?GriddleW:(objKitchenEquipmentDetailEntityListForSideA[Equipment_i].KitchenEquipmentName =='Burners'?BurnersW:(objKitchenEquipmentDetailEntityListForSideA[Equipment_i].KitchenEquipmentName =='Fryer'?FryerW:'')))):''"
+                                                                    [(ngModel)]="Equipment_item.EquipmentWidth"
+                                                                    type="text" maxlength="12" appDecimalNumberDirective
+                                                                    class="form-control">
+                                                            </td>
+                                                            <td><input
+                                                                    [ngbTooltip]="ToggleChangeValue?(objKitchenEquipmentDetailEntityListForSideA[Equipment_i].KitchenEquipmentName =='Salamander'?SalamanderD:(objKitchenEquipmentDetailEntityListForSideA[Equipment_i].KitchenEquipmentName =='Griddle'?GriddleD:(objKitchenEquipmentDetailEntityListForSideA[Equipment_i].KitchenEquipmentName =='Burners'?BurnersD:(objKitchenEquipmentDetailEntityListForSideA[Equipment_i].KitchenEquipmentName =='Fryer'?FryerD:'')))):''"
+                                                                    [(ngModel)]="Equipment_item.EquipmentDepth"
+                                                                    type="text" maxlength="12" appDecimalNumberDirective
+                                                                    class="form-control">
+                                                            </td>
+                                                            <td><input
+                                                                    [ngbTooltip]="ToggleChangeValue?(objKitchenEquipmentDetailEntityListForSideA[Equipment_i].KitchenEquipmentName =='Salamander'?SalamanderH:(objKitchenEquipmentDetailEntityListForSideA[Equipment_i].KitchenEquipmentName =='Griddle'?'':(objKitchenEquipmentDetailEntityListForSideA[Equipment_i].KitchenEquipmentName =='Burners'?'':(objKitchenEquipmentDetailEntityListForSideA[Equipment_i].KitchenEquipmentName =='Fryer'?'':'')))):''"
+                                                                    [disabled]="objKitchenEquipmentDetailEntityListForSideA[Equipment_i].KitchenEquipmentName !='Salamander'"
+                                                                    [(ngModel)]="Equipment_item.EquipmentHeight"
+                                                                    type="text" maxlength="12" appDecimalNumberDirective
+                                                                    class="form-control">
+                                                            </td>
+
+                                                            <td><input
+                                                                    [(ngModel)]="Equipment_item.Dist_Salamander_leftEdge_hood"
+                                                                    maxlength="12" appDecimalNumberDirective type="text"
+                                                                    class="form-control"></td>
+                                                            <td><input
+                                                                    [(ngModel)]="Equipment_item.Dist_CounterTop_salamander"
+                                                                    [disabled]="objKitchenEquipmentDetailEntityListForSideA[Equipment_i].KitchenEquipmentName !='Salamander'"
+                                                                    type="text" class="form-control" maxlength="12"
+                                                                    appDecimalNumberDirective></td>
+                                                            <!-- <td><input [(ngModel)]="Equipment_item.Side_A"
+                                                                        type="text" class="form-control"></td>
+                                                                    <td><input [(ngModel)]="Equipment_item.Side_B"
+                                                                        type="text" class="form-control"></td>
+                                                                        <td><input [(ngModel)]="Equipment_item.Side_B"
+                                                                            type="text" class="form-control"></td> -->
+                                                        </tr>
+                                                    </ng-container>
+                                                    <tr *ngIf="objKitchenEquipmentDetailEntityListForSideA.length>0">
+                                                        <td>
+                                                            <a href="javascript:void(0)"
+                                                                [ngbTooltip]="ToggleChangeValue?tipPlenumAdd:''"
+                                                                (click)="AddNewEquipmentRowForSideA((objKitchenEquipmentDetailEntityListForSideA.length))">
+                                                                <i class="fa fa-plus fa-2x"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr *ngIf="objKitchenEquipmentDetailEntityListForSideA.length===0">
+                                                        <td>
+                                                            <a href="javascript:void(0)"
+                                                                [ngbTooltip]="ToggleChangeValue?tipPlenumAdd:''"
+                                                                (click)="AddNewEquipmentRowForSideA((0))">
+                                                                <i class="fa fa-plus fa-2x"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card"
+                                    *ngIf="(objKitchenEquipmentEntity.Side=='Side_B'||objKitchenEquipmentEntity.Side=='Side_AB')">
+                                    <h6 class="card-header">Side - B</h6>
+                                    <div class="card-body">
+                                        <div class="col-12">
+
+                                            <table class="table table-bordered iheight"
+                                                *ngIf="(objKitchenEquipmentEntity.Side=='Side_B'||objKitchenEquipmentEntity.Side=='Side_AB')">
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            #
+                                                        </th>
+                                                        <th scope="col">Position
+                                                        </th>
+                                                        <th scope="col">Running Length of supply pipe/HST/Wire
+                                                        </th>
+                                                    </tr>
+
+                                                    <!-- <th scope="col" title="Distance bitween Cylender and Equipment">
+                                                    Distance</th> -->
+
+                                                    <!-- <tr>
+                                                <th scope="col" title="Pipe length Distance bitween Hood and Cylender">
+                                                    Pipe(mm)</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col"
+                                                    title="Heat sensing tube length Distance bitween Hood and Cylender">
+                                                    HST(mm)</th>
+                                            </tr> -->
+
+
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Cylinder</b>
+                                                        </td>
+                                                        <td>
+                                                            <select class="form-control form-select for_size"
+                                                                [ngModelOptions]="{standalone: true}"
+                                                                [(ngModel)]="objKitchenEquipmentEntity.Side_B_CYPosition">
+                                                                <option value="Left">Left</option>
+                                                                <option value="Right">Right</option>
+                                                            </select>
+                                                        </td>
+                                                        <!-- <td><input [(ngModel)]="objKitchenEquipmentEntity.Side_B_DistCY" type="text"
+                                                        class="form-control"></td> -->
+                                                        <td
+                                                            [ngbTooltip]="ToggleChangeValue?Side_A_RunningPipeLength:''">
+                                                            <input
+                                                                [(ngModel)]="objKitchenEquipmentEntity.Side_B_RunningPipeLength"
+                                                                maxlength="12" appDecimalNumberDirective type="text"
+                                                                class="form-control">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Manual Release
+                                                        </td>
+                                                        <td>
+                                                            <select class="form-control form-select for_size"
+                                                                [ngModelOptions]="{standalone: true}"
+                                                                [(ngModel)]="objKitchenEquipmentEntity.Side_B_ManualReleasePosition">
+                                                                <option value="Left">Left</option>
+                                                                <option value="Right">Right</option>
+                                                            </select>
+                                                        </td>
+
+                                                        <td [ngbTooltip]="ToggleChangeValue?Side_A_HSTLength:''"><input
+                                                                [(ngModel)]="objKitchenEquipmentEntity.Side_B_HSTLength"
+                                                                maxlength="12" appDecimalNumberDirective type="text"
+                                                                class="form-control"></td>
+                                                    </tr>
+                                                    <!-- <tr>
+                                                <td><select class="form-control for_size"
+                                                        [ngModelOptions]="{standalone: true}"
+                                                        [(ngModel)]="Equipment_item.ResponsePannel">
+                                                        <option value="0">-Select-</option>
+                                                        <option value="Yes">Yes</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </td>
+                                            </tr> -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-12">
+
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Action</th>
+                                                        <th scope="col">S.No</th>
+                                                        <th scope="col">Type of Kitchen Equipment</th>
+                                                        <th scope="col">Width (mm)</th>
+                                                        <th scope="col">Depth (mm)</th>
+                                                        <th scope="col">Height for Salmander (mm)</th>
+                                                        <th scope="col">Distance of the Kitchen Equipment selected from
+                                                            the left
+                                                            edge of the Hood (mm).
+                                                        </th>
+                                                        <!-- <th scope="col">Distance between the Salamander base and left edge of the
+                                                            hood
+                                                        </th> -->
+                                                        <th>Height from Counter top to salamander base (mm).
+                                                        </th>
+                                                        <!-- <th scope="col">Number of Equipment</th> -->
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- <ng-container
+                                                        *ngFor="let Equipment_item of objKitchenEquipmentEntity.objKitchenEquipmentDetailEntityList; let Equipment_i = index;"> -->
+
+                                                    <ng-container
+                                                        *ngFor="let Equipment_item of objKitchenEquipmentDetailEntityListForSideB; let Equipment_i = index;">
+                                                        <tr>
+                                                            <td>
+                                                                <a href="javascript:void()"
+                                                                    (click)="deleteEquipmntDtlForSideB(Equipment_i)"
+                                                                    [ngbTooltip]="ToggleChangeValue?tipPlenumDelete:''">
+                                                                    <i class="fa fa-trash fa-2x"></i>
+                                                                </a>
+                                                            </td>
+                                                            <td scope="row">{{Equipment_i+1}}</td>
+                                                            <!-- [disabled]="IsDisableForEquipDtl" -->
+                                                            <td> <select
+                                                                    [(ngModel)]="Equipment_item.KitchenEquipmentName"
+                                                                    class="form-control form-select for_size"
+                                                                    [ngModelOptions]="{standalone: true}">
+                                                                    <option value="0">--Select--</option>
+                                                                    <!-- <option value="F{{Equipment_i+1}}">Fryer</option>
+                                                                    <option value="B{{Equipment_i+1}}">Burners</option>
+                                                                    <option value="G{{Equipment_i+1}}">Griddle</option>
+                                                                    <option value="S{{Equipment_i+1}}">Salamander</option> -->
+                                                                    <option
+                                                                        *ngIf="(objKitchenEquipmentEntity.ProtectionType == 'Zone')"
+                                                                        value="Fryer">Fryer</option>
+                                                                    <option
+                                                                        *ngIf="objKitchenEquipmentEntity.ProtectionType == 'Zone'"
+                                                                        value="Burners">Burners</option>
+                                                                    <option
+                                                                        *ngIf="objKitchenEquipmentEntity.ProtectionType == 'Zone'"
+                                                                        value="Griddle">Griddle</option>
+                                                                    <option
+                                                                        *ngIf="(objKitchenEquipmentEntity.ProtectionType == 'Zone'|| objKitchenEquipmentEntity.ProtectionType == 'Total')"
+                                                                        value="Salamander">Salamander</option>
+                                                                </select></td>
+                                                            <td><input
+                                                                    [ngbTooltip]="ToggleChangeValue?(objKitchenEquipmentDetailEntityListForSideB[Equipment_i].KitchenEquipmentName =='Salamander'?SalamanderW:(objKitchenEquipmentDetailEntityListForSideB[Equipment_i].KitchenEquipmentName =='Griddle'?GriddleW:(objKitchenEquipmentDetailEntityListForSideB[Equipment_i].KitchenEquipmentName =='Burners'?BurnersW:(objKitchenEquipmentDetailEntityListForSideB[Equipment_i].KitchenEquipmentName =='Fryer'?FryerW:'')))):''"
+                                                                    [(ngModel)]="Equipment_item.EquipmentWidth"
+                                                                    type="text" maxlength="12" appDecimalNumberDirective
+                                                                    class="form-control">
+                                                            </td>
+                                                            <td><input
+                                                                    [ngbTooltip]="ToggleChangeValue?(objKitchenEquipmentDetailEntityListForSideB[Equipment_i].KitchenEquipmentName =='Salamander'?SalamanderD:(objKitchenEquipmentDetailEntityListForSideB[Equipment_i].KitchenEquipmentName =='Griddle'?GriddleD:(objKitchenEquipmentDetailEntityListForSideB[Equipment_i].KitchenEquipmentName =='Burners'?BurnersD:(objKitchenEquipmentDetailEntityListForSideB[Equipment_i].KitchenEquipmentName =='Fryer'?FryerD:'')))):''"
+                                                                    [(ngModel)]="Equipment_item.EquipmentDepth"
+                                                                    type="text" maxlength="12" appDecimalNumberDirective
+                                                                    class="form-control">
+                                                            </td>
+                                                            <td><input
+                                                                    [ngbTooltip]="ToggleChangeValue?(objKitchenEquipmentDetailEntityListForSideB[Equipment_i].KitchenEquipmentName =='Salamander'?SalamanderH:(objKitchenEquipmentDetailEntityListForSideB[Equipment_i].KitchenEquipmentName =='Griddle'?'':(objKitchenEquipmentDetailEntityListForSideB[Equipment_i].KitchenEquipmentName =='Burners'?'':(objKitchenEquipmentDetailEntityListForSideB[Equipment_i].KitchenEquipmentName =='Fryer'?'':'')))):''"
+                                                                    [disabled]="objKitchenEquipmentDetailEntityListForSideB[Equipment_i].KitchenEquipmentName !='Salamander'"
+                                                                    [(ngModel)]="Equipment_item.EquipmentHeight"
+                                                                    type="text" maxlength="12" appDecimalNumberDirective
+                                                                    class="form-control">
+                                                            </td>
+
+                                                            <td><input
+                                                                    [(ngModel)]="Equipment_item.Dist_Salamander_leftEdge_hood"
+                                                                    maxlength="12" appDecimalNumberDirective type="text"
+                                                                    class="form-control"></td>
+                                                            <td><input
+                                                                    [(ngModel)]="Equipment_item.Dist_CounterTop_salamander"
+                                                                    [disabled]="objKitchenEquipmentDetailEntityListForSideB[Equipment_i].KitchenEquipmentName !='Salamander'"
+                                                                    type="text" class="form-control" maxlength="12"
+                                                                    appDecimalNumberDirective></td>
+                                                            <!-- <td><input [(ngModel)]="Equipment_item.Side_A"
+                                                                    type="text" class="form-control"></td>
+                                                                <td><input [(ngModel)]="Equipment_item.Side_B"
+                                                                    type="text" class="form-control"></td>
+                                                                    <td><input [(ngModel)]="Equipment_item.Side_B"
+                                                                        type="text" class="form-control"></td> -->
+                                                        </tr>
+                                                    </ng-container>
+                                                    <tr *ngIf="objKitchenEquipmentDetailEntityListForSideB.length>0">
+                                                        <td>
+                                                            <a href="javascript:void(0)"
+                                                                [ngbTooltip]="ToggleChangeValue?tipPlenumAdd:''"
+                                                                (click)="AddNewEquipmentRowForSideB((objKitchenEquipmentDetailEntityListForSideB.length))">
+                                                                <i class="fa fa-plus fa-2x"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr *ngIf="objKitchenEquipmentDetailEntityListForSideB.length===0">
+                                                        <td>
+                                                            <a href="javascript:void(0)"
+                                                                [ngbTooltip]="ToggleChangeValue?tipPlenumAdd:''"
+                                                                (click)="AddNewEquipmentRowForSideB((0))">
+                                                                <i class="fa fa-plus fa-2x"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- <tr *ngIf="objKitchenEquipmentDetailEntityListForSideB.length>0">
+                                                        <td>
+                                                            <a href="javascript:void(0)"
+                                                                [ngbTooltip]="ToggleChangeValue?tipPlenumAdd:''"
+                                                                (click)="AddNewEquipmentRow((objKitchenEquipmentDetailEntityListForSideB.length))">
+                                                                <i class="fa fa-plus fa-2x"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr> -->
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mt-4 mb-4">
+                                <div class="form-row">
+                                    <div class="col-md-2 col-lg-3" style="margin-top: 25px;">
+                                        <div class="form-group">
+                                            <button type="button" class="btn btn-success btn-sm"
+                                                [disabled]="ProposalDetail.btnAddDetails==1"
+                                                (click)="AddKithchenEquipmentDetails()"><i class="fa fa-th-large mr"
+                                                    aria-hidden="true"></i>{{KitchenEquipBtnTitle}}</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <p *ngIf="ToggleChangeValue" style="background-color: antiquewhite;"><b>Note:</b> Total
+                                protection is when whole
+                                length of kitchen counter top under Hood is to be protected.In case of total
+                                protection details of only Cylinder position, running lenth of HST from hood to
+                                manual actuator,
+                                Pipe running length from cylinder to hood are to be provided.
+                            </p> -->
+
+
+
+                        </div>
+
+
+                        <div style=" overflow: auto; background-color: #fff;">
+                            <table
+                                class="curve_header_vert_table normal_header_vert_table curve_sort_table fullwidth table-bordered mt-3"
+                                style="position: relative;" cellspacing="0" cellpadding="0" border-collapse="collapse"
+                                border-spacing="0">
+                                <thead class="neon_blue" style="color: #000;
+                                        background-color: #f8f9fc;">
+                                    <tr>
+                                        <td> </td>
+                                        <td>#</td>
+                                        <td>
+                                            Hood Name
+                                        </td>
+                                        <td>
+                                            Protection Type
+                                        </td>
+                                        <td>
+                                            Side
+                                        </td>
+                                        <td>
+                                            Kitchen Equipment Details
+                                        </td>
+
+                                        <!-- <td class="sort_cell">
+                                            Action
+                                        </td>
+                                        <td class="sort_cell" style="border-left:none;">
+
+                                        </td> -->
+                                    </tr>
+                                </thead>
+                                <tbody class="no_vert_bord row_hovers zebraTable">
+                                    <ng-container
+                                        *ngFor="let EquipmentEntity of objKitchenEquipmentEntityList; let i = index">
+                                        <tr>
+                                            <!-- <td>
+                                                <a href="javascript:void()" [ngbTooltip]="tipDuctAdd"
+                                                    (click)="BindHoodListOfKitchen(objKitchenRoom);">
+                                                    <i
+                                                        [ngClass]="!objKitchenRoom.IsShowInputSheetRemarksTbl?'fa fa-plus fa-2x':'fa fa-minus fa-2x'"></i>
+                                                </a>
+                                            </td> -->
+                                            <td>
+                                                <div class="inner-cell-wrapper">
+                                                    {{ i + 1 }}
+                                                </div>
+                                            </td>
+                                            <td>{{ EquipmentEntity.NameOfKitchen }}</td>
+                                            <td>{{ EquipmentEntity.NameOfHood }}</td>
+                                            <td>{{ EquipmentEntity.ProtectionType }}</td>
+                                            <td>
+                                                <ng-container
+                                                    *ngIf="(EquipmentEntity.Side_A_CYPosition =='Left'|| EquipmentEntity.Side_A_CYPosition =='Right')">
+                                                    <p><b>Side A</b></p>
+                                                    <table class="table table-bordered iheight">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Equipment</th>
+                                                                <th>Position</th>
+                                                                <th>Distance</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    Cylinder
+                                                                </td>
+                                                                <td>
+                                                                    {{EquipmentEntity.Side_A_CYPosition}}
+                                                                </td>
+                                                                <td>
+                                                                    {{EquipmentEntity.Side_A_RunningPipeLength}}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Manual Release
+                                                                </td>
+                                                                <td>
+                                                                    {{EquipmentEntity.Side_A_ManualReleasePosition}}
+                                                                </td>
+                                                                <td>
+                                                                    {{EquipmentEntity.Side_A_HSTLength}}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Response Panel
+                                                                </td>
+                                                                <td>
+                                                                    {{EquipmentEntity.ResponsePannel}}
+                                                                </td>
+                                                                <td>
+                                                                    {{EquipmentEntity.LengthOfWireResponsePannel}}
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </ng-container>
+                                                <ng-container
+                                                    *ngIf="(EquipmentEntity.Side_B_CYPosition =='Left'|| EquipmentEntity.Side_B_CYPosition =='Right')">
+                                                    <p><b>Side B</b></p>
+                                                    <table class="table table-bordered iheight">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Equipment</th>
+                                                                <th>Position</th>
+                                                                <th>Distance</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <b>Cylinder</b>
+                                                                </td>
+                                                                <td>{{ EquipmentEntity.Side_B_CYPosition }}
+                                                                </td>
+
+                                                                <td>
+                                                                    {{ EquipmentEntity.Side_B_RunningPipeLength }}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Manual Release
+                                                                </td>
+                                                                <td>
+                                                                    {{ EquipmentEntity.Side_B_ManualReleasePosition
+                                                                    }}
+                                                                </td>
+
+                                                                <td>
+                                                                    {{ EquipmentEntity.Side_B_HSTLength }}
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </ng-container>
+                                            </td>
+                                            <td>
+                                                <ng-container>
+                                                    <p><b>Side A</b></p>
+                                                    <table class="table table-bordered">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">S.No</th>
+                                                                <th scope="col">Kitchen Equipment</th>
+                                                                <th scope="col">Width</th>
+                                                                <th scope="col">Depth</th>
+                                                                <th scope="col">Height</th>
+                                                                <th scope="col"
+                                                                    [ngbTooltip]="ToggleChangeValue?DistanceEquipTable:''">
+                                                                    Distance </th>
+                                                                <th scope="col"
+                                                                    [ngbTooltip]="ToggleChangeValue?HeightCountertop:''">
+                                                                    Counter top Height</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <!-- <tr
+                                                                *ngFor="let Equipment_item of EquipmentEntity.objKitchenEquipmentDetailEntityList | CustomFilterPipeForSideB:filterargsForB">
+                                                                <td scope="row">{{Equipment_i+1}}</td> -->
+                                                            <tr
+                                                                *ngFor="let Equipment_item of EquipmentEntity.objKitchenEquipmentDetailEntityList; let Equipment_i = index;">
+                                                                <td scope="row">{{Equipment_i+1}}</td>
+                                                                <td> {{Equipment_item.KitchenEquipmentName}}</td>
+                                                                <td>{{Equipment_item.EquipmentWidth}}</td>
+                                                                <td>{{Equipment_item.EquipmentDepth}}</td>
+                                                                <td>{{Equipment_item.EquipmentHeight}}</td>
+                                                                <td>{{Equipment_item.Dist_Salamander_leftEdge_hood}}
+                                                                </td>
+                                                                <td>{{Equipment_item.Dist_CounterTop_salamander}}
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </ng-container>
+
+                                                <ng-container>
+                                                    <p><b>Side B</b></p>
+                                                    <table class="table table-bordered">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">S.No</th>
+                                                                <th scope="col">Kitchen Equipment</th>
+                                                                <th scope="col">Width</th>
+                                                                <th scope="col">Depth</th>
+                                                                <th scope="col">Height</th>
+                                                                <th scope="col"
+                                                                    >
+                                                                    Distance </th>
+                                                                <th scope="col"
+                                                                   >
+                                                                    Counter top Height</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <!-- <tr
+                                                                *ngFor="let Equipment_item of objKitchenEquipmentDetailEntityList | CustomFilterPipeForSideB:filterargsForB"> -->
+                                                            <tr
+                                                                *ngFor="let Equipment_item of EquipmentEntity.objKitchenEquipmentDetailEntityList; let Equipment_i = index;">
+                                                                <td scope="row">{{Equipment_i+1}}</td>
+                                                                <td> {{Equipment_item.KitchenEquipmentName}}</td>
+                                                                <td>{{Equipment_item.EquipmentWidth}}</td>
+                                                                <td>{{Equipment_item.EquipmentDepth}}</td>
+                                                                <td>{{Equipment_item.EquipmentHeight}}</td>
+                                                                <td>{{Equipment_item.Dist_Salamander_leftEdge_hood}}
+                                                                </td>
+                                                                <td>{{Equipment_item.Dist_CounterTop_salamander}}
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </ng-container>
+                                            </td>
+                                            <td>
+                                                <a href="javascript:void(0);" style="cursor: pointer;" class="mr-4"
+                                                    title="Edit Kitchen Equipment Details/View Kitchen Equipment Details"
+                                                    (click)="KitchenEquipmentRowAction('EditKitchenEquipment',EquipmentEntity)">
+                                                    <i style="color: #4caf50; font-size: 20px;  background-color: none; "
+                                                        class="fa fa-pencil"></i>
+                                                </a>
+                                                <a href="javascript:void(0);" style="cursor: pointer;" class="mr-4"
+                                                    title="Delete Kitchen Equipment Details"
+                                                    (click)="KitchenEquipmentRowAction('DeleteKitchenEquipment',EquipmentEntity)">
+                                                    <i style="color: red; font-size: 20px;  background-color: none; "
+                                                        class="fa fa-trash"></i>
+                                                </a>
+
+                                            </td>
+                                        </tr>
+                                    </ng-container>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="backbutton" style="vertical-align:middle" (click)="ShowtabActive = 1">
+                        <span>Back</span></button>
+
+                    <button class="nextbutton" style="vertical-align:middle" (click)="NextStep2()"><span>Next</span>
+                    </button>
+                </div>
+            </div>
+           
+        </div>
+        <div  [ngClass]="ShowtabActive == 3 ?'tab-pane fade show active':'tab-pane fade'" id="Attachements"
+            role="tabpanel" aria-labelledby="Attachements-tab">
+            <div *ngIf="wise=='Common for kitchen'" class="panel panel-default">
+                <div class="panel-body">
+
+                    <span class="for_heading">Upload drawings/sketches/photographs, marked with all dimensions
+                        required</span>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="control-label required">Select Kitchen</label>
+                                <select [(ngModel)]="ObjfileSaveEntity.NameOfKitchen"
+                                    [ngModelOptions]="{standalone: true}" class="form-control form-select for_size">
+                                    <option value="0">--Select--</option>
+                                    <option *ngFor="let item of objKitchenRoomEntityListFilter"
+                                        [value]="item.NameOfKitchen">{{item.NameOfKitchen}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label>Select File:</label>
+                                <input type="file" [(ngModel)]="objGSSFile"
+                                    (change)="handleFileInput($event)">
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-lg-4">
+                            <div class="form-group mt-3">
+                                <button  *ngIf="readonly!='true'" type="button" class="btn btn-primary btn-sm" (click)="SaveAttachement()"
+                                    [disabled]="ProposalDetail.btnAddDetails==1"><i class="fa fa-upload mr"
+                                        aria-hidden="true"></i> Upload </button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12 mt-2">
+
+                            <table
+                                class="curve_header_vert_table normal_header_vert_table curve_sort_table fullwidth table-bordered"
+                                style="position: relative;" cellspacing="0" cellpadding="0" border-collapse="collapse"
+                                border-spacing="0">
+                                <thead class="neon_blue" style="color: #000;
+                                background-color: #f8f9fc;">
+                                    <tr>
+                                        <td class="sort_cell "> #</td>
+                                        <td> Name Of Kitchen</td>
+                                        <td> File </td>
+                                        <td> Action </td>
+                                    </tr>
+                                </thead>
+                                <tbody class="no_vert_bord row_hovers zebraTable">
+                                    <tr *ngFor="let PL of objFileUploadEntityList; let i = index">
+                                        <td>
+                                            <div class="inner-cell-wrapper">
+                                                {{ i + 1 }}
+                                            </div>
+                                        </td>
+                                        <td>{{ PL.NameOfKitchen }}</td>
+                                        <td>{{ PL.OriginalFilesName }}</td>
+                                        <td>
+                                            <a style="cursor: pointer;" class="mr-4" title="Delete Attachements"
+                                                (click)="DeleteSavedFile(PL)">
+                                                <i style="color: #dc3545; font-size: 18px;  background-color: none; "
+                                                    class="fa fa-trash-o"></i>
+                                            </a>
+                                            &nbsp;&nbsp;
+                                            <a style="cursor: pointer;" class="mr-4" title="Download Attachements"
+                                                (click)="FileDownload(PL.FilesName)">
+                                                <i class="fas fa-download text-primary"></i>
+                                            </a>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="backbutton" style="vertical-align:middle" (click)="ShowtabActive = 2">
+                        <span>Back</span></button>
+                    <button  *ngIf="isUpdate!='true'&& readonly!='true'" class="btn btn-info btn-sm" style="width: 150px;"
+                        (click)="ShowtabActive = 1;btnAddDetails=false; isAddMore=true">
+                        <span>Add More Kitchen</span></button>
+                    <!-- <button type="button" class="btn btn-success btn-sm" (click)="SubmittedToDesign()"
+                        [disabled]="ProposalDetail.btnAddDetails==1"><i class="fa fa-paper-plane mr"></i>Submit</button> -->
+                        <button *ngIf="isUpdate!='true'&& readonly!='true'" type="button" class="btn btn-success btn-sm" (click)="SubmittedToDesign()"
+                        ><i class="fa fa-paper-plane mr"></i>Submit</button>
+                        <button *ngIf="isUpdate=='true'" type="button" class="btn btn-success btn-sm" (click)="updateKSS()"
+                        ><i class="fa fa-paper-plane mr"></i>Update</button>
+                </div>
+            </div>
+            
+        </div>
+   
+    </div>
+
+</div>

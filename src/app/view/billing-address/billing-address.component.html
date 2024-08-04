@@ -1,0 +1,265 @@
+<!-- main start here-->
+<main id="main">
+    <section class="inner-page p-0 " style="margin-top: 124px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 middle">
+  
+          </div>
+          <!--sidebarTop end here-->
+  
+          <div class="container-fluid mt-1">
+            <div class="d-flex justify-content-between mb-lg-0 mt-3">
+              <div class="mb-0">
+                <p>Billing Address</p>
+              </div>
+              <div>
+                <p>Sub Total:₹{{getTotalAmount()}} ({{cart.length}} Items) <span>
+                    <button class="btn btn-danger btn-sm " data-bs-toggle="modal" data-bs-target="#exampleeModal">+Add New
+                      Address</button>
+                  </span></p>
+                <div class="modal fade" id="exampleeModal" tabindex="-1" aria-labelledby="exampleeModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleeModalLabel">Add New Address</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form class="custom-form" [formGroup]="address" (ngSubmit)="saveAddressMaster()">
+                          <div class="row mb-1 form-group">
+                            <div class="col">
+                              <label for="firstName" class="form-label">First Name</label>
+                              <input type="text" class="form-control" id="firstName" formControlName="firstName" required>
+                            </div>
+                            <div class="col">
+                              <label for="lastName" class="form-label">Last Name</label>
+                              <input type="text" class="form-control" id="lastName" formControlName="lastName" required>
+                            </div>
+                          </div>
+                          <div class="mb-1 form-group">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" formControlName="email" required>
+                          </div>
+                          <div class="mb-1 form-group">
+                            <label for="CompanyName" class="form-label">CompanyName</label>
+                            <input type="text" class="form-control" id="companyName" formControlName="companyName"
+                              required>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col">
+                              <label for="mobilenumber" class="form-label">Mobile Number</label>
+                              <input type="tel" class="form-control" id="mobile" formControlName="mobile" required>
+                            </div>
+                            <div class="col">
+                              <label for="zipcode" class="form-label">ZipCode</label>
+                              <input type="tel" class="form-control" id="pincode" formControlName="pincode" required>
+                            </div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col">
+                              <label for="City" class="form-label">City</label>
+                              <input type="text" class="form-control" id="city" formControlName="city" required>
+                            </div>
+                            <div class="col">
+                              <label for="State" class="form-label">State</label>
+                              <input type="text" class="form-control" id="state" formControlName="state" required>
+                            </div>
+                          </div>
+                          <div class="d-grid">
+                            <button data-bs-dismiss="modal" type="submit" class="btn btn-primary">Submit</button>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+              </div>
+  
+            </div>
+  
+            <hr class="mt-0 mb-1">
+  
+            <div class="form-check mt-0">
+              <input class="form-check-input" type="radio" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                <p class="mt-0">Billing Address is same as shipping Address</p>
+              </label>
+            </div>
+  
+  
+  
+          </div>
+          <div class="container">
+  
+            <div class="row">
+  
+              <ng-container *ngFor="let item of addresses;let i=index">
+                <div class="col-4">
+                  <div class="card" style="width: 17rem; height: 300px; width: 320px;">
+                    <div class="card-header d-flex justify-content-between mb-0" style="height: 40px; ;">
+                      <div>
+                        <p>{{item.addressType}}</p>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                        [checked]="selBillAdd(item)"
+                        (click)="saveBillAdd(item)">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          <!-- <p style="font-size: medium;">Set as Default</p> -->
+                        </label>
+                      </div>
+  
+                    </div>
+                    <div class="card-body m-auto ">
+                      <p class="mb-0" style="margin-top: -10px;">{{item.firstName}} {{item.lastName}}</p>
+                      <p class="mb-0">
+                        {{item.companyName}} {{item.line1}} {{item.line2}} {{item.city}} {{item.state}}
+                      </p>
+                      <p class="mb-0">Phone number: {{item.mobile}}</p>
+                      <p class="mb-0">Email: {{item.email}}</p>
+                      <p class="mb-0 text-primary"> <a> Add Delivery Instruction: {{item.deliveryInstruction}}</a></p>
+  
+  
+                    </div>
+                    <!-- <hr class="mt-3 "> -->
+                    <div class="card-footer d-flex justify-content-start gap-2" style="height: 40px;">
+                      <div class="form-check">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          <p class="fs-6" style="margin-right: 5px;"> Set Default</p>
+                        </label>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                          [checked]="item.isDefault?true:false">
+  
+                      </div>
+                      <div>
+                        <p style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#editModal">
+                          <i class="far fa-edit" style="color: grey;"></i> Edit
+                        </p>
+                      </div>
+                      <div class="vr  border border-dark "
+                        style="height: 15px; margin-top: 5px; margin-left: 10px; font-weight:bolder;">
+  
+                      </div>
+  
+                      <div class="mb-0">
+                        <p style="margin-left: 10px;"> <a href="#" style="text-decoration: none;"><i
+                              class="fas fa-trash-alt" style="color: grey;"></i> Remove</a></p>
+  
+  
+                      </div>
+  
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+              <!-- Modal -->
+              <div class="modal" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content w-75">
+                    <div class="modal-header mb-0">
+                      <h6 class="modal-title" id="editModalLabel">Edit Address</h6> <br>
+  
+  
+                      <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+  
+                    </div>
+  
+                    <div class="modal-body">
+  
+                      <form>
+                        <div class="bg-white p-0 mt-0">
+                          <fieldset class="mb-0 mt-0">
+                            <legend>Personal Information</legend>
+                            <div class="row mb-1">
+                              <div class="col-md-6">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="Enter First Name"
+                                  required />
+                              </div>
+                              <div class="col-md-6">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" id="lastName" class="form-control" placeholder="Enter Last Name"
+                                  required />
+                              </div>
+                            </div>
+  
+                            <div class="row mb-1">
+                              <div class="col-md-6">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" class="form-control" placeholder="Enter Email" required />
+                              </div>
+                              <div class="col-md-6">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" id="password" class="form-control" placeholder="Enter Password"
+                                  required />
+                              </div>
+                            </div>
+                          </fieldset>
+  
+                          <fieldset class="mb-0">
+                            <legend>Address Information</legend>
+                            <div class="row mb-1">
+                              <div class="col-md-6">
+                                <label for="address" class="form-label">Address</label>
+                                <input type="text" id="address" class="form-control" placeholder="Enter Address"
+                                  required />
+                              </div>
+                              <div class="col-md-6">
+                                <label for="city" class="form-label">City</label>
+                                <input type="text" id="city" class="form-control" placeholder="Enter City" required />
+                              </div>
+                            </div>
+  
+                            <div class="row mb-2">
+                              <div class="col-md-6">
+                                <label for="state" class="form-label">State</label>
+                                <input type="text" id="state" class="form-control" placeholder="Enter State" required />
+                              </div>
+                              <div class="col-md-6 mb-2">
+                                <label for="zip" class="form-label">Zip Code</label>
+                                <input type="text" id="zip" class="form-control" placeholder="Enter Zip Code" required />
+                              </div>
+                            </div>
+                          </fieldset>
+  
+                          <div class="d-flex gap-5">
+                            <button type="submit" class="btn btn-outline-danger btn-sm w-50">Cancel</button>
+                            <button type="submit" class="btn btn-danger btn-sm w-50">Save</button>
+                          </div>
+  
+                        </div>
+                      </form>
+  
+  
+  
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+            <div class="d-flex justify-content-end mt-2">
+  
+              <button routerLink="/user/order-summary" class="btn btn-sm btn-danger" style="height: 30px;">Proceed To
+                Complete
+                Order</button>
+  
+            </div>
+          </div>
+          <!--  commoncode start here-->
+          <div class="row">
+            <app-product-recommended></app-product-recommended>
+          </div>
+          <!-- commoncode end here-->
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- End #main -->

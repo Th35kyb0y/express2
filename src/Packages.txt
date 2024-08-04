@@ -1,0 +1,23 @@
+Build
+ ng build --configuration production
+
+npm install @ng-bootstrap/ng-bootstrap@15
+npm i @popperjs/core@2.11.5
+
+npm install @fortawesome/fontawesome-free
+npm install swiper
+https://swiperjs.com/get-started
+
+
+npm install xlsx
+
+npm install ngx-toastr@16.2.0 --save
+npm install @angular/animations --save
+
+npm install chart.js
+
+npm i @ng-select/ng-select@11.2.0
+
+npm i ngx-image-cropper
+
+npm i ngx-image-zoom

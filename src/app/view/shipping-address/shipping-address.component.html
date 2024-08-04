@@ -1,0 +1,194 @@
+<!-- main start here-->
+<main id="main">
+    <section class="inner-page p-0 " style="margin-top: 144px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 middle">
+            <!--sidebarTop start here-->
+            <!-- <div class="col-2 f_left side_bar">
+                            <app-top-sidebar></app-top-sidebar>
+                        </div> -->
+          </div>
+          <!--sidebarTop end here-->
+  
+          <div class="container mt-0">
+            <div class="d-flex justify-content-between mb-1 mt-0">
+              <div>
+                <p class="fs-6  fw-bold">Shipping Address</p>
+              </div>
+              <div>
+                <p class="fs-6 fw-bold">Sub Total:₹{{getTotalAmount()}} ({{cart.length}} Items)
+                  <span style="margin-left: 10px;"><button class="btn btn-danger btn-sm ml-2" data-bs-toggle="modal"
+                      data-bs-target="#exampleModal">+Add New Address</button></span>
+                </p>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+  
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Address</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body bg-black">
+                        <div class="bg-body-secondary">
+                          <form class="custom-form" [formGroup]="address" (ngSubmit)="saveAddressMaster()">
+                            <div class="row mb-1 form-group">
+                              <div class="col">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" formControlName="firstName" required>
+                              </div>
+                              <div class="col">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" formControlName="lastName" required>
+                              </div>
+                            </div>
+                            <div class="mb-1 form-group">
+                              <label for="email" class="form-label">Email address</label>
+                              <input type="email" class="form-control" id="email" formControlName="email" required>
+                            </div>
+                            <div class="mb-1 form-group">
+                              <label for="CompanyName" class="form-label">CompanyName</label>
+                              <input type="text" class="form-control" id="companyName" formControlName="companyName" required>
+                            </div>
+                            <div class="row form-group">
+                              <div class="col">
+                                <label for="mobilenumber" class="form-label">Mobile Number</label>
+                                <input type="tel" class="form-control" id="mobile" formControlName="mobile" required>
+                              </div>
+                              <div class="col">
+                                <label for="zipcode" class="form-label">ZipCode</label>
+                                <input type="tel" class="form-control" id="pincode" formControlName="pincode" required>
+                              </div>
+                            </div>
+                            <div class="row form-group">
+                              <div class="col">
+                                <label for="City" class="form-label">City</label>
+                                <input type="text" class="form-control" id="city" formControlName="city" required>
+                              </div>
+                              <div class="col">
+                                <label for="State" class="form-label">State</label>
+                                <input type="text" class="form-control" id="state" formControlName="state" required>
+                              </div>
+                            </div>
+                            <div class="d-grid">
+                              <button data-bs-dismiss="modal" type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                          </form>
+  
+  
+  
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+              </div>
+  
+            </div>
+            <hr class="mb-0" style="margin-top: -15px;">
+            <div class="form-check mt-1">
+              <input class="form-check-input" type="radio" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                <p class="fs-6">Shipping Address is same as Billing Address</p>
+              </label>
+            </div>
+  
+  
+          </div>
+          <div class="container">
+  
+            <div class="row d-flex">
+  
+              <ng-container *ngFor="let item of addresses;let i=index">
+                <div class="col-4">
+                  <div class="card" style="width: 17rem; height: 300px; width: 320px;">
+                    <div class="card-header d-flex justify-content-between mb-0" style="height: 40px; ;">
+                      <div>
+                        <p>{{item.addressType}}</p>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                        [checked]="selShipAdd(item)"
+                        (click)="saveShipAdd(item)">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          <!-- <p style="font-size: medium;">Set as Default</p> -->
+                        </label>
+                      </div>
+  
+                    </div>
+                    <div class="card-body m-auto ">
+                      <p class="mb-0" style="margin-top: -10px;">{{item.firstName}} {{item.lastName}}</p>
+                      <p class="mb-0">
+                        {{item.companyName}} {{item.line1}} {{item.line2}} {{item.city}} {{item.state}}
+                      </p>
+                      <p class="mb-0">Phone number: {{item.mobile}}</p>
+                      <p class="mb-0">Email: {{item.email}}</p>
+                      <p class="mb-0 text-primary"> <a> Add Delivery Instruction: {{item.deliveryInstruction}}</a></p>
+  
+  
+                    </div>
+                    <!-- <hr class="mt-3 "> -->
+                    <div class="card-footer d-flex justify-content-start gap-2" style="height: 40px;">
+                      <div class="form-check">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          <p class="fs-6" style="margin-right: 5px;"> Set Default</p>
+                        </label>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                          [checked]="item.isDefault?true:false">
+  
+                      </div>
+                      <div>
+                        <p style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#editModal">
+                          <i class="far fa-edit" style="color: grey;"></i> Edit
+                        </p>
+                      </div>
+                      <div class="vr  border border-dark "
+                        style="height: 15px; margin-top: 5px; margin-left: 10px; font-weight:bolder;">
+  
+                      </div>
+  
+                      <div class="mb-0">
+                        <p style="margin-left: 10px;"> <a href="#" style="text-decoration: none;"><i
+                              class="fas fa-trash-alt" style="color: grey;"></i> Remove</a></p>
+  
+  
+                      </div>
+  
+                    </div>
+                  </div>
+  
+                </div>
+              </ng-container>
+  
+            </div>
+            <div class="d-flex justify-content-between mt-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  <p style="font-size: small;">Shipping Address is same as Billing Address</p>
+                </label>
+              </div>
+              <button routerLink="/user/billing-address" class="btn btn-sm btn-danger" style="height: 30px;">Proceed to
+                Billing
+                Option</button>
+  
+            </div>
+  
+  
+          </div>
+  
+          <!--  commoncode start here-->
+          <div class="row">
+            <!-- <app-product-recommended></app-product-recommended> -->
+          </div>
+          <!-- commoncode end here-->
+        </div>
+      </div>
+    </section>
+  </main>

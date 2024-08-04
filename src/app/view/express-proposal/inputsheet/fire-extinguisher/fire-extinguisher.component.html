@@ -1,0 +1,297 @@
+<div *ngIf="showMainCategory" class="container mt-4 ">
+    <div class="row">
+        <div class="col-12 mb-0">
+            <div class="d-flex justify-content-between mt-0">
+                <h6>Select Category</h6>
+                
+            </div>
+            <hr class="mt-1 mb-1">
+            <div  class="row ">
+                <div class="col-12 text-center segment-card">
+                    <div class="row">
+                        <ng-container *ngFor="let data of collectins;let i=index">
+                            <div class=" col-xs-12 col-md-4 col-sm-4  item_2">
+                                
+                                <a (click)="getChildren(data)" routerLinkActive="active">
+                                    <div class="card-block mb-4 position-relative border-0">
+                                        <!-- <h3 class="card_text-1 ">{{data.collectionName}}</h3>
+                                        <p class="cate_0">{{data.description}}</p> -->
+                                        <!-- <span class="card_1">
+                                            <button type="button" id="b_00" class="">ENTER</button>
+                                            <i class="fa fa-chevron-circle-right" id='fa_button'></i>
+                    
+                                        </span> -->
+                                       
+                                        <span> <img width="344" height="234" [src]="data.imagePath?imtUrl+''+data.imagePath:'/assets/img/not_available.jpg'"
+                                                alt="" /></span>
+                                    </div>
+                                    <!-- <img  src="{{data.imagePath}}" width="350" height="262" alt="" /> -->
+                                </a>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+
+  
+</div>
+
+
+
+
+
+<div *ngIf="showProduct" class="container-fluid" style="margin-top: 20px;">
+
+    <div class="container-fluid" >
+        <div class="d-flex justify-content-between mt-5 mb-2 " >
+            <h6>Select Product</h6>
+            <button *ngIf="objBoqList.length>0" type="button" class="btn btn-primary btn-sm back_btn" (click)="backClicked(3)"><i class="fa fa-chevron-circle-left mr-2" aria-hidden="true" style="margin-right:3px;"></i>View Proposal</button>
+            <button type="button" class="btn btn-primary btn-sm back_btn" (click)="backClicked(1)"><i class="fa fa-chevron-circle-left mr-2" aria-hidden="true" style="margin-right:3px;"></i>Back to Main Category</button>
+            
+        </div>
+        <div class="container-fluid" *ngIf="showLoaderBar">
+            <div class="loader-container">
+              <div class="loader-bar">
+                <div class="loader-progress"></div>
+              </div>
+            </div>
+          </div>
+    
+        <div class="row mt-0 ">
+    
+            <div class="card col-2 p-0 side_filter" id="scroll-nav">
+                <div class="card-header bg_red text-white ">
+                    <span class="m-0">Apply Filter</span>
+                    <span class="m-0"> <a href="javascript:void(0);" class="clear_filter_1" (click)="clearfilter()">Clear Filter</a> </span>
+    
+                </div>
+    
+                <ul class="list-group list-group-flush p-2 mt-2 ">
+                    <!-- Collection filters -->
+                    <div >
+                        <p class="filter_heading"><span class="arrow_label" > </span> 
+                           
+                            <span
+                                class="number">
+                                <!-- <i class="fa fa-angle-down" aria-hidden="true" *ngIf="!toggleStyle2"></i>
+                                <i class="fa fa-angle-up" aria-hidden="true"  *ngIf="toggleStyle2"></i> -->
+                            </span>
+                        </p>
+                        <li class="list-group-item p-0 mt-3 custom-font" >
+                           
+                            <ul class="list-unstyled mt-0 mb-0">
+                                <li class="d-flex justify-content-between p-0" *ngFor="let cat of collection;let i=index">
+                                    <div class="form-check">
+                                        <input class="form-check-input p-0" type="checkbox" value="" 
+                                        [checked]="cat.isSelected" [disabled]="cat.noOfProduct==0"
+                                                            (change)="filterCollections($event, cat.collectionId, cat.collectionName)">
+                                        <label class="form-check-label   mb-0 custom-font" for="flexCheckDefault">
+                                            {{cat.collectionName}}
+                                        </label>
+                                    </div>
+                                    <div>
+                                        (<span
+                                        [innerHtml]="cat.noOfProduct"></span>)
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </div>
+    
+                      <!-- Collection filters -->
+                      <div >
+                        <!-- <p class="filter_heading">
+                            <span class="arrow_label" >Application Area </span> 
+                            <span
+                                class="number">
+                              
+                            </span>
+                           
+                        </p> -->
+                        <li class="list-group-item p-0 mt-3 custom-font" >
+                           
+                            <ul class="list-unstyled mt-0 mb-0">
+                                <li *ngIf="applicationareas.length>0">
+                                   
+                                    <span  >Application Area </span>
+                                <hr>
+                                </li>
+                                <li class="d-flex justify-content-between p-0" *ngFor="let cat of applicationareas;let i=index">
+                                    <div class="form-check">
+                                        <input class="form-check-input p-0" type="checkbox" value="" 
+                                        [checked]="cat.isSelected" [disabled]="cat.noOfProduct==0"
+                                                            (change)="filterAppArea($event, cat.collectionId, cat.applicationAreaId)">
+                                        <label class="form-check-label   mb-0 custom-font" for="flexCheckDefault">
+                                            {{cat.applicationAreaName}}
+                                        </label>
+                                    </div>
+                                    <div>
+                                        (<span
+                                        [innerHtml]="cat.noOfProduct"></span>)
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </div>
+    
+                </ul>
+    
+    
+            </div>
+            <div class="col-9 details_p">
+                <div #productElement>
+                    <div class="card  mb-3" *ngFor="let item of products;let i=index">
+                        <div class="row ">
+                            <div class="col-md-3 ">
+                               
+                                <img [src]="getProductFirstImageContent(item.contents)" class="img-fluid rounded-start mt-2" alt="...">
+                            </div>
+                            <div class="col-md-9">
+                                <div class="card border_left d-flex justify-content-around p-3">
+                                    <h5>{{item.name}} ({{item.code}})</h5>
+        
+                                    <!-- <div class="button d-flex  mt-">
+                                        <button class="custom-btn rating-button text ">5.0<span
+                                                class="star-icon">&#9733;</span></button>
+                                        <p class="mb-2 mt-1"> {{item.productRatingId}} <span>ratings</span> </p>
+                                    </div> -->
+                                    <p class="fs-6 mb-0 mt-0 text-success">
+                                        <span *ngIf="item.instock != '0'" class="text-success">{{item.instock}}
+                                            InStock </span>
+                                        <span *ngIf="item.instock == '0'" style="color:red">
+                                            Not Available
+                                            <span style="color:green"> (Available On Order)</span>
+                                        </span>
+                                        <!-- {{item.inStock}} InStock -->
+                                    </p>
+        
+                                    <p class="mb-0 fw-bold " *ngIf="item.discount.discountType == 2">
+                                        <span class="text-decoration-line-through ">Price: ₹{{item.price}}</span>
+                                        <span class="m-lg-2 text-success">Discount: 
+                                            ₹
+                                            <!-- {{item.currency.symbol}} -->
+                                            {{item.discount.discountAmount |
+                                                number:'0.2-2'}} <span
+                                                    *ngIf="item.discount.value != null && item.discount.value != 0">({{
+                                                    item.discount.value }}%)</span>
+                                        </span>
+                                    </p>
+                                    <p class="mt-0 fw-bold mb-0 text-danger" *ngIf="item.discount.discountType != 2">₹{{item.price}}</p>
+                                    <p class="fs-7 mb-3" [innerHTML]="item.shortDescription">
+                                    </p>
+                                 
+                                    <!-- <div class="d-flex gap-3"> -->
+                                    <div >
+                                        <!-- <app-add-to-cart-view-product [product]="item"></app-add-to-cart-view-product> -->
+                                         <!-- <app-add-to-cart-view-product [product]="item"></app-add-to-cart-view-product> -->
+                                     <div class="btn-group btn-group-md" role="group" aria-label="Small button group">
+                                        <button type="button" class="btn border" (click)="subQuantity(item)">-</button>
+                                        <input type="number" name="qty" value="{{item.quantity}}"
+                                        class="input-qty" />
+                                       
+                                        <button type="button" class="btn  border" (click)="addQuantity(item)">+</button>
+                                    </div>
+                                    <button class=" btn bg_red btn-sm w-25 mx-3"
+                                        (click)="addtoProposal(item)">{{item.addToCartText}}</button>
+                                    <!-- <button class="btn btn-primary w-25 btn-sm"
+                                        routerLink="/product-detail/{{item.name | catname}}">
+                                        View Product
+                                    </button>  -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="IsLoaderLazy" class="container-loader">
+                        <span>Loading <div class="loader"></div></span>
+                    </div>
+                </div>
+                
+                <!-- <div class="no-content" *ngIf="products.length==0">
+                    <div class="no-content-img">
+                        <img class="img-fluid" src="/assets/no-content.png"/>
+                    </div>
+                    <div class="no-content-text text-center">
+                        No Product Found
+                    </div>
+                    
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+ <div *ngIf="showProposal" class="container " style="margin-top: 20px;">
+
+  
+    <div class="row">
+        <div class="col-12 mb-0">
+            <div class="d-flex justify-content-between mt-5 mb-2">
+                <h6>Final Proposal</h6>
+                <button *ngIf="!editFE" type="button" class="btn btn-primary btn-sm back_btn" (click)="backClicked(2)"><i class="fa fa-chevron-circle-left mr-2" aria-hidden="true" style="margin-right:3px;"></i>Back to Products</button>
+                <button *ngIf="editFE" type="button" class="btn btn-primary btn-sm back_btn" (click)="backClicked(1)"><i class="fa fa-chevron-circle-left mr-2" aria-hidden="true" style="margin-right:3px;"></i>Add More Products</button>
+            </div>
+            <hr class="mt-1 mb-1">
+   
+            <ng-container *ngFor="let item of objBoqList;let i=index">
+                <div class="row shadow-lg p-3 mb-2 bg-body rounded">
+                    <div class="col-md-1 col-sm-2 col-2 text-start mr_2" style="    width: 5rem;" >
+                        <img style="width:60px;height: 60px;" src="{{ item.productImage }}" 
+                        class="p-img"
+                        alt="image loading" >
+  
+                    </div>
+                    <div class="col-md-6 col-sm-5 col-10 recently_viewed mt-2">
+                      <p>{{item.productName}} ({{item.productCode}})</p>
+
+  
+
+                    </div>
+  
+                    <div class="col-md-5 col-sm-6 col-12 row align-items-center mobile-t-20" > 
+                        <!-- <p>{{item.qty}}</p> -->
+                           <div class="col-sm-5 col-5">
+                              <table class="m-table">
+                                  <tr>
+                                      <td><button (click)="updateBOQ(item,-1)">-</button></td>
+                                      <td>
+                                          <input type="text" class="form-control text-center in-cls" name="quantityInput" id="quantityInput"
+                                          value=" {{ item.qty }}" (change)="updateBOQ(item,$any($event.target).value)" 
+                                          (keypress)="numberOnly($event, 3)">
+
+                                      </td>
+                                      <td><button (click)="updateBOQ(item,1)">+</button></td>
+                                  </tr>
+                              </table>
+                          </div> 
+                          <div class="col-sm-5 col-5">₹    {{(item.productPrice * item.qty) | number:'1.2-2'}} </div> 
+                          <div class="col-sm-2 col-2 text-end">
+                              <a href="javascript:(void);" (click)="ProductDelete(item)">
+                                  <i class="fa fa-trash" aria-hidden="true"></i>
+                              </a>
+                          </div>
+                 
+                  </div>
+                  
+  
+                </div>
+            
+            </ng-container>
+            <div class="no-content" *ngIf="objBoqList.length>0">
+                <button class="btn btn-success pull-right" (click)="submitInputsheet()"> Save</button>
+            </div>
+
+            <div class="no-content" *ngIf="objBoqList.length==0">
+                <div class="no-content-img">
+                    <img class="img-fluid" src="/assets/no-content.png"/>
+                </div>
+                <div class="no-content-text text-center">
+                    No Product Found
+                </div>
+                
+            </div>
+        </div>
+</div>
+</div>   

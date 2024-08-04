@@ -1,0 +1,291 @@
+<main>
+    <section class="inner-page p-0 sec_body">
+        <div class="container">
+            <div class="row">
+          
+                <div class="container mt-5">
+                    <div class="row">
+
+                        <div class="col-6 pull-left">
+                            <h2 class="mb-4"> Carrying out Fire<br>Audit Survey for<br><span class="red_heading"> In-Panel Fire</span><br> <span class="red_heading">Protection</span> </h2>
+                            <br>
+                            <img src="https://i.postimg.cc/Gp6hxpFy/input1.png" />
+                        </div>
+                        <div class="col-6 pull-left">
+                            <h5>ALL YOU NEED TO KNOW</h5>
+                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default.</p>
+                            <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+                            <p><a href="" class="btn btn-danger clr_white ">Get Started</a></p>
+
+
+                        </div>
+                      <div class="col-md-12 ml-auto col-xl-12 mr-auto bg_dark_blue mt-5">
+                        <div class="text-center my-4">
+                        <h3>Add the dimensions of your Electrical Panel/Cabinet</h3>
+                    </div>
+                        <!-- Nav tabs -->
+                        <div class="card">
+                          <div class="card-header">
+                            <ul class="nav nav-tabs justify-content-center" role="tablist">
+                              <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#home" role="tab">
+                                  <i class="now-ui-icons objects_umbrella-13"></i> Input 1
+                                </a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#profile" role="tab">
+                                  <i class="now-ui-icons shopping_cart-simple"></i> Input 2
+                                </a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#messages" role="tab">
+                                  <i class="now-ui-icons shopping_shop"></i> Attachment
+                                </a>
+                              </li>
+                              <!-- <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#settings" role="tab">
+                                  <i class="now-ui-icons ui-2_settings-90"></i> Settings
+                                </a>
+                              </li> -->
+                            </ul>
+                          </div>
+                          <div class="card-body blue_bg">
+                            <!-- Tab panes -->
+                            <div class="tab-content p-4">
+                              <div class="tab-pane active" id="home" role="tabpanel">
+                                <form>
+                                    <div class="row">
+                                    <div class="form-group col-md-4">
+                                      <label for="exampleFormControlSelect1">Select type of equipment</label>
+                                      <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Battery Bank</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                      </select>
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label for="exampleFormControlSelect1">Is panel required?</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                          <option>1</option>
+                                          <option>2</option>
+                                          <option>3</option>
+                                          <option>4</option>
+                                          <option>5</option>
+                                        </select>
+                                      </div>
+
+                                      <div class="form-group col-md-4">
+                                        <label for="exampleFormControlSelect1">Select the location of agent container</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                          <option>1</option>
+                                          <option>2</option>
+                                          <option>3</option>
+                                          <option>4</option>
+                                          <option>5</option>
+                                        </select>
+                                      </div>
+                                    </div>
+
+                                    <div class="row">
+                                   <div class=" col-4 mt-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                          <h5 class="card-title">Dimensions of Battery Bank</h5>
+                                    <div class="row">
+                                            <div class="form-group col-4 font_12">
+                                              <label for="exampleInputEmail1">Length (MM)</label>
+                                              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                             
+                                            </div>
+                                            <div class="form-group col-4 font_12">
+                                                <label for="exampleInputEmail1">Width (MM)</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                               
+                                              </div>
+
+                                              <div class="form-group col-4 font_12">
+                                                <label for="exampleInputEmail1">Height (MM)</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                               
+                                              </div>
+                                            </div>
+                                         
+                                        </div>
+                                      </div>
+                                    </div>
+
+
+                                     <div class=" col-4 mt-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                          <h5 class="card-title">Dimensions of Battery Cabinet</h5>
+                                    <div class="row">
+                                            <div class="form-group col-4 font_12">
+                                              <label for="exampleInputEmail1">Length (MM)</label>
+                                              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                             
+                                            </div>
+                                            <div class="form-group col-4 font_12">
+                                                <label for="exampleInputEmail1">Width (MM)</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                               
+                                              </div>
+
+                                              <div class="form-group col-4 font_12">
+                                                <label for="exampleInputEmail1">Height (MM)</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                               
+                                              </div>
+                                            </div>
+                                         
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class=" col-4 mt-3">
+                                        <div class="card">
+                                            <div class="card-body">
+                                              <h5 class="card-title">Distance between wall and Battery Cabinet</h5>
+                                        <div class="row">
+                                                <div class="form-group col-4 font_12">
+                                                  <label for="exampleInputEmail1">Length (MM)</label>
+                                                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                 
+                                                </div>
+                                                <div class="form-group col-4 font_12">
+                                                    <label for="exampleInputEmail1">Width (MM)</label>
+                                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                   
+                                                  </div>
+    
+                                                  <div class="form-group col-4 font_12">
+                                                    <label for="exampleInputEmail1">Height (MM)</label>
+                                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                   
+                                                  </div>
+                                                </div>
+                                             
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class=" col-4 ">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                  <h5 class="card-title">Row column of Battery Cabinet</h5>
+                                            <div class="row">
+                                                    <div class="form-group col-4 font_12">
+                                                      <label for="exampleInputEmail1">Length (MM)</label>
+                                                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                     
+                                                    </div>
+                                                    <div class="form-group col-4 font_12">
+                                                        <label for="exampleInputEmail1">Width (MM)</label>
+                                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                       
+                                                      </div>
+        
+                                                      <div class="form-group col-4 font_12">
+                                                        <label for="exampleInputEmail1">Height (MM)</label>
+                                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                       
+                                                      </div>
+                                                    </div>
+                                                 
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="col-12 text-right">
+                                                <a href="#" class="btn btn-danger clr_white">Add to Grid</a>
+
+                                            </div>
+
+                                            <div class="col-12 mt-3">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                      <tr>
+                                                        <th scope="col">Id</th>
+                                                        <th scope="col">BB Length</th>
+                                                        <th scope="col">BB Width</th>
+                                                        <th scope="col">BB Height</th>
+                                                        <th scope="col">Battery Cabinet Length</th>
+                                                        <th scope="col">Battery Cabinet Width</th>
+                                                        <th scope="col">Battery Cabinet Height</th>
+                                                        <th scope="col">Distance Between Cabinet L.H.S.</th>
+                                                        <th scope="col">Distance Between Cabinet R.H.S.</th>
+                                                        <th scope="col">Distance between Cabinet Back</th>
+                                                        <th scope="col">Total no of row</th>
+                                                        <th scope="col">Total no of column</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                      </tr>
+                                                
+                                                    </tbody>
+                                                  </table>
+
+
+                                            </div>
+
+                                            <div class="col-6">
+
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Design Consideration/Additional information/comments</label>
+                                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                  
+                                                  </div>
+
+                                            </div>
+
+                                            <div class="col-12 row">
+
+                                                <div class="col-11"></div>
+                                                <div class="col-1">
+
+                                                    <a href="#" class="btn btn-danger pull-left clr_white">Next</a>
+
+                                                </div>
+
+                                            </div>
+
+                                </div>
+                                  </form>
+                                
+                              </div>
+                              <div class="tab-pane" id="profile" role="tabpanel">
+                                <p> I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. </p>
+                              </div>
+                              <div class="tab-pane" id="messages" role="tabpanel">
+                                <p>I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it’s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
+                              </div>
+                              <div class="tab-pane" id="settings" role="tabpanel">
+                                <p>
+                                  "I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at."
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+    </section>
+</main>

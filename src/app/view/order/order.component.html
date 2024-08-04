@@ -1,0 +1,194 @@
+<!-- main start here-->
+<main id="main">
+    <section class="inner-page p-0 sec_body">
+        <div class="container-fluid ">
+            <div class="">
+                <div class="col-12 middle">
+                    <!--sidebarTop start here-->
+                    <app-sidebar></app-sidebar>
+                    <!--sidebarTop end here-->
+                    <!-- ======= Breadcrumbs ======= -->
+                    <section class="breadcrumbs bredcrumb_top">
+                        <div class="">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <ol class="breadcrumb  card_partd">
+                                    <li class="breadcrumb-item active"><a href="order">My Account</a></li>
+                                    <li class="breadcrumb-item"> <a routerLink="/products" routerLinkActive="active"
+                                            style="color: #c6000c">My Order</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- End Breadcrumbs -->
+
+                    <div class=" mt-2">
+                        <div class="col-8 s0">My Order</div>
+                    </div>
+                    <div class="">
+                        <div class="col-12">
+                            <hr>
+                        </div>
+                    </div>
+                    <!-- calender start here-->
+                    <div class="">
+
+
+                        <div class="row align-items-end">
+                            <div class="col-lg-3 col-sm-6 col-xs-12">
+                              <label class="form-label">From Date</label>
+                              <div class="input-group">
+                                <!-- <input type="text" class="form-control" placeholder="From Date" /> -->
+                                <input type="date"
+                                              placeholder="Datepicker"
+                                             [(ngModel)]="obj.fromdate"
+                                              class=" form-control"
+                                              >
+
+                                <!-- <button class="btn btn-icon" type="button" id="button-addon2"><i class="fas fa-calendar-alt"></i></button> -->
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 col-xs-12">
+                              <label class="form-label">To Date</label>
+                              <div class="input-group">
+                                <!-- <input type="text" class="form-control" placeholder="To Date" /> -->
+                                <input type="date"
+                                              placeholder="Datepicker"
+                                              [(ngModel)]="obj.todate"
+                                              class=" form-control"
+                                              >
+
+                                <!-- <button class="btn btn-icon" type="button" id="button-addon2"><i class="fas fa-calendar-alt"></i></button> -->
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 col-xs-12">
+                              <label class="form-label">Order Status</label>
+                              <div class="input-group">
+                                <select class="form-select"   [(ngModel)]="obj.status">
+                                  <option value="">All</option>
+                                  <option *ngFor="let status of orderStatus" value="{{status.id}}">{{status.status}}</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 col-xs-12">
+                              <button type="submit" class="btn btn-danger" (click)="goToSearch()">Search</button>
+                            </div>
+                          </div> 
+
+                        <!-- <div class="col-12 f_left button_div ">
+                            <button class="col-10 f_left side_button my-1 p-1 " style=" width: 18%; height: 80%;">
+                                <input type="date" id="birthday" value="2017-01-01" name="birthday"
+                                    style="width:166px; height: 31px; border: 1px solid #ccc; border: none; font-size: 21px;color: grey;">
+                            </button>
+                            <button class="col-10 f_left side_button my-1 p-1 " style=" width: 18%; height: 80%;">
+                                <input type="date" id="birthday" value="2017-01-01" name="birthday"
+                                    style="width:166px; height: 31px;  border: 1px solid #ccc; border: none; font-size: 21px;color: grey;">
+                            </button>
+                            <div class="  col-10 f_left side_button my-1 p-1 ">
+                                <label class="form-label">Order Status</label>
+                                <div class="input-group">
+                                  <select class="form-select" >
+                                    <option value="">All</option>
+                                    <option *ngFor="let status of orderStatus" value="{{status.id}}">{{status.status}}</option>
+                                  </select>
+                            </div>
+                            </div>
+
+                            <button type="button" class=" btn btn-danger col-10 f_left side_button my-1 p-1 "
+                                style=" width: 9%; height: 80%;">Search</button>
+                        </div> -->
+                    </div>
+
+                    <!-- <div class="order_list">
+                        <div class="card_order" *ngFor="let ord of orders ">
+                          <span class="spanWidth">
+                            <span *ngFor="let ordItem of ord.orderItems; let i = index">
+                              <img *ngIf="3 > i" [src]="ordItem.productImage" class="img-fluid" alt="" title="" [className]="ord.orderItems.length > 1 ? 'imageWidthSmall' : 'imageWidth'" />
+                              <span *ngIf="i == 3" style="font-size: 20px;">+ {{ord.orderItems.length-3}}</span>
+
+                            </span>
+                          </span>
+                          <div class="order_new_dt">
+                            <span class="order_id">Order # {{ord.orderNumber}} </span>
+                            <span class="order_place">ORDER PLACED: {{ord.createdDate | date:'dd MMM, YYYY'}}</span>
+                            <span class="order_ship">Ship to: {{ord.orderAddresses[0]?.customerName}}</span>
+                          </div>
+                          <div class="rt_action">
+                            <div class="qty_price">
+                              <div class="qty" [innerHTML]="bindQuantity(ord.orderItems)"></div>
+                              <div class="price">
+
+                                &#8377;
+                                {{ord.payableAmount | number:'0.2-2'}}</div>
+                            </div>
+                            <div class="cart_update">
+                              <div class="order_status me-3">Order Status: <span [innerHTML]="bindStatus(ord)"></span></div>
+
+                              <input *ngIf="1 >= ord.orderStatus" type="text" class="form-control me-3" placeholder="Edit" (click)="editOrder(ord)" />
+                              <a href="#" class="btn btn-primary me-3" routerLink="/order-details">Track</a>
+                              <button (click)="goDetail(ord)" class="btn btn-red">View Order</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div> -->
+
+                    <!-- calender end here-->
+                    <div class="row mt-3" *ngFor="let ord of orders ">
+                        <div class=" col-12 groove">
+                            <div class="col-lg-7 col-md-7 col-xs-12 main_order">
+                                <p class="spanWidth">
+                                    <span *ngFor="let ordItem of ord.orderItems; let i = index" (click)="GoToGallery(ord.orderItems)">
+                                        <img *ngIf="3 > i" [src]="ordItem.productImage" [className]="ord.orderItems.length > 1 ? 'imageWidthSmall' : 'imageWidth'" alt="image" />
+                                        <span *ngIf="i == 3" style="font-size: 20px;">+ {{ord.orderItems.length-3}}</span>
+                                    </span>
+
+                                    <!-- <img src="/assets/img8.jpg" width="90" height="90" alt="image" /> -->
+                                </p>
+                                <p class="main_text mt-2">
+                                    <span>Order # {{ord.orderNumber}}</span>
+                                    <span>Order Placed:{{ord.createdDate | date:'dd MMM, YYYY'}}</span>
+                                    <span>Ship To:
+                                      {{ord.orderAddresses.length>0?ord.orderAddresses[0].customerName:''}}
+
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-xs-12 pad_b">
+                                <p class="main_text_0 mt-2">
+                                    <span>{{bindQuantity(ord.orderItems)}}</span>
+                                    <span class="main_p"> &#8377;{{ord.payableAmount | number:'0.2-2'}}</span>
+                                </p>
+                             
+                                  <span class="main_text_1 mt-1 pt-3"> 
+                                    <span class="main_text_1">
+                                      <span class="mt-1">order status: <span class="main_0">{{bindStatus(ord)}}</span></span>
+                                  </span> 
+                                    <button type="button" class="btn btn-danger btn-sm btn_1" *ngIf="ord.isEditable" style="margin-right: 5px; width: 49.53px;" (click)="editOrder(ord)">Edit</button>
+                                    <button type="button" class="btn btn-danger btn-sm" (click)="goDetail(ord)" *ngIf="!ord.isEditable" style="margin-right: 5px; margin-left:5px;" >Track</button>
+                                    <button type="button" class="btn btn-success btn-sm" (click)="goDetail(ord)" style="margin-right: 5px;" >View Order</button>
+
+                                    <button type="button" class="btn btn-success btn-sm btn_1" *ngIf="ord.isReOrder" style="margin-right: 5px;" >Reorder</button>
+                                    <button type="button" class="btn btn-success btn-sm btn_1" *ngIf="ord.status=='Delivered'" style="margin-right: 5px;" 
+                                    (click)="userRating(ord)">
+                                      <i class="fa fa-star" aria-hidden="true"></i>  Rating
+                                    </button>
+                           
+                           </span>       </div>
+                        </div>
+                    </div>
+
+                    <!-- order end here-->
+                </div>
+            </div>
+            <!-- chat assistant start-->
+              <!-- Chat And Quick Link Button On Right Side -->
+            <!-- <app-chat-assistance></app-chat-assistance> -->
+            <!-- chat assistant ends-->
+            <!--  commoncode start here-->
+            <!-- <div class="row">
+                <app-product-recommended></app-product-recommended>
+            </div> -->
+            <!-- commoncode end here-->
+        </div>
+    </section>
+</main>
+<!-- End #main -->

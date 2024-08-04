@@ -1,0 +1,13 @@
+.page_heading{    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.table {
+    thead {
+      
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+  }
+

@@ -1,0 +1,25 @@
+<!-- plenum-details-modal.component.html -->
+<div>
+    <h3>Plenum Data</h3>
+    <table class="table table-bordered table-bordered">
+      <thead>
+        <tr>
+          <th>Type Of Plenum</th>
+          <th>Plenum Length (mm)</th>
+          <th>Plenum Depth (mm)</th>
+          <th>Plenum Height (mm)</th>
+          <th>Distance from Left Edge (mm)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let plenum of plenumData">
+          <td>{{ plenum.type }}</td>
+          <td>{{ plenum.length }}</td>
+          <td>{{ plenum.depth }}</td>
+          <td>{{ plenum.height }}</td>
+          <td>{{ plenum.distanceFromLeft        }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

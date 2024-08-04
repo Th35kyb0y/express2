@@ -1,0 +1,32 @@
+.container-fluid {
+    background-color: #c6000c;
+    padding: 10px;
+}
+
+.bell_icon {
+
+    color: aliceblue;
+    font-size: 20px;
+    margin-top: -2px;
+
+}
+
+.list_item {
+    position: absolute;
+    top: 80px;
+    /* Adjust this value as needed */
+    width: 250px;
+}
+
+.list_item {
+    display: none;
+}
+
+.list_item.show {
+    display: block;
+}
+
+.list_item {
+    background-color: #c6000c;
+
+}

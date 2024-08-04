@@ -1,0 +1,70 @@
+<main id="main">
+  <section class="inner-page p-0  sec_body">
+      <div class="container-fluid">
+          <div class="row">
+
+  <div class="col-12">
+      <div class="col-xs-12 col-md-4 p-5 pull-left" style="height: 100%;">
+
+          <h2 class="mb-4">
+              Select the<br>
+              <span class="red_heading">{{this.typeObj?.select_txt1}}</span>
+              <br>you are looking {{this.typeObj?.select_txt2}}....
+          </h2>
+
+          <ng-container *ngFor="let item of expTypesObj;let i = index">
+
+              <p class="mb-5">
+                  {{item.description}}
+              </p>
+
+              <p class="mb-4" *ngIf="item.mediaType==2">
+                  <img src="{{item.url}}" width="380" height="550" alt="Fire Extinguisher Picture">
+
+              </p>
+              <p class="mb-4" *ngIf="item.mediaType==3">
+                  <iframe width="380" height="615" [src]="item.url | safe" title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowfullscreen></iframe>
+
+              </p>
+          </ng-container>
+
+
+      </div>
+
+      <div class="col-xs-12 col-md-7 p-5 pull-left ml-3" *ngFor="let item of segment ;let i=index">
+          <div class="col-12 pull-left">
+              <div class="col-md-9 pull-left font-w">
+                  <h4>{{i+1}} /{{item?.title}}</h4>
+              </div>
+              <div class="col-md-2 pull-left"><img
+                      src="{{item?.imagePath}}" width="200" height="100"
+                      alt="Fire Extinguisher"></div>
+                  </div>
+                      <div class="col-12 pull-left" style="min-height:80px;">
+                  {{item?.description}}
+                      </div>
+              <div class="row">
+                  <div class="col-md-9 pull-left"></div>
+                  <div class="col-md-3 pull-left" style="text-align: right;">
+                      <span>
+                          <a routerLink="{{item.url}}" class="btn btn-outline-danger"> SHOP
+                              <i class="fa fa-arrow-circle-right ar_icon" aria-hidden="true"></i>
+                          </a>
+                      </span>
+
+                  </div>
+                  <div class="col-12 b_btm"></div>
+              </div>
+
+
+      </div>
+
+
+  </div>
+</div>
+</div>
+</section>
+</main>

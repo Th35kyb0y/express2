@@ -1,0 +1,32 @@
+h5{ font-size: 1.1rem !important;}
+
+.room_name{ width: 227px; float: left; }
+.add_new{    float: left;
+    margin-left: 5px; }
+
+    .list_g{display: block;
+        width: 84%;}
+        .card shadow{ height: 400px !important; }
+    .border_right{border-right: 1px solid #f3f3f3; margin-right: 10px;}
+    .border_btm{ border-bottom: 1px solid #f7f7f7;}
+    .text_right{ text-align: right;}
+
+    thead th{ font-weight: 500;}
+    body{ font-family:"Poppins", sans-serif;}
+    table thead{ font-weight: 500; background-color: #f8fbff; color: #424242; font-size: 14px;}
+    .m-left{margin-left: 5px;}
+    .width_td{ width: 88px;}
+
+    .border_d{ border-bottom: 1px solid #ccc;}
+
+    .badge_danger{    font-weight: normal;
+        /* padding-top: 4px; */
+        margin: 5px;
+    }
+
+    ::ng-deep .tooltip {
+
+        --bs-tooltip-bg:white;
+        --bs-tooltip-color:black;
+      }
+

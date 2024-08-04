@@ -1,0 +1,94 @@
+
+
+
+<app-cs-left-nav></app-cs-left-nav>
+    <div class="bg_grey">
+    <div id="main">
+      <app-cs-header [title]="'Placed Order'"></app-cs-header>
+    
+    
+    
+    <div class="row">
+    
+      
+      <div class="grey-bg container-fluid">
+        <section id="minimal-statistics">
+       
+  
+          <div class="col-12 container">
+           
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th >Image</th>
+                    <th >Order</th>
+                    <th >Order Placed</th>
+                    <th >Ship To</th>
+                    <th >order status</th>
+                    <th >Payable Amount</th>
+                    <th >Quantity</th>
+                    <th >Customer Name</th>
+                    <th>Action</th>
+                 
+                 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="alert" role="alert" *ngFor="let item of OrderList">
+                  
+
+                    <td class="d-flex align-items-center"> 
+                      <p class="spanWidth">
+                      <span *ngFor="let ordItem of item.orderItems; let i = index" >
+                        <img *ngIf="3 > i" [src]="ordItem.productImage" [className]="item.orderItems.length > 1 ? 'imageWidthSmall' : 'imageWidth'" alt="image" />
+                        <span *ngIf="i == 3" style="font-size: 20px;">+ {{item.orderItems.length-3}}</span>
+                      </span>
+        
+                    </p>
+                  </td>
+                      <td>{{item.orderNumber}}</td>
+                      <td>{{item.createdDate | date:'dd MMM, YYYY'}} </td>
+                      <td> {{item.orderAddresses.length>0?item.orderAddresses[0].customerName:''}}</td>
+                      <td>{{item.status}}</td>
+                      <td>&#8377;{{item.payableAmount | number:'0.2-2'}}</td>
+                
+                      <td>{{bindQuantity(item.orderItems)}}</td>
+                      <td>{{item.cbaName}}</td>
+                    <td> 
+                      <a class="btn btn-danger btn-sm" type="button"
+                      title="View Order" (click)="ViewOrder(item)">
+                      <i class="fa-cs fa fa-eye mr-2" aria-hidden="true"></i>
+                      
+                    </a>
+                </td>
+
+                  </tr>
+                  
+                
+                </tbody>
+              </table>
+          
+            
+          </div>
+      
+         
+        </section>
+      
+      </div>
+      
+    
+    
+    </div>
+    
+    
+    
+    
+    </div>
+     
+    
+    </div>
+    
+    
+    
+    
+    

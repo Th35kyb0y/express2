@@ -1,0 +1,190 @@
+<div class="container my-2">
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+            <!-- <h3 class="mb-3">Follow Up Details</h3> -->
+            <form class="custom-form" [formGroup]="followUp" (ngSubmit)="saveFollowUp()">
+                <div class="row g-3">
+                    <!-- <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="userName">User Name</label>
+                            <input type="text" class="form-control" id="userName" formControlName="userName" >
+
+                                    <div *ngIf="isFieldInvalid('userName') && followUp.get('userName')?.touched" class="text-danger">
+                                        userName is required.
+                                    </div>
+
+                        </div>
+                    </div> -->
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="customerId" class="form-label">Customer Name &nbsp;<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="userName" formControlName="CustomerName"  readonly>
+                            <!-- <select class="form-control" id="customerId" formControlName="customerId">
+                                <option value="">--select--</option>
+                                <option *ngFor="let item of customerList" [value]="item.id">{{item.name}}</option>
+
+                            </select> -->
+                            <div *ngIf="isFieldInvalid('CustomerName') && followUp.get('CustomerName')?.touched" class="text-danger">
+                                Customer Name is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="ProspectCode" class="form-label">ProspectCode &nbsp;<span class="text-danger">*</span></label>
+                            <select class="form-control" id="ProspectCode"  formControlName="ProspectCode">
+                                <option value="">--select--</option>
+                                <ng-container *ngFor="let item of ProspectCodeList">
+                                    <option value="{{item.prospectCode}}">{{item.prospectCode}}</option>
+                                </ng-container>
+                               
+                               
+                            </select>
+                            <div *ngIf="isFieldInvalid('ProspectCode') && followUp.get('ProspectCode')?.touched" class="text-danger">
+                                ProspectCode is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="followdate" class="form-label">Follow Up Date &nbsp;<span class="text-danger">*</span></label>
+                        <input type="date" class="form-control" id="followdate" name="followdate"
+                        formControlName="FollowUpDate">
+                        <div *ngIf="isFieldInvalid('FollowUpDate') && followUp.get('FollowUpDate')?.touched" class="text-danger">
+                            Follow Up Date is required.
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="StartTime" class="form-label">Start Time &nbsp;<span class="text-danger">*</span></label>
+                        <input type="time" class="form-control" id="StartTime" name="StartTime"  formControlName="StartTime">
+                        <div *ngIf="isFieldInvalid('StartTime') && followUp.get('StartTime')?.touched" class="text-danger">
+                            StartTime is required.
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="EndTime" class="form-label">End Time &nbsp;<span class="text-danger">*</span></label>
+                        <input type="time" class="form-control" id="endtime" name="endtime"
+                        formControlName="EndTime">
+                        <div *ngIf="isFieldInvalid('EndTime') && followUp.get('EndTime')?.touched" class="text-danger">
+                            End Time is required.
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="FollowUpType" class="form-label">Follow Up Type &nbsp;<span class="text-danger">*</span></label>
+                            <select class="form-control" id="FollowUpType"  formControlName="FollowUpType">
+                                <option value="">--select--</option>
+                                <option>Telecalling-Incoming</option>
+                                <option>Telecalling-OutGoing</option>
+                                <option>Video Call</option>
+                                <option>Chat</option>
+                            </select>
+                            <div *ngIf="isFieldInvalid('FollowUpType') && followUp.get('FollowUpType')?.touched" class="text-danger">
+                                Follow Up Type is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="SPANCO" class="form-label">SPANCO &nbsp;<span class="text-danger">*</span></label>
+                            <select class="form-control" id="SPANCO" formControlName="SPANCO"
+                           >
+                            <option value="">--select--</option>
+                            <!-- <option *ngFor="let option of spancolist" [value]="option.name">{{ option.name }}</option> -->
+                            <option *ngFor="let option of spancolist" [value]="option.dropdownName">{{ option.dropdownName }}</option>
+                        </select>
+                            <!-- <select class="form-control" id="OutCome" formControlName="OutCome">
+                                <option>Test1</option>
+                                <option>Test2</option>
+                                <option>Test3</option>
+                            </select> -->
+                            <div *ngIf="isFieldInvalid('SPANCO') && followUp.get('SPANCO')?.touched" class="text-danger">
+                                SPANCO is required.
+                            </div>
+                        </div>
+                    </div>
+                    <ng-container *ngIf="isShowCat">
+
+                        <div class="col-md-3" >
+                            <label for="Category1" class="form-label">Product Category 1 </label>
+
+                            <select class="form-control" id="Category1" formControlName="Category1"
+                                (change)="selectCat2($event)">
+                                <option value="">--select--</option>
+                                <option *ngFor="let option of options1" [value]="option.id">{{ option.name }}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3" >
+                            <label for="Category2" class="form-label">Product Category 2 </label>
+
+                            <select class="form-control" id="Category2" formControlName="Category2"
+                                (change)="selectCat3($event)">
+                                <option value="">--select--</option>
+                                <option *ngFor="let option of options2" [value]="option.id">{{ option.name }}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3" >
+                            <label for="Category3" class="form-label">Product Category 3 </label>
+
+                            <select class="form-control" id="Category3" formControlName="Category3">
+                                <option value="">--select--</option>
+                                <option *ngFor="let option of options3" [value]="option.id">{{ option.name }}</option>
+                            </select>
+                        </div>
+
+                    </ng-container>
+
+
+                    <div class="col-md-3">
+                        <label for="your-email" class="form-label">Next Follow Up Date</label>
+                        <input type="date" class="form-control" id="nextfollowupdate"
+                            name="nextfollowupdate" formControlName="NextFollowUpDate">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="expected_closure_date" class="form-label">Expected Closure Date &nbsp;<span class="text-danger">*</span></label>
+                        <input type="date" class="form-control" id="expected_closure_date"
+                            name="expected_closure_date" formControlName="Expected_Closure_Date">
+                            <div *ngIf="isFieldInvalid('Expected_Closure_Date') && followUp.get('Expected_Closure_Date')?.touched" class="text-danger">
+                                Expected Closure Date is required.
+                            </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2 ">
+                        <div class="mb-1">
+                            <label for="Sales_Pitch" class="form-label">Sales Pitch</label>
+                            <input type="text" class="form-control" id="Sales_Pitch" placeholder="Enter Sales Pitch" name="Sales_Pitch"
+                                 formControlName="Sales_Pitch">
+
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2 ">
+                        <div class="mb-1">
+                            <label for="Notes" class="form-label">Notes </label>
+                            <input type="Notes" class="form-control" id="Notes" placeholder="Enter Notes" name="Notes"
+                                 formControlName="Notes">
+
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label for="your-message" class="form-label">Remark &nbsp;<span class="text-danger">*</span></label>
+                        <textarea class="form-control" id="your-message" name="your-message"
+                            rows="3" formControlName="Remark"></textarea>
+                            <div *ngIf="isFieldInvalid('Remark') && followUp.get('Remark')?.touched" class="text-danger">
+                                Remark is required.
+                            </div>
+                    </div>
+                    <div class="col-12 mt-3" style="text-align: right;">
+
+
+                                <button [disabled]="followUp.invalid" type="submit"
+                                    class="btn btn-outline-danger  ">Submit</button>
+
+
+                    </div> 
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

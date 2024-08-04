@@ -1,0 +1,167 @@
+<!-- main start here-->
+<main id="main">
+    <section class="inner-page p-0 sec_body">
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="col-12 middle">
+                    <!--sidebarTop start here-->
+                    <div class="col-2 f_left side_bar">
+                        <app-top-sidebar></app-top-sidebar>
+                    </div>
+                    <!--sidebarTop end here-->
+                    <!-- select category start here -->
+
+                    <!-- select category end here -->
+                    <!-- 2nd Banner start here-->
+                    <div class="col-10  f_right  custom_app mt-3 p-3 ">
+                        <a routerLink="/homecar" routerLinkActive="active">
+                            <img src="/assets/home_car_banner.jpg" id="app_0" alt="" />
+                            <div class="col-12 mt-4">
+                                <h2>Home & Car</h2>
+                                <p> The Ceasefire 360 degree Fire and Security System for homes is designed with one
+                                    sole purpose in mind: to turn your premises into a fortress.Dependable and untiring,
+                                    this system never takes a break. The fire extinguishers are always on standby. The
+                                    detectors are alert, ready to pick up on the first trace of smoke. And the security
+                                    devices stand prepared, waiting to catch the very first signs of danger, and raise
+                                    the alarm.
+                                    After thorough investigation and careful consideration, here’s what the experts
+                                    recommend to protect your premises in the following areas.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-10  f_right  custom_app mt-5 p-3 ">
+                        <a routerLink="/hotel" routerLinkActive="active">
+                            <img src="/assets/Hotels_Restaurants_banner.jpg" id="app_0" alt="" />
+                            <div class="col-12 mt-4">
+                                <h2>Hotel & Reastaurants</h2>
+                                <p> The Ceasefire 360 degree Fire and Security System for homes is designed with one
+                                    sole purpose in mind: to turn your premises into a fortress.Dependable and untiring,
+                                    this system never takes a break. The fire extinguishers are always on standby. The
+                                    detectors are alert, ready to pick up on the first trace of smoke. And the security
+                                    devices stand prepared, waiting to catch the very first signs of danger, and raise
+                                    the alarm.
+                                    After thorough investigation and careful consideration, here’s what the experts
+                                    recommend to protect your premises in the following areas.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-10 f_right custom_app mt-5 p-3 ">
+                        <a routerLink="/hospital" routerLinkActive="active">
+                            <img src="/assets/hospital_banner.jpg" id="app_0" alt="" />
+                            <div class="col-12 mt-4">
+                                <h2>Hospitals</h2>
+                                <p> The Ceasefire 360 degree Fire and Security System for homes is designed with one
+                                    sole purpose in mind: to turn your premises into a fortress.Dependable and untiring,
+                                    this system never takes a break. The fire extinguishers are always on standby. The
+                                    detectors are alert, ready to pick up on the first trace of smoke. And the security
+                                    devices stand prepared, waiting to catch the very first signs of danger, and raise
+                                    the alarm.
+                                    After thorough investigation and careful consideration, here’s what the experts
+                                    recommend to protect your premises in the following areas.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-10 f_right custom_app mt-5 p-3 ">
+                        <a routerLink="/server" routerLinkActive="active">
+                            <img src="/assets/server_rrom_banner.jpg" id="app_0" alt="" />
+                            <div class="col-12 mt-4">
+                                <h2>Server Room</h2>
+                                <p> The Ceasefire 360 degree Fire and Security System for homes is designed with one
+                                    sole purpose in mind: to turn your premises into a fortress.Dependable and untiring,
+                                    this system never takes a break. The fire extinguishers are always on standby. The
+                                    detectors are alert, ready to pick up on the first trace of smoke. And the security
+                                    devices stand prepared, waiting to catch the very first signs of danger, and raise
+                                    the alarm.
+                                    After thorough investigation and careful consideration, here’s what the experts
+                                    recommend to protect your premises in the following areas.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-10 f_right custom_app mt-5 p-3 ">
+                        <a routerLink="/electrical" routerLinkActive="active">
+                            <img src="/assets/electrical_panel_banner.jpg" id="app_0" alt="" />
+                            <div class="col-12 mt-4">
+                                <h2>Electrical Panel</h2>
+                                <p> The Ceasefire 360 degree Fire and Security System for homes is designed with one
+                                    sole purpose in mind: to turn your premises into a fortress.Dependable and untiring,
+                                    this system never takes a break. The fire extinguishers are always on standby. The
+                                    detectors are alert, ready to pick up on the first trace of smoke. And the security
+                                    devices stand prepared, waiting to catch the very first signs of danger, and raise
+                                    the alarm.
+                                    After thorough investigation and careful consideration, here’s what the experts
+                                    recommend to protect your premises in the following areas.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-10 f_right custom_app mt-5 p-3 ">
+                        <a routerLink="/school" routerLinkActive="active">
+                            <img src="/assets/schools_banner.jpg" id="app_0" alt="" />
+                            <div class="col-12 mt-4">
+                                <h2>Schools</h2>
+                                <p> The Ceasefire 360 degree Fire and Security System for homes is designed with one
+                                    sole purpose in mind: to turn your premises into a fortress.Dependable and untiring,
+                                    this system never takes a break. The fire extinguishers are always on standby. The
+                                    detectors are alert, ready to pick up on the first trace of smoke. And the security
+                                    devices stand prepared, waiting to catch the very first signs of danger, and raise
+                                    the alarm.
+                                    After thorough investigation and careful consideration, here’s what the experts
+                                    recommend to protect your premises in the following areas.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-10 f_right custom_app mt-5 p-3 ">
+                        <a routerLink="/residental" routerLinkActive="active">
+                            <img src="/assets/residential_society_banner.jpg" id="app_0" alt="" />
+                            <div class="col-12 mt-4">
+                                <h2>Residental-Socities</h2>
+                                <p> The Ceasefire 360 degree Fire and Security System for homes is designed with one
+                                    sole purpose in mind: to turn your premises into a fortress.Dependable and untiring,
+                                    this system never takes a break. The fire extinguishers are always on standby. The
+                                    detectors are alert, ready to pick up on the first trace of smoke. And the security
+                                    devices stand prepared, waiting to catch the very first signs of danger, and raise
+                                    the alarm.
+                                    After thorough investigation and careful consideration, here’s what the experts
+                                    recommend to protect your premises in the following areas.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-10 f_right custom_app mt-5 p-3 ">
+                        <a routerLink="/factory" routerLinkActive="active">
+                            <img src="/assets/factories_banner.jpg" id="app_0" alt="" />
+                            <div class="col-12 mt-4">
+                                <h2>Factories</h2>
+                                <p> The Ceasefire 360 degree Fire and Security System for homes is designed with one
+                                    sole purpose in mind: to turn your premises into a fortress.Dependable and untiring,
+                                    this system never takes a break. The fire extinguishers are always on standby. The
+                                    detectors are alert, ready to pick up on the first trace of smoke. And the security
+                                    devices stand prepared, waiting to catch the very first signs of danger, and raise
+                                    the alarm.
+                                    After thorough investigation and careful consideration, here’s what the experts
+                                    recommend to protect your premises in the following areas.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- 2nd Banner end here-->
+                </div>
+            </div>
+            <!-- chat assistant start-->
+              <!-- Chat And Quick Link Button On Right Side -->
+            <!-- <app-chat-assistance></app-chat-assistance> -->
+            <!-- chat assistant ends-->
+            <!--  commoncode start here-->
+            <div class="row">
+                <app-product-recommended></app-product-recommended>
+            </div>
+            <!-- commoncode end here-->
+        </div>
+    </section>
+</main>
+<!-- End #main -->

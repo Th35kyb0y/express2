@@ -1,0 +1,50 @@
+<main id="main">
+    <section class="inner-page p-0 sec_body m_top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 middle">
+                    <div class="col-12 bg_blue mb-5 mt-5 pull-left rec_bg pt-5 pb-5">
+                        <div class="col-2 pull-left text-center"><img
+                                src="http://cfx.ceasefire.biz/assets/inner_page_images/logo_in.webp" width="150"
+                                height="140"></div>
+                        <div class="col-6 pull-left">
+                            <h1 class=" fw-bolder">Our recommended
+                                solutions for <span class="white_t">{{segment?.title}}</span>
+                                fire protection...</h1>
+                        </div>
+                        <div class="col-3 pull-left ofc_img right_image"><img
+                                src="http://cfx.ceasefire.biz/assets/inner_page_images/Front_office_edited.webp"
+                                width="320" height="300"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-12">
+
+
+                    <div class="col-5 tab_1 pull-left m-5" *ngFor="let data of categorys;let i=index">
+                        <div class="col-12 pull-left">
+                        <div class="col-8 pull-left">
+                            <h5>{{i+1}}/{{data.title}}</h5>
+                        </div>
+                        <div class="col-4 pull-left">
+                            <img src="{{data.imagePath}}" class="img_side" width="145" height="80">
+                        </div>
+                    </div>
+                        <div class="col-12 pull-left" style="height: 100px;">{{data.description}}</div>
+                        <div class="col-12 pull-left row">
+                        <div class="col-8 pull-left"></div>
+                        <div class="col-4 pull-left text-right">
+                            <a class="btn btn-outline-danger" href="{{data.url}}"> SHOP <i class="fa fa-arrow-circle-right ar_icon"></i></a>
+                        </div>
+                    </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+</main>

@@ -1,0 +1,131 @@
+
+
+.button_b {
+    margin-top: -26px;
+    color: #000;
+    font-family: 'Poppins';
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+.gap-4 {
+    gap: 6.3rem !important;
+}
+.edit_profile{border: none;
+    border-radius: 1.5rem;
+    background-color: #f0f0f0;
+    padding: 1% 3%;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+}
+.custom_card {
+    margin-bottom: 20%;
+}
+
+.fs-6{ font-size: 0.9rem !important;}
+
+.s0 {
+    font-family: 'Poppins';
+    font-weight: 500;
+    color: #000;
+    font-size: 1.7rem;
+    text-align: inherit;
+    /* margin-left: 13px; */
+    padding-left: 1.4rem;
+}
+
+.custom-card {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    width: 299px;
+    height: 318px;
+}
+
+.custom-header {
+    background-color: #fff;
+}
+
+
+
+
+
+
+/* sidebar */
+
+.side_nav a {
+    margin-top: 30px;
+    font-family: 'Poppins';
+    font-weight: normal;
+    color: #000;
+}
+
+.side_nav {
+    border: 1px solid #ccc;
+    width: 200px;
+    height: 47px;
+    padding: 9px;
+    font-weight: 800 !important;
+}
+
+.border_r {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: #c6000c;
+    border-color: #c6000c;
+    color: #fff;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-weight: 600px;
+    padding: 13px;
+}
+
+.border1 {
+    font-size: 18px;
+    font-family: 'Poppins';
+    margin-left: 10px;
+    font-weight: normal;
+
+}
+
+.side_w {
+    width: 168px !important;
+    text-align: left;
+    font-weight: 500;
+    font-family: 'Poppins';
+    font-size: 11px;
+}
+
+.side_button {
+    border: 1px solid #ccc;
+}
+
+.img_w {
+    width: 60px;
+}
+
+/* sidebar */
+
+
+@media screen and (max-width: 600px) {
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    left: 0px !important;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.3rem;
+    outline: 0;
+}
+
+
+}

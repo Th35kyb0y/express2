@@ -1,0 +1,45 @@
+<main class="container">
+
+
+    <div class="my-3 p-3 bg-body rounded shadow-sm top_m">
+      <h6 class="border-bottom pb-2 mb-0 font-bold">All Notifications</h6>
+      <div *ngFor="let notification of notifications">
+        <a style="cursor: pointer;" (click)="sendProposal(notification)" class="top-text-block">
+            <div class="d-flex text-body-secondary pt-3">
+      
+                <span class=" w-100 pb-3 mb-0 small lh-sm border-bottom">
+                 
+                  
+                  <span class="d-block fw-bold"> {{ notification.notificationContent }}</span>
+                      
+                      <span>
+                    <small class="d-block text-gray-dark"><i class='far fa-clock'></i> {{ notification.createdOn | date }}</small>
+                 
+                      </span>
+                </span>
+              </div>
+          <!-- <div class="top-text-heading">{{ notification.notificationContent }}</div>
+          <div class="top-text-light">{{ notification.createdOn | date }}</div> -->
+        </a> 
+    </div>
+
+      <!-- <div class="d-flex text-body-secondary pt-3">
+       
+          <span class=" w-100 pb-3 mb-0 small lh-sm border-bottom">
+         
+          
+          <span class="d-block fw-bold"> Some representative placeholder content, with some information about this user. Imagine this being some sort of status update, perhaps?</span>
+              
+              <span>
+            <small class="d-block text-gray-dark"><i class='far fa-clock'></i> 12 Feb 2024 at 9:20 AM</small>
+         
+              </span>
+        </span>
+      </div> -->
+     
+  
+   
+    </div>
+  
+    
+  </main>

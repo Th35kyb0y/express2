@@ -1,0 +1,79 @@
+/* dynamic-table.component.css */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    font-weight: 500;
+  }
+
+  .nav {
+    background: #fff !important;
+}
+@media (min-width: 1200px){}
+.modal-xl {
+    max-width: 1341px !important;}
+
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 80px !important;
+        z-index: 1060;
+        display: none;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        outline: 0;
+    }
+
+    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+      color: #ca252b !important; font-weight: 500;
+      background-color: var(--bs-nav-tabs-link-active-bg);
+    
+      border-bottom: 2px solid #ca252b;}
+
+      .nav-tabs .nav-link {
+        margin-bottom: calc(-1 * var(--bs-nav-tabs-border-width));
+        border: var(--bs-nav-tabs-border-width) solid transparent;
+        border-top-left-radius: var(--bs-nav-tabs-border-radius);
+        border-top-right-radius: var(--bs-nav-tabs-border-radius);
+        color: #000;}
+
+        .modal-header {
+          width: 100%;
+          padding: 1rem;
+          background-color: #f8f9fa !important;
+          border-bottom: 1px solid #dee2e6 !important;}
+
+
+          .loader {
+            width: 48px;
+            height: 48px;
+            border: 5px solid #cdb0b0;
+            border-bottom-color: #FF3D00;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+            }
+        
+            @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+            } 
+
+    

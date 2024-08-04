@@ -1,0 +1,280 @@
+<div class="modal-header" *ngIf="type!='SignUpMessage'">
+    <h5 class="modal-title">{{ type }}</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal('Dismissed')">
+    
+    </button>
+  </div>
+  <div class="modal-body">
+
+
+    <!-- Login -->
+   
+    <div class="container-fluid" *ngIf="type=='Log in'">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+               
+                
+                <div class="">
+                    <!-- <h5 class="text-center mb-3">Login to Your Account</h5> -->
+                    <form [formGroup]="userLogin" (ngSubmit)="onSubmit()">
+    
+                       
+                        <div class="mb-2">
+                            <label for="email" class="form-label">Email/Mobile</label>
+                            <input type="text" class="form-control" id="email" placeholder="Enter Your Email" 
+                            name="email" formControlName="email">
+                            <div *ngIf="userLogin.get('email')?.hasError('required') && userLogin.get('email')?.touched"
+                            class="text-danger">Email is required</div>
+                            <!-- <div *ngIf="userLogin.get('email')?.hasError('required') && userLogin.get('email')?.touched"
+                            class="text-danger">Email is required</div> -->
+                       <!-- <div *ngIf="userLogin.get('email')?.hasError('email') && userLogin.get('email')?.touched"
+                            class="text-danger">Invalid email format</div> -->
+                        </div>
+                        <div class="mb-2">
+                            <label for="password" class="form-label">Password</label>
+                            <div class="input-group">
+                            <input type="{{showLoginPassword ? 'text' : 'password'}}" class="form-control" id="password" placeholder="Enter Your Password"
+                                name="password" formControlName="password">
+                                <span class="input-group-text" (click)="toggleLoginPasswordVisibility()"> 
+                                    <i class="fa" [ngClass]="{'fa-eye': !showLoginPassword, 'fa-eye-slash': showLoginPassword}"></i>  
+                                    <!-- {{showLoginPassword ? 'Hide' : 'Show'}} -->
+                                </span>
+                            </div>
+                            <div *ngIf="userLogin.get('password')?.hasError('required') && userLogin.get('password')?.touched"
+                            class="text-danger">Password is required</div>
+                        </div>
+                       
+                        
+                      
+    
+                        <div class="d-grid mt-3 mb-2">
+                            <button type="submit" class="btn btn-danger">Login</button>
+                        </div>
+                        
+                        <p class="text-center">Don't have an account? <a (click)="type='SignUp'"
+                                style="color: blue; cursor: pointer;">Register here</a></p>
+
+                                <!-- <p class="text-center">Don't have an account? <a (click)="type='SignUpMessage'"
+                                    style="color: blue; cursor: pointer;">Register here</a></p> -->
+                        
+    
+                        <div class="text-center ">
+                            <a type="button" class="text-decoration-none" (click)="type='Forgot Password'">Forgot Password</a>
+                        </div>
+    
+                    </form>
+                </div>
+            </div>
+    
+        </div>
+    
+    
+    </div>
+
+        <!-- SignUp -->
+
+        <div class="container-fluid" *ngIf="type=='SignUp'">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="">
+                        
+                        <form [formGroup]="userSignUp">
+                            <div class="mb-1" *ngIf="!onResize_PlatformService.isMobile">
+                                <label for="fullname" class="form-label">Full Name</label>
+                                <div style="display: flex;">
+                                    <input type="text" placeholder="First Name" class="form-control" name="firstName" required
+                                        formControlName="firstName" style="width: 160px;" />
+                                       
+                                    <input type="text" placeholder="Last Name" class="form-control" name="lastName" required
+                                        formControlName="lastName" style="width: 160px; margin-left: 10px;" />
+                                       
+                                      
+                                 
+                                </div>
+                                <div style="display: flex;">
+                                    <div *ngIf="userSignUp.get('firstName')?.hasError('required') && userSignUp.get('firstName')?.touched"
+                                    class="text-danger" style="width: 180px;">First Name is required</div>
+                                    <div *ngIf="userSignUp.get('lastName')?.hasError('required') && userSignUp.get('lastName')?.touched"
+                                    class="text-danger" style="width: 180px;">Last Name is required</div>
+                                </div>
+                            </div>
+                            <ng-container *ngIf="onResize_PlatformService.isMobile">
+
+                                <div class="mb-1">
+                                    <label for="mobile" class="form-label">First Name</label>
+                                    <input type="text" placeholder="First Name" class="form-control" name="firstName" required
+                                    formControlName="firstName"  />
+                                        <div *ngIf="userSignUp.get('firstName')?.hasError('required') && userSignUp.get('firstName')?.touched"
+                                        class="text-danger">First Name is required</div>
+                                </div>
+
+                                <div class="mb-1">
+                                    <label for="mobile" class="form-label">Last Name</label>
+                                    <input type="text" placeholder="Last Name" class="form-control" name="lastName" required
+                                        formControlName="lastName"  />
+                                       
+                                        <div *ngIf="userSignUp.get('lastName')?.hasError('required') && userSignUp.get('lastName')?.touched"
+                                        class="text-danger">Last Name is required</div>
+                                </div>
+
+                            </ng-container>
+
+                            <div class="mb-1">
+                                <label for="mobile" class="form-label">Mobile Number</label>
+                                <input type="tel" maxlength="10" class="form-control" id="mobile"
+                                    placeholder="Enter Your Mobile Number" name="mobile" required
+                                    formControlName="mobile" (keypress)="keyPress($event)" >
+                                    <div *ngIf="userSignUp.get('mobile')?.hasError('required') && userSignUp.get('mobile')?.touched"
+                                    class="text-danger">Mobile is required</div>
+                            </div>
+                            <div class="mb-1">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter Your Email" name="email"
+                                    required formControlName="email">
+                                    <div *ngIf="userSignUp.get('email')?.hasError('required') && userSignUp.get('email')?.touched"
+                                    class="text-danger">Email is required</div>
+                               <div *ngIf="userSignUp.get('email')?.hasError('email') && userSignUp.get('email')?.touched"
+                                    class="text-danger">Invalid email format</div>
+                            </div>
+                            <div class="mb-1">
+                                <label for="password" class="form-label">Password</label>
+                                    <div class="input-group">
+                                        <input  type="{{showSignUpPassword ? 'text' : 'password'}}"  class="form-control" id="password" placeholder="Enter Your Password"
+                                    name="password" required formControlName="password">
+                                    <span class="input-group-text" (click)="toggleSignUpPasswordVisibility()"> 
+                                        <i class="fa" [ngClass]="{'fa-eye': !showSignUpPassword, 'fa-eye-slash': showSignUpPassword}"></i>  
+                                       
+                                    </span>
+                                        </div>
+                                    <div *ngIf="userSignUp.get('password')?.hasError('required') && userSignUp.get('password')?.touched"
+                                    class="text-danger">Password is required</div>
+                                   
+                            </div>
+                            <div class="mb-1">
+                                <label for="confirmpassword" class="form-label">Confirm Password</label>
+                                <div class="input-group">
+                                    <input type="{{showConfirmPassword ? 'text' : 'password'}}"  class="form-control" id="confirmpassword"
+                                    placeholder="Enter Your Confirm Password" name="confirmpassword" required
+                                    formControlName="confirmpassword">
+                                    <span class="input-group-text" (click)="toggleConfirmPasswordVisibility()"> 
+                                        <i class="fa" [ngClass]="{'fa-eye': !showConfirmPassword, 'fa-eye-slash': showConfirmPassword}"></i>  
+                                        
+                                    </span>
+                                </div>
+                               
+                                    <div *ngIf="isInvalid('confirmpassword')" class="text-danger">Passwords do not match</div>
+                            </div>
+                            <div class="d-grid mt-3">
+                                <button class="btn btn-danger" (click)="registerUser()">Signup</button>
+                                <p class="text-center mt-2">Already have an account? 
+                                    <a  style="color: blue; cursor: pointer;"
+                                    (click)="type='Log in'">Login here</a>
+                                </p>
+                            </div>
+                        </form>
+
+                       
+
+                    </div>
+                </div>
+        
+            </div>
+        
+        
+        </div>
+
+         
+  <div class="container-fluid welcome_bg" *ngIf="type=='SignUpMessage'">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+
+            <div id="card" class="animated fadeIn">
+                    <div>
+                       
+                         
+                        <!-- <svg
+                            version="1.1"
+                            id="checkmark"
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            x="0px"
+                            y="0px"
+                            xml:space="preserve"
+                        >
+                            <path
+                                d="M131.583,92.152l-0.026-0.041c-0.713-1.118-2.197-1.447-3.316-0.734l-31.782,20.257l-4.74-12.65 c-0.483-1.29-1.882-1.958-3.124-1.493l-0.045,0.017c-1.242,0.465-1.857,1.888-1.374,3.178l5.763,15.382 c0.131,0.351,0.334,0.65,0.579,0.898c0.028,0.029,0.06,0.052,0.089,0.08c0.08,0.073,0.159,0.147,0.246,0.209 c0.071,0.051,0.147,0.091,0.222,0.133c0.058,0.033,0.115,0.069,0.175,0.097c0.081,0.037,0.165,0.063,0.249,0.091 c0.065,0.022,0.128,0.047,0.195,0.063c0.079,0.019,0.159,0.026,0.239,0.037c0.074,0.01,0.147,0.024,0.221,0.027 c0.097,0.004,0.194-0.006,0.292-0.014c0.055-0.005,0.109-0.003,0.163-0.012c0.323-0.048,0.641-0.16,0.933-0.346l34.305-21.865 C131.967,94.755,132.296,93.271,131.583,92.152z"
+                            />
+                            <circle
+                                fill="none"
+                                stroke="#ffffff"
+                                stroke-width="5"
+                                stroke-miterlimit="10"
+                                cx="109.486"
+                                cy="104.353"
+                                r="32.53"
+                            />
+                        </svg> -->
+                        <div class="d-flex">
+                        <img src="https://cfx.ceasefire.biz/assets/congo.webp" alt="fire" width="120" height="100">
+                        
+                        <h1 class="welcome_head py-4">Welcome!</h1>
+                    </div>
+                        <!-- <h3 id="status">Success</h3> -->
+                    </div>
+                    <div id="lower-side">
+                        <span id="message">
+                          <span class="f_22">Thank you for registering on </span> 
+                            <span class="f_37">Ceasefire Express.</span>
+                           
+                      </span>
+                    
+                    </div>
+                    <p class="p_red">Your one-stop-shop for customised, expert guided fire safety solutions for your premises! </p>
+                    <a href="javascript:void(0)" id="contBtn" (click)="closeModal('Dismissed')">Continue Shopping</a>
+                    <div id="lower-side2">
+                        
+                            Connect with our Experts >> who are always at your disposal to guide you through every step of the way in your fire safety journey.<br>
+                            
+                            Do visit your exclusive "My Page" section to access a whole host of resources available for you to enrich your shopping experience.
+                           
+                   
+                    
+                    </div>
+                
+                </div>
+                </div>
+                </div>
+                </div>
+            
+          <!-- SignUp Message -->       
+
+        <div class="container-fluid" *ngIf="type=='Forgot Password'">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                          
+                            <form [formGroup]="userForgotPassword">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter your email"  
+                                    required formControlName="email">
+                                    <div *ngIf="userForgotPassword.get('email')?.hasError('required') && userForgotPassword.get('email')?.touched"
+                                    class="text-danger">Email is required</div>
+                               <div *ngIf="userForgotPassword.get('email')?.hasError('email') && userForgotPassword.get('email')?.touched"
+                                    class="text-danger">Invalid email format</div>
+                                </div>
+                                <button type="submit" class="btn btn-danger w-100" 
+                                (click)="userForgotPasswordFunction()">Submit</button>
+                                <p class="text-center">Already have an account? 
+                                    <a  style="color: blue; cursor: pointer;"
+                                    (click)="type='Log in'">Login here</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+  </div>

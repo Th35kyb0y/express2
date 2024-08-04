@@ -1,0 +1,104 @@
+<!-- main start here-->
+<main id="main">
+    <section class="inner-page p-0 sec_body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 middle">
+                    <!--sidebarTop start here-->
+                    <div class="col-2 f_left side_bar">
+                        <app-top-sidebar></app-top-sidebar>
+                    </div>
+
+                    <!-- select category end here -->
+
+                    <!-- ======= Breadcrumbs ======= -->
+                    <section class="breadcrumbs bredcrumb_top">
+                        <div class="container-fluid ">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <ol class="breadcrumb  card_partd">
+                                    <li class="breadcrumb-item active"><a routerLink="/home"
+                                            routerLinkActive="active">Home</a></li>
+                                    <li class="breadcrumb-item"> <a routerLink="/segmentlist"
+                                            routerLinkActive="active">Recommends for
+                                            Specific Premises</a></li>
+                                    <li class="breadcrumb-item"> <a routerLink="/{{this.category?.name | catname}}" routerLinkActive="active"
+                                            id="a_breadcrumb">{{this.category?.name}}</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- End Breadcrumbs -->
+                    <!-- 1st Banneer start here-->
+                    <div class="row ">
+                        <div class="col-12 f_left dropdown-field">
+                            <div class="row">
+                                <div class="col-12  back_button">
+                                    <a routerLink="/segmentlist" routerLinkActive="active">
+                                        <button type="button" class="btn button_b"><i class="fa fa-angle-double-left"
+                                                id="back_b0"></i>Back</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 1st Banneer end here-->
+                    <!-- 1st segment-card start here-->
+                    <div class="row mt-2 ">
+                        <div class="col-12 f_left">
+                            <div class="" width="100%">
+                                <img src="/assets/home_car_banner.jpg" id="seg_page" alt="" />
+                                <div class="12">
+                                    <h2>Home & Car</h2>
+                                    <p> The Ceasefire 360 degree Fire and Security System for homes is designed with one
+                                        sole purpose in
+                                        mind: to turn your premises into a fortress.</p>
+                                    <p>Dependable and untiring, this system never takes a break. The fire extinguishers
+                                        are always on
+                                        standby. The detectors are alert, ready to pick up on the first trace of smoke.
+                                        And the security
+                                        devices stand prepared, waiting to catch the very first signs of danger, and
+                                        raise the alarm.</p>
+                                    <p>After thorough investigation and careful consideration, here’s what the experts
+                                        recommend to protect
+                                        your premises in the following areas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" text-center segment-card">
+                        <div class="row">
+                            <ng-container *ngFor="let data of subcategories;let i=index">
+                                <div class="col-xs-12 col-md-3 col-sm-6 ">
+                                    <a routerLink="/productlist" routerLinkActive="active">
+                                        <div class="card-block mt-3  position-relative">
+                                            <div class="position-absolute bottom-0" width="100%">
+                                                <div class="segment-button " width="100%">
+                                                    <p class="segment_1 ">{{data.name}}</p>
+                                                    <p class=" segment-icon mt-1"> <i class="fa fa-chevron-circle-right"
+                                                            id="button_fa"></i></p>
+                                                </div>
+                                            </div>
+                                            <img src="{{data.imagePath}}" id="sub_img" alt="" />
+                                        </div>
+                                    </a>
+                                </div>
+                            </ng-container>
+
+                        </div>
+                    </div>
+                    <!-- 1st segment-card end here-->
+                </div>
+            </div>
+            <!-- chat assistant start-->
+              <!-- Chat And Quick Link Button On Right Side -->
+            <!-- <app-chat-assistance></app-chat-assistance> -->
+            <!-- chat assistant ends-->
+            <!--  commoncode start here-->
+            <div class="row">
+                <app-product-recommended></app-product-recommended>
+            </div>
+            <!-- commoncode end here-->
+        </div>
+    </section>
+</main>
+<!-- End #main -->

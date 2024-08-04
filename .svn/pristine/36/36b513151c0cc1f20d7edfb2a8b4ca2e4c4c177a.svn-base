@@ -1,0 +1,906 @@
+<!-- <form (ngSubmit)="onSubmit()" #systemForm="ngForm" class="form-container">
+
+<div class="border_btm mb-3 col-12 mt-3">
+    <h5>CQRS System Detail</h5>
+  </div>
+
+  <div class="row col-12">
+    <div class="col-12 row">
+      <div class="col-12 border_btm">
+        <h6>Dimensions of UPS Panel</h6>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Length (MM):</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="upsData.dimensionsLength" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Width (MM):</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="upsData.dimensionsWidth" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Height (MM):</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="upsData.dimensionsHeight" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+    </div>
+    <div class="col-12 row">
+      <div class="col-12 border_btm">
+        <h6>Distance Between Two UPS Panels</h6>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">UPS Panel 1 & 2 (MM):</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="upsData.distanceBetweenTwoUPSPanels" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Room Name:</label>
+          <div class="multi-select" (click)="toggleOptions()">
+            <div class="selected-items">
+              <div *ngFor="let item of selectedItems" class="selected-item btn-sm btn btn-outline-danger badge_danger ">
+                {{ item }}
+                <a (click)="removeItem(item)" class="btn close_btn btn-sm" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+              </div>
+            </div>
+            <div class="dropdown" #dropdown>
+              <input class="form-control room_name" type="text" [(ngModel)]="newItem" (keydown.enter)="addItem()" placeholder="Add new item" [ngModelOptions]="{standalone: true}">
+              <button type="button" (click)="addItem()" class="btn btn-danger add_new">+</button>
+            </div>
+            
+            <div class="options mt-2" *ngIf="showOptions" (click)="handleDropdownClick($event)">
+              <div class="list-group list_g">
+                <button *ngFor="let option of options" class="list-group-item list-group-item-action" (click)="selectItem(option)">
+                  {{ option }}
+                </button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        </div>
+
+    </div>
+
+  </div>
+  <div class="row col-12 pr-0 mt-3">
+    <div class="col-10"></div>
+    <div class="col-2 pr-0">
+    <button *ngIf="upsData.id==0" type="submit" class="btn btn-danger"> Add To Grid </button>
+    <button *ngIf="upsData.id!=0" type="button" (click)="update()" class="btn btn-danger btn-sm "> Update </button>
+    </div>
+    </div>
+</form>
+
+<table *ngIf="upsTableData.length > 0" class="table table-bordered mt-3">
+  <thead>
+    <tr>
+      <th>Length (MM)</th>
+      <th>Width (MM)</th>
+      <th>Height (MM)</th>
+      <th>Distance Between Genset Canopies</th>
+      <th>Room Name</th>
+
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of upsTableData let i = index">
+      <td>{{ data.dimensionsLength }}</td>
+      <td>{{ data.dimensionsWidth }}</td>
+      <td>{{ data.dimensionsHeight }}</td>
+      <td>{{ data.distanceBetweenTwoUPSPanels }}</td>
+      <td>{{getStringArray(data.roomNames).join(', ')}}</td>
+      <td class="width_td pull-left">
+        <button type="button" (click)="editRow(i,data)" class="btn btn-sm text-success pull-left"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+        <button type="button" (click)="deleteRow(i,data)" class="btn btn-sm text-danger pull-left m-left"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        </td>
+   
+    </tr>
+  </tbody>
+</table> -->
+
+
+
+
+
+
+<form  #systemForm="ngForm" class="form-container">
+
+
+  
+
+  
+  <div class="border_btm mb-3 col-12 mt-3">
+    <h5>Ups Room Details</h5>
+  </div>
+
+  <div class="col-sm-4">
+    <div class=" form-group mb-3">
+      <label for="exampleFormControlInput1" class="form-label">No of Ups Rooms:</label>
+      <ng-container >
+        <input placement="bottom" [ngbTooltip]="noOfRoomTT"  [(ngModel)]="EPData.noOfEPRooms" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" (change)="cc()" >
+
+      </ng-container>
+ 
+      <!-- <input  [(ngModel)]="EPData.epRooms.length" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" (change)="cc()" > -->
+    </div>
+  </div>
+  <div *ngIf="toHideAfterUpdate==false">
+
+  <div *ngIf="!editOpen?EPData.noOfEPRooms>0 && EPTableData.epRooms.length<EPData.noOfEPRooms:true">
+  <div class="border_btm mb-3 col-12 mt-3">
+    <h5>Fire Signal Notification Devices/ Alarm Kit Requiremnt</h5>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class=" form-group mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Alarm Required</label>
+        <select [(ngModel)]="EPData.alarmRequired" [ngModelOptions]="{standalone: true}" class="form-control form-select" id="exampleFormControlSelect1" >
+          <option selected="selected" value="">-Select-</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+          <option value="idk">I don't know</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm-4" *ngIf="EPData.alarmRequired=='Yes' && isCS">
+      <div class=" form-group mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Alarm Option</label>
+        <select placement="bottom" [ngbTooltip]="panel" [(ngModel)]="EPData.alarmOption" [ngModelOptions]="{standalone: true}" class="form-control form-select" id="exampleFormControlSelect1" >
+          <option selected="selected" value="">-Select-</option>
+          <option value="Hooter">Hooter</option>
+          <option value="Panel">Panel</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!editOpen?true:true">
+    <div class="border_btm mb-3 col-12 mt-3">
+      <h5>Enter Equipment Details for Ups Room</h5>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Name of Room  {{EPTableData.epRooms.length+1}}:</label>
+          <input placement="bottom" [ngbTooltip]="nameOfRoomTT" [(ngModel)]="objRoom.roomName" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="" >
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Name of UPS {{objRoom.cabinets.length+1}}:</label>
+          <input placement="bottom" [ngbTooltip]="nameOfupsTT" [(ngModel)]="objCabinet.cabinetName" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="" >
+        </div>
+      </div>
+      <div *ngIf="isCS" class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">CQRS Type:</label>
+          <select placement="bottom" [ngbTooltip]="diContent"  [(ngModel)]="objCabinet.cqrsType" [ngModelOptions]="{standalone: true}" class="form-control form-select" id="exampleFormControlSelect1" >
+            <option selected="selected" value="">-Select-</option>
+            <option value="Direct">Direct</option>
+            <option value="Indirect">Indirect</option>
+            <option value="Both">Both</option>
+
+          </select>
+        </div>
+      </div>
+    </div>
+  
+    <div *ngIf="isCS" class="border_btm mb-3 col-12 mt-3">
+      <h5>Volume of Largest Enclosed Cabinet</h5>
+    </div>
+
+    <div class="row">
+      <div *ngIf="isCS" class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Front</label>
+          <input [(ngModel)]="objCabinet.volumeInMeterCube" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" (blur)="onChange('volume',content)">
+        </div>
+      </div>
+      <div *ngIf="isCS" class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Back</label>
+          <input [disabled]="objCabinet.cqrsType!='Both'"  [(ngModel)]="objCabinet.backVolume" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" (blur)="onChange('volume',content)">
+        </div>
+      </div>
+      <!-- <div class="col-sm-4"></div> -->
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Length (mm):</label>
+          <input placement="bottom" [ngbTooltip]="lengthContent" [(ngModel)]="objCabinet.length" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" >
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Depth (mm):</label>
+          <input placement="bottom" [ngbTooltip]="widthContent" [(ngModel)]="objCabinet.width" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" >
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Height (mm):</label>
+          <input placement="bottom" [ngbTooltip]="heightContent" [(ngModel)]="objCabinet.height" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" >
+        </div>
+      </div>
+    </div>
+  
+    <div *ngIf="isCS" class="border_btm mb-3 col-12 mt-3">
+      <h5>Row and Column of Ups Room</h5>
+    </div>
+    <div *ngIf="isCS" class="row">
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Total Row of Enclosed Cabinet:</label>
+          <input [disabled]="objCabinet.cqrsType=='Indirect'"  [(ngModel)]="objCabinet.totalRow" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" >
+        </div>
+      </div>
+      <div *ngIf="isCS" class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Total Column of Enclosed Cabinet:</label>
+          <input  [disabled]="objCabinet.cqrsType=='Direct'"  [(ngModel)]="objCabinet.totalColumn" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" >
+        </div>
+      </div>
+    </div>
+  
+    <div *ngIf="isCS" class="border_btm mb-3 col-12 mt-3">
+      <h5>Position of Cylinder</h5>
+    </div>
+    <div *ngIf="isCS" class="col-sm-4">
+      <div class=" form-group mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Choose Position:</label>
+        <select placement="bottom" [ngbTooltip]="positionTT" [(ngModel)]="objCabinet.cylinderPosition" [ngModelOptions]="{standalone: true}" class="form-control" id="exampleFormControlSelect1" >
+          <option selected="selected" value="">-Select-</option>
+          <option value="Left hand">Left hand</option>
+          <option value="Right hand">Right hand</option>
+          <option value="Back side">Back side</option>
+        </select>
+      </div>
+    </div>
+    <div *ngIf="isCS" class="border_btm mb-3 col-12 mt-3">
+      <h5>Distance Between Wall to UPS</h5>
+    </div>
+    <div *ngIf="isCS" class="row">
+      <div class="col-sm-4" >
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">L.H.S (mm):</label>
+          <input placement="bottom" [ngbTooltip]="lhs" [disabled]="objCabinet.cylinderPosition !== 'Left hand'" [(ngModel)]="objCabinet.lhs" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" >
+        </div>
+      </div>
+      <div class="col-sm-4" >
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">R.H.S (mm):</label>
+          <input placement="bottom" [ngbTooltip]="rhs" [disabled]="objCabinet.cylinderPosition !== 'Right hand'" [(ngModel)]="objCabinet.rhs" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" >
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Back (mm):</label>
+          <input placement="bottom" [ngbTooltip]="back" [disabled]="objCabinet.cylinderPosition !== 'Back side'" 
+          [(ngModel)]="objCabinet.back" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" >
+        </div>
+      </div>
+    </div>
+
+    <div class="row col-12 pr-0 mt-3">
+      <div class="col-10"></div>
+      <div class="col-2 pr-0 text_right">
+      <!-- <button type="button" class="btn btn-danger btn-sm " (click)="addCabinet(contentCabinet)"> Add To Grid </button> -->
+      <button *ngIf="isUpdate==false" type="button" class="btn btn-danger btn-sm " (click)="addCabinet(contentCabinet)"> Add To Grid </button>
+      <button *ngIf="isUpdate==true" class="btn btn-danger btn-sm" (click)="tempData('')">Update</button>
+        
+    </div>
+      </div>
+  </div>
+
+</div>
+
+</div>
+  
+
+  <!-- battery-table.component.html -->
+<!-- battery-table.component.html -->
+
+
+<div class="container mt-4">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>Room Name</th>
+        <th>Alarm Required</th>
+        <th *ngIf="isCS">Alarm Option</th>
+        <th>Cabinet Name</th>
+        <th *ngIf="isCS">CQRS Type</th>
+        <th *ngIf="isCS">Volume (m³)</th>
+        <th *ngIf="isCS">Back Vol</th>
+
+        <th>Length</th>
+        <th>Depth</th>
+        <th>Height</th>
+        <th *ngIf="isCS">Total Rows</th>
+        <th *ngIf="isCS">Total Columns</th>
+        <th *ngIf="isCS">Cylinder Position</th>
+        <th *ngIf="isCS">LHS</th>
+        <th *ngIf="isCS">RHS</th>
+        <th *ngIf="isCS">Back</th>
+   
+
+        <!-- <th>Total Input</th> -->
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let room of this.EPTableData.EPRooms?this.EPTableData.EPRooms:this.EPTableData.epRooms; let i = index">
+        <ng-container *ngFor="let cabinet of room.cabinets; let j = index">
+          <tr> 
+            <ng-container *ngIf="j === 0">
+              <td class="align-middle" [rowSpan]="room.cabinets.length">{{ room.roomName }}</td>
+            </ng-container>
+            <td>{{EPData.alarmRequired}}</td>
+            <td *ngIf="isCS">{{EPData.alarmOption}}</td>
+            <td>{{ cabinet.cabinetName }}</td>
+            <td *ngIf="isCS">{{ cabinet.cqrsType }}</td>
+            <td *ngIf="isCS">{{ cabinet.volumeInMeterCube }}</td>
+            <td *ngIf="isCS">{{ cabinet.backVolume }}</td>
+           
+            <td>{{ cabinet.length }}</td>
+            <td>{{ cabinet.width }}</td>
+            <td>{{ cabinet.height }}</td>
+            <td *ngIf="isCS">{{ cabinet.totalRow }}</td>
+            <td *ngIf="isCS">{{ cabinet.totalColumn }}</td>
+            <td *ngIf="isCS">{{ cabinet.cylinderPosition }}</td>
+            <td *ngIf="isCS">{{ cabinet.lhs }}</td>
+            <td *ngIf="isCS">{{ cabinet.rhs }}</td>
+            <td *ngIf="isCS">{{ cabinet.back }}</td>
+<!-- <td>{{cabinet.totalInp}}</td> -->
+            <td class="width_td pull-left">
+              <button type="button" (click)="editRow(j,room)" class="btn btn-sm text-success pull-left"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+              <button  type="button" (click)="deleteRow(j,room)" class="btn btn-sm text-danger pull-left m-left"><i class="fa fa-trash" aria-hidden="true"></i></button>
+              </td>
+          </tr>
+        </ng-container>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+  <!-- <table  class="table table-bordered mt-3">
+    <thead>
+      <tr>
+        <th>Length (MM)</th>
+        <th>Width (MM)</th>
+        <th>Height (MM)</th>
+        <th>Cabinet Length (MM)</th>
+        <th>Cabinet Width (MM)</th>
+        <th>Cabinet Height (MM)</th>
+        <th>L.H.S Distance (MM)</th>
+        <th>R.H.S Distance (MM)</th>
+        <th>Back Distance (MM)</th>
+        <th>Total Row</th>
+        <th>Total Column</th>
+        <th>Room Name</th>
+
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of EPTableData let i = index">
+        <td>{{ data.dimensionsLength }}</td>
+        <td>{{ data.dimensionsWidth }}</td>
+        <td>{{ data.dimensionsHeight }}</td>
+        <td>{{ data.cabinetLength }}</td>
+        <td>{{ data.cabinetWidth }}</td>
+        <td>{{ data.cabinetHeight }}</td>
+        <td>{{ data.distanceLHS }}</td>
+        <td>{{ data.distanceRHS }}</td>
+        <td>{{ data.distanceBack }}</td>
+        <td>{{ data.totalRowBattery }}</td>
+        <td>{{ data.totalColumnBattery }}</td>
+        <td>{{getStringArray(data.roomNames).join(', ')}}</td>
+        <td class="width_td pull-left">
+          <button type="button" (click)="editRow(i,data)" class="btn btn-sm text-success pull-left"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          <button  type="button" (click)="deleteRow(i,data)" class="btn btn-sm text-danger pull-left m-left"><i class="fa fa-trash" aria-hidden="true"></i></button>
+          </td>
+      </tr>
+    </tbody>
+  </table> -->
+  <!-- <div class="row col-12">
+    <div class="col-12 row border_right mr-2">
+      <div class="col-12 border_btm">
+        <h6>Dimensions of Battery Bank</h6>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Length (MM):</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="EPData.dimensionsLength" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Width (MM):</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="EPData.dimensionsWidth" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Height (MM):</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="EPData.dimensionsHeight" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+    </div>
+    <div class="col-12 row">
+      <div class="col-12 border_btm">
+        <h6>Dimensions of Battery Cabinet</h6>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Length (MM):</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="EPData.cabinetLength" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Width (MM):</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="EPData.cabinetWidth" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class=" form-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Height (MM):</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="EPData.cabinetHeight" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+    </div>
+</div>
+<div class="row col-12">
+<div class="col-12 row danger">
+<div class="col-12 border_btm">
+<h6>Distance Between Wall to Battery Cabinet</h6>
+</div>
+<div class="col-sm-4">
+<div class=" form-group mb-3">
+  <label for="exampleFormControlInput1" class="form-label">L.H.S (MM):</label>
+  <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="EPData.distanceLHS" [ngModelOptions]="{standalone: true}">
+</div>
+</div>
+<div class="col-sm-4">
+<div class=" form-group mb-3">
+  <label for="exampleFormControlInput1" class="form-label">R.H.S (MM):</label>
+  <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="EPData.distanceRHS" [ngModelOptions]="{standalone: true}">
+</div>
+</div>
+<div class="col-sm-4">
+<div class=" form-group mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Back (MM):</label>
+  <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="EPData.distanceBack" [ngModelOptions]="{standalone: true}">
+</div>
+</div>
+</div>
+<div class="col-12 row ">
+<div class="col-12 border_btm">
+<h6>Row Column of Battery Cabinet</h6>
+</div>
+<div class="col-sm-4">
+<div class=" form-group mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Total Row of Battery:</label>
+  <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="EPData.totalRowBattery" [ngModelOptions]="{standalone: true}">
+</div>
+</div>
+<div class="col-sm-4">
+<div class=" form-group mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Total Column of Battery:</label>
+  <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="EPData.totalColumnBattery" [ngModelOptions]="{standalone: true}">
+</div>
+</div>
+<div class="col-sm-4">
+<div class=" form-group ">
+  <label for="exampleFormControlInput1" class="form-label">Room Name:</label>
+  <div class="multi-select" (click)="toggleOptions()">
+    <div class="selected-items">
+      <div *ngFor="let item of selectedItems" class="selected-item btn-sm btn btn-outline-danger badge_danger ">
+        {{ item }}
+        <a (click)="removeItem(item)" class="btn close_btn btn-sm" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+      </div>
+    </div>
+    <div class="dropdown" #dropdown>
+      <input class="form-control room_name" type="text" [(ngModel)]="newItem" (keydown.enter)="addItem()" placeholder="Add new item" [ngModelOptions]="{standalone: true}">
+      <button type="button" (click)="addItem()" class="btn btn-danger add_new">+</button>
+    </div>
+    
+    <div class="options mt-2" *ngIf="showOptions" (click)="handleDropdownClick($event)">
+      <div class="list-group list_g">
+        <button *ngFor="let option of options" class="list-group-item list-group-item-action" (click)="selectItem(option)">
+          {{ option }}
+        </button>
+      </div>
+    </div>
+    
+  </div>
+</div>
+</div>
+<div class="col-12 row">
+
+  
+</div>
+</div>
+
+
+
+</div>
+<div class="row col-12 pr-0 mt-3">
+  <div class="col-10"></div>
+  <div class="col-2 pr-0 text_right">
+  <button *ngIf="EPData.id==0" type="submit" class="btn btn-danger btn-sm "> Add To Grid </button>
+  <button *ngIf="EPData.id!=0" type="button" (click)="update()" class="btn btn-danger btn-sm "> Update </button>
+  </div>
+  </div> -->
+
+  <!-- <table *ngIf="EPTableData.length > 0" class="table table-bordered mt-3">
+    <thead>
+      <tr>
+        <th>Length (MM)</th>
+        <th>Width (MM)</th>
+        <th>Height (MM)</th>
+        <th>Cabinet Length (MM)</th>
+        <th>Cabinet Width (MM)</th>
+        <th>Cabinet Height (MM)</th>
+        <th>L.H.S Distance (MM)</th>
+        <th>R.H.S Distance (MM)</th>
+        <th>Back Distance (MM)</th>
+        <th>Total Row</th>
+        <th>Total Column</th>
+        <th>Room Name</th>
+
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of EPTableData let i = index">
+        <td>{{ data.dimensionsLength }}</td>
+        <td>{{ data.dimensionsWidth }}</td>
+        <td>{{ data.dimensionsHeight }}</td>
+        <td>{{ data.cabinetLength }}</td>
+        <td>{{ data.cabinetWidth }}</td>
+        <td>{{ data.cabinetHeight }}</td>
+        <td>{{ data.distanceLHS }}</td>
+        <td>{{ data.distanceRHS }}</td>
+        <td>{{ data.distanceBack }}</td>
+        <td>{{ data.totalRowBattery }}</td>
+        <td>{{ data.totalColumnBattery }}</td>
+        <td>{{getStringArray(data.roomNames).join(', ')}}</td>
+        <td class="width_td pull-left">
+          <button type="button" (click)="editRow(i,data)" class="btn btn-sm text-success pull-left"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          <button  type="button" (click)="deleteRow(i,data)" class="btn btn-sm text-danger pull-left m-left"><i class="fa fa-trash" aria-hidden="true"></i></button>
+          </td>
+      </tr>
+    </tbody>
+  </table> -->
+
+</form>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title"></h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p>{{modelText}}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="resetType(); modal.dismiss('Cross click')">Close</button>
+  </div>
+</ng-template>
+
+<ng-template #contentCabinet let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title"></h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p>{{modelText}}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="tempData('Yes');modal.dismiss('Cross click')">Yes</button>
+    <button type="button" class="btn btn-outline-dark" (click)="tempData('No');modal.dismiss('Cross click')">No</button>
+  </div>
+</ng-template>
+
+<ng-template #tipContent
+  >Hello, 
+  <img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/Area_images/Area_%2020240129190225.jpg" style="height: 200px;width: 200px;">
+  </ng-template
+>
+
+<ng-template #rowContent
+  >
+  <img *ngIf="off==false" src="https://i.ibb.co/55HjDt2/rows.jpg" style="height: 200px;width: 200px;">
+  </ng-template
+>
+
+<ng-template #colContent
+  >
+  <img *ngIf="off==false" src="https://i.ibb.co/yP6qr5B/Total-column.jpg" style="height: 200px;width: 200px;">
+  </ng-template
+>
+<ng-template #heightContent
+  >
+  <img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/UPS/UPS_H.jpg" style="height: 200px;width: 200px;">
+  </ng-template
+>
+<ng-template #noOfRoomTT
+  >
+  <p>Enter here the total no of rooms containing ups  to be protected.
+  </p>
+  <!-- <img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/UPS/UPS_H.jpg" style="height: 200px;width: 200px;"> -->
+  </ng-template
+>
+<ng-template #nameOfRoomTT
+  >
+  <p>
+    Enter the name of the room containing present ups
+
+    <!-- Enter here the total no of rooms containing ups  to be protected. -->
+  </p>
+  <!-- <img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/UPS/UPS_H.jpg" style="height: 200px;width: 200px;"> -->
+  </ng-template
+>
+<ng-template #nameOfupsTT
+  >
+  <p>
+    Enter the name of the UPS for which you are filling the dimensions.
+
+    <!-- Enter the name of the room containing present ups -->
+
+    <!-- Enter here the total no of rooms containing ups  to be protected. -->
+  </p>
+  <!-- <img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/UPS/UPS_H.jpg" style="height: 200px;width: 200px;"> -->
+  </ng-template
+>
+<ng-template #positionTT
+  >
+  <p>
+    Enter where your agent cylinder is to be positioned in respect to your ups
+
+    <!-- Enter the name of the UPS for which you are filling the dimensions. -->
+
+    <!-- Enter the name of the room containing present ups -->
+
+    <!-- Enter here the total no of rooms containing ups  to be protected. -->
+  </p>
+  <!-- <img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/UPS/UPS_H.jpg" style="height: 200px;width: 200px;"> -->
+  </ng-template
+>
+<ng-template #widthContent
+  >
+  <img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/UPS/UPS_D.jpg" style="height: 200px;width: 200px;">
+  </ng-template
+>
+<ng-template #lengthContent
+  >
+  <img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/UPS/UPS_L.jpg" style="height: 200px;width: 200px;">
+  </ng-template
+>
+
+<ng-template #lhs
+>
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/UPS/UPS_left.jpg" style="height: 200px;width: 200px;">
+</ng-template
+>
+
+<ng-template #rhs
+>
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/UPS/UPS_right.jpg" style="height: 200px;width: 200px;">
+</ng-template
+>
+
+<ng-template #back
+>
+<!-- <img *ngIf="off==false" src="https://i.ibb.co/2qfHTM3/electrical-panel-back.jpg" style="height: 200px;width: 200px;"> -->
+</ng-template
+>
+<ng-template #directIN
+> 
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/direct_indirect.jpg" style="height: 200px;width: 300px;">
+</ng-template
+>
+
+<ng-template #panel
+> 
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/panel_hooter.jpg" style="height: 200px;width: 300px;"> 
+</ng-template
+>
+
+<ng-template #diContent
+  >
+<img *ngIf="off==false" src="https://cfx.ceasefire.biz/assets/KSS/direct_indirect.jpg" style="height: 200px;width: 300px;">
+
+  <p>Choose <b>Direct </b>when you have multiple cabinets with the largest cabinet's volume from among them is not greater then 2 m cube. </p>
+  <br>
+
+  <p>Choose <b>Indirect </b>when you have a singular or limited no of equal volume cabinets whose combine volume is 2 m cube and above.</p>
+  </ng-template
+>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <form (ngSubmit)="onSubmit()" #systemForm="ngForm" class="form-container">
+
+<div class="border_btm mb-3 col-12 mt-3">
+  <h5>CQRS System Detail</h5>
+</div>
+
+<div class="row col-12">
+  <div class="col-12 row ">
+    <div class="col-sm-4">
+      <div class=" form-group mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Description</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="electricalPanelData.description" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class=" form-group mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Panel Length(mm)</label>
+        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="electricalPanelData.panelLength" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class=" form-group mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Panel Width(mm)</label>
+        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="electricalPanelData.panelWidth" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class=" form-group mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Panel Height(mm)</label>
+        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="electricalPanelData.panelHeight" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class=" form-group mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Largest-Box Length(mm)</label>
+        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="electricalPanelData.largestBoxLength" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class=" form-group mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Largest-Box Width(mm)</label>
+        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="electricalPanelData.largestBoxWidth" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class=" form-group mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Largest-Box Height(mm)</label>
+        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="electricalPanelData.largestBoxHeight" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class=" form-group mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Horizontal Partition</label>
+        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="electricalPanelData.horizontalPartition" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class=" form-group mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Vertical Partition</label>
+        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="electricalPanelData.verticalPartition" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class=" form-group mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Rear Partition</label>
+        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" [(ngModel)]="electricalPanelData.rearPartition" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class=" form-group mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Room Name:</label>
+        <div class="multi-select" (click)="toggleOptions()">
+          <div class="selected-items">
+            <div *ngFor="let item of selectedItems" class="selected-item btn-sm btn btn-outline-danger badge_danger ">
+              {{ item }}
+              <a (click)="removeItem(item)" class="btn close_btn btn-sm" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+            </div>
+          </div>
+          <div class="dropdown" #dropdown>
+            <input class="form-control room_name" type="text" [(ngModel)]="newItem" (keydown.enter)="addItem()" placeholder="Add new item" [ngModelOptions]="{standalone: true}">
+            <button type="button" (click)="addItem()" class="btn btn-danger add_new">+</button>
+          </div>
+          
+          <div class="options mt-2" *ngIf="showOptions" (click)="handleDropdownClick($event)">
+            <div class="list-group list_g">
+              <button *ngFor="let option of options" class="list-group-item list-group-item-action" (click)="selectItem(option)">
+                {{ option }}
+              </button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      </div>
+  </div>
+
+</div>
+
+<div class="row col-12 pr-0 mt-3">
+  <div class="col-10"></div>
+  <div class="col-2 pr-0">
+  <button *ngIf="electricalPanelData.id==0" type="submit" class="btn btn-danger "> Add To Grid </button>
+  <button *ngIf="electricalPanelData.id!=0" type="button" (click)="update()" class="btn btn-danger btn-sm "> Update </button>
+  </div>
+  </div>
+</form>
+<div style="width: 900px; overflow: scroll;" *ngIf="electricalPanelTableData.length > 0">
+<table class="table table-bordered mt-3" >
+<thead>
+  <tr>
+    <th>Sr. No.</th>
+    <th>Description</th>
+    <th>Panel Length (mm)</th>
+    <th>Panel Width (mm)</th>
+    <th>Panel Height (mm)</th>
+    <th>Largest-Box Length (mm)</th>
+    <th>Largest-Box Width (mm)</th>
+    <th>Largest-Box Height (mm)</th>
+    <th>Horizontal Partition</th>
+    <th>Vertical Partition</th>
+    <th>Rear Partition</th>
+    <th>Room Name</th>
+
+    <th>Action</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let item of electricalPanelTableData; let i = index">
+    <td>{{ i + 1 }}</td>
+    <td>{{ item.description }}</td>
+    <td>{{ item.panelLength }}</td>
+    <td>{{ item.panelWidth }}</td>
+    <td>{{ item.panelHeight }}</td>
+    <td>{{ item.largestBoxLength }}</td>
+    <td>{{ item.largestBoxWidth }}</td>
+    <td>{{ item.largestBoxHeight }}</td>
+    <td>{{ item.horizontalPartition }}</td>
+    <td>{{ item.verticalPartition }}</td>
+    <td>{{ item.rearPartition }}</td>
+    <td>{{getStringArray(item.roomNames).join(', ')}}</td>
+  
+    <td style="width: 95px;" >          <button type="button" (click)="editRow(i,item)" class="btn btn-success btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+      <button type="button" class="btn btn-danger btn-sm m-left" (click)="deleteRow(i,item)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+  </tr>
+</tbody>
+</table>
+</div> -->
+
+
+
+<!--  -->

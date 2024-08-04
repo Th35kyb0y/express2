@@ -1,0 +1,92 @@
+<!-- tabs.component.html -->
+<div class="modal-header">
+    <h5 class="modal-title"> Create Project</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal('Dismissed')">
+        <!-- <span aria-hidden="true">&times;</span> -->
+    </button>
+
+</div>
+<div class="modal-body" style="  height: 60vh;overflow: auto;">
+
+    <div class="container">
+<div class="row">
+
+        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2 ">
+            <div class="mb-3">
+                <label for="projectName" class="form-label">Project Name</label>
+                <input type="text" class="form-control" id="projectName" [(ngModel)]="obj.ProjectName">
+    
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2 ">
+            <div class="mb-3">
+                <label for="Sales_Pitch" class="form-label">Sales Pitch</label>
+                <input type="text" class="form-control" id="Sales_Pitch" [(ngModel)]="obj.Sales_Pitch">
+    
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2 ">
+            <div class="mb-3">
+                <label for="Notes" class="form-label">Notes</label>
+                <input type="text" class="form-control" id="Notes" [(ngModel)]="obj.Notes">
+    
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 mb-2 ">
+            <div class="mb-3">
+                <label for="Remarks" class="form-label">Remarks</label>
+                <input type="text" class="form-control" id="Remarks" [(ngModel)]="obj.Remarks">
+    
+            </div>
+        </div>
+</div>
+
+        
+      
+      
+      
+        <div class="table-container">
+            <table class="table table-bordered ">
+                <thead class="thead-light sticky-header">
+                    <tr>
+
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Contact Person Name</th>
+                        <th scope="col">Email ID</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Select</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let item of list;let i=index">
+                        <tr  *ngIf="item.isApproved=='1'">
+
+                            <td>{{item.firstName}} {{item.lastName}}</td>
+                            <td>{{item.contactPersonName}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.mobile}}</td>
+    
+    
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" [(ngModel)]="item.isSelected"
+                                        id="check-1d-{{i+1}}">
+    
+                                </div>
+    
+                            </td>
+    
+    
+                        </tr>
+                    </ng-container>
+                   
+
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-4">
+            <button class="btn btn-outline-danger pull-right" (click)="submit()">Submit</button>
+        </div>
+    </div>
+</div>

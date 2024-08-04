@@ -1,0 +1,167 @@
+.back_button {
+    display: flex;
+    flex-direction: row;
+    //justify-content: end;
+    margin-left: 502px;
+}
+
+.button_b {
+    margin-top: -26px;
+    color: #000;
+    font-family: 'Poppins';
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+/* .main_ac {
+    text-align: end;
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 14px;
+} */
+
+.main_ac_1 {
+    color: #1599ee;
+    padding: 6px;
+}
+
+.main_ac_2 {
+    font-family: 'Jura';
+    font-weight: 500;
+    color: #000;
+    font-size: 1.7rem;
+    text-align: inherit;
+    /* margin-left: 13px; */
+    padding-left: 1.4rem;
+}
+
+.main_buuton {
+    text-align: end;
+}
+
+.main_ac_icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: 2px;
+    font-size: 0.9rem;
+    color: #413f3f8e;
+    font-weight: 500;
+}
+
+.main_ac_text {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.main_ac_3 {
+    font-weight: 500;
+    color: #000;
+    font-size: 1.4rem;
+}
+
+.main_ac_5 {
+    font-weight: 500;
+    color: #000;
+    font-size: 1.4rem;
+}
+
+.main_ac_4 {
+    margin-left: 29px;
+    line-height: 40px;
+
+}
+
+
+
+
+
+/* sidebar */
+
+.side_nav a {
+    margin-top: 30px;
+    font-family: 'Jura';
+    font-weight: normal;
+    color: #000;
+}
+
+.side_nav {
+    border: 1px solid #ccc;
+    width: 200px;
+    height: 47px;
+    padding: 9px;
+    font-weight: 800 !important;
+}
+
+.border_r {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: #c6000c;
+    border-color: #c6000c;
+    color: #fff;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-weight: 600px;
+    padding: 13px;
+}
+
+.border1 {
+    font-size: 18px;
+    font-family: 'Jura';
+    margin-left: 10px;
+    font-weight: normal;
+
+}
+
+.side_w {
+    width: 168px !important;
+    text-align: left;
+    font-weight: 500;
+    font-family: 'Jura';
+    font-size: 11px;
+}
+
+.side_button {
+    border: 1px solid #ccc;
+}
+
+.img_w {
+    width: 60px;
+}
+
+.custom-popover .popover-body {
+    width: 300px; /* Set your desired width here */
+  }
+.ProductFilter-popover {
+    width: 200px; /* Customize the width as needed */
+  }
+  
+  .ProductFilter-popover ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .ProductFilter-popover li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .ProductFilter-popover li:last-child {
+    border-bottom: none;
+  
+  }
+  .ProductFilter-popover-btn{
+    position: absolute;
+    top: 9%;
+    left: 3%;
+    font-size: 25px;
+  }
+  .sf-btn{
+    position: absolute;
+    right: 3%;
+    top: 22%;
+    font-size: large;
+  }
+/* sidebar */

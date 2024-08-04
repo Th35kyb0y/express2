@@ -1,0 +1,370 @@
+  <!-- Fixed Header -->
+  <header class="fixed-header row">
+    <!-- Your header content goes here -->
+
+	<nav class="navbar cs-nav-height">
+		<div class="row row-cs">
+		 <div class="col-9 px-5" style="text-align: left;">
+      <h4>Customer Support</h4>
+			<!-- <div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto topnav" id="myTabs">
+			  
+				  <li class="nav-item">
+					<a class="nav-link active" id="tab1" data-bs-toggle="tab" href="#content1">Customer Support</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" routerLink="/cs/cs-project" id="tab2" data-bs-toggle="tab" href="#content2">Project</a>
+				  </li>
+				 
+				</ul>
+				</div> -->
+		 </div>
+     <div class="col-3" style="text-align: right;">
+		 <div class="col-md-8 pull-left" style="font-weight: 500; ">
+	 {{ApiService.AdminName}}
+	</div>
+	<div class="col-md-4 pull-left " style="text-align: right;"> 
+		
+		<button class="btn btn-danger" (click)="logout()">Logout</button>
+	</div>
+</div>
+		</div>
+		
+	  </nav>
+	
+</header>
+
+<!-- Fixed Left Menu -->
+<nav class="fixed-menu">
+ 
+  <div class="container mt-5 cs-nav-f ">
+    <div class="d-flex flex-stack px-4 px-lg-6 py-6 py-lg-10 cb-border-bottom" >
+    
+      <a href="/blaze-html-pro/index.html">
+          <img alt="Logo" src="/assets/images/logo_white.png" class="h-25px h-lg-30px">
+      </a>
+     
+    
+  </div>
+    <div class="addScroll" >
+      <div class="row">
+      
+
+        <div class="col-12 col-md-4 ">
+          <a  href="javascript:void(0)" 
+          class="btn btn-custom btn-outline btn-icon  btn-flex flex-column flex-center 
+          w-lg-90px h-lg-90px w-70px h-70px cs-div-border mb-2 box-min-w" style="height: 94px; width: 93px;" data-kt-button="true" 
+          (click)="registration('New',0)">
+            
+            <p class="mb-2 s-color">
+              <i class="fa fa-registered" aria-hidden="true"></i>
+            </p> 
+            <span class="fs-7 fw-bold s-color cs-nav-f">Registration</span> 
+          
+        </a>
+         
+        </div>
+        <div class="col-12 col-md-4">
+          <input type="file" style="display: none;" (change)="onCSRegistredFileSelected($event)" #fileInput 
+          accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" >
+          <a href="javascript:void(0)"  (click)=" fileInput.click() "
+           class="btn btn-custom btn-outline btn-icon  btn-flex flex-column flex-center w-lg-90px h-lg-90px w-70px h-70px cs-div-border box-min-w" style="height: 94px; width: 93px;"  data-kt-button="true">
+            
+            <p class="mb-2 s-color">
+              <i class="fa fa-upload" aria-hidden="true"></i>
+            </p> 
+            <span class="fs-7 fw-bold s-color cs-nav-f">Bulk Upload</span> 
+          
+        </a>
+         
+        </div>
+        <div class="col-12 col-md-4">
+         
+          <a  href="javascript:void(0)"  (click)="downloadTemplate('CSRegistration')"
+          class="btn btn-custom btn-outline btn-icon  btn-flex flex-column 
+          flex-center w-lg-90px h-lg-90px w-70px h-70px cs-div-border box-min-w" style="height: 94px;
+          width: 93px;" data-kt-button="true">
+            
+            <p class="mb-2 s-color">
+              <i class="fa fa-download" aria-hidden="true"></i>
+            </p> 
+            <span class="fs-7 fw-bold s-color cs-nav-f">Download Template</span> 
+          
+        </a>
+          
+        </div>
+        <div class="col-12 col-md-4">
+          
+          <a  href="javascript:void(0)"  (click)="excelDownloadService.downloadTableAsExcel('cs-registration-table','cs-registration-table')"
+          class="btn btn-custom btn-outline btn-icon  btn-flex flex-column 
+          flex-center w-lg-90px h-lg-90px w-70px h-70px cs-div-border box-min-w" style="height: 94px;
+          width: 93px;"  data-kt-button="true">
+            
+            <p class="mb-2 s-color">
+              <i class="fas fa-file-excel-o" aria-hidden="true"></i>
+            </p> 
+            <span class="fs-7 fw-bold s-color cs-nav-f">Export to Excel</span> 
+          
+        </a>
+          
+        </div>
+
+        <div class="col-12 col-md-4">
+         
+          <a  routerLink="/cs"
+          class="btn btn-custom btn-outline btn-icon  btn-flex flex-column 
+          flex-center w-lg-90px h-lg-90px w-70px h-70px cs-div-border box-min-w " style="height: 94px;
+          width: 93px;"  data-kt-button="true">
+            
+            <p class="mb-2 s-color">
+              <i class="fa fa-users" aria-hidden="true"></i>
+            </p> 
+            <span class="fs-7 fw-bold s-color cs-nav-f">    Graph  </span> 
+          
+        </a>
+          
+        </div>
+
+        <div class="col-12 col-md-4">
+         
+          <a  routerLink="/cs/cs-project"
+          class="btn btn-custom btn-outline btn-icon  btn-flex flex-column 
+          flex-center w-lg-90px h-lg-90px w-70px h-70px cs-div-border box-min-w" style="height: 94px; width: 89px;" data-kt-button="true">
+            
+            <p class="mb-2 s-color">
+              <i class="fa fa-file-text" aria-hidden="true"></i>
+            </p> 
+            <span class="fs-7 fw-bold s-color cs-nav-f">Project</span> 
+          
+        </a>
+          
+        </div>
+       
+
+      </div>
+    
+    </div>
+   
+  </div>
+   
+</nav>
+
+<!-- Scrollable Body -->
+<div class="scrollable-body">
+    <!-- Your scrollable body content goes here -->
+   <!-- table.component.html -->
+
+   <!-- <div class="container mt-4">
+<div class="col-6">
+  <img alt="Logo" src="/assets/images/logo_white.png" class="h-25px h-lg-30px">
+
+</div>
+
+
+   </div> -->
+<div class="container mt-0">
+  <!-- <div class="mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Filter by name"
+     
+      (input)="applyFilter()"
+    />
+  </div> -->
+  <div class="row">
+		<div class="col-3">
+			<div class="mb-3">
+				<label for="CustomerName" class="form-label">Customer Name</label>
+				<input type="text" [(ngModel)]="filterObj.companyName" class="form-control" id="CustomerName" placeholder="Customer Name">
+			  </div>
+		</div>
+		<div class="col-3">
+			<div class="mb-3">
+				<label for="EmailID" class="form-label">Email ID</label>
+				<input type="text" class="form-control" [(ngModel)]="filterObj.email"  id="EmailID" placeholder="Email ID">
+			  </div>
+		</div>
+		<div class="col-3">
+			<div class="mb-3">
+				<label for="Type" class="form-label">Type</label>
+        <select class="form-select" aria-label="Default select example"
+        id="Type" name="Type"
+        [(ngModel)]="filterObj.type">
+          <option value="">--Select--</option>
+          <option value="Self">Self</option>
+          <option value="Customers">Customers</option>
+        </select>
+
+			  </div>
+		</div>
+		<div class="col-3 pt-2">
+			<button class="btn btn-danger mt-4 me-2" (click)="Filter()">
+				Search
+			</button>
+			<button class="btn btn-danger mt-4" (click)="clear()">
+				Clear
+			</button>
+		</div>
+  </div>
+
+  
+  
+  
+  <div class="row">
+    <div class="col-md-12 overflow-scroll" style="max-height:1200px;">
+      <table class="table table-bordered  table-hover table-striped" id="cs-registration-table">
+        <thead class="thead-light">
+            <tr>
+                
+                <th >ID</th>
+                <th >Customer Name</th>
+                <th >Contact Person Name</th>
+                <th >Email ID</th>
+                <th >Phone Number</th>
+                <th >Last Follow Up Date</th>
+                <th >Enq Ref</th>
+                <th  >SA Status</th>
+                <th  >Request Date & Time</th>
+                <th >Approved Date & Time</th>
+                <th >Created By</th>
+    
+                <th >Action</th>
+            </tr> 
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of list">
+              
+                <td>{{item.userId}}</td>
+                <td>{{item.companyName}} </td>
+                <td>{{item.contactPersonName}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.mobile}}</td>
+    
+                <td>{{item.followUpDate}}</td>
+                <td>{{item.enq_Ref}}</td>
+                
+                <td><span class="badge bg-success" 
+                    [ngClass]="[item.isApproved ==1 ? 'bg-success' : item.isApproved ==2 ?'bg-danger': 'bg-info']">{{item.isApproved=='1'?'Approved':item.isApproved=='2'?'Rejected':'Pending'}}</span></td>
+    
+                    <td>{{item.entryDate | date:'MMM d, y h:mm a'}}</td>
+                    <td>{{item.approvedDate | date:'MMM d, y h:mm a'}}</td>
+                    <td>{{item.customerCreatedBy}}</td>
+    
+                <td>
+
+                  <ng-template #popoverContent>
+                    <div class="d-grid gap-2">
+                      <button class="btn btn-danger" type="button" (click)="ViewDetails(item)">
+                        <i class="fa-cs fa fa-eye mr-2" aria-hidden="true"></i>
+                        View Detail
+                      </button>
+                      <!-- <button class="btn btn-danger" type="button" *ngIf="ApiService.IsAdMin && item.isApproved==0">Approve /Reject</button> -->
+                      <ng-container *ngIf="!ApiService.IsAdMin">
+                        <button class="btn btn-danger" type="button"
+                        title="Follow Up" (click)="followUp(item,'Add')">
+                        <i class="fa-cs fa fa-users mr-2" aria-hidden="true"></i> Follow Up
+                    </button>
+                    <button class="btn btn-danger" type="button"
+                        title="Follow Up History" (click)="followUp(item,'history')">
+                        <i class="fa-cs fa fa-history mr-2" aria-hidden="true"></i> Follow Up History
+                    </button>
+                    <button class="btn btn-danger" type="button"
+                        title="Create Proposal" (click)="createProposal(item)"><i class="fa fa-file-text mr-2"
+                            aria-hidden="true"></i>
+                            Create Proposal
+                        </button>
+                    <button  *ngIf="!item.enq_Ref"   class="btn btn-danger" type="button"(click)="assignEnquery(item)"><i class="fa-cs fa fa-list-alt mr-2"
+                            aria-hidden="true"></i> Assign enquiry to SA
+                        
+                        </button>
+                    <button *ngIf="item.enq_Ref" class="btn btn-danger" type="button"
+                        title="Enquiry Status" (click)="enqueryStatus(item)"><i class="fa-cs fa fa-book mr-2"
+                            aria-hidden="true"></i>
+                            Enquiry Status
+                        </button>
+                    <button class="btn btn-danger" type="button"
+                        title="Create Order" (click)="createOrder(item)"><i class="fa-cs fa fa-cart-plus mr-2" aria-hidden="true"></i>
+                        Create Order
+                    </button>
+                    
+                    <button class="btn btn-danger" type="button"
+                        title="View Order" (click)="ViewOrder(item)"><i class="fa-cs fa fa-shopping-bag mr-2" aria-hidden="true"></i>
+                        View Order
+                    </button>
+                    
+                        <button class="btn btn-danger" type="button"
+                        title="View Proposal" (click)="sendProposal(item)"><i class="fa-cs fa fa-envelope mr-2"
+                            aria-hidden="true"></i>
+                            View Proposal
+                        </button>
+    
+                    </ng-container>
+                    </div>
+
+                    
+                   </ng-template>
+                  <button type="button" class="btn btn-sm btn-danger" [ngbPopover]="popoverContent" popoverTitle="Actions">
+                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                  </button>
+<!-- 
+                    <a href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-placement="top"
+                        title="View Detail" (click)="ViewDetails(item)">
+                        <i class="fa-cs fa fa-eye mr-2" aria-hidden="true"></i>
+                       
+                    </a>
+                    <ng-container *ngIf="ApiService.IsAdMin && item.isApproved==0">
+                        <a href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-placement="top"
+                        title="Approve /Reject" (click)="approveReject(item,'ApproveOne')">
+                        <i class="fa-cs fa fa-users mr-2" aria-hidden="true"></i>
+                    </a>
+                    </ng-container>
+
+                    <ng-container *ngIf="!ApiService.IsAdMin">
+                        <a href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-placement="top"
+                        title="Follow Up" (click)="followUp(item,'Add')">
+                        <i class="fa-cs fa fa-users mr-2" aria-hidden="true"></i>
+                    </a>
+                    <a href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-placement="top"
+                        title="Follow Up History" (click)="followUp(item,'history')">
+                        <i class="fa-cs fa fa-history mr-2" aria-hidden="true"></i>
+                    </a>
+                    <a href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-placement="top"
+                        title="Create Proposal" (click)="createProposal(item)"><i class="fa fa-file-text mr-2"
+                            aria-hidden="true"></i></a>
+                    <a href="javascript:void(0)" *ngIf="!item.enq_Ref"  class="text-danger" data-toggle="tooltip" data-placement="top"
+                        title="Assign enquiry to SA" (click)="assignEnquery(item)"><i class="fa-cs fa fa-list-alt mr-2"
+                            aria-hidden="true"></i> 
+                        
+                        </a>
+                    <a *ngIf="item.enq_Ref" href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-placement="top"
+                        title="Enquiry Status" (click)="enqueryStatus(item)"><i class="fa-cs fa fa-book mr-2"
+                            aria-hidden="true"></i></a>
+                    <a href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-placement="top"
+                        title="Create Order" (click)="createOrder(item)"><i class="fa-cs fa fa-cart-plus mr-2" aria-hidden="true"></i></a>
+                    
+                    <a href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-placement="top"
+                        title="View Order" (click)="ViewOrder(item)"><i class="fa-cs fa fa-shopping-bag mr-2" aria-hidden="true"></i></a>
+                    
+                        <a href="javascript:void(0)" class="text-danger" data-toggle="tooltip" data-placement="top"
+                        title="View Proposal" (click)="sendProposal(item)"><i class="fa-cs fa fa-envelope mr-2"
+                            aria-hidden="true"></i></a>
+    
+                    </ng-container> -->
+    
+                </td>
+              
+    
+            </tr>
+    
+        </tbody>
+    </table>
+    </div>
+
+  </div>
+
+  
+</div>
+
+    <!-- Add more content as needed -->
+</div>

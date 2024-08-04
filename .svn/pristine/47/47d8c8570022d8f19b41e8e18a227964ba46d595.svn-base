@@ -1,0 +1,10 @@
+.in-cls{
+    max-width: 61px;
+}
+
+.go_crt{ 
+    width: 121px; 
+    // margin-left: 12px !important;
+    margin-left: 6px !important;
+    border-radius: 5px !important; 
+}

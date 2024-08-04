@@ -1,0 +1,35 @@
+.mt-10f{
+    margin-top: 8%;
+}
+.br-t{
+    border-right: 3px solid #ffff;
+}
+
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #c6000c;
+    border-radius: 5px 5px 0 0;
+    border-bottom: none;
+}
+
+
+    .nav {
+        background: #f9f9f9;
+        border-radius: 5px 5px 0 0;
+        border-bottom: none;
+        color: #444;
+        margin: 8px 6px 0 0;
+        text-decoration: none;}
+
+
+        #tabs {
+            border-bottom: 4px solid #c6000c;
+          
+        }
+
+        .nav-link:focus, .nav-link:hover {
+            color: #c6000c;
+        }
+
+

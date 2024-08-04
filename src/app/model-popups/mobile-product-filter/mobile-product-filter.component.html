@@ -1,0 +1,140 @@
+<div class="modal-header">
+    <h5 class="modal-title">Filter</h5>
+    <!-- <button type="button" class="btn-close" aria-label="Close" (click)="closeModal('Dismissed')">
+    </button> -->
+    <button type="button" class="btn btn-close" style=" margin-right: 13%;" (click)="closeModal('Dismissed')"></button>
+    
+    <button type="button" class="btn btn-primary" (click)="Apply()">Apply</button>
+
+</div>
+<div class="modal-body">
+  
+ 
+    <div class="row">
+        <div class="col-12" >
+
+            <ul class="list-group list-group-flush p-2 mt-2 ">
+                <div *ngIf="collectionType.length>0">
+                    <p class="filter_heading"><span class="arrow_label"> </span>
+
+                        <span class="number">
+                            <!-- <i class="fa fa-angle-down" aria-hidden="true" *ngIf="!toggleCollection"></i>
+                            <i class="fa fa-angle-up" aria-hidden="true"  *ngIf="toggleCollection"></i> -->
+                        </span>
+                    </p>
+                    <li >
+
+                        <span>Type </span>
+                        <hr>
+                    </li>
+                    <li class="list-group-item p-0 mt-4 custom-font">
+
+                        <ul class="list-unstyled mt-0 mb-0">
+                            <li class="d-flex justify-content-between p-0" *ngFor="let cat of collectionType;let i=index">
+                                <ng-container *ngIf="fromApplication">
+                                
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input p-0" value="" [id]="cat.collectionName"
+                                            [checked]="cat.isSelected" 
+                                            (change)="filterCollections($event, cat.collectionId, cat.collectionName,cat,'Type')">
+                                        <label class="form-check-label mb-0 custom-font" [for]="cat.collectionName">
+                                            {{cat.collectionName}} 
+                                        </label>
+                                    </div>
+                                    <div *ngIf="!fromApplication">
+                                        (<span [innerHtml]="cat.noOfProduct"></span>)
+                                    </div>
+                                </ng-container>
+                                
+                            </li>
+                        </ul>
+                    </li>
+                </div>
+                <!-- Collection filters -->
+                <div *ngIf="collection.length>0">
+                    <p class="filter_heading"><span class="arrow_label"> </span>
+
+                        <span class="number">
+                          
+                        </span>
+                    </p>
+                    <li >
+
+                        <span>Agent</span>
+                        <hr>
+                    </li>
+                    <li class="list-group-item p-0 mt-4 custom-font">
+
+                        <ul class="list-unstyled mt-0 mb-0">
+                            <li class="d-flex justify-content-between p-0" *ngFor="let cat of collection;let i=index">
+                                <ng-container *ngIf="fromApplication">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input p-0" value="" [id]="cat.collectionName"
+                                            [checked]="cat.isSelected" 
+                                            (change)="filterCollections($event, cat.collectionId, cat.collectionName,cat,'')">
+                                        <label class="form-check-label mb-0 custom-font" [for]="cat.collectionName">
+                                            {{cat.collectionName}}
+                                        </label>
+                                    </div>
+                                    <div *ngIf="!fromApplication">
+                                        (<span [innerHtml]="cat.noOfProduct"></span>)
+                                    </div>
+                                </ng-container>
+                                
+                            </li>
+                        </ul>
+                    </li>
+                </div>
+
+              
+                <!-- Collection filters -->
+                <div *ngIf="applicationareas.length>0">
+                    <!-- <p class="filter_heading">
+                        <span class="arrow_label" >Application Area </span> 
+                        <span
+                            class="number">
+                          
+                        </span>
+                       
+                    </p> -->
+                    <li class="list-group-item p-0 mt-3 custom-font" >
+
+                        <ul class="list-unstyled mt-0 mb-5">
+                            <li >
+
+                                <span>Application Area</span>
+                                <hr>
+                            </li>
+                            <li class="d-flex justify-content-between p-0"
+                                *ngFor="let cat of applicationareas;let i=index">
+                                <ng-container *ngIf="cat.noOfProduct>0">
+                                    <div class="form-check">
+                                        <input class="form-check-input p-0" type="checkbox" value="" [id]="cat.applicationAreaName"
+                                            [checked]="cat.isSelected" [disabled]="cat.noOfProduct==0"
+                                            (change)="filterAppArea($event, cat.collectionId, cat.applicationAreaId)">
+                                        <label class="form-check-label   mb-0 custom-font" [for]="cat.applicationAreaName">
+                                            {{cat.applicationAreaName}}
+                                        </label>
+                                    </div>
+                                    <div>
+                                        (<span [innerHtml]="cat.noOfProduct"></span>)
+                                    </div>
+                                </ng-container>
+                                
+                            </li>
+                        </ul>
+                    </li>
+                </div>
+
+            </ul>
+
+        
+        </div>
+    </div> 
+
+   
+</div>
+<!-- <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="closeModal('Dismissed')">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="Apply()">Apply</button>
+  </div> -->

@@ -1,0 +1,355 @@
+.custom-btn {
+    padding: 1px 1px;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+    background-color: #FFC107;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 70px;
+    height: 30px;
+}
+hr {
+  margin: 0.3rem 0;}
+
+.form-check{    width: 202px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background: #fff;}
+
+
+  .form-check-input {
+    border-radius: .25em;
+    border: 1px solid #ccc !important;
+    cursor: pointer;
+}
+.star-icon {
+    margin-left: 5px;
+}
+
+.list-margin {
+    margin-left: -10px;
+}
+
+.talk-color {
+    background-color: rgb(199, 199, 199);
+
+}
+
+.card-talk {
+    width: 13rem;
+    height: 100px;
+}
+
+/* Custom styling for carousel indicators */
+.carousel-indicators {
+    bottom: 0px;
+}
+
+.carousel-indicators li {
+    background-color: transparent;
+    border: 2px solid #bbb;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin: 0 3px;
+    transition: border-color 0.6s ease;
+}
+
+.carousel-indicators .active {
+    background-color: white;
+    border-color: white;
+}
+
+.carousel-inner {
+    background-color: rgb(199, 199, 199);
+}
+
+.background-container {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.custome-clear {
+    width: 250px;
+}
+
+.text-color {
+    color: #FF0000;
+}
+
+.card_2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.img-fluid {
+    max-width: 100%;
+}
+
+
+.wishlist_heart_icon{    
+  position: absolute;
+  top: 12px;
+  left: 238px;
+}
+a:hover{ color: red !important;}
+.wishlist_heart_icon a:hover{ color: red !important;}
+.bg_red{    background-color: #c6000c !important;
+  color: #fff;
+  position: fixed;
+  width: 17%;
+  z-index: 999999999; }
+
+.clear_filter_1{ float: right;
+    font-size: 14px;
+    color: #fff !important;
+    text-decoration: underline;}
+
+    .border_left{border: none;
+        border-left: 1px solid #ccc !important;
+        margin: 9px;
+        border-radius: 0px;}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #212529;
+    text-decoration: none;
+    background-color: #fff;
+    border: none !important;
+}
+
+.fs_7{ font-size: 15px;}
+
+.filter_heading {
+    font-weight: 500;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 3px;
+    font-size: 14px;
+    color: #4c4c4c;
+    padding-top: 7px;
+    padding-left: 3%;
+}
+
+.custom-font {
+  font-size: 14px !important; white-space: pre-line;}
+.arrow_label {
+    width: 186px;
+    float: left;
+}
+
+
+//loader css
+.container-loader {
+    text-align: center;
+    span{
+      width: 100%;
+      margin: auto 0;
+      float: left;
+    }
+  }
+  
+  .loader {
+    animation: spinningColor 1.5s ease-in-out infinite;
+    margin: 5px auto;
+    border: 5px double #f0eff5;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+  
+  @keyframes spinningColor {
+    0% {
+      transform: rotate(360deg);
+      border-top: 5px dashed #ccc;
+      border-bottom: 5px dashed #000;
+    }
+  
+    25% {
+      border-top: 5px dashed #ccc;
+      border-bottom: 5px dashed #000;
+    }
+  
+    50% {
+      border-top: 5px dashed #ccc;
+      border-bottom: 5px dashed #000;
+    }
+  
+    75% {
+      border-top: 5px dashed #ccc;
+      border-bottom: 5px dashed #000;
+    }
+  
+    100% {
+      border-top: 5px dashed #ccc;
+      border-bottom: 5px dashed #000;
+    }
+  }
+
+  .loader-container {
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .loader-bar {
+    height: 10px;
+    background-color: #f8d7da;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .loader-progress {
+    height: 100%;
+    background-color: #dc3545;
+    border-radius: 10px;
+    animation: loaderAnimation 2s infinite;
+  }
+
+  @keyframes loaderAnimation {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  li {
+    
+    white-space: nowrap;
+}
+
+.side_filter{margin-left: 27px;
+  position: fixed;
+  width: 16rem;
+height: 500px;
+overflow-y: scroll;}
+
+  .details_p{position: relative;
+    left: 286px;
+    top: 0px;}
+
+
+    /* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+.ProductFilter-popover {
+  width: 200px; /* Customize the width as needed */
+}
+
+.ProductFilter-popover ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.ProductFilter-popover li {
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.ProductFilter-popover li:last-child {
+  border-bottom: none;
+
+}
+.ProductFilter-popover-btn{
+  position: absolute;
+  top: 12%;
+  left: 3%;
+  font-size: 25px;
+}
+
+.filter_bg{ background-color: #d4e2ef; width: 95%;
+  height: 60px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  
+.border_left {
+  border: none;
+  border-left: 0px solid #ccc !important;
+  margin: 9px;
+  border-radius: 0px;
+}
+
+.details_p {
+    position: relative;
+    left: 0px !important; 
+    top: 90px;
+}
+
+.col-9 {
+  flex: 0 0 auto;
+  width: 100%;
+}
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 97% !important;
+  left: 0px !important;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  outline: 0;
+}
+
+.wishlist_heart_icon {
+  position: absolute;
+  top: 12px;
+  left: 368px !important;
+}
+
+
+}
+li{
+  cursor: default;
+}
+
+
+
+  
+  
+
+
+

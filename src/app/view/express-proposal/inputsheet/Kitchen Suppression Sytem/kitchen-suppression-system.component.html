@@ -1,0 +1,2001 @@
+
+
+
+
+<ng-template #tipPlenumCir>
+  <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/wall_lentgh.jpg" width="100%" height="200px"/>
+</ng-template>
+<ng-template #tipDuctDelete>Click to delete Duct
+</ng-template>
+<ng-template #tipDuctAdd>Click to add new Duct
+</ng-template>
+<ng-template #tipDuct><b>Duct:</b>It is the flue
+    attached to the top of the hood.
+</ng-template>
+<ng-template #tipHoodContent1> <p *ngIf="off==false"><b>Hood:</b> This consists of plenum and duct
+  with all
+  kitchen equipment to be protected under it.</p> </ng-template>
+<ng-template #tipDuctType>
+    <img *ngIf="off==false" id="tool-tip2" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/duct_2_img.jpg" width="100%" height="200px"/>
+</ng-template>
+<ng-template #tipkitchenContent1> <p *ngIf="off==false">Kitchen/Room Name</p> </ng-template>
+
+<!-- <ng-template #tipPlenumCir>
+        <img id="tool-tip1"
+            src="/assets/images/Inputsheet/circular_duct.jpg" />
+    </ng-template>
+    <ng-template #tipPlenumRec>
+        <img id="tool-tip1"
+            src="/assets/images/Inputsheet/rectangular_duct.jpg" />
+    </ng-template> -->
+<ng-template #tipPlenumCir>
+    <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/CIRCULAR DUCT Depth.jpg"
+    width="100%" height="200px"/>
+</ng-template>
+  
+<ng-template #tipHoodHight_New>
+  <img *ngIf="off==false" id="tool-tip2" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/wall_height.jpg" 
+  width="370px" height="200px"/>
+</ng-template>
+<ng-template #tipHoodWidth_New>
+  <img *ngIf="off==false" id="tool-tip2" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/wall_depth.jpg"
+  width="370px" height="200px"/>
+</ng-template>
+<ng-template #elMl>
+  <img *ngIf="off==false" id="tool-tip1" src="https://cfx.ceasefire.biz/assets/KSS/electrical_mech.jpg"
+  width="100%" height="200px"/>
+</ng-template>
+<ng-template #tipPlenumRecD>
+    <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/RECTANGULAR DUCT Depth.jpg"
+    width="100%" height="200px"/>
+</ng-template>
+<ng-template #tipPlenumRecL>
+    <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/RECTANGULAR DUCT Length.jpg" 
+    width="100%" height="200px"/>
+</ng-template>
+<ng-template #DocumentNameTooltip
+>
+<p *ngIf="off==false"><p>Enter the name of document you are attaching. (eg. Layout plan)</p>
+       </ng-template
+>
+<!-- equipment tool tip starts -->
+
+<!-- upright broiler -->
+<ng-template #upRightH>
+  <img *ngIf="off==false" id="tool-tip1" src="https://cfx.ceasefire.biz/assets/KSS/UPRIGHTBROILER/UPRIGHT_BROILER_H.jpg" width="100%" height="300px"/>
+</ng-template>
+
+<ng-template #upRightL>
+  <img *ngIf="off==false" id="tool-tip1" src="https://cfx.ceasefire.biz/assets/KSS/UPRIGHTBROILER/UPRIGHT_BROILER_L.jpg" width="100%" height="300px" />
+</ng-template>
+
+<ng-template #upRightW>
+  <img *ngIf="off==false" id="tool-tip1" src="https://cfx.ceasefire.biz/assets/KSS/UPRIGHTBROILER/UPRIGHT_BROILER_D.jpg" width="100%" height="300px" />
+</ng-template>
+<!-- ends -->
+
+<!-- split chain broiler -->
+<ng-template #splitCBW>
+  <img *ngIf="off==false" id="tool-tip1" src="https://cfx.ceasefire.biz/assets/KSS/splitchainbroiler/SplitChain_broiler_D.jpg" width="100%" height="300px" />
+</ng-template>
+
+
+<ng-template #splitCBL>
+  <img *ngIf="off==false" id="tool-tip1" src="https://cfx.ceasefire.biz/assets/KSS/splitchainbroiler/SplitChain_broiler_L.jpg" width="100%" height="300px" />
+</ng-template>
+
+<!-- ends -->
+
+
+<!-- chain broiler -->
+
+
+<ng-template #chainBL>
+  <img *ngIf="off==false" id="tool-tip1" src="https://cfx.ceasefire.biz/assets/KSS/CHAIN_BROILER_1/CHAIN_BROILER_L.jpg" 
+  width="100%" height="300px"/>
+</ng-template>
+
+<ng-template #chainBW>
+  <img *ngIf="off==false" id="tool-tip1" src="https://cfx.ceasefire.biz/assets/KSS/CHAIN_BROILER_1/CHAIN_BROILER_D.jpg"  width="100%" height="300px" />
+</ng-template>
+
+<!-- ends -->
+
+<!-- deep fat fryer -->
+
+<ng-template #deepFatW>
+  <img *ngIf="off==false" id="tool-tip1" src="https://cfx.ceasefire.biz/assets/KSS/split_dip_fat_fryer/split_deep_fat_fryer_depth.jpg" width="100%" height="300px"/>
+</ng-template>
+
+<ng-template #tipHoodLength_new>
+  <img *ngIf="off==false" id="tool-tip2" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/wall_lentgh.jpg" 
+  width="370px" height="200px"/>
+</ng-template>
+
+<ng-template #deepFatL>
+  <img *ngIf="off==false" id="tool-tip1" src="https://cfx.ceasefire.biz/assets/KSS/split_dip_fat_fryer/split_deep_fat_fryer_length.jpg" width="100%" height="300px"/>
+</ng-template>
+
+<!-- ends -->
+
+<!-- char broiler -->
+
+<ng-template #charBL>
+  <img *ngIf="off==false" id="tool-tip1" src="https://i.ibb.co/3Ww8r5T/CHAR-ROILER-L.jpg" width="100%" height="300px"/>
+</ng-template>
+
+<ng-template #charBW>
+  <img *ngIf="off==false" id="tool-tip1" src="https://cfx.ceasefire.biz/assets/KSS/CHAR_BROILER/CHAR_ROILER_D.JPG" width="100%" height="300px"/>
+</ng-template>
+<!-- ends -->
+
+<!-- wok -->
+
+<ng-template #wokD>
+  <img *ngIf="off==false" id="tool-tip1" src="https://cfx.ceasefire.biz/assets/KSS/WOK/dia.JPG" width="100%" height="300px"/>
+</ng-template>
+<!-- ends -->
+
+<ng-template #tipPlenumRecD>
+  <img id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/RECTANGULAR DUCT Depth.jpg" />
+</ng-template>
+<ng-template #tipPlenumRecL>
+  <img id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/RECTANGULAR DUCT Length.jpg" />
+</ng-template>
+<ng-template #tipPlenumCircular>
+  <img id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/CIRCULAR DUCT Depth.jpg" />
+</ng-template>
+<!-- salamander -->
+
+<ng-template #salH>
+  <img *ngIf="off==false" id="tool-tip1" src="https://i.ibb.co/4s399fR/salamender-with-nozzle-H.jpg" width="100%" height="300px"/>
+</ng-template>
+
+
+<ng-template #salW>
+  <img *ngIf="off==false" id="tool-tip1" src="https://i.ibb.co/WfBMqrp/salamender-with-nozzle-W.jpg" width="100%" height="300px"/>
+</ng-template>
+
+<ng-template #salD>
+  <img *ngIf="off==false" id="tool-tip1" src="https://i.ibb.co/WfBMqrp/salamender-with-nozzle-W.jpg" width="100%" height="300px"/>
+</ng-template>
+
+<!-- ends -->
+
+<!-- range -->
+
+<ng-template #rangeH>
+  <img *ngIf="off==false" id="tool-tip1" src="" width="100%" height="300px"/>
+</ng-template>
+
+<ng-template #rangeD>
+  <img *ngIf="off==false" id="tool-tip1" src="https://cfx.ceasefire.biz/assets/KSS/RANGTOP/RANGTOP_length.JPG" width="100%" height="300px"/>
+</ng-template>
+
+<ng-template #rangeW>
+  <img *ngIf="off==false" id="tool-tip1" src="https://cfx.ceasefire.biz/assets/KSS/RANGTOP/RANGTOP_depth.JPG" width="100%" height="300px"/>
+</ng-template>
+
+
+<!-- ends -->
+
+<!-- griddle  -->
+
+<ng-template #griddleW>
+  <img *ngIf="off==false" id="tool-tip1" src="https://cfx.ceasefire.biz/assets/KSS/GRIDDLE/Griddle_L.JPG" width="100%" height="300px"/>
+</ng-template>
+
+<ng-template #griddleD>
+  <img *ngIf="off==false" id="tool-tip1" src="https://cfx.ceasefire.biz/assets/KSS/GRIDDLE/Griddle_D.JPG" width="100%" height="300px"/>
+</ng-template>
+
+<!-- end -->
+<!-- ends -->
+<!-- equipment tooltip ends -->
+
+
+<ng-template #tipPlenumRecL>
+  <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/RECTANGULAR DUCT Length.jpg" 
+  width="370px" height="200px"/>
+</ng-template>
+<!-- Tooltip End -->
+
+<ng-template #tipPlenumWD>
+  <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/WALL Plenum Depth.jpg"
+  width="370px" height="200px" />
+</ng-template>
+
+<ng-template #tipPlenumVL>
+  <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/V-PLENUM Length.jpg"
+  width="370px" height="200px" />
+</ng-template>
+
+
+<ng-template #tipPlenumVD>
+  <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/V-PLENUM Depth.jpg" 
+  width="370px" height="200px" />
+</ng-template>
+
+
+<ng-template #tipPlenumVH>
+  <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/V-PLENUM Height.jpg"
+  width="370px" height="200px"/>
+</ng-template>
+
+
+<ng-template #tipPlenumWL>
+  <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/WALL Plenum Length.jpg"
+  width="370px" height="200px"/>
+</ng-template>
+
+
+<ng-template #tipPlenumWH>
+  <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/WALL Plenum Height.jpg"
+  width="370px" height="200px" />
+</ng-template>
+
+
+
+
+
+
+
+
+<ng-template #tipHoodLength>
+  <img *ngIf="off==false" id="tool-tip2" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/wall_lentgh.jpg" 
+  width="570px" height="200px"/>
+</ng-template>
+
+<ng-template #tipHoodHight>
+  <img *ngIf="off==false" id="tool-tip2" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/wall_height.jpg" 
+  width="370px" height="200px"/>
+</ng-template>
+<ng-template #tipHoodWidth>
+  <img *ngIf="off==false" id="tool-tip2" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/wall_depth.jpg"
+  width="370px" height="200px"/>
+</ng-template>
+<!-- Tooltip Start -->
+<ng-template #tipPlenumDelete>Click to delete Plenum
+</ng-template>
+<ng-template #tipPlenum><b>Plenum:</b> It is the
+    enclosed space between the filters and duct
+    within the hood.
+</ng-template>
+<ng-template #tipPlenumAdd>Click to add new Plenum
+</ng-template>
+<ng-template #tipPlenumType>
+    <img *ngIf="off==false" id="tool-tip2" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/v_plenum_2_img.jpg" 
+    width="370px" height="200px" />
+</ng-template>
+<ng-template #tipPlenumVDepth>
+    <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/V-PLENUM Depth.jpg" 
+    width="370px" height="200px"/>
+</ng-template>
+<ng-template #tipPlenumVHeight>
+    <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/V-PLENUM Height.jpg" width="370px" height="200px" />
+</ng-template>
+<ng-template #tipPlenumVLength>
+    <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/V-PLENUM Length.jpg" width="370px" height="200px"/>
+</ng-template>
+<ng-template #tipPlenumWallDepth>
+    <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/WALL Plenum Depth.jpg" width="370px" height="200px"/>
+</ng-template>
+<ng-template #tipPlenumWallHeight>
+    <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/WALL Plenum Height.jpg" width="370px" height="200px"/>
+</ng-template>
+<ng-template #tipPlenumWallLength>
+    <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/WALL Plenum Length.jpg" width="370px" height="200px"/>
+</ng-template>
+<ng-template #DistOfPlenumLeftHoodEdge>
+    Distance of plenum's edge from left of the Hood
+</ng-template>
+<!-- Tooltip End -->
+
+<!-- start tooltip -->
+<!-- <ng-template #Side_A_CYPosition>Position of the Cylender</ng-template>
+        <ng-template #Side_A_RunningPipeLength>Running length of supply pipe from cylinder to Hood.
+        </ng-template>
+        <ng-template #Side_A_HSTLength>Rnning length of HST from manaul actuator to Hood.</ng-template>
+        <ng-template #LengthOfWireResponsePannel>Running length of wire from cylinder to response panel
+        </ng-template>
+        <ng-template #DistanceEquipTable>Distance between the Salamander base and left edge of the hood
+        </ng-template>
+        <ng-template #HeightCountertop>Distance bitween Height Counter top to salamander base (mm).
+        </ng-template> -->
+
+<ng-template #FryerD>
+    <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/FRYER Depth.jpg" width="100%" height="300px"/>
+</ng-template>
+<ng-template #FryerW>
+    <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/FRYER Width.jpg" width="100%" height="300px"/>
+</ng-template>
+<ng-template #BurnersW>
+    <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/BURNERS Width.jpg" width="100%" height="300px"/>
+</ng-template>
+<ng-template #BurnersD>
+    <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/BURNERS Depth.jpg" width="100%" height="300px"/>
+</ng-template>
+<ng-template #GriddleW>
+    <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/GRIDDLE Width.jpg" width="100%" height="300px"/>
+</ng-template>
+<ng-template #GriddleD>
+    <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/GRIDDLE Depth.jpg" width="100%" height="300px"/>
+</ng-template>
+<ng-template #SalamanderD>
+    <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/SALAMANDER Depth.jpg" width="100%" height="300px"/>
+</ng-template>
+<ng-template #SalamanderH>
+    <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/SALAMANDER Height.jpg" width="100%" height="300px"/>
+</ng-template>
+<ng-template #SalamanderW>
+    <img *ngIf="off==false" id="tool-tip1" src="https://ccrmuk.ceasefire.biz/assets/images/Inputsheet/SALAMANDER_length.jpg" width="100%" height="300px"/>
+</ng-template>
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Hoods</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Hood Name</th>
+            <th>Hood Length (mm)</th>
+            <th>Hood Depth (mm)</th>
+            <th>Hood Height (mm)</th>
+            <th>Hood Type</th>
+            <th>No Of Plenum</th>
+            <th *ngIf="isCS">Largest Appliance Oil Cap. (L)</th>
+            <th *ngIf="isCS">Gas ShutOff Size</th>
+            <th>View Plenums </th>
+            <th>View Duct </th>
+            <th>Delete</th>
+    
+          </tr>
+        </thead>
+        <tbody>
+       
+            <ng-container *ngFor="let plenum of kitchenHoods; let j = index">
+              <tr>
+                <td>{{ plenum.hoodName }}</td>
+                <td>{{ plenum.hoodLength }}</td>
+                <td>{{ plenum.hoodWidth }}</td>
+                <td>{{ plenum.hoodHeight }}</td>
+                <td>{{ plenum.hoodType }}</td>
+                <td>{{ plenum.noOfPlenum }}</td>
+                <td *ngIf="isCS">{{ plenum.largestApplianceOilCap }}</td>
+                <td *ngIf="isCS">{{ plenum.shutoffsize }}</td>
+
+                <td>
+                  
+        <button class="btn btn-outline-danger mb-2 me-2" (click)="openVerticallyCentered(content2); viewPlenum(plenum)">
+          View
+        </button>
+                 
+                  <!-- Add other actions as needed -->
+                </td>
+                <td>
+                 
+
+                  <button class="btn btn-outline-danger mb-2 me-2" (click)="openVerticallyCentered(content3); viewDuct(plenum)">
+                    View
+                  </button>
+                  <!-- Add other actions as needed -->
+                </td>
+                <td>
+                  <button class="btn btn-sm btn-danger" (click)="DeleteHoods(plenum)">Delete</button>
+                </td>
+              </tr>
+            </ng-container>
+     
+        </tbody>
+      </table>
+    </div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+	</div>
+</ng-template>
+
+<!-- plenum modal  -->
+<ng-template #content2 let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Plenum</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body" style="min-height: 200px;">
+    <div class="table-responsive">
+      <table class="table table-bordered table-bordered">
+        <thead>
+          <tr>
+            <th>Type Of Plenum</th>
+            <th>Plenum Length (mm)</th>
+            <th>Plenum Depth (mm)</th>
+            <th>Plenum Height (mm)</th>
+            <th *ngIf="isCS">Distance from Left Edge (mm)</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let plenum of plenumData">
+            <td>{{ plenum.type }}</td>
+            <td>{{ plenum.length }}</td>
+            <td>{{ plenum.depth }}</td>
+            <td>{{ plenum.height }}</td>
+            <td *ngIf="isCS">{{ plenum.distanceFromLeft        }}</td>
+            <td><button class="btn btn-sm btn-danger" (click)="deletePlenum(plenum)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+	</div>
+</ng-template>
+
+
+
+
+<ng-template #content3 let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Duct</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body" style="min-height:200px">
+    <div class="table-responsive">
+      <table class="table table-bordered table-responsive">
+        <thead>
+            <tr>
+                <th>#</th>
+                <!-- <th>Action</th> -->
+                <th>Type Of Duct</th>
+                <th>No. Of Duct (R)</th>
+                <th>Length (R) (mm)</th>
+                <th>Depth (R) (mm)</th>
+                <th>Area (R) (m²)</th>
+                <th>No. Of Duct (C)</th>
+                <th>Diameter (C) (mm)</th>
+                <th>Area (C) (m²)</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let duct of ductData; let i = index">
+                <td>{{ i+1 }}</td>
+                <!-- <td><button mat-icon-button (click)="editDuct(duct)"><mat-icon>edit</mat-icon></button></td> -->
+                <td>{{ duct.ductType}}</td>
+                <td>{{ duct.noOfDuctRectangular}}</td>
+                <td>{{ duct.lengthRectangular }}</td>
+                <td>{{ duct.widthRectangular }}</td>
+                <td>{{ duct.areaRectangular }}</td>
+                <td>{{ duct.noOfDuctCircular}}</td>
+                <td>{{ duct.diameterCircular }}</td>
+                <td>{{ duct.areaCircular }}</td>
+                <td><button class="btn btn-sm btn-danger" (click)="deleteDuctt(duct)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+	</div>
+</ng-template>
+<!-- eq modal -->
+<ng-template #content4 let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Equipments</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+    <div class="table-responsive">
+      <table class="table table-bordered table-bordered">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Depth (mm)</th>
+            <th>length (mm)</th>
+            <th>Height for Salmander (mm)</th>
+            <th>Distance from Left Edge (mm)</th>
+            <th>Height to Salamander Base (mm)</th>
+            <th>Largest Appliance Oil Cap. (L)</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let equipment of veq">
+              <td>{{ equipment.equipmentList[0].type }}</td>
+            <td>{{ equipment.equipmentList[0].width }}</td>
+            <td>{{ equipment.equipmentList[0].depth }}</td>
+            <td>{{ equipment.equipmentList[0].heightSalmander }}</td>
+            <td>{{ equipment.equipmentList[0].distanceFromLeftEdge }}</td>
+            <td>{{ equipment.equipmentList[0].heightToSalamanderBase }}</td>
+            <td>
+              {{equipment.equipmentList[0].largest}}
+            </td>
+            <td>
+         
+              <a class="btn btn-sm btn-success" target="_blank" (click)="editEQ(equipment)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+              <a class="btn btn-sm btn-danger" target="_blank"  (click)="deleteEq(equipment)"><i class="fa fa-trash" aria-hidden="true"></i></a>
+              
+                          </td>
+            <!-- <td><button class="btn btn-sm btn-danger" (click)="deletePlenum(plenum)">Delete</button></td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+	</div>
+</ng-template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container mt-5">
+  <div class="topic">Create your Input sheet</div>
+  <div class="content">
+    <input placement="bottom" style="display: none;" type="radio" name="slider" [checked]="selectedOption === 1" id="home" (change)="updateSelection(1)">
+    <input placement="bottom" style="display: none;" type="radio" name="slider" [checked]="selectedOption === 2" id="blog" (change)="updateSelection(2)">
+    <input placement="bottom" style="display: none;" type="radio" name="slider" [checked]="selectedOption === 3" id="help" (change)="updateSelection(3)">
+
+
+    <div class="list shadow p-3 mb-5 bg-body rounded heading_tab" >
+				
+      <label for="home" class="home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-1-circle-fill m_left" viewBox="0 0 16 16">
+<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M9.283 4.002H7.971L6.072 5.385v1.271l1.834-1.318h.065V12h1.312z"/>
+</svg>  <span>System Requirement</span>
+      </label>
+      <label for="blog" class="blog">
+         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-2-circle-fill m_left" viewBox="0 0 16 16">
+<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.646 6.24c0-.691.493-1.306 1.336-1.306.756 0 1.313.492 1.313 1.236 0 .697-.469 1.23-.902 1.705l-2.971 3.293V12h5.344v-1.107H7.268v-.077l1.974-2.22.096-.107c.688-.763 1.287-1.428 1.287-2.43 0-1.266-1.031-2.215-2.613-2.215-1.758 0-2.637 1.19-2.637 2.402v.065h1.271v-.07Z"/>
+</svg> <span>Equipment Details</span>
+      </label>
+      <label for="help" class="help">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-3-circle-fill m_left" viewBox="0 0 16 16">
+<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-8.082.414c.92 0 1.535.54 1.541 1.318.012.791-.615 1.36-1.588 1.354-.861-.006-1.482-.469-1.54-1.066H5.104c.047 1.177 1.05 2.144 2.754 2.144 1.653 0 2.954-.937 2.93-2.396-.023-1.278-1.031-1.846-1.734-1.916v-.07c.597-.1 1.505-.739 1.482-1.876-.03-1.177-1.043-2.074-2.637-2.062-1.675.006-2.59.984-2.625 2.12h1.248c.036-.556.557-1.054 1.348-1.054.785 0 1.348.486 1.348 1.195.006.715-.563 1.237-1.342 1.237h-.838v1.072h.879Z"/>
+</svg><span>Attachments</span>
+      </label>
+     
+      <div class="slider"></div>
+  </div>
+  <div class="text-content">
+        <div class="container py-2" style="min-height:auto;" >
+          <div class="row">
+            <div class="col-lg-12 mx-auto">
+              <div class="col-lg-12 mx-auto bg-white border_btm">
+                <h5> Kitchen Suppression System</h5>
+             
+                <!-- <button class="btn btn-lg btn-outline-danger" (click)="open()">Launch demo modal</button> -->
+                <!-- <button class="btn btn-outline-danger mb-2 me-2" (click)="openSm(content)">Small modal</button> -->
+
+              </div>
+             
+              <div class="bg-white rounded-lg px-2 py-2">
+<div *ngIf="showNewKss">
+    <!-- <mat-horizontal-stepper> -->
+      <!-- Step 1 -->
+      <!-- <mat-step label="Kitchen and Hood Information"> -->
+        <div class="home text">
+          <label class="custom-control-label" for="customSwitch2">Switch off if you don't need help filling this
+            documents.</label>
+          <div class="toggle-switch" [class.active]="!off" (click)="togglee()">
+            <div class="toggle-slider"></div>
+          </div>
+          <div class="pull-right help1">
+            <i (click)="downloadFile()" class="fa fa-info-circle" aria-hidden="true" title="Click here to view filling instructions"></i>
+          </div>
+        <div style="margin-top: 15px;">
+            <form [formGroup]="kitchenForm" (ngSubmit)="submitForm()">
+                <!-- Row 1 -->
+                <div class="row">
+                  <div  *ngIf="isCS" class="col-md-4">
+                    <!-- Type of kitchen suppression system -->
+                    <div class="form-group">
+                      <label for="suppressionSystemType">Type of Kitchen Suppression System:</label>
+                      <select placement="bottom" id="suppressionSystemType" class="form-control form-select" formControlName="suppressionSystemType"  (change)="resetGrid()">
+                        <option value="" selected disabled>Select</option>
+                        <option *ngFor="let option of suppressionSystemOptions" [value]="option">{{ option }}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <!-- Does the temperature go below 5°C? -->
+                    <div *ngIf="isCS" class="form-group">
+                      <label for="temperatureBelow5C">Does the temperature go below 5°C?</label>
+                      <select placement="bottom" id="temperatureBelow5C" class="form-control form-select" formControlName="temperatureBelow5C">
+                        <option value="" selected disabled>Select</option>
+                        <option *ngFor="let option of yesNoOptions" [value]="option">{{ option }}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-4" *ngIf="kitchenForm.get('suppressionSystemType')?.value === 'KSS - ULtra-X(UL)' && isCS">
+                    <!-- System Operation Type (conditionally shown) -->
+                    <div class="form-group" >
+                      <label for="systemOperationType">System Operation Type:</label>
+                      <select placement="bottom" [ngbTooltip]="elMl" id="systemOperationType" class="form-control form-select" formControlName="systemOperationType">
+                        <option value="" selected disabled>Select</option>
+                        <option *ngFor="let option of systemOperationTypeOptions" [value]="option">{{ option }}</option>
+                      </select>
+                    </div>
+                  
+                  </div>
+                  <div class="col-md-4"  *ngIf="kitchenForm.get('systemOperationType')?.value !== 'ELECTRICAL OPERATED'  && isCS">
+                    <!-- Annunciation Device -->
+                    <div class="form-group">
+                      <label for="annunciationDevice">Alarm Device:</label>
+                      <select placement="bottom" id="annunciationDevice" class="form-control form-select" formControlName="annunciationDevice">
+                        <option value="" selected disabled>Select</option>
+                        <option *ngFor="let option of annunciationDeviceOptions" [value]="option">{{ option }}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+        
+                <!-- Row 2 -->
+                <div class="row mt-2">
+                  <div class="col-md-4" *ngIf="kitchenForm.get('annunciationDevice')?.value === 'Yes' && isCS">
+                    <!-- Annunciation Requirement (conditionally shown) -->
+                    <div class="form-group" >
+                      <label for="annunciationRequirement">Alarm Requirement:</label>
+                      <!-- <mat-form-field appearance="outline"> . -->
+                        <select placement="bottom" id="annunciationRequirement" class="form-control form-select" formControlName="requirementAnnunciationType">
+                          <option value="" selected disabled>Select</option>
+                          <option *ngFor="let option of annunciationRequirementOptions" [value]="option">{{ option }}</option>
+                        </select>
+                     
+                    </div>
+                  
+                  </div>
+                  <div class="col-md-4" *ngIf="kitchenForm.get('annunciationDevice')?.value === 'Yes' && isCS">
+                    <!-- Annunciation Type -->
+                    <div class="form-group">
+                      <label for="annunciationType">Alarm Type:</label>
+                      <select placement="bottom" id="annunciationType" class="form-control form-select" formControlName="annunciationType">
+                        <option value="" selected disabled>Select</option>
+                        <option *ngFor="let option of annunciationTypeOptions" [value]="option">{{ option }}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div *ngIf="isCS" class="col-md-4" >
+                    <!-- Gas Shutoff Valve -->
+                    <div class="form-group">
+                      <label for="gasShutoffValve">Gas Shutoff Valve:</label>
+                      <select placement="bottom" id="gasShutoffValve" class="form-control form-select" formControlName="gasShutoffValve">
+                        <option value="" selected disabled>Select</option>
+                        <option *ngFor="let option of gasShutoffValveOptions" [value]="option">{{ option }}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mt-2"  *ngIf="kitchenForm.get('gasShutoffValve')?.value === 'Yes'">
+                    <!-- Gas Shutoff Valve Requirement -->
+                    <div class="form-group">
+                      <label for="gasShutoffValveRequirement">Gas Shutoff Valve Requirement:</label>
+                      <select placement="bottom" id="gasShutoffValveRequirement" class="form-control form-select" formControlName="gasShutoffValveRequirement">
+                        <option value="" selected disabled>Select</option>
+                        <option *ngFor="let option of gasShutoffValveRequirementOptions" [value]="option">{{ option }}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+        
+                <!-- Row 3 -->
+                <div class="row mt-2">
+                  <div class="col-md-4">
+                    <!-- Gas Shutoff Valve Type (conditionally shown) -->
+                    <div class="form-group" *ngIf="kitchenForm.get('systemOperationType')?.value === 'MECHANICAL OPERATED' && isCS">
+                      <label for="gasShutoffValveType">Existing Gas Shutoff Valve Type:</label>
+                      <select placement="bottom" id="gasShutoffValveType" class="form-control form-select" formControlName="gasShutoffValveType">
+                        <option value="" selected disabled>Select</option>
+                        <option *ngFor="let option of gasShutoffValveTypeOptions" [value]="option">{{ option }}</option>
+                      </select>
+                    </div>
+                    
+                  </div>
+                  <!-- Add more columns if needed -->
+                </div>
+        
+                <div>
+                  <!-- <button mat-button class="btn btn-danger" matStepperNext>Next</button> -->
+                </div>
+              </form>
+              <div class="table-responsive">
+                <table class="table table-bordered mt-3">
+                  <thead>
+                    <tr>
+                      <th>Kitchen/Room Name</th>
+                      <th>Kitchen Length (mm)</th>
+                      <th>Kitchen Width (mm)</th>
+                      <th>Kitchen Height (mm)</th>
+              <th *ngIf="kitchenForm.get('annunciationType')?.value === 'Hooter'" >Response Panel</th>
+
+                      <th>No. Of Hoods</th>
+                      <th *ngIf="kitchenForm.get('gasShutoffValveRequirement')?.value === 'Common for kitchen' && isCS">Gas ShutOff Size</th>
+
+                      <!-- <th><Se>lect Hoods</th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+          <input placement="bottom"
+          [ngbTooltip]="tipkitchenContent1"
+          type="text" id="kitchenName" name="kitchenName" [(ngModel)]="kitchenData.kitchenName" class="form-control" >
+                    
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <!-- <input placement="bottom" type="number" class="form-control" [formControl]="plenum.get('length')" placeholder="Plenum Length"> -->
+                          <!-- <input placement="bottom" type="number" formControlName="length" class="form-control" placeholder="Enter Plenum Length"> -->
+                          <input placement="bottom" type="text" min="1" max="9999" id="kitchenLength" name="kitchenLength" [(ngModel)]="kitchenData.kitchenLength" class="form-control" minlength="4" (blur)="checkLength($event)">
+
+
+                     
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <!-- <input placement="bottom" type="number" class="form-control"  [formControl]="plenum.get('depth')" placeholder="Plenum Depth"> -->
+          <input placement="bottom" type="text" maxlength="4" id="kitchenWidth" name="kitchenWidth" [(ngModel)]="kitchenData.kitchenWidth" class="form-control" (blur)="checkLength($event)">
+                       <!-- <span class="text-danger"></span> -->
+                          <!-- <input placement="bottom" type="number" formControlName="depth" class="form-control" placeholder="Enter Plenum Depth"> -->
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <!-- <input placement="bottom" type="number" class="form-control"  [formControl]="plenum.get('height')" placeholder="Plenum Height"> -->
+          <input placement="bottom" type="text" maxlength="4" id="kitchenHeight" name="kitchenHeight" [(ngModel)]="kitchenData.kitchenHeight" class="form-control" (blur)="checkLength($event)">
+                       
+                          <!-- <input placement="bottom" type="number" formControlName="height" class="form-control" placeholder="Enter Plenum Height"> -->
+                        </div>
+                      </td>
+
+
+                   
+                      <td *ngIf="kitchenForm.get('annunciationType')?.value === 'Hooter'" >
+  <div class="form-control">
+<select placement="bottom" name="b" id="">
+  <option value="yes">Yes</option>
+  <option value="No">No</option>
+
+</select>
+  </div>
+</td>
+                      <td>
+                        <div class="form-group">
+                          <!-- <label for="numHoods">No Of Hoods</label> -->
+                          <input placement="bottom" [disabled]="IsDisabled" type="number" id="numHoods" name="numHoods" [(ngModel)]="noOfHoodsN" class="form-control" (change)="initializeHoodsArray($event,true)">
+                        </div>
+<!--                     \ -->
+                      </td>
+                      <td *ngIf="kitchenForm.get('gasShutoffValveRequirement')?.value === 'Common for kitchen'">
+                        <select placement="bottom"
+ [(ngModel)]="shutoffsizeK"
+                
+                        class="form-control for_size"
+   
+                 >
+
+                        <option value="">Select</option>
+                        <option value="15NB">15NB
+
+                        </option>
+                        <option value="20NB">20NB
+
+                        </option>
+                        <option value="25NB">25NB
+
+                        </option>
+                        <option value="32NB">32NB
+
+                        </option>
+                        <option value="40NB">40NB
+
+                        </option>
+                        <option value="50NB">50NB
+
+                        </option>
+                        </select>
+                      </td>
+
+                      <!-- <td>
+                        <div class="form-group">
+                          <div class="custom-multi-select" (click)="toggleSelectList()">
+                            {{ isSelectListOpen ? '▲' : '▼' }} Select Hoods
+                           
+                          
+                           
+                          </div>
+                          <div class="form-group">
+                            <div class="selected-hoods-container">
+                              <div *ngFor="let selectedHood of kitchenData.selectedHoods" class="selected-hood">
+                                {{ selectedHood.hoodName }}
+                                <span class="remove-hood" (click)="removeSelectedHood(selectedHood)">x</span>
+                              </div>
+                            </div> </div>
+                          <div  *ngIf="isSelectListOpen">
+                          <div  *ngFor="let group of hoods2" class="group">
+                            <div *ngFor="let option of group" 
+                                 class="option" 
+                                 [class.selected]="isSelected(option.hoodName)"
+                                 (click)="toggleSelection(option)">
+                              {{ option.hoodName }}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                        
+                         </td> -->
+                          <!-- <input placement="bottom" type="number" class="form-control"  [formControl]="plenum.get('distanceFromLeft')" placeholder="Distance from Left"> -->
+                          <!-- <input placement="bottom" type="number" formControlName="distanceFromLeft" class="form-control" placeholder="Enter Distance from Left"> -->
+                        
+                      <!-- </td> -->
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- <div class="col-2 text-right mt-2">
+                  <button *ngIf="isView!=true" type="button" class="btn btn-danger btn-sm" (click)="onSubmit()">Add to Grid</button>
+              </div> -->
+              </div>
+              <!-- <div *ngFor="let i of noOfHoods"> -->
+              <form [formGroup]="kitchenForm">
+                <!-- Other form controls -->
+              
+                <div formArrayName="hoods">
+                  <!-- <div *ngIf="kitchenForm.get('hoods') as hoodsControl">
+                    <div *ngFor="let hood of hoodsControl.controls; let i = index" [formGroupName]="i">
+                      </div>
+                      </div> -->
+                  <div *ngFor="let hood of hoods; let ii = index" [formGroupName]="ii">
+                    <div class="table-responsive">
+                      <table class="table table-bordered mt-3">
+                        <thead>
+                          <tr>
+                            <th>Hood Name</th>
+                            <th>Hood Length (mm)</th>
+                            <th>Hood Depth (mm)</th>
+                            <th>Hood Height (mm)</th>
+                            <th>Hood Type</th>
+                            <th>No Of Plenum</th>
+                            <th *ngIf="isCS">Largest Appliance Oil Cap. (L)</th>
+                            <th *ngIf="kitchenForm.get('gasShutoffValveRequirement')?.value === 'For every individual hood'">Gas ShutOff Size</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div class="form-group">
+                                <input placement="bottom" 
+                                [ngbTooltip]="tipHoodContent1"
+                                type="text" formControlName="hoodName" class="form-control" placeholder="Enter Hood Name">
+                              </div>
+                            </td>
+                            <td>
+                              
+                              <div class="form-group">
+                                <input placement="bottom"
+                                [ngbTooltip]="tipHoodLength_new"
+                                type="text" maxlength="4" formControlName="hoodLength" name="Hood Length" class="form-control" placeholder="Enter Hood Length"
+                                (blur)="checkLengthHood($event)"
+                                [ngbTooltip]="tipHoodLength_new"
+
+                                >
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-group">
+                                <input placement="bottom" type="text" maxlength="4"
+                                [ngbTooltip]="tipHoodWidth_New"
+                                (blur)="checkLengthHood($event)"
+                                formControlName="hoodWidth" class="form-control" name="Hood Width" placeholder="Enter Hood Depth">
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-group">
+                                <input placement="bottom"
+                                [ngbTooltip]="tipHoodHight_New"
+                                (blur)="checkLengthHood($event)"
+                                type="text" maxlength="4" formControlName="hoodHeight" name="Hood Height" class="form-control" placeholder="Enter Hood Height">
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-group">
+                                <select placement="bottom" style="width: 100px;" id="hoodType" formControlName="hoodType"
+                                [ngbTooltip]="tipHoodWidth"
+                                class="form-control form-select" (change)="onHoodTypeChange(ii);isHoodC=true">
+                                  <option  value="wall">Wall</option>
+                                  <option  value="island">Island</option>
+                                </select>
+                              </div>
+                            </td>
+                            <td *ngIf="isUpdate==false">
+                              <div class="form-group"> 
+                                <input placement="bottom"   type="number"
+                              
+                                formControlName="noOfPlenum" class="form-control" placeholder="Enter No Of Plenum" (click)="setNp($event)" (change)="addPlenums(ii,$event)">
+                              </div>
+                            </td>
+                            <td *ngIf="isUpdate">
+                              <div class="form-group"> 
+                                <input placement="bottom" [disabled]="IsDisabled"  type="number"
+                              
+                                 class="form-control" placeholder="Enter No Of Plenum" [value]="hood.get('noOfPlenum').value">
+                              </div>
+                            </td>
+                            <td *ngIf="isCS">
+                              <div class="form-group">
+                                <input placement="bottom" type="text" maxlength="4" formControlName="largestApplianceOilCap" class="form-control" placeholder="Enter Largest Appliance Oil Cap.">
+                              </div>
+                            </td>
+                            <td *ngIf="kitchenForm.get('gasShutoffValveRequirement')?.value === 'For every individual hood'">
+                              <select placement="bottom"
+
+                              formControlName="shutoffsize"
+                              class="form-control for_size"
+                             
+                            
+                       >
+
+                              <option value="">Select</option>
+                              <option value="15NB">15NB
+
+                              </option>
+                              <option value="20NB">20NB
+
+                              </option>
+                              <option value="25NB">25NB
+
+                              </option>
+                              <option value="32NB">32NB
+
+                              </option>
+                              <option value="40NB">40NB
+
+                              </option>
+                              <option value="50NB">50NB
+
+                              </option>
+                              </select>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <form [formGroup]="kitchenForm">
+                      <div formArrayName="hoods">
+      
+                    
+                    
+      <div>
+ 
+
+          <div *ngFor="let plenum of hood.get('plenums').controls; let i = index">
+
+            <div *ngIf="plenum.get('hoodIndex').value==ii" formArrayName="plenums">
+    
+            <div class="table-responsive">
+              <table class="table table-bordered mt-3">
+                <thead>
+                  <tr>
+                    <th>Plenum Type {{plenum.get('hoodIndex').value}}</th>
+                    <th>Plenum Length (mm)</th>
+                    <th>Plenum Depth (mm)</th>
+                    <th>Plenum Height (mm)</th>
+                    <th *ngIf="isCS">Distance from Left of the Hood</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="form-group">
+                        <!-- <span></span> -->
+                        <select placement="bottom" style="width: 200px;" *ngIf="isUpdate==false" [formControl]="plenum.get('type')" (change)="onPlenumTypeChange($event)" class="form-control  form-select"
+                        [ngbTooltip]="tipPlenumType"
+                        
+                        >
+                          <!-- <option value="ghj">{{hood.get('hoodType').value }}</option> -->
+                          <option *ngIf="hood.get('hoodType').value === 'wall'" value="WALL PLENUM">WALL PLENUM</option>
+                          <option *ngIf="hood.get('hoodType').value === 'island'" value="V-PLENUM">V-PLENUM</option>
+                         
+                        </select>
+                        <select placement="bottom" *ngIf="isUpdate" [formControl]="plenum.get('type')" (change)="onPlenumTypeChange($event)" class="form-control  form-select"
+                        [ngbTooltip]="tipPlenumType"
+                        
+                  >
+                          
+                          <option *ngIf="toHidew!=true" value="WALL PLENUM">WALL PLENUM</option>
+                          <option *ngIf="toHidev!=true" value="V-PLENUM">V-PLENUM</option>
+                         
+                        </select>
+                        
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group">
+                        <input placement="bottom" [ngbTooltip]="hood.get('hoodType').value === 'wall' ? tipPlenumWL : tipPlenumVL"
+                         type="text" maxlength="4" class="form-control" [formControl]="plenum.get('length')" placeholder="Plenum Length" >
+                        <!-- <input placement="bottom" type="text" maxlength="4" formControlName="length" class="form-control" placeholder="Enter Plenum Length"> -->
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group">
+                        <input placement="bottom" [ngbTooltip]="hood.get('hoodType').value === 'wall' ? tipPlenumWD : tipPlenumVD"
+                         type="text" maxlength="4" class="form-control"  [formControl]="plenum.get('depth')" placeholder="Plenum Depth">
+                        <!-- <input placement="bottom" type="text" maxlength="4" formControlName="depth" class="form-control" placeholder="Enter Plenum Depth"> -->
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-group">
+                        <input placement="bottom" [ngbTooltip]="hood.get('hoodType').value === 'wall' ? tipPlenumWH : tipPlenumVH"type="text" maxlength="4" class="form-control"  [formControl]="plenum.get('height')" placeholder="Plenum Height">
+                        <!-- <input placement="bottom" type="text" maxlength="4" formControlName="height" class="form-control" placeholder="Enter Plenum Height"> -->
+                      </div>
+                    </td>
+                    <td *ngIf="isCS">
+                      <div class="form-group">
+                        <input placement="bottom" type="text" maxlength="4" class="form-control"  [formControl]="plenum.get('distanceFromLeft')" placeholder="Distance from Left">
+                        <!-- <input placement="bottom" type="text" maxlength="4" formControlName="distanceFromLeft" class="form-control" placeholder="Enter Distance from Left"> -->
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+                     
+              
+                 
+                  </form>
+
+
+
+
+<!-- Duct Type Selection -->
+<form  [formGroup]="kitchenForm">
+  
+
+  <div *ngFor="let ductTable of hood.get('ductTables').controls; let i = index" >
+    <div >
+    <table *ngIf="hood.get('plenums').length>0" class="table table-bordered mt-3">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Action</th>
+            <th>Type Of Duct:</th>
+            <th  *ngIf="ductTable.get('ductType').value === 'rectangular' || ductTable.get('ductType').value === 'both'">No. Of Duct(R):</th>
+            <th  *ngIf="ductTable.get('ductType').value === 'rectangular' || ductTable.get('ductType').value === 'both'">Length(R) (mm):</th>
+            <th  *ngIf="ductTable.get('ductType').value === 'rectangular' || ductTable.get('ductType').value === 'both'">Depth(R) (mm):</th>
+            <th  *ngIf="ductTable.get('ductType').value === 'rectangular' || ductTable.get('ductType').value === 'both'">Area(R) (m²):</th>
+            <th *ngIf="ductTable.get('ductType').value === 'circular' || ductTable.get('ductType').value === 'both'">No. Of Duct(C):</th>
+            <th *ngIf="ductTable.get('ductType').value === 'circular' || ductTable.get('ductType').value === 'both'">Diameter(C) (mm):</th>
+            <th *ngIf="ductTable.get('ductType').value === 'circular' || ductTable.get('ductType').value === 'both'">Area(C) (m²):</th>
+          </tr>
+        </thead>
+           
+        
+        
+
+        <!-- Single Row in tbody -->
+        <tbody>
+            <tr>
+                <td>{{ i + 1 }}</td>
+                <td>
+                  
+                    <img style="margin-left: 15px;" (click)="addDuctTable(i)" height="20px" width="20px" src="https://www.pngkey.com/png/full/6-60004_plus-sign-images-clipart-best-2hluoq-clipart-red.png" alt="" srcset="">
+                  
+                  <a class="btn btn-danger btn-sm"  (click)="deleteDuctTable(i)">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </a> 
+
+                </td>
+                <td>
+                  <select placement="bottom" id="ductType" style="width:200px;"
+                  [ngbTooltip]="tipDuctType"
+                  [formControl]="ductTable.get('ductType')" class="form-control form-select" (change)="onDuctTypeChange(ductTable.get('ductType').value, i)">
+                    <option value="rectangular">Rectangular Duct</option>
+                    <option value="circular">Circular Duct</option>
+                    <option value="both">Both</option>
+                  </select>
+                </td>
+                <td *ngIf="ductTable.get('ductType').value === 'rectangular' || ductTable.get('ductType').value === 'both'">
+                  <input placement="bottom"
+                  [ngbTooltip]="tipDuct"
+                  type="text" maxlength="4" [formControl]="ductTable.get('rectangularDuct.noOfDuctRectangular')" class="form-control" placeholder="Enter No. Of Duct">
+                </td>
+                <td *ngIf="ductTable.get('ductType').value === 'rectangular' || ductTable.get('ductType').value === 'both'">
+                  <input placement="bottom"
+                  [ngbTooltip]="tipPlenumRecL"
+                  type="text" maxlength="4" [formControl]="ductTable.get('rectangularDuct.lengthRectangular')" class="form-control" placeholder="Enter Length">
+                </td>
+                <td *ngIf="ductTable.get('ductType').value === 'rectangular' || ductTable.get('ductType').value === 'both'">
+                  <input placement="bottom" [ngbTooltip]="tipPlenumRecD" type="text" maxlength="4" [formControl]="ductTable.get('rectangularDuct.widthRectangular')" class="form-control" placeholder="Enter Width" (blur)="calculateRectangularDuctArea(ductTable)">
+                </td>
+                <td *ngIf="ductTable.get('ductType').value === 'rectangular' || ductTable.get('ductType').value === 'both'">
+                  <input placement="bottom" type="text" maxlength="4" [formControl]="ductTable.get('rectangularDuct.areaRectangular')" class="form-control" placeholder="Enter Area">
+                </td>
+                <td *ngIf="ductTable.get('ductType').value === 'circular' || ductTable.get('ductType').value === 'both'">
+                  <input placement="bottom" type="text" maxlength="4" [formControl]="ductTable.get('circularDuct.noOfDuctCircular')" class="form-control" placeholder="Enter No. Of Duct">
+                </td>
+                <td  *ngIf="ductTable.get('ductType').value === 'circular' || ductTable.get('ductType').value === 'both'">
+                  <input placement="bottom" [ngbTooltip]="tipPlenumCircular" type="text" maxlength="4" [formControl]="ductTable.get('circularDuct.diameterCircular')" class="form-control" placeholder="Enter Diameter" (blur)="calculateCircularDuctArea(ductTable)">
+                </td>
+                
+                
+                <td *ngIf="ductTable.get('ductType').value === 'circular' || ductTable.get('ductType').value === 'both'">
+                  <input placement="bottom" type="text" [formControl]="ductTable.get('circularDuct.areaCircular')" class="form-control" placeholder="Enter Area">
+                </td>
+              </tr>
+              
+          </tbody>
+          
+      </table>
+    </div>
+      </div>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  </div>
+       
+                </div>
+              </form>
+              
+           
+          
+        
+              
+
+<div class="row">
+  <div class="col-10"></div>
+  <div class="col-2 text-right mt-2">
+<button *ngIf="isView!=true && isUpdate!=true" class="btn btn-danger btn-sm" (click)="addToGrid()">Add to Grid</button>
+<button *ngIf="isView!=true && isUpdate==true" class="btn btn-danger btn-sm" (click)="updateHoods()">Update</button>
+
+</div></div>
+<!-- <div  class="table-responsive">
+  <table class="table table-bordered mt-3">
+    <thead>
+      <tr>
+        <th>Hood Name</th>
+        <th>Hood Length (mm)</th>
+        <th>Hood Width (mm)</th>
+        <th>Hood Height (mm)</th>
+        <th>Hood Type</th>
+        <th>No Of Plenum</th>
+        <th>Largest Appliance Oil Cap. (L)</th>
+        <th>View Plenums </th>
+        <th>View Duct </th>
+<th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let hood of hoods2; let i = index">
+        <ng-container *ngFor="let plenum of hood; let j = index">
+          <tr>
+            <td>{{ plenum.hoodName }}</td>
+            <td>{{ plenum.hoodLength }}</td>
+            <td>{{ plenum.hoodWidth }}</td>
+            <td>{{ plenum.hoodHeight }}</td>
+            <td>{{ plenum.hoodType }}</td>
+            <td>{{ plenum.noOfPlenum }}</td>
+            <td>{{ plenum.largestApplianceOilCap }}</td>
+            <td>
+              <button class="btn btn-outline-danger mb-2 me-2" (click)="openVerticallyCentered(content2); viewPlenum(j)">
+                View
+              </button>
+           
+            
+            </td>
+            <td>
+              <button class="btn btn-outline-danger mb-2 me-2" (click)="openVerticallyCentered(content3); viewDuct(j)">
+                View
+              </button>
+            
+            
+            </td>
+           
+<td>
+  <button class="btn btn-outline-danger mb-2 me-2" (click)="editItem(j)">
+    Edit
+  </button>
+  <button class="btn btn-outline-danger mb-2 me-2" (click)="deleteItem(j)">
+    Delete
+  </button>
+</td>
+
+          </tr>
+        </ng-container>
+      </ng-container>
+    </tbody>
+  </table>
+</div> -->
+
+
+         
+              
+          <!-- <button mat-button class="btn btn-danger" matStepperNext>Next</button> -->
+        </div>
+       
+
+        <table class="table table-bordered mt-3"> 
+          <thead>
+            <tr>
+              <th>Kitchen/Room Name</th>
+              <th>Kitchen Length</th>
+              <th>Kitchen Width</th>
+              <th>Kitchen Height</th>
+              <th *ngIf="kitchenForm.get('annunciationType')?.value === 'Hooter'" >Response Panel</th>
+<th *ngIf="isCS &&  kitchenForm.get('gasShutoffValveRequirement')?.value === 'Common for kitchen'">Gas Shut Off Size</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let kitchen of gridData; let i = index">
+              <td>{{ kitchen.kitchenName || kitchen.KitchenName }}</td>
+              <td>{{ kitchen.kitchenLength || kitchen.DimensionOfKitchenLength }}</td>
+              <td>{{ kitchen.kitchenWidth || kitchen.DimensionOfKitchenWidth }}</td>
+              <td>{{ kitchen.kitchenHeight || kitchen.DimensionOfKitchenHeight }}</td>
+              <td *ngIf="kitchenForm.get('annunciationType')?.value === 'Hooter'">Yes</td>
+              <td *ngIf="isCS &&  kitchenForm.get('gasShutoffValveRequirement')?.value === 'Common for kitchen'">{{kitchen.shutoffsizeK}}</td>
+              <td>
+                <button class="btn btn-outline-danger mb-2 me-2" (click)="openVerticallyCentered(content); viewHoods(kitchen.selectedHoods)">
+                  View Hood
+                </button>
+
+        
+                <button class="btn btn-warning mb-2 me-2" (click)="editKitchen(i)">
+                  Edit
+                </button>
+        
+                <button class="btn btn-danger mb-2" (click)="deleteKitchen(kitchen)">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+       <!-- In your kitchen-form.component.html -->
+     
+  <!-- In your kitchen-form.component.html -->
+<!--  -->
+<div class="blog text">
+<div class="row">
+  <div class="col-10"></div>
+ </div>
+
+
+
+
+
+<!-- Display Grid Table -->
+<!-- Outside the equipment details form, where you want to display the submitted data -->
+<div>
+  <!-- <h6 class="card-header">Submitted Equipment Details</h6> -->
+ 
+</div>
+
+
+<div class="row">
+  <div class="col-10"></div>
+  <div class="col-2 text-right mt-2">
+    <!-- <button  class="btn btn-danger" >Next</button> -->
+</div></div>
+<h2 *ngIf="toShoweqQuestion" >Equipment Details</h2>
+
+<div *ngIf="toShoweqQuestion"  class="container" style="display: flex; justify-content: center; align-items: center;">
+  <div class="well" style="text-align: center;">
+    <p *ngIf="isCS">The kitchen equipment details were not provided by the user.</p>
+
+      <p>Do you have kitchen equipment details?</p>
+      <button class="btn btn-primary mx-2" (click)="selectOption(true)">Yes</button>
+      <button class="btn btn-danger" (click)="selectOption(false)">No</button>
+      <!-- <p ng-show="showConfirmation">{{ confirmationMessage }}</p> -->
+  </div>
+</div>
+
+        
+        <!-- Add to Grid Button -->
+      
+    <div *ngIf="toShoweq"  class="mt-5" > 
+      <!-- </mat-step> -->
+  
+      <!-- Step 2 -->
+      <!-- <mat-step label="Room Equipment Details"> -->
+      <!-- In your kitchen-form.component.html -->
+<div class="row">
+  <!-- <h2>Step 2: Equipment Asking Form</h2> -->
+
+  <div class="form-group col-3">
+    <label for="selectedKitchen">Select Kitchen</label>
+    <select placement="bottom" class="form-control form-select" [(ngModel)]="equipmentForm.selectedKitchen" name="selectedKitchen" (change)="updateAvailableHoods()">
+    <option value="0">Select</option>
+     
+      <option *ngFor="let kitchen of gridData" [value]="kitchen.KitchenName">{{ kitchen.KitchenName }}</option>
+    </select>
+  </div>
+
+  <div class="form-group col-3">
+    <label for="selectedHood">Select Hood</label>
+    <select placement="bottom" class="form-control form-select" [(ngModel)]="equipmentForm.selectedHood" name="selectedHood" (change)="updateHoodEq($event)">
+    <option value="0">Select</option>
+      <option *ngFor="let hood of availableHoods" [value]="hood?.hoodName" >{{ hood?.hoodName }}</option>
+    </select>
+  </div>
+
+  <div class="form-group col-3">
+    <label for="selectedProtectionType">Protection Type</label>
+    <select placement="bottom" class="form-control form-select" [(ngModel)]="equipmentForm.selectedProtectionType" name="selectedProtectionType">
+      <!-- <option *ngFor="let protectionType of protectionTypes" [value]="protectionType">{{ protectionType }}</option> -->
+      <option value="select">Select</option>
+  
+      <option value="Appliance">Appliance Protection</option>
+  <option *ngIf="kitchenForm.get('suppressionSystemType')?.value != 'KSS - ULtra-X(UL)'" value="Total">Total Protection</option>
+
+    </select>
+  </div>
+
+  <div class="form-group col-3">
+    <label for="selectedSide">Side</label>
+    <select placement="bottom" class="form-control form-select" [(ngModel)]="equipmentForm.selectedSide" name="selectedSide">
+      <!-- <option *ngFor="let side of sides" [value]="side">{{ side }}</option> -->
+      <option value="0">select</option>
+
+      <option *ngIf="hoodTypeSelected!='island'" value="side_a">Side A</option>
+      <option *ngIf="hoodTypeSelected=='island'" value="side_ab">Side A_B</option>
+
+    </select>
+  </div>
+
+  <!-- <button type="button" class="btn btn-danger" (click)="onSubmit()">Submit Equipment Form</button> -->
+</div>
+
+<!-- In your kitchen-form.component.html -->
+
+  <!-- ... other form fields -->
+  <h6 *ngIf="equipmentForm.selectedSide === 'side_a' || equipmentForm.selectedSide === 'side_ab' || (equipmentForm.selectedProtectionType=='Total' && equipmentForm.selectedSide !== '0') " class="card card-header mt-2">Side - A</h6>
+
+<div  class="row">
+
+  <div class="col-12" *ngIf="equipmentForm.selectedSide === 'side_a' || equipmentForm.selectedSide === 'side_ab' || (equipmentForm.selectedProtectionType=='Total' && equipmentForm.selectedSide !== '0')">
+    <div class="mt-2">
+     
+        <div class="form-group col-3 pull-left" style="width: 16.5rem;
+        padding-right: 22px;">
+          <label for="cylinderPosition">Cylinder Position</label>
+          <select placement="bottom" class="form-control form-select for_size" [(ngModel)]="objKitchenEquipmentEntity.SideA.CylinderPosition"
+                  name="cylinderPosition">
+            <option value="Left">Left</option>
+            <option value="Right">Right</option>
+          </select>
+        </div>
+        
+
+        <div class="form-group col-3 pull-left" style="width: 16.5rem;
+        padding-right: 22px;">
+          <label for="manualReleasePosition">Manual Release Position</label>
+          <select placement="bottom" class="form-control form-select for_size" [(ngModel)]="objKitchenEquipmentEntity.SideA.ManualReleasePosition"
+                  name="manualReleasePosition">
+            <option value="Left">Left</option>
+            <option value="Right">Right</option>
+          </select>
+        </div>
+
+        <div class="form-group col-3 pull-left" style="width: 16.5rem;
+        padding-right: 22px;">
+          <label for="cylinderRunningLength">Running length
+            of supply
+            pipe</label>
+          <input placement="bottom" class="form-control" [(ngModel)]="objKitchenEquipmentEntity.SideA.CylinderRunningLength"
+                 name="cylinderRunningLength" type="text">
+        </div>
+
+        <div class="form-group col-3 pull-left mt-2" style="width: 16.5rem;
+        padding-right: 22px;">
+          <label for="manualReleaseRunningLength">Running length
+            of supply
+            HST</label>
+          <input placement="bottom" class="form-control" [(ngModel)]="objKitchenEquipmentEntity.SideA.ManualReleaseRunningLength"
+                 name="manualReleaseRunningLength" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button *ngIf="equipmentForm.selectedProtectionType=='Total' &&  equipmentForm.selectedSide !== 'side_ab'" type="button" class="btn btn-danger btn-sm" (click)="onSubmitEquipmentDetails()">Add To Grid</button>
+
+
+<!-- In your kitchen-form.component.html -->
+<div>
+  <!-- ... other form fields -->
+
+  <div *ngIf="equipmentForm.selectedProtectionType!='Total'">
+    <h6 class="card-header mt-3 heading_red">Equipment Details</h6>
+    <div class="">
+      <div class="">
+        <table class="table table-bordered table-responsive">
+          <thead>
+            <tr>
+              <th>Action</th>
+              <th>S.No</th>
+              <th>Type of Kitchen Equipment</th>
+              <th>Depth (mm)</th>
+              <th>Length (mm)</th>
+              <th>Height for {{dynamicEqName}} (mm)</th>
+         
+
+              <th>Distance of the Kitchen Equipment selected from the left edge of the Hood (mm)</th>
+              <th>Height from Counter top to {{dynamicEqName}} base (mm)</th>
+              <th >Largest Appliance Oil Cap. (L)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let equipment of equipmentForm.equipmentList; let i = index">
+              <td>
+                <button type="button" class="btn btn-danger" (click)="onAddEquipment()" >
+                  +
+                </button>
+                <button type="button" class="btn btn-danger" (click)="onDeleteEquipment(i)" *ngIf="equipment.action === 'delete'">
+                  Delete
+                </button>
+              </td>
+              <td>{{ equipment.sNo }}</td>
+              <td><!-- Inside your equipment details form in kitchen-form.component.html -->
+                <div class="form-group">
+                  <!-- <label for="type">Type of Kitchen Equipment</label> -->
+                  <select placement="bottom" class="form-control form-select" [(ngModel)]="equipment.type" name="type" (change)="setDynamicEqName($event)" >
+                    <option value="0">--Select--</option>
+                    <option value="FRYER-SINGLE NOZZLE PROTECTION">FRYER-SINGLE NOZZLE PROTECTION</option>
+                    <option value="SPLIT DEEP FAT FRYER PROTECTION">SPLIT DEEP FAT FRYER PROTECTION</option>
+                    <option value="RANGE PROTECTION - 4 BURNER">RANGE PROTECTION - 4 BURNER</option>
+                    <option value="WOK PROTECTION">WOK PROTECTION</option>
+                    <option value="CHAR BROILER PROTECTION">CHAR BROILER PROTECTION</option>
+                    <option value="CHAIN BROILER PROTECTION">CHAIN BROILER PROTECTION</option>
+                    <option value="SPLIT CHAIN BROILER PROTECTION">SPLIT CHAIN BROILER PROTECTION</option>
+                    <option value="SALAMANDER BROILER PROTECTION">SALAMANDER BROILER PROTECTION</option>
+                    <option value="Upright">UPRIGHT BROILER PROTECTION</option>
+                    <option value="GRIDDLE">GRIDDLE PROTECTION</option>
+
+                  </select>
+                </div>
+
+                </td>
+              <td><input placement="bottom" 
+                 [ngbTooltip]="equipment.type === 'Upright' ? upRightW : ''" 
+                 [ngbTooltip]="equipment.type === 'SPLIT CHAIN BROILER PROTECTION' ? splitCBW : ''" 
+                
+                [ngbTooltip]="equipment.type === 'SPLIT DEEP FAT FRYER PROTECTION' ? deepFatW : ''"
+                [ngbTooltip]="equipment.type === 'CHAR BROILER PROTECTION' ? charBW : ''"
+                [ngbTooltip]="equipment.type === 'CHAIN BROILER PROTECTION' ? chainBW : ''"
+                 [ngbTooltip]="equipment.type === 'RANGE PROTECTION - 4 BURNER' ? rangeW : ''"
+                 [ngbTooltip]="equipment.type === 'SALAMANDER BROILER PROTECTION' ? SalamanderD : ''"
+                 [ngbTooltip]="equipment.type === 'GRIDDLE' ? griddleD : ''"
+                class="form-control" [(ngModel)]="equipment.width" name="width" type="text"></td>
+              <td><input placement="bottom"
+                [ngbTooltip]="equipment.type === 'CHAR BROILER PROTECTION' ? charBL : ''"
+                [ngbTooltip]="equipment.type === 'Upright' ? upRightL : ''"
+                [ngbTooltip]="equipment.type === 'SPLIT CHAIN BROILER PROTECTION' ? splitCBL : ''"
+               
+               [ngbTooltip]="equipment.type === 'SPLIT DEEP FAT FRYER PROTECTION' ? deepFatL : ''"
+              
+               [ngbTooltip]="equipment.type === 'CHAIN BROILER PROTECTION' ? chainBL : ''"
+               [ngbTooltip]="equipment.type === 'RANGE PROTECTION - 4 BURNER' ? rangeD : ''"
+               [ngbTooltip]="equipment.type === 'SALAMANDER BROILER PROTECTION' ? SalamanderW : ''"
+               [ngbTooltip]="equipment.type === 'WOK PROTECTION' ? wokD : ''"
+               [ngbTooltip]="equipment.type === 'GRIDDLE' ? griddleW : ''"
+               
+                class="form-control" [(ngModel)]="equipment.depth" name="length" type="text">
+              
+              </td>
+              <td><input placement="bottom"
+                [ngbTooltip]="equipment.type === 'Upright' ? upRightH : ''" 
+                [ngbTooltip]="equipment.type === 'SPLIT CHAIN BROILER PROTECTION' ? '' : ''" 
+               
+               [ngbTooltip]="equipment.type === 'SPLIT DEEP FAT FRYER PROTECTION' ? '' : ''"
+               [ngbTooltip]="equipment.type === 'CHAR BROILER PROTECTION' ? '' : ''"
+               [ngbTooltip]="equipment.type === 'CHAIN BROILER PROTECTION' ? '' : ''"
+               [ngbTooltip]="equipment.type === 'RANGE PROTECTION - 4 BURNER' ? rangeH : ''"
+               [ngbTooltip]="equipment.type === 'SALAMANDER BROILER PROTECTION' ? SalamanderH : ''"
+               [disabled]="!(equipment.type === 'SALAMANDER BROILER PROTECTION' || equipment.type === 'Upright')"
+
+
+                class="form-control" [(ngModel)]="equipment.heightSalmander" name="heightSalmander" type="text"></td>
+              <td><input placement="bottom"
+                [ngbTooltip]="equipment.type === 'Upright' ? '' : ''" 
+                [ngbTooltip]="equipment.type === 'SPLIT CHAIN BROILER PROTECTION' ? ''  : ''" 
+               
+               [ngbTooltip]="equipment.type === 'SPLIT DEEP FAT FRYER PROTECTION' ? '' : ''"
+               [ngbTooltip]="equipment.type === 'CHAR BROILER PROTECTION' ? '' : ''"
+               [ngbTooltip]="equipment.type === 'CHAIN BROILER PROTECTION' ? '' : ''"
+
+                class="form-control" [(ngModel)]="equipment.distanceFromLeftEdge" name="distanceFromLeftEdge" type="text"></td>
+              <td><input placement="bottom"
+                [ngbTooltip]="equipment.type === 'Upright' ? '' : ''" 
+                [ngbTooltip]="equipment.type === 'SPLIT CHAIN BROILER PROTECTION' ? '' : ''" 
+               
+               [ngbTooltip]="equipment.type === 'SPLIT DEEP FAT FRYER PROTECTION' ? '' : ''"
+               [ngbTooltip]="equipment.type === 'CHAR BROILER PROTECTION' ? '' : ''"
+               [ngbTooltip]="equipment.type === 'CHAIN BROILER PROTECTION' ? '' : ''"
+                           [disabled]="equipment.type !== 'SALAMANDER BROILER PROTECTION'"
+                class="form-control" [(ngModel)]="equipment.heightToSalamanderBase" name="heightToSalamanderBase" type="text"></td>
+
+
+                <td><input placement="bottom"
+            
+                  [disabled]="!(equipment.type === 'SPLIT DEEP FAT FRYER PROTECTION' || equipment.type === 'WOK PROTECTION'|| equipment.type === 'FRYER-SINGLE NOZZLE PROTECTION' )"
+                  class="form-control" [(ngModel)]="equipment.largest" name="la" type="text"></td>
+
+            </tr>
+
+          </tbody>
+        </table>
+        <div class="row">
+          <div class="col-10"></div>
+          <div class="col-2 text-right mt-2">
+            <button *ngIf="isView!=true&&isUpdateEq==false && hoodTypeSelected!='island'|| equipmentForm.selectedProtectionType=='Total'" type="button" class="btn btn-danger btn-sm" (click)="onSubmitEquipmentDetails()">Add To Grid</button>
+            <button *ngIf="isUpdateEq==true  && hoodTypeSelected!='island'" type="button" class="btn btn-danger btn-sm" (click)="onUpdateEquipmentDetails()">Update</button>
+      
+          </div></div>
+      
+      </div>
+    </div>
+  </div>
+
+
+  <h6 *ngIf="equipmentForm.selectedSide === 'side_ab'|| (equipmentForm.selectedProtectionType=='Total' && equipmentForm.selectedSide == 'side_ab')" class="card card-header mt-2">Side - B</h6>
+
+<div  class="row">
+
+  <div class="col-12"  *ngIf="equipmentForm.selectedSide === 'side_ab' || (equipmentForm.selectedProtectionType=='Total' && equipmentForm.selectedSide == 'side_ab')">
+    <div class="mt-2">
+     
+        <div class="form-group col-3 pull-left" style="width: 16.5rem;
+        padding-right: 22px;">
+          <label for="cylinderPosition">Cylinder Position</label>
+          <select placement="bottom" class="form-control form-select for_size" [(ngModel)]="objKitchenEquipmentEntityB.SideA.CylinderPosition"
+                  name="cylinderPosition">
+            <option value="Left">Left</option>
+            <option value="Right">Right</option>
+          </select>
+        </div>
+        
+
+        <div class="form-group col-3 pull-left" style="width: 16.5rem;
+        padding-right: 22px;">
+          <label for="manualReleasePosition">Manual Release Position</label>
+          <select placement="bottom" class="form-control form-select for_size" [(ngModel)]="objKitchenEquipmentEntityB.SideA.ManualReleasePosition"
+                  name="manualReleasePosition">
+            <option value="Left">Left</option>
+            <option value="Right">Right</option>
+          </select>
+        </div>
+
+        <div class="form-group col-3 pull-left" style="width: 16.5rem;
+        padding-right: 22px;">
+          <label for="cylinderRunningLength">Running length
+            of supply
+            pipe</label>
+          <input placement="bottom" class="form-control" [(ngModel)]="objKitchenEquipmentEntityB.SideA.CylinderRunningLength"
+                 name="cylinderRunningLength" type="text">
+        </div>
+
+        <div class="form-group col-3 pull-left mt-2" style="width: 16.5rem;
+        padding-right: 22px;">
+          <label for="manualReleaseRunningLength">Running length
+            of supply
+            HST</label>
+          <input placement="bottom" class="form-control" [(ngModel)]="objKitchenEquipmentEntityB.SideA.ManualReleaseRunningLength"
+                 name="manualReleaseRunningLength" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <button *ngIf="equipmentForm.selectedProtectionType=='Total' &&  equipmentForm.selectedSide == 'side_ab'" type="button" class="btn btn-danger btn-sm" (click)="onSubmitEquipmentDetails()">Add To Grid</button>
+
+<!-- side b -->
+  <div *ngIf="equipmentForm.selectedProtectionType!='Total' && equipmentForm.selectedSide=='side_ab'">
+    <h6 class="card-header mt-3 heading_red">Equipment Details Side B</h6>
+    <div class="">
+      <div class="">
+        <table class="table table-bordered table-responsive">
+          <thead>
+            <tr>
+              <th>Action</th>
+              <th>S.No</th>
+              <th>Type of Kitchen Equipment</th>
+              <th>Depth (mm)</th>
+              <th>Length (mm)</th>
+              <th>Height for {{dynamicEqName}} (mm)</th>
+         
+
+              <th>Distance of the Kitchen Equipment selected from the left edge of the Hood (mm)</th>
+              <th>Height from Counter top to {{dynamicEqName}} base (mm)</th>
+              <th>Largest Appliance Oil Cap. (L)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let equipment of equipmentFormB.equipmentList; let i = index">
+              <td>
+                <button type="button" class="btn btn-danger" (click)="onAddEquipmentB()" >
+                  +
+                </button>
+                <button type="button" class="btn btn-danger" (click)="onDeleteEquipmentB(i)" *ngIf="equipment.action === 'delete'">
+                  Delete
+                </button>
+              </td>
+              <td>{{ equipment.sNo }}</td>
+              <td><!-- Inside your equipment details form in kitchen-form.component.html -->
+                <div class="form-group">
+                  <!-- <label for="type">Type of Kitchen Equipment</label> -->
+                  <select placement="bottom" class="form-control form-select" [(ngModel)]="equipment.type" name="type" (change)="setDynamicEqName($event)" >
+                    <option value="0">--Select--</option>
+                    <option value="FRYER-SINGLE NOZZLE PROTECTION">FRYER-SINGLE NOZZLE PROTECTION</option>
+                    <option value="SPLIT DEEP FAT FRYER PROTECTION">SPLIT DEEP FAT FRYER PROTECTION</option>
+                    <option value="RANGE PROTECTION ">RANGE PROTECTION</option>
+                    <option value="WOK PROTECTION">WOK PROTECTION</option>
+                    <option value="CHAR BROILER PROTECTION">CHAR BROILER PROTECTION</option>
+                    <option value="CHAIN BROILER PROTECTION">CHAIN BROILER PROTECTION</option>
+                    <option value="SPLIT CHAIN BROILER PROTECTION">SPLIT CHAIN BROILER PROTECTION</option>
+                    <option value="SALAMANDER BROILER PROTECTION">SALAMANDER BROILER PROTECTION</option>
+                    <option value="Upright">UPRIGHT BROILER PROTECTION</option>
+                    <option value="GRIDDLE">GRIDDLE PROTECTION</option>
+                    <option value="others">Others</option>
+
+
+                  </select>
+                </div>
+
+                </td>
+              <td><input placement="bottom" 
+                 [ngbTooltip]="equipment.type === 'Upright' ? upRightW : ''" 
+                 [ngbTooltip]="equipment.type === 'SPLIT CHAIN BROILER PROTECTION' ? splitCBW : ''" 
+                
+                [ngbTooltip]="equipment.type === 'SPLIT DEEP FAT FRYER PROTECTION' ? deepFatW : ''"
+                [ngbTooltip]="equipment.type === 'CHAR BROILER PROTECTION' ? charBW : ''"
+                [ngbTooltip]="equipment.type === 'CHAIN BROILER PROTECTION' ? chainBW : ''"
+                 [ngbTooltip]="equipment.type === 'RANGE PROTECTION - 4 BURNER' ? rangeW : ''"
+                 [ngbTooltip]="equipment.type === 'SALAMANDER BROILER PROTECTION' ? SalamanderD : ''"
+                 [ngbTooltip]="equipment.type === 'GRIDDLE' ? griddleD : ''"
+                class="form-control" [(ngModel)]="equipment.width" name="width" type="text"></td>
+              <td><input placement="bottom"
+                [ngbTooltip]="equipment.type === 'CHAR BROILER PROTECTION' ? charBL : ''"
+                [ngbTooltip]="equipment.type === 'Upright' ? upRightL : ''"
+                [ngbTooltip]="equipment.type === 'SPLIT CHAIN BROILER PROTECTION' ? splitCBL : ''"
+               
+               [ngbTooltip]="equipment.type === 'SPLIT DEEP FAT FRYER PROTECTION' ? deepFatL : ''"
+              
+               [ngbTooltip]="equipment.type === 'CHAIN BROILER PROTECTION' ? chainBL : ''"
+               [ngbTooltip]="equipment.type === 'RANGE PROTECTION - 4 BURNER' ? rangeD : ''"
+               [ngbTooltip]="equipment.type === 'SALAMANDER BROILER PROTECTION' ? SalamanderW : ''"
+               [ngbTooltip]="equipment.type === 'WOK PROTECTION' ? wokD : ''"
+               [ngbTooltip]="equipment.type === 'GRIDDLE' ? griddleW : ''"
+               
+                class="form-control" [(ngModel)]="equipment.depth" name="length" type="text">
+              
+              </td>
+              <td><input placement="bottom"
+                [ngbTooltip]="equipment.type === 'Upright' ? upRightH : ''" 
+                [ngbTooltip]="equipment.type === 'SPLIT CHAIN BROILER PROTECTION' ? '' : ''" 
+               
+               [ngbTooltip]="equipment.type === 'SPLIT DEEP FAT FRYER PROTECTION' ? '' : ''"
+               [ngbTooltip]="equipment.type === 'CHAR BROILER PROTECTION' ? '' : ''"
+               [ngbTooltip]="equipment.type === 'CHAIN BROILER PROTECTION' ? '' : ''"
+               [ngbTooltip]="equipment.type === 'RANGE PROTECTION - 4 BURNER' ? rangeH : ''"
+               [ngbTooltip]="equipment.type === 'SALAMANDER BROILER PROTECTION' ? SalamanderH : ''"
+               [disabled]="!(equipment.type === 'SALAMANDER BROILER PROTECTION' || equipment.type === 'Upright')"
+
+
+                class="form-control" [(ngModel)]="equipment.heightSalmander" name="heightSalmander" type="text"></td>
+              <td><input placement="bottom"
+                [ngbTooltip]="equipment.type === 'Upright' ? '' : ''" 
+                [ngbTooltip]="equipment.type === 'SPLIT CHAIN BROILER PROTECTION' ? ''  : ''" 
+               
+               [ngbTooltip]="equipment.type === 'SPLIT DEEP FAT FRYER PROTECTION' ? '' : ''"
+               [ngbTooltip]="equipment.type === 'CHAR BROILER PROTECTION' ? '' : ''"
+               [ngbTooltip]="equipment.type === 'CHAIN BROILER PROTECTION' ? '' : ''"
+
+                class="form-control" [(ngModel)]="equipment.distanceFromLeftEdge" name="distanceFromLeftEdge" type="text"></td>
+              <td><input placement="bottom"
+                [ngbTooltip]="equipment.type === 'Upright' ? '' : ''" 
+                [ngbTooltip]="equipment.type === 'SPLIT CHAIN BROILER PROTECTION' ? '' : ''" 
+               
+               [ngbTooltip]="equipment.type === 'SPLIT DEEP FAT FRYER PROTECTION' ? '' : ''"
+               [ngbTooltip]="equipment.type === 'CHAR BROILER PROTECTION' ? '' : ''"
+               [ngbTooltip]="equipment.type === 'CHAIN BROILER PROTECTION' ? '' : ''"
+                           [disabled]="equipment.type !== 'SALAMANDER BROILER PROTECTION'"
+                class="form-control" [(ngModel)]="equipment.heightToSalamanderBase" name="heightToSalamanderBase" type="text"></td>
+
+
+                <td><input placement="bottom"
+            
+                  [disabled]="!(equipment.type === 'SPLIT DEEP FAT FRYER PROTECTION' || equipment.type === 'WOK PROTECTION'|| equipment.type === 'FRYER-SINGLE NOZZLE PROTECTION' )"
+                  class="form-control" [(ngModel)]="equipment.largest" name="la" type="text"></td>
+
+            </tr>
+
+          </tbody>
+        </table>
+        <div class="row">
+          <div class="col-10"></div>
+          <div class="col-2 text-right mt-2">
+            <button *ngIf="isView!=true&&isUpdateEq==false  && hoodTypeSelected=='island'|| equipmentForm.selectedProtectionType=='Total'" type="button" class="btn btn-danger btn-sm" (click)="onSubmitEquipmentDetails()">Add To Grid</button>
+            <button *ngIf="isUpdateEq==true && hoodTypeSelected!='island'" type="button" class="btn btn-danger btn-sm" (click)="onUpdateEquipmentDetails()">Update</button>
+      
+          </div></div>
+      
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+        <div>
+        
+<div>
+
+
+  <div class="mt-2 mb-2">
+    <div style="width: 1020px; overflow-x: scroll;">
+      <table class="table table-bordered table-responsive mt-3 mb-3">
+        <thead>
+          <tr>
+            <!-- <th>S.No</th> -->
+            <th>Kitchen</th>
+            <th>Hood</th>
+            <th>Protection Type</th>
+          
+
+            <th>Side</th>
+            <th>Side A Cylinder Position</th>
+            <th>Side A Manual Release Position</th>
+            <th>Side A Running length
+              of supply
+              pipe</th>
+            <th>Side A Running length
+              of supply
+              HST</th>
+            <th>View Equipment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let equipment of submittedEquipmentList2; let i = index">
+            <ng-container *ngIf="!isDuplicateRow(equipment, i)">
+              <!-- <td>{{ getSerialNumber(equipment)  }}</td> -->
+  <td  class="align-middle">{{ equipment.selectedKitchen }}</td>
+
+<!-- <ng-container >
+  <td  class="align-middle" [rowSpan]="hoodLength(equipment.selectedKitchen)">{{ equipment.selectedKitchen }}</td>
+
+</ng-container>  -->
+            <td>{{ equipment.selectedHood }}</td>
+            <td>{{ equipment.protectionType }}</td>
+          
+      
+
+            <td>{{ equipment.objKitchenEquipmentEntity.Side }}</td>
+            <td>{{ equipment.objKitchenEquipmentEntity.SideA.CylinderPosition }}</td>
+            <td>{{ equipment.objKitchenEquipmentEntity.SideA.ManualReleasePosition }}</td>
+            <td>{{ equipment.objKitchenEquipmentEntity.SideA.CylinderRunningLength }}</td>
+            <td>{{ equipment.objKitchenEquipmentEntity.SideA.ManualReleaseRunningLength }}</td>
+            <td *ngIf="equipment.protectionType!='Total'"><button class="btn btn-primary" (click)="ve( equipment.selectedKitchen,equipment.selectedHood, equipment.objKitchenEquipmentEntity.Side); openVerticallyCentered(content4); ">view</button></td>
+            <!-- <td>
+         
+              <a class="btn btn-sm btn-success" target="_blank" (click)="editEQ(equipment)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+              <a class="btn btn-sm btn-danger" target="_blank"  (click)="deleteEq(equipment)"><i class="fa fa-trash" aria-hidden="true"></i></a>
+              
+                          </td> -->
+            </ng-container>
+          
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+</div>
+        </div>
+          <!-- <button  class="btn btn-secondary" >Back</button>
+          <button  class="btn btn-danger ml-3" >Next</button> -->
+        </div>
+   
+
+
+</div>
+
+
+
+
+
+
+
+
+        <div class="help text">
+        <h6>Upload drawings/sketches/photographs, marked with all dimensions required
+        </h6>
+      <hr>
+
+<div class="row">
+<div class="col-4">
+  <label for="kitchenAttachment">Select Kitchen/Room Name:</label>
+  <select placement="bottom"  class="form-control form-select" [(ngModel)]="selectedKitchenAttachment" name="kitchenAttachment">
+    <!-- Populate with kitchens -->
+    <option value="0">Select</option>
+    <option *ngFor="let kitchen of gridData" [value]="kitchen.KitchenName">{{ kitchen.KitchenName }}</option>
+
+  </select>
+</div>
+<div class="col-4">
+  <label for="kitchenAttachment">Document Name:</label>
+<input placement="bottom" type="text" [ngbTooltip]="DocumentNameTooltip" [(ngModel)]="docName" class="form-control">
+</div>
+
+<!-- <div>
+  <label for="fileTypeAttachment">Select File Type:</label>
+  <input placement="bottom" [(ngModel)]="selectedFileTypeAttachment" name="fileTypeAttachment" />
+</div> -->
+
+<div class="col-4">
+  <label for="fileAttachment">Upload File:</label>
+  <input placement="bottom" class="form-control" type="file" (change)="onFileChangeAttachment($event)" name="fileAttachment" />
+  <span style=" color: red; margin-top:20px; font-size:13.5px">File accepted *pdf, *word ,*jpg/png , *dwg</span>
+
+</div>
+<div class="col-4">
+<button *ngIf="isView!=true" class="btn btn-danger btn-sm mt-4" (click)="onSubmitAttachment()">Upload</button>
+</div>
+<!-- Display uploaded attachments -->
+</div>
+<div class="row col-12 mt-3  ">
+
+  <h6>Uploaded Files</h6>
+  <table class="table table-bordered mt-3 mb-3">
+    <thead>
+      <tr>
+        <!-- <th>#</th> -->
+      
+
+        <th>Kitchen/Room Name</th>
+        <th>Document Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let attachment of attachments">
+        <!-- <td>{{ attachment.id }}</td> -->
+        <td>{{ attachment.fileType }}</td>
+        <td>{{ attachment.originalFilesName }}</td>
+      <td>
+        <a style="cursor: pointer;" class="mr-4" title="Delete Attachements"
+        (click)="DeleteSavedFile(attachment)">
+        <i style="color: #dc3545; font-size: 18px;  background-color: none; "
+            class="fa fa-trash"></i>
+    </a>
+    &nbsp;&nbsp;
+    <a style="cursor: pointer;" class="mr-4" title="Download Attachements"
+        (click)="FileDownload(attachment.filesPath,attachment.originalFilesName)">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjsa69ya21Y1Ij8R-tsplT4FdKSZLryqpkjg&usqp=CAU" alt="" height="30px" srcset="">
+    </a>
+
+</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+  <label for="ff">Remarks:</label>
+<input placement="bottom" [(ngModel)]="remarks" type="text" class="form-control">
+
+
+</div>
+</div>
+
+
+
+        <div>
+          <!-- <button  class="btn btn-secondary" >Back</button>
+          <button *ngIf="isView!=true" class="btn btn-danger ml-3" (click)="submitInputsheet()">Submit</button> -->
+        </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+  </div>
+</div>
+</div>
+
+<!-- <div class="sc-cgzHhG iePUPQ 4te4tr4e" style="padding-bottom: 1rem;">
+  <div class="sc-gMcBNU TehGa">
+    <div class="sc-iyvyFf eboBpz">
+      <button (click)="previoustab()"  class="sc-1kx5g6g-1 elxuhW sc-iLVFha dYzIFA" role="button" tabindex="0" aria-disabled="false">
+        <span tabindex="-1" class="sc-1kx5g6g-2 iJrIWA">
+          <span class="sc-1kx5g6g-3 dkwpEa">◀ &nbsp; Go back</span></span></button>
+          <div class="sc-dYzWWc fxBUzm">
+            <button *ngIf="selectedOption!=3" (click)="nextTab()" role="button" tabindex="0" aria-disabled="false" class="sc-1kx5g6g-1 elxuhW">
+              <span tabindex="-1" class="sc-1kx5g6g-2 iJrIWA">
+                <span class="sc-1kx5g6g-3 dkwpEa">Next &nbsp;&nbsp; ▶</span></span>
+              </button>
+              <button *ngIf="selectedOption===3" (click)="submitInputsheet()" role="button" tabindex="0" aria-disabled="false" class="sc-1kx5g6g-1 elxuhW">
+                <span tabindex="-1" class="sc-1kx5g6g-2 iJrIWA">
+                  <span class="sc-1kx5g6g-3 dkwpEa">Submit Inputsheet &nbsp;&nbsp; ▶</span></span>
+                </button>
+            </div></div></div></div> -->
+
+
+
+
+
+
+            <div class="sc-cgzHhG iePUPQ 4te4tr4e" style="padding-bottom: 1rem;">
+              <div class="sc-gMcBNU TehGa">
+                <div class="sc-iyvyFf eboBpz">
+                  <button (click)="previoustab()"  class="sc-1kx5g6g-1 elxuhW sc-iLVFha dYzIFA button_footer" role="button" tabindex="0" aria-disabled="false">
+                    <span tabindex="-1" class="sc-1kx5g6g-2 iJrIWA">
+                      <span class="sc-1kx5g6g-3 dkwpEa">◀ &nbsp; Go back</span></span></button>
+                      <div class="sc-dYzWWc fxBUzm">
+                        <button placement="top" [ngbTooltip]="selectedOption==1?nextatzero:(selectedOption==2?nextatone:'')" *ngIf="selectedOption!=3" (click)="nextTab()" role="button" tabindex="0" aria-disabled="false" class="sc-1kx5g6g-1 elxuhW button_footer">
+                          <span tabindex="-1" class="sc-1kx5g6g-2 iJrIWA">
+                            <span class="sc-1kx5g6g-3 dkwpEa">Next &nbsp;&nbsp; ▶</span></span>
+                          </button>
+                          <button placement="top" [ngbTooltip]="SubmitInputsheet"  *ngIf="selectedOption===3" (click)="submitInputsheet()" role="button" tabindex="0" aria-disabled="false" class="sc-1kx5g6g-1 elxuhW button_footer">
+                            <span tabindex="-1" class="sc-1kx5g6g-2 iJrIWA">
+                              <span class="sc-1kx5g6g-3 dkwpEa">Submit Inputsheet &nbsp;&nbsp; ▶</span></span>
+
+                            </button>
+                        </div></div></div></div>
+                        
+<ng-template #nextatzero
+>
+<p>Fill equipment details on next page.</p> 
+</ng-template
+>
+<ng-template #SubmitInputsheet
+>
+<p *ngIf="off==false"><p>If you want to edit your input post submission please go to my proposal.</p>
+       </ng-template
+>
+<ng-template #nextatone
+>
+<p>Attach drawing/pdf of room/equipment in next page.</p> 
+</ng-template
+>
+
+      
+
+
+            
+
+
+  

@@ -1,0 +1,119 @@
+#card {
+    position: relative;
+    top: 1px;
+    // top: 110px;
+    // width: 320px;
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-family: "Source Sans Pro", sans-serif;
+}
+#upper-side {
+    padding: 2em;
+    background-color: #8BC34A;
+    display: block;
+    color: #fff;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.welcome_bg{ background-color: #fff5f0; font-family: "Source Sans Pro", sans-serif;}
+.welcome_head{ color: #c74300;
+    font-size: 50px; font-weight: 600;}
+#checkmark {
+    font-weight: lighter;
+    fill: #fff;
+    margin: -3.5em auto auto 20px;
+}
+h2{font-family: "Source Sans Pro", sans-serif; color: #c74300;}
+h1{font-family: "Source Sans Pro", sans-serif; color: #c74300;}
+#status {
+    font-weight: lighter;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1em;
+    margin-top: -0.2em;
+    margin-bottom: 0;
+}
+#lower-side {
+    padding: 0em 1em 2em 1em;
+    background: #fff5f0;
+    color: #c74300;
+    width: auto;
+    display: block;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+#lower-side2 {
+    padding: 1em 1em 1em 1em;
+    background: #fff;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    color: #000;
+    display: block;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.btn-outline-danger {
+    color: #dc3545;
+    background-color: transparent;
+    background-image: none;
+    border-color: #dc3545;}
+
+.p_red{ color: #c74300;}
+.f_37{ font-size: 37px;}
+.f_22{ font-size: 22px;}
+#message {
+    margin-top: -0.5em;
+    color: #c74300;
+    letter-spacing: 1px;
+}
+#contBtn {
+    position: relative;
+    top: 1.5em;
+    text-decoration: none;
+    background: #fff;
+    color: #c74300;
+    border: 1px solid #c74300;
+    margin: auto;
+    padding: 0.8em 3em;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+
+#contBtn:hover {
+   
+    position: relative;
+    top: 1.5em;
+    text-decoration: none;
+    background: #c74300;
+    color: #fff;
+    border: 1px solid #c74300;
+    margin: auto;
+    padding: 0.8em 3em;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+
+@media only screen and (max-width: 600px) {
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 90% !important;
+    left: 20px !important;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.3rem;
+    outline: 0;
+}
+}

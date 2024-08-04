@@ -1,0 +1,43 @@
+
+<div class="row">
+  <div class="row col-12 d-flex">
+      <hr>
+
+
+
+
+<div class="card col-lg-3 col-xs-12 col-md-3 text-center p-2 m-2"  (click)="routeToProductCategory('2','Brochure')" >
+  <img src="https://cfx.ceasefire.biz/assets/apartment/Brochures.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <button type="button" class="btn btn-outline-primary b_btn">Brochure</button>
+  </div>
+</div>
+
+
+<div class="card col-lg-3 col-xs-12 col-md-3 text-center p-2 m-2"  (click)="routeToProductCategory('3','Datasheet')" >
+  <img src="https://cfx.ceasefire.biz/assets/apartment/Datasheet.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <button type="button" class="btn btn-outline-primary b_btn">Datasheet</button>
+
+  </div>
+</div>
+
+<div class="card col-lg-3 col-xs-12 col-md-3 text-center m-2 p-2" (click)="routeToProductCategory('6','Tech Spect')" >
+  <img src="https://cfx.ceasefire.biz/assets/apartment/TechSpect.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <button type="button" class="btn btn-outline-primary b_btn">Tech Spec</button>
+
+  </div>
+</div>
+
+<div class="card col-lg-3 col-xs-12 col-md-3 text-center m-2 p-2" (click)="routeToProductCategory('1','Video')" >
+  <img src="https://cfx.ceasefire.biz/assets/apartment/Video.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <button type="button" class="btn btn-outline-primary b_btn">Videos</button>
+
+  </div>
+</div>
+
+
+</div>
+</div>

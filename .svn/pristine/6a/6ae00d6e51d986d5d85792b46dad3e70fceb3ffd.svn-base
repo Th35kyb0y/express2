@@ -1,0 +1,15 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Confirmation</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal('')">
+    
+    </button>
+  </div>
+  <div class="modal-body">
+        {{message}}
+
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn btn-primary" (click)="closeModal('OK')">OK</button>
+    <button type="button" class="btn  btn-danger" (click)="closeModal('Cancel')">Cancel</button>
+</div>

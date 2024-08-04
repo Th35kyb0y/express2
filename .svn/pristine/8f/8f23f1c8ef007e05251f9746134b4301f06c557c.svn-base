@@ -1,0 +1,134 @@
+
+<ng-container *ngIf="onResize_PlatformService.isMobile">
+
+       
+    <div class="sf-btn">
+       
+      
+            <ng-template #popoverContentSideBar>
+                <div class="ProductFilter-popover">
+                    <ul>
+                        <li>
+                            <a  routerLink="/customer-dashboard" >
+                                <span class="border1">My Dashboard</span>
+                            </a>
+                              
+                        </li>
+                        <li>
+                            <a routerLink="/user/profile" routerLinkActive="active">Profile /
+                                Edit</a>
+                        </li>
+                        <li><a routerLink="/user/order" routerLinkActive="active">My Order</a></li>
+                        <li><a routerLink="/user/proposal" routerLinkActive="active">My Proposals
+                        </a>
+                    </li>
+                        <li>
+                            <a routerLink="/user/whishlist" routerLinkActive="active">My Wish List
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/user/terms" routerLinkActive="active">Terms and
+                                Conditions </a>
+                        </li>
+                        <li>
+                            <a routerLink="/user/rating-review" routerLinkActive="active">My Rating /
+                                Reviews </a>
+                        
+                        </li>
+                        <li>
+                            <a routerLink="/user/faq" routerLinkActive="active">Quick Guide Links </a>
+                        </li>
+                        <li><a routerLink="/myLibrary" routerLinkActive="active">My Library </a> </li>
+                        <li><a routerLink="/myOffers" routerLinkActive="active">My Offers </a></li>
+                        <li><a href="javascript:void(0)" (click)="logout()"> Logout
+
+                            <i class="fas fa-sign-out-alt" ></i>
+                        </a></li>
+                      </ul>
+                </div>
+               
+        
+                
+               </ng-template>
+              
+        
+            <a class=" filter_bg px-3 py-3"   [ngbPopover]="popoverContentSideBar" popoverTitle="" 
+            >
+                <i class="fa fa-ellipsis-v" aria-hidden="true"></i> Menu
+            </a>
+    
+    </div>
+   
+
+   
+</ng-container>
+
+<!-- <div class="col-2 f_left side_bar" style="height: 1200px;" 
+*ngIf="!onResize_PlatformService.isMobile"> -->
+<div class="col-2 f_left side_bar"  
+*ngIf="!onResize_PlatformService.isMobile">
+    <div class="col-12 side">
+        <button class=" border_r " routerLink="/customer-dashboard"  type="button" style="width: 200px; height: 54px; cursor: pointer;">
+          <span class="border1">My Dashboard</span>
+        </button>
+        <div id="collpase ">
+            <div class="side_nav"><a routerLink="/user/profile" routerLinkActive="active">Profile /
+                    Edit</a>
+            </div>
+            <div class="side_nav"><a routerLink="/user/order" routerLinkActive="active">My Order</a>
+            </div>
+
+            <div class="side_nav"><a routerLink="/user/proposal" routerLinkActive="active">My Proposals
+                </a>
+            </div>
+            <!-- <div class="side_nav"><a routerLink="/user/design" routerLinkActive="active">Design Team
+            </a>
+        </div> -->
+
+            <!-- <div class="side_nav"> <a routerLink="/user/address" routerLinkActive="active">Manage
+                    Address </a>
+            </div> -->
+
+            <!-- <div class="side_nav"><a routerLink="/user/help-support" routerLinkActive="active">CF-Help &
+                    Support </a>
+            </div> -->
+            <div class="side_nav"><a routerLink="/user/whishlist" routerLinkActive="active">My Wish List
+                </a>
+            </div>
+  <div class="side_nav"><a routerLink="/user/terms" routerLinkActive="active">Terms and
+                    Conditions </a>
+            </div>
+            <!-- <div class="side_nav"><a routerLink="/user/gift-card-coupon" routerLinkActive="active">Gifting
+                </a>
+            </div> -->
+            <!-- <div class="side_nav"><a routerLink="/user/refer-earn" routerLinkActive="active">Refer and Earn
+                </a>
+            </div> -->
+            <!-- <div class="side_nav"><a routerLink="/user/refer-earn" routerLinkActive="active">My Library
+            </a>
+        </div> -->
+            <div class="side_nav"><a routerLink="/user/rating-review" routerLinkActive="active">My Rating /
+                    Reviews </a>
+            </div>
+            <!-- <div class="side_nav"><a routerLink="/user/payment-credit" routerLinkActive="active">Credit /
+                    Payment</a>
+            </div> -->
+            <div class="side_nav"><a routerLink="/user/faq" routerLinkActive="active">Quick Guide Links </a>
+            </div>
+            <div class="side_nav"><a routerLink="/myLibrary" routerLinkActive="active">My Library </a> </div>
+            <div class="side_nav"><a routerLink="/myOffers" routerLinkActive="active">My Offers </a> </div>
+            <!-- <div class="side_nav"><a routerLink="/myPurchaseHistory" routerLinkActive="active">My Purchase History </a> </div>
+         -->
+            <!-- <div class="side_nav"><a routerLink="/user/change-password" routerLinkActive="active">Change Password </a>
+            </div> -->
+            <div class="side_nav"><a href="javascript:void(0)" (click)="logout()"> Logout
+
+                <i class="fas fa-sign-out-alt" ></i>
+            </a>
+            </div>
+        </div>
+   
+    <!-- <app-top-sidebar></app-top-sidebar> -->
+</div>
+
+

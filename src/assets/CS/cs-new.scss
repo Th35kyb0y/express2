@@ -1,0 +1,405 @@
+
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+// @import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+@import 'ngx-toastr/toastr';
+@import "~@fortawesome/fontawesome-free/css/fontawesome.css";
+@import "~@fortawesome/fontawesome-free/css/solid.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@500..700&display=swap');
+
+* {
+  margin:0px;
+  padding:0px;
+  box-sizing:border-box;
+  font-family:sans-serif;
+
+}
+
+
+
+body {
+  font-family: "Jura";
+  font-weight: normal;
+  color: #000;
+  font-weight: 500;
+  background-color: #fafbfd ;
+}
+
+.bg_grey{ background-color: #fafbfd;}
+.sidebar {
+  height: 100%;
+  width: 67px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #c6000c;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 18px;
+  white-space: nowrap;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 23px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.nav_name{ font-size: 15px; color: #fff;}
+
+.side_menu{    margin-right: 25px;}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.material-icons,
+.icon-text {
+  vertical-align: middle;
+}
+
+.material-icons {
+  padding-bottom: 3px;
+}
+
+#main {
+  transition: margin-left 0.5s;
+  padding: 0px 1px 0px 4px;
+  //margin-left: 80px;
+  margin-left: 63px;
+  margin-top: -22px;
+
+
+}
+
+.w_input{    padding: 8px;
+  width: 344px;
+margin-left: 150px;}
+
+.search_btn{    padding: 2px 10px 2px 10px;
+  height: 40px;
+  margin-top: 1px;}
+
+.dashboard_heading{padding: 15px 20px 15px 25px; background-color: #fff;
+  margin-top: 20px;
+}
+.card_h{ height: 220px;}
+.p_left{ padding-left: 15px; margin-bottom: 20px;}
+
+.total_sales{      height: 138px;
+  width: 148px;
+  border-radius: 10px;
+background-color: #ffe2e6;
+}
+.Total_sub{ color: #4b576c;
+  font-size: 12px;
+  float: left;}
+
+  .sales_perc{    color: #6e8cde;
+    font-size: 12px;
+    width: 120px;
+    float: left;}
+    
+.circle{    width: 30px;
+  height: 30px;}
+
+  .sales_n{ font-size: 18px;
+    font-weight: bold;
+    float: left;
+    color: #2a2d55;
+    width: 127px;
+}
+.total_sales_y{   height: 138px;
+  width: 148px;
+  border-radius: 10px;
+background-color: #fff4de;}
+
+.clr_y{ background-color: #fe947a; margin-bottom: 5px;}
+
+.sales_y{ margin-left: 4px;}
+
+.total_sales_d{   height: 138px;
+  width: 148px;
+  border-radius: 10px;
+background-color: #e8f7ff;}
+
+.clr_d{ background-color: #3ad9e8; margin-bottom: 5px;}
+
+.sales_d{ margin-left: 4px;}
+
+
+.total_sales_h{   height: 138px;
+  width: 148px;
+  border-radius: 10px;
+background-color: #ecf3fe;}
+
+.clr_h{ background-color: #749bde; margin-bottom: 5px;}
+
+.sales_h{ margin-left: 4px;}
+
+
+.total_sales_g{   height: 138px;
+  width: 148px;
+  border-radius: 10px;
+background-color: #dcfce7;}
+
+.export_d{margin-top: -59px;
+  margin-bottom: 25px;}
+
+.export_btn{
+
+  font-size: 14px;
+ 
+  padding: 5px 10px 5px 10px;}
+
+.clr_g{ background-color: #3bd855; margin-bottom: 5px;}
+.title_Card{font-weight: bold;
+  margin-bottom: 2px;
+  font-size: 18px; margin-left: 10px;}
+
+  .subtital{ font-size: 14px; margin-left: 10px;}
+.sales_g{ margin-left: 3px;}
+
+.o_pic{margin-top: 4px;
+  margin-left: 3px;}
+.total_sales_v{   height: 138px;
+  width: 148px;
+  border-radius: 10px;
+background-color: #f4e8ff;}
+.pro_sold{    margin-top: 3px;
+  margin-left: -3px;
+}
+.clr_v{ background-color: #bf83ff; margin-bottom: 5px;}
+
+.sales_v{ margin-left: 3px;}
+
+
+
+
+.clr_p{ background-color: #fa5a7e; margin-bottom: 5px;}
+
+.sales_t{ margin-left: -3px;}
+
+
+#main .toggle-btn {
+  position:relative;
+  left:270px;
+  top:10px;
+}
+
+
+// #sidebar .toggle-btn {
+//   position:relative;
+//   left:270px;
+//   top:10px;
+// }
+#main .toggle-btn span {
+  display:block;
+  width:30px;
+  height:5px;
+  background:#151719;
+  margin:5px 0px;
+  cursor:pointer;
+}
+
+
+.table-wrap {
+  overflow-x: scroll; }
+
+.table {
+  width: 100%;
+  -webkit-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+  -moz-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+  box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29); }
+  .table thead th {
+    border: none;
+    padding: 15px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff!important;
+    height: 52;
+     }
+  .table thead tr {
+   // background: #fff;
+    background-color: #c6000c;
+    
+    border-bottom: 4px solid #eceffa; }
+  .table tbody tr {
+    margin-bottom: 10px;
+    border-bottom: 4px solid #f8f9fd; }
+    .table tbody tr:last-child {
+      border-bottom: 0; }
+  .table tbody th, .table tbody td {
+    border: none;
+    padding: 15px;
+    font-size: 14px;
+    background: #fff;
+    vertical-align: middle; }
+  .table tbody td.status span {
+    position: relative;
+    border-radius: 30px;
+    padding: 4px 10px 4px 25px; }
+    .table tbody td.status span:after {
+      position: absolute;
+      top: 9px;
+      left: 10px;
+      width: 10px;
+      height: 10px;
+      content: '';
+      border-radius: 50%; }
+  .table tbody td.status .active {
+    background: #cff6dd;
+    color: #1fa750; }
+    .table tbody td.status .active:after {
+      background: #23bd5a; }
+  .table tbody td.status .waiting {
+    background: #fdf5dd;
+    color: #cfa00c; }
+    .table tbody td.status .waiting:after {
+      background: #f2be1d; }
+  .table tbody td .img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; }
+  .table tbody td .email span {
+    display: block; }
+    .table tbody td .email span:last-child {
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.3); }
+  .table tbody td .close span {
+    font-size: 12px;
+    color: #dc3545; }
+
+.checkbox-wrap {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+/* Hide the browser's default checkbox */
+.checkbox-wrap input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0; }
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "\f0c8";
+  font-family: "FontAwesome";
+  position: absolute;
+  color: rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  margin-top: -14px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s; }
+  @media (prefers-reduced-motion: reduce) {
+    .checkmark:after {
+      -webkit-transition: none;
+      -o-transition: none;
+      transition: none; } }
+
+/* Show the checkmark when checked */
+.checkbox-wrap input:checked ~ .checkmark:after {
+  display: block;
+  content: "\f14a";
+  font-family: "FontAwesome";
+  color: rgba(0, 0, 0, 0.2); }
+
+/* Style the checkmark/indicator */
+.checkbox-primary {
+  color: #40bfc1; }
+  .checkbox-primary input:checked ~ .checkmark:after {
+    color: #40bfc1; }
+
+    
+.close {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5; }
+  .close:hover {
+    color: #000;
+    text-decoration: none; }
+  .close:not(:disabled):not(.disabled):hover, .close:not(:disabled):not(.disabled):focus {
+    opacity: .75; }
+
+button.close {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+a.close.disabled {
+  pointer-events: none; }
+
+.heading2{margin-top: 16px;
+  margin-left: 30px;
+  margin-bottom: 20px;}
+  .col-3{
+    width: 25%!important;
+}
+.col-2{
+  flex: 0 0 auto;
+  width: 16.66666667%!important;
+}
+.col-1{
+  flex: 0 0 auto;
+  width: 8.33333333%!important;
+}
+
+@media (min-width: 992px){
+  .col-lg-6 {
+    flex: 0 0 auto;
+    width: 50%!important;
+}
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {
+      padding-top: 15px;
+  }
+  .sidebar a {
+      font-size: 18px;
+  }
+
+}
+
+
+::ng-deep .custom-popover .popover {
+  max-width: 500px!important;
+  width: 500px!important;
+}

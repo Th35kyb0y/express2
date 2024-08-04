@@ -1,0 +1,56 @@
+.heading_red{background-color: #c6000c !important;}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+   }
+ .font_s18{ font-size: 20px;}
+   .radio_c{width: 20px;
+    height: 20px;
+    float: left;}
+.red_s{background-color: #c6000c;
+  color: #fff;
+  font-size: 18px;
+  padding-left: 17px;
+  height: 44px;
+  width: 46rem;
+  border-radius: 5px;
+}
+.card-header {
+  padding: 1rem 1rem !important;
+  margin-bottom: 0;
+ background-color: #fff !important;
+  border-bottom: 1px solid rgba(0,0,0,.125);}
+  
+.bg-body{ background-color: #fff5f6 !important;}
+.text_right{ text-align: right;}
+ ._3LxTgx {
+  border-bottom: 1px dashed #e0e0e0;
+    font-weight: 500;
+    font-size: 20px;
+    padding-bottom: 9px;
+    margin-bottom: 8px;
+
+}
+.mobile_mtop{margin-top: 124px;}
+
+
+
+@media only screen and (max-width: 600px) {
+  .col-8 {
+    flex: 0 0 auto;
+    width: 100% !important;
+}
+
+
+.mobile_mtop{margin-top: 0px !important;}
+
+
+.col-4 {
+  flex: 0 0 auto;
+  width: 100%;
+}
+}

@@ -1,0 +1,49 @@
+<div class="modal-header">
+    <h4 class="modal-title"></h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal('Dismissed')">
+
+    </button>
+  </div>
+  <div class="modal-body">
+
+
+
+        <!-- SignUp -->
+
+        <div class="container-fluid" >
+<div class="row">
+	<div class="col-6 bor">
+		<div class="text-center" #cropContainer style="display: block; width: 300px">
+		
+			<image-cropper
+			[imageChangedEvent]="imageChangedEvent"
+			[maintainAspectRatio]="true"
+			[aspectRatio]="4 / 4"
+			format="png"
+			(imageCropped)="imageCropped($event)"
+			(imageLoaded)="imageLoaded($event)"
+			(cropperReady)="cropperReady()"
+			(loadImageFailed)="loadImageFailed()"
+			></image-cropper>
+		</div>
+		
+	</div>
+	<div class="col-6 bor">
+		<img [src]="croppedImage" width="290"/>
+	</div>
+	<div class="col-10"></div>
+	<div class="col-2 mt-2">
+		<button class="btn btn-success" (click)="upload()">Upload</button>
+	</div>
+
+</div>
+            
+
+
+
+        
+        </div>
+
+        
+
+  </div>
